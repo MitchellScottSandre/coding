@@ -1,0 +1,46 @@
+pokerClassesLayout.txt
+
+Classes
+- board --> has x players; has 1 deck; displays all the information
+	num players
+	player 1
+	player 2 
+	...
+	player n
+	displays face up cards
+	displays players
+	has one turn at a time
+
+- player --> has 
+	- money
+	- chips (a1 of value v1, a2 of value v2)
+	- check()
+	- fold()
+	- call()
+	- raise()
+	- hand
+		--> starting 2 cards, + 3 (The Flop), + 1 (The Turn), + 1 (The River) = 7
+	- choseMove() 
+
+- deck -->
+	- has 52 cards (+2 if joker is included)
+	- shuffle()
+	- getNextCard()
+- card -->
+	- displayInfo--> faceUp, faceDown
+	- value
+	- suit
+	- faceUpOrDown
+- Round 
+	The Flop cards (first 3)
+	The Turn card (number 4)
+	The River card (number 5)
+	pot (amount of money betted thus far)
+	whoseTurn
+	winner
+
+
+- game
+	- has a board, n players, has a deck, has rounds
+	-
+

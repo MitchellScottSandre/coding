@@ -1,0 +1,45 @@
+Assignment 1 is due Wednesday at 9pm (re submit newest code just to make sure....)
+Assignment 2 comes out tomorrow
+Quiz on Wednesday 
+
+Monday Class:
+
+Loop Statements
+/////////////////////////////////////////////////////////////
+while (expression) {
+
+statement 
+
+}
+
+execute 0 or more times
+//////////////////////////////////////////////////////
+do {
+
+
+} while (expression is true);
+
+executes 1 or more times
+
+int i;
+for (i = 0; i < x; i++){
+	
+	repeats x times; 
+}
+
+Continue Statement: used to jump to the next loop iteration
+
+example: sum 10 non zero ints
+
+int n = 0, sum = 0;
+	n = sum = 0;
+	while (n < 10){
+		int i;
+		scanf("%d", &i);
+		if (i == 0) continue;
+		sum += i;
+		n++;
+
+	}
+
+goto: can jump to any labelled statement in a program (please don't use it though!)

@@ -1,0 +1,40 @@
+pokerGameplayLogic.txt
+
+so, every player can raise, once the last player has raised everyone has to have the opportunity to call
+10 players
+need a boolean: continueGettingPlayerBets
+each player: boolean allowedToRaise;
+if (allowedToRaise == true) they can raise, otherwise they can only check, fold, call
+so lets say 10 players. number 4 is dealer (bottom, count goes clockwise)
+5 is SM, 6 is BB
+7 has to match the BB, or can bet
+8 - 10, then 1 - 6 can keep calling, checking, betting, raising
+have int mostRecentBet? (reset at beginning of round, set to 0)
+if mostRecentBet < amountToCall, then it is their turn again
+
+once everyone's mostRecentBet == amountToCall or other people have folded
+
+show first 3 cards
+
+repeat first blcok
+
+show next card
+
+repeat first block
+
+show last card
+
+repeat first block
+
+determineWinner
+
+For Ties:
+royal flush: split pot
+straight flush: if same highest card, split pot
+four of a kind: tie should not happen unless all 4 cards are on the table, then it goes to NEXT HIGHEST CARD
+full house: look at pair
+flush: look at next highest card
+three of a kind: look at 4th, or 5th cards 
+two pair: look at fifth card if necessary
+one pair: look at next highest card as necessary
+high card: look at next highest card as necessary

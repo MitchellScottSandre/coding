@@ -1,0 +1,89 @@
+Poker Rules Information:
+
+- suit ranks low to high: clubs, diamonds, hearts, spades
+- two to ten players
+When only two players remain, special 'head-to-head' or 'heads up' rules are enforced and the blinds are posted differently. In this case, the person with the dealer button posts the small blind, while his/her opponent places the big blind. The dealer acts first before the flop. After the flop, the dealer acts last and continues to do so for the remainder of the hand.
+
+//x starting chips each, x = 100, 500, 1000, 2000 etc
+//big blind for x = 10000 = 200; 
+//big blind for x = 1000 = 20;
+//big blind = 1/50 starting number of chips
+ratio is 4/3/2/1
+400/300/200/100 number of chips for T1000 tourny
+5   25  100  500	value
+5 25 100 500 1000 5000
+//divide number of chips by number of players 
+
+T1000 Blinds
+level	small	big
+1		10		20
+2		15		30
+3		20		40
+4		25		50
+5		50		100
+6		75		150
+7		100		200
+8		150		300
+9		200		400
+10		300		600
+11		400		800
+12		500		1000
+13		600		1200
+14		800		1600
+15		1000	2000
+
+Chip Values:
+1 white
+5 red or white
+10 blue
+25 green
+100 black
+purple 500
+yellow 1000
+grey 5000
+
+
+Terms:
+- small blind (half of small bet limit). to left of dealer
+- big blind (half) (bet small bet), two to left of dealer; can still raise when their turn comes around (but big blind is considered)
+- small bet limit
+- head to head (dealer will act as small blind)
+- dealer button (rotates)
+- bet
+- check
+- fold
+
+
+Gameplay:
+- dealt 2 cards, face down
+- people check, bet, or fold (in PRE FLOP)
+- the flop (place 3 cards face up)
+- round of betting
+- the turn (4th card is placed)
+- round of betting
+- the river (5th card is placed)
+- round of betting
+- decide winner -> whomever has best hand.
+- ----> or everyone else fodls
+
+
+
+Probability of starting hands:
+Pocket pair: 6%
+Suited cards: 24%
+Non-paired and non-suited cards: 71%
+Ace/King: 0.3%
+Ace/Ace: 0.5%
+Suited Ace/King, King/Queen, Queen/Jack or Jack/10: 1%
+Ace/Ace, King/King, Queen/Queen, Jack/Jack or 10/10: 2%
+Suited Jacks or higher: 2%
+Suited 10s or higher: 3%
+Connected and suited cards: 3.9%
+Connected 10s or higher: 4.8%
+Any pocket cards with rank of Queen or higher: 5%
+Any pocket cards with rank of Jack or higher: 9%
+Any pocket cards with rank of 10 or higher: 14%
+Any connected cards: 15.7%
+Any pocket cards with rank of 9 or higher: 20.8%
+Non-suited or connected cards with at least 1 card between 2 and 9: 53.4%
+

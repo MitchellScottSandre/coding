@@ -1,0 +1,15 @@
+Macros:
+- can use macros to simplify repeated text
+example:
+#define INT(x) (  *(int *)x  )
+example
+
+[](const void *a, void *b){
+	if (INT(a) > INT(b))
+	INT(b) = INT(a);
+}
+
+//use brackets around macro arguments
+#define MULT(x, y) (x) * (y)
+int z = MULT(3+2, 4+2); --> 3 + 2 * 4 + 2 --> 8 + 5 = 13
+

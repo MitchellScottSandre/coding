@@ -1,0 +1,156 @@
+#include <stdio.h>
+#include <stdlib.h>
+//Rules: get 5 beads in a row. once all boards have a bead in them (not only the middle one) must rotate one board every turn (clockwise or counter)
+
+
+//start menu
+
+//displayBoard
+
+//userPlayTurn
+
+//compPlayTurn
+
+//seeIfWinner
+
+//play
+
+//only make this 1 player
+
+int SIZE = 15;//multiples of 3?
+int GAME_BOARD_DIMENSION = 6;
+int VERTICAL_HEIGHT = SIZE / 3;
+int gameBoard[6][6];
+int EMPTY = 2;
+int COMP_PIECE = 0;
+int USER_PIECE = 1;
+int HOR_GAP_FROM_BORDER = 3;
+//int VER_GAP_FROM_BORDER = HOR_GAP_FROM_BORDER / 3;
+
+int OFFSET = 6;
+int ADDED_IN_MIDDLE = 4;
+
+char USER_DISPLAY_PIECE = 'X';
+char COMP_DISPLAY_PIECE = 'C';
+char EMPTY_DISPLAY_PIECE = ' ';
+
+
+void printTopLine(char ch) {
+    for (int i = 0; i < OFFSET; i++){
+        printf(" ");
+    }
+    for (int i = 0; i < SIZE * GAME_BOARD_DIMENSION - OFFSET + ADDED_IN_MIDDLE; i++) {
+        printf("%c", ch);
+    }
+    printf("\n");
+}
+
+int configureSpacing(int height) {
+    int x = height - 2;
+    if (x < 0) {
+        x = -x;
+    }//ABSOLUTE VALUE OF X
+    return x;
+}
+
+void displayBoard() {
+    char piece;
+
+    //=========================================================DISPLAY COLUMN NUMBERS==========================================
+    for (int i = 0; i < OFFSET - 1 + SIZE / 2; i++) {
+        printf(" ");
+    }
+
+    for (int i = 0; i < GAME_BOARD_DIMENSION; i++) {
+        printf("%d", i + 1);
+        for (int c = 0; c < SIZE; c++) {
+            printf(" ");
+        }
+    }
+    printf("\n");
+    //=========================================================DISPLAY BOARD===================================================
+    char row = 65;
+
+    for (int r = 0; r < GAME_BOARD_DIMENSION; r++) {
+
+        if (r == GAME_BOARD_DIMENSION/2) {
+            printTopLine('-');
+            printTopLine('-');
+            printTopLine('-');
+        } else {
+            printTopLine('-');
+        }
+
+        for (int h = 0; h < VERTICAL_HEIGHT; h++) {
+            if (h == VERTICAL_HEIGHT / 2 ) { //middle
+                printf("  %c  ", row);
+                row++;
+            } else {
+                printf("     ");
+            }
+            for (int c = 0; c < GAME_BOARD_DIMENSION; c++) {
+                //for (int h = 0; h < SIZE; h++){
+
+
+
+                printf("|");//offsett
+
+                if (c == GAME_BOARD_DIMENSION/2) { //added to centre
+                    printf(" | |");
+                }
+
+
+                for (int i = 0; i < HOR_GAP_FROM_BORDER + abs(h - 2); i++) { //GAP
+                    printf(" ");
+                }
+                if (gameBoard[r][c] == USER_PIECE) {            //CHOOSE CHAR
+                    piece = USER_DISPLAY_PIECE;
+                } else if (gameBoard[r][c] == COMP_PIECE) {
+                    piece = COMP_DISPLAY_PIECE;
+                } else {
+                    piece = COMP_DISPLAY_PIECE;//change to empty
+                }
+
+                // if (c >)
+
+
+                for (int i = 0; i < SIZE - HOR_GAP_FROM_BORDER*2 - 1 - abs(h - 2)*2; i++) {//PRINT PIECE
+                    printf("%c", piece);
+                }
+
+
+                for (int i = 0; i < HOR_GAP_FROM_BORDER+ abs(h - 2); i++) { //GAP
+                    printf(" ");
+                }
+
+                if (c == GAME_BOARD_DIMENSION - 1) {
+                    printf("|");
+                }
+
+                // }
+
+            }
+            printf("\n");
+        }
+
+//        if (r != GAME_BOARD_DIMENSION - 1){
+//            printf("\n");
+//        }
+
+    }
+
+    printTopLine('-');
+}
+
+void initialize() {
+    for (int r = 0; r < 6; r++) {
+        for (int c = 0; c < 6; c++) {
+            gameBoard[r][c] = EMPTY;
+        }
+    }
+}
+int main (void) {
+    initialize();
+    displayBoard();
+    return 0;
+}

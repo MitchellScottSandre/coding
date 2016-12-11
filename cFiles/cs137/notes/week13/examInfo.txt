@@ -1,0 +1,39 @@
+Final Exam:
+closed book.
+cummulative (emphasis will be on everything since the mid term)
+20 questions (letter a to t) x 4 marks each
+ratio: 40 % no code in the answer (true false, what is the output, find the errors), 60% write functions
+not one question makes you write an entire program
+no exams in this course in the exam bank so...
+
+best practice for the exam is looking at notes and re doing assignments
+Ex of questions:
+- find errors
+- what does this print
+- True False
+- big O stuff (run time complexity..maybe space complexity)
+- Unicode (binary representation)
+- at least remember the pattern of encoding stuff to unicode
+-pointers 
+- structs
+- tail recursion --> what does using tail recursion mean --> ex: impliment,  fibinacci function using tail recursion
+- no map/reduce
+- no lambda
+- no macros, no linked lists
+- strings
+- NO page rank
+								GCD             prime			function evaluation
+- algorithms (GCD, prime, euclids algorithm, eratosthenes, horner's algorithm, bisection)
+
+- sorting and searching
+- selection, insertion, merge, quick, linear and binary
+- memorize best and worst
+		best/worst							space
+selection	n squared, nsquared					1
+insertion n, n squared							1
+merge  nlogn, nlogn								n
+quick nlogn, n squared							n in worst case
+linear											
+binary
+
+

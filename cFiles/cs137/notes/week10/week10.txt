@@ -1,0 +1,54 @@
+Unicode
+- codepoints represent characters from many alphabets such as Latin, cyrillic, Han, Devanagari, Egyptian
+- range of codepoitns currently 0 - 1,114,111 (21 bits)
+
+Endcodings:
+- ways to represent, stoe, transmit codepoints
+Universal Transformation Format (UTF)
+- UTF 8 (variable byte encoding, 1 to 4 byte per codepoint), UTF 16, 32 also exist
+
+
+
+int search (int a[], int n, int value){//part A
+	for (int i = 0 ; i < n; i++){//iterating through and comparing it to value: part B
+		if (a[i] == value) return i;//returning, part C
+	}
+	return -1;//part C
+}
+
+time complexity of search// E O means element of Order (x)
+best case: value is found at first index a[0], 		time is A + B + C       E O(1) //order 1, constant
+worst case: not found,								time is A + B*n + C  	E O(n) // linear
+average case: (average of all cases, located at a, 1 , 2 , 3..... n - 1)...
+1/n * Sum (from i = 1, to n) (A + Bi + C) == nA/n + nC/n + 1/n(n)(n + 1)/2 *B ======  A + C + B/2 + B*N/2
+
+
+True or False
+3x^2 + x - 6 is O(x^2) T True
+1000000x^2 is O(x^2) ?? true
+4x^4 + 7x is 0(x^3) F false
+2n^2 - 11 is O(n^2) T True
+2^n + n^100 is O (2 ^n ) T True
+2^n + n^100 is O (n^100) F false
+3n^3 + 9n^2 = 17 is O (n ^ 4) this is true, but N^3 is a lower term and is more accurate
+
+big ), g(x) <= M|f(x)|, x > xo
+bigO, littleO, then (symbol is capital Theta) 0, exact bound on time complexity, it tells us that g(x) belons to O f(x), and f(x) belongs to order g(x)...
+
+O(1) constant
+O (log n) logarithmic
+O(n) linear
+O (n^2) quadratic
+O(n^3) cubic etc etc
+O(c^n) exponential
+O(n!) factorial
+
+Sorting
+//non decreasing approximately equals ascending
+//1 1 2 3 4 isnt ascending, it is non descending
+//sorting algorithms, selection, insertion, marge, quick
+
+void sort(int a[], int n){
+	
+}
+

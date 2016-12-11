@@ -1,0 +1,113 @@
+Pointers
+
+#include <stdio.h>
+
+int main (void){
+	//so, &i means location of i....... *p where p is a pointer means access what number p points to
+	int i = 6; //address of i is x
+	int *p; //* means this is a pointer to an int, pointer is a variable that holds a memory address
+	p = &i; // & is the address operator, is the address of the variable i. address of i is x
+	*p = 10;// * is a dereference, access what p is pointing to , change that value to 10
+    printf("%d\n", i); // prints out 10
+
+    int *q = p; //q points to location that p points to, q points to i
+    *q = 17;// change the value of i to 17
+    //*q = *p is undefined
+
+}
+
+Pointer Arithmetic
+- 3:
+	- add an integer to a pointer
+	- subtract an integer from a pointer
+	- subtract one pointer from another
+
+Ex
+
+int a[8], *p, *q, i;
+p = &(a[2]); // pointer p points to location of a[2] 
+q = p + 3;// q points to 3 numbers after p, so it points to a[5]
+p += 4; // p points to a[6]
+q = q - 2; // q points to a[5] - 2 == a[3]
+i = p - q;//would be 6 - 3 = 3;
+i = q - p;// - 3
+
+int sum(int a[], int n){
+	int sum = 0;
+	for (int *p = a; p < a + n ; p++) {//points at first index of a
+	sum += *p;
+	}
+	return sum;
+}
+
+//return pointer to largest element in an array
+
+int* largest (int a[], int n){
+	int *max = a;
+	for (int *p = a + 1; p < a + n; p++){
+		if (*p > *max){
+			max = p;
+		}
+	}
+	return loc;
+}
+
+also in stdlib.h we have malloc and free
+
+memory allocate; malloc; allocates a block of "size" bytes and returns a pointer to it; returns null if it doesn't have enough space to allocate that much
+
+void *malloc(size_t size)
+ - allocates a block of size bytes and returns a poitner to it
+ returns null if insufficient memory or if size == 0
+
+ void free( void *)
+ frees memory block allocated by malloc
+
+ eg create array of numbers
+
+ Pointers to Structs
+ ex
+ struct tod {int hour, min};
+ struct tod *t = malloc (sizeof(struc tod));
+
+ (*t).hour = 18 OR OR OR t -> hour = 18
+
+ Flexible Array Members
+#include <stdio.h>
+#include <assert.h
+#include <stdio.h>
+
+struct flex_array{
+	int length;
+	int a[]; // has to be last member (it has size of 0) // size of flex array returns 4, which is length of integer
+}
+
+int main(void){
+	size_t array_size = 4;
+	struct flex_array *f = malloc (sizeof(struct flex_array) + array_size *sizeof(int));
+	assert(f);
+	f->length = array_size;
+	for (int i = 0; i < f->length; i++){
+		f->a[i] = i;
+	}
+	printf("%d\n", f->a[3]);
+	free(f);
+	f->NULL;
+}
+
+//other allocators
+
+void *realloc(void *p, size_t size); // re allocate
+-resizes a previously allocated block
+
+//clear allocate
+void *valloc (size_t, nmemb, size_t size);
+//allocates space for an array of nmemb elements of size bytes each all initialized to 0
+
+Variable Sized Array
+- grow storage automatically (by powers of 2)
+- contents initialized to 0
+
+information hiding is a design principle that has been around for a while
+here, the idea is to hide implementation details from the user
+

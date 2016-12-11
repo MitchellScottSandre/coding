@@ -1,0 +1,27 @@
+Week 12 Notes:
+
+space complexity of merge sort: 0 N additional storage
+
+Space complexity of quick sort:
+- order (1) additional storage, pretty cheap there
+- behavior of the recursion is pretty complex, especially in the worst case scenarios
+best case, 50 50 split
+when you call a function, the computer needs to know how to be able to get back to the calling code...so the stack contains local variables as well as the
+information that is needed to get back to that location in the program
+worst case: you keep calling quicksort with a partition on the left most side, so you end up calling quicksort n times, size only decreases by 1 each time
+tail recursion: last action of a function is a recursive call of itself..
+
+tail recursion... it just returns all the way back down to the botttom..so instead of building up the stack with all of these recursive tail calls.. it just
+reuses the same space of storage
+
+tail call elimination: when the recursive call returns, its return value, if any, is simple passed on, therefore the activation record of the caller can be reused
+by the callee and the stack doesn't grow
+
+tail elimination ca be enabled in gcc with the O2 optimization
+
+stdlib includes qsort!!!!!
+
+void qsort(void *base), size_t n, size_t size, int (*compare)(const void *a, const void *b)) ;//, pointer to what it is, number of elements, size of each of the elements
+//can take arrays of different types of things, doubles, bools, structs
+//lastly, takes a function that has to be able to compare two things that you are comparing and return less than zero, 0, or greater than zero
+//doesn't actuall have to impliment quick sort. can use any type of sorting..

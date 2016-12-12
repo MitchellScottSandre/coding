@@ -1,0 +1,27 @@
+What do I want my website to look / act like?
+
+Really go for a minimalist design
+
+Main Block at Top --> gets pushed to side when you scroll down to other sections, but always have those links available
+Links to:
+A Bit About Me
+My Projects
+My Resume
+Important Links (facebook, github, wakatime, linkedin)
+
+Have the block scroll down and hit next block, top block gets pushed out of sight (like apple scrolling) )
+
+For the first page (top, user just came to this website)...have some sort of Javascript game/animation thing that is random/repeats
+..we are waiting for user to scroll down
+EX: fish swimming, you can click and drop food in to the water, fish move to eat it, there is a ripple on the water
+EX: ballons that float around, come up, come down around... some type of animal/creature is just walking around...kicks the balloons when they get too close!
+(maybe it pops balloons...user can click to add a balloon)
+
+The background of the animation at the top of the screen should have "Scroll Down" as its background...
+
+On right, have scroll bar that is representive of size of total page (so you can see what is coming up next)
+
+These links link to different locations below on the page
+scrolls down, colours for different sections, nice animations
+
+For the My Projects Section, have arrows so user can navigate left and right to see projects (project slides in, nice animation)

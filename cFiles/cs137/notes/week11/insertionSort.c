@@ -17,6 +17,7 @@ best case: (already sorted), inner loop is always 0 iterations --> time complexi
 worst case: sorted in reverse order, inner loop: 1 + 2 + ... + (n-1) is O n^2
 */
 
+
 void insertionSort(int *a, int n){
 	for (int i = 1; i < n; i++){
 		int x = a[i];

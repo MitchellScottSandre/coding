@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <math.h>
 #include <assert.h>
+#include <string.h>
 //==============================Random Algorithms
 //GCD (Eucler's algorithm)
 int gcd(int a, int b){
@@ -77,7 +78,7 @@ double bisect(double a, double b, double epsilon){
 	//--> need to include <assert.h>
 	//--> need to include <math.h>
 	//--> need to have made double function(x) that returns value
-	assert(function(a) < 0 && function(b) > 0 && epsilon > 0);
+assert(function(a) < 0 && function(b) > 0 && epsilon > 0);
 	double m = (a + b) / 2; // this is the mid point between points a, b
 	if (fabs(m) < epsilon) return m;
 	if (function(m) > 0) return bisect(a, m, epsilon);// m is to the right of 0, so try again with a on left of 0, m on right of 0 instead of b
@@ -258,6 +259,24 @@ int *indexLargestVal_usingPointers(int a[], int n){
 
 //=============================STRUCTURES MORE FUN===============
 
+struct dog{
+	int weight, age;
+	char *name;
+	bool tailWagging;
+};
+
+typedef struct {
+	bool evil;
+	int weight;
+	double maxSpeed;
+} cat;
+
+void displayDogStruct(struct dog doggy){
+	printf("Name: %s\n",  doggy.name);
+	printf("Age: %d\nWeight: %d\nTail Wagging? %d\n", doggy.age, doggy.weight, doggy.tailWagging);
+}
+
+
 //big 0
 // unicode (binary representation)
 
@@ -266,6 +285,21 @@ void displayArray(int a[], int n){
 		printf("%d, ", a[i]);
 	}
 	printf("\n");
+}
+
+//moving on to function pointers==================
+int multiplyTwoNums(int a, int b){
+	return a * b;
+}
+
+int addTwoNums(int a, int b){
+	return a + b;
+}
+
+//so remember that syntax for including a funtion pointer is
+// (*functionPointer)(parameter data type, param data type...etc etc);
+int doStuffWithInts(int x, int y, int (*functionPointer)(int, int)){
+	return functionPointer(x, y);
 }
 
 
@@ -383,9 +417,105 @@ int main(void){
 	printf("Y is:\n");
 	displayArray(y, sizeof(y)/sizeof(y[0]));
 	printf("Largest val in y is %d\n", y[*index_maxVal]);//y at the value of largestValInY
-	printf("Why the hell isn't this working???\n");
+	printf("Why the hell does this not work??\n");
+
+	//sub topic : dynamic memory allocation
+	/*
+	void *malloc (size_t size);//returns a pointer to a block of memory of size bytes long
+	void free (void *);//frees memory block that that pointer pointer to (NOT the pointer itself)
+	void *realloc( void *p, size_t size);
+	//resizes previously allocated block of memory
+
+	BIG O Notation: -> everything below is O(x) x is what is there
+	most efficient
+	1 constant
+	logn logarithmic
+	n linear time
+	nlogn linearithmic time
+	n^2 quadratic
+	n^c polynomial time ( c greater than 2)
+	c^n exponential time
+	n! -- factorial
+	least effiicent
+	*/
+
+	
 
 
+
+	//======================STRUCTURES==================================
+	struct dog toby;
+	toby.weight = 45;
+	toby.age = 5;
+	toby.tailWagging = true;
+	toby.name = malloc(sizeof(char) * 4 + 1);
+	toby.name = "Toby";
+	printf("Displaing Dog Struct 1: Toby\n");
+	displayDogStruct(toby);
+	struct dog dante = {14, 12, malloc(sizeof(char) * 5 + 1), true};
+	dante.name = "Dante";
+	printf("Displaing Dog Struct 2: Dante\n");
+	displayDogStruct(dante);
+
+	cat evilCat;
+	evilCat.evil = true;
+	evilCat.maxSpeed = 100;
+	evilCat.weight = 9;
+	cat goodCat = {.evil = false, .weight = 8, .maxSpeed = 33.222};
+	printf("GoodCat: Evil?%d, Weight %d, max speed %g\n", goodCat.evil, goodCat.weight, goodCat.maxSpeed);
+
+	//=======================STRINGS!!!======================
+	//need to include --> <string.h>
+	const char *string1 = "hello world";
+	const char *string2 = "hello world";
+	if (string1 == string2){
+		printf("String1 == String2\n");
+	} else {
+		printf("String1 != String2\n");//it will print out this...the pointers in memory do NOT point to SAME SPOT
+	}
+	printf("String Length:   strlen\n");
+	printf("Remember to use %%zu to print out variables of type size_t\n");
+	printf("Also, remember to use two percent signs %% %% to print out one percent isgn %%\n");
+	printf("strlen ----> Length of String1 is %zu\n", strlen(string1));
+
+	printf("String Copy:    strcpy\n");
+	printf("To use strcpy you must assign enough space into s2 to copy into it s1\n");
+	printf("Remember that strcpy takes (copyIntoMe, const char array TO_BE_COPPIED)\n");
+	char *string3 = malloc(sizeof(string2));
+	strcpy(string3, string1);
+	printf("Just copied string1 into string3. string3 is now %s\n", string3);
+
+	printf("String N Copy:    strncpy\n");
+	printf("Copies chars up to index n from one string to another\n");
+	char *string4 = malloc(sizeof(string2));
+	strncpy(string4, string2, 5);
+	printf("Just copied up to 5 chars from string 2 into string 4. string4 is %s\n", string4);
+
+	printf("String Concatenation: strcat\n");
+	printf("concatentates (joins) two string together\n");
+    char *string5 = malloc (sizeof(char)*50 + 1);
+	string5 = "Hold the";
+	char *string6 = malloc(sizeof(char) * 50 + 1);
+	string6 = "door";
+	//strcat(string5, string6);
+	//printf("string 6 concatted to string5 is %s\n", string6);
+
+
+
+	//printing stuff out
+	double ggg = 12341234.444333332;
+	printf("use %%f --> ggg is %f\n",  ggg);
+	printf("use %%g -->ggg is %g\n",  ggg);
+	printf("use %%e -->ggg is %e\n",  ggg);
+
+	//review math stuff here:https://www.tutorialspoint.com/c_standard_library/math_h.htm
+
+	printf("On to Function Pointers!!!\n");
+	printf("Doing stuff with ints (10 and 20) -> add\n");
+	int xval = 20;
+	int yval = 10;
+	printf("added them == %d\n", doStuffWithInts(xval, yval, addTwoNums ) );
+	printf("multiplied them == %d\n", doStuffWithInts(xval, yval, multiplyTwoNums ) );
 
 	return 0;
 }

@@ -1,0 +1,26 @@
+Unicode:
+
+assigns codepoints to over 100000 characters from many languages
+a unicode character spans 21 bits (21 digits)
+shares data values with ascii
+Unicde 'a' is 97 base 10 == U+0061 = 110 0001 base 2, which is the same as ascii
+unicode just defines the CODES for each caracters, but there are still
+different ways to actually encode unicode
+UTF-8 - Unicode Transformation FOrmat
+- varialbe length unicode representation, backwards compatible with ASCII
+
+Patterns: so the actual unicode will be the x's and y's
+then you PAD them accordinng to how many bits and therefore what pattern it is
+1 byte: xxx yyyy (7 bit binary number)
+        0xxx yyyy
+
+2 byte: xxxxx yyyyyy 11 bit binary number
+        110x xxxx 10yy yyyy
+
+3 byte: xxxx yyyyyy zzzzzz (16 bit binary number)
+    1110 xxxx 10yy yyyy 10zz zzzz
+
+4 byte: xxx yyyyyy zzzzzz wwwwww (21 bit binary number)
+    1111 0xxx 10yy yyyy 10zz zzzz 10ww wwww
+
+Ex: snowflake image is U+2744 = 10 0111 0100 0100

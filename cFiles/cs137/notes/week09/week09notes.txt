@@ -15,7 +15,7 @@ c += 9;
 Strings:
 - represented by an array of chars, terminated by the null character
 char s[] = "hello"; // local array variable h e l l o \0
-SAME AS 
+SAME AS
 char s[] = {h, e, l,l,o};
 char *t = "hello"; //string literal, t points to hello, stored in data segment
 const char *t = "hello";
@@ -33,7 +33,7 @@ p = &i;//okay
 
 int *q;
 q = p;//not a compile error, gives you a warning
-q = (int *)p;//no warning, no error, but dubious 
+q = (int *)p;//no warning, no error, but dubious
 *q = 5;
 
 - const pointer (not as common)
@@ -47,7 +47,7 @@ str1 = "abc";//compile error, incompatible types
 if (str1 == str2) always return false
 
 #include <string.h>
-size_t strleng(const char*s); //returns length of string, minus the null characater
+size_t strlen(const char*s); //returns length of string, minus the null characater
 char *strcpy (char *s0, const char *s1); // s1 is being copied into s0, the storage in s0 must be big enough though
 char *strncpy (char *s0, const char *s1, size_t n);//copy up to n characters from s1 into s0
 char *strcat (Char *s0, const char *s1);
@@ -82,4 +82,3 @@ int printf(const char *format,...);
 
 char str[] = "ab%dc";
 difference between printf("%s", str); printf(str); // first would print %d, second would be looking for an integer since %d
-

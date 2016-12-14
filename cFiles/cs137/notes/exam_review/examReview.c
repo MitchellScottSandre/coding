@@ -81,9 +81,10 @@ double bisect(double a, double b, double epsilon){
 	//--> need to have made double function(x) that returns value
 	assert(function(a) < 0 && function(b) > 0 && epsilon > 0);
 	double m = (a + b) / 2; // this is the mid point between points a, b
-	if (fabs(m) < epsilon) return m;
+	double fm = function(m);
+	if (fabs(fm) < epsilon) return m;
 	if (function(m) > 0) return bisect(a, m, epsilon);// m is to the right of 0, so try again with a on left of 0, m on right of 0 instead of b
-	else return bisect (b, m, epsilon);
+	else return bisect (m, b, epsilon);
 
 }
 
@@ -162,6 +163,7 @@ void mergeSort(int *a, int *temp, int n){
 
 	//merge halfs --> iterate through each index(so two halfs are sorted!)
 	// put lower one in, incriment THAT index, then repeat
+	//i is left index, j is middle index, k is index in temp array
 	int i = 0, j = n/2, k = 0;
 	while (i < n/2 && j<n){
 		if (a[i] <= a[j]){
@@ -333,6 +335,12 @@ int addTwoNums(int a, int b){
 int doStuffWithInts(int x, int y, int (*functionPointer)(int, int)){
 	return functionPointer(x, y);
 }
+
+
+typedef struct {
+	int length;
+	int a[];// this NEEDS to be the LAST member in the STRUCT
+} flex_array;
 
 
 int main(void){
@@ -556,7 +564,7 @@ int main(void){
 	//fib stuff
 	printf("fib 1....\n");
 	clock_t start = clock();
-	printf("printing out the 44 fib number: %d\n", fibOne(44));
+	//printf("printing out the 44 fib number: %d\n", fibOne(44));
 	clock_t end = clock();
 	printf("Time for fib1 to get 44th number is: %ld\n", (long int)(end - start)/CLOCKS_PER_SEC);
 	printf("fib 2....\n");
@@ -564,5 +572,65 @@ int main(void){
 	printf("printing out the 44 fib number: %d\n", fibTwo(44));
     end = clock();
 	printf("Time for fib2 to get 44th number is: %ld\n", (long int)(end - start)/CLOCKS_PER_SEC);
+
+	flex_array *arrayFlex1 = malloc(sizeof(flex_array) + 6 * sizeof(int));//int, array of length 6
+	arrayFlex1->length = 6;
+	printf("Before flex array, length 6, is: \n");
+	displayArray(arrayFlex1->a, arrayFlex1->length);
+	printf("Now reallocating memory to the flexible array...\n");
+	arrayFlex1 = realloc(arrayFlex1, sizeof(flex_array) + 12 * sizeof(int));
+	printf("after flex array, length 12, is: \n");
+		arrayFlex1->length = 12;
+	displayArray(arrayFlex1->a, arrayFlex1->length);
+
+	printf("More on constant pointers and such\n");
+
+	//pointer to const int
+	const int tt;
+	//error ---> tt = 5;
+	const int ss = 6;
+	//error ---> ss = 7;
+	const int *ppp;//p is a pointer to a constant int
+	ppp = &ss;
+	printf("The value that ppp points to is %d\n", *ppp);
+	printf("Ppp points to a constant so trying to change that constant is not allowed\n");
+	//error ---> *p = 4;
+	const int kk = 22;
+	ppp = &kk;
+	printf("ppp is not constant so we can change where it points to\n, p now points to %d\n", *ppp);
+
+	//constant pointer to int
+	int hhh = 88832;
+	int *const qqq = &hhh;
+	printf("qqq is a constant pointer to an int\nvalue of qqq is %d\n", *qqq);
+	printf("I can change value qqq points to\n");
+	hhh = 4444444;
+	int fff = -987;
+	printf("qqq now points to %d\n", *qqq);
+	//error ---> qqq = &fff; //qqq is a CONST pointer
+
+	//constant pointer to constant int
+	const int *const ptr_1 = &kk;
+	printf("ptr_1 is  a constant pointer to a constant int, val is %d\n", *ptr_1);
+
+	const int *const *ptr_2 = &ptr_1;
+	printf("IMPORTANT. TO PRINT THE VALUE THAT A POINTER TO A POINTER POINTS TO, USER **\n");
+	printf("ptr_2 is a pointer to a constant pointer to a constant int, val ptr_2 = %d\n", **ptr_2);
+
+	printf("lots and lots of pointer fun\n");
+	printf("YO YO YO SO APPARENTLY YOU CAN USE %%p that is perent p to PRINT POINTER MEMORY LOCATIONS\n");
+	int aaaa = 5;
+	int *ptr_3 = &aaaa;
+	int **ptr_4 = &ptr_3;
+	int ***ptr_5 = &ptr_4;
+	printf("aaaa is %d\n", aaaa);
+	printf("Memory location of ptr_3 is %p\n", &ptr_3);
+	printf("value ptr_3 points to is %d\n", *ptr_3);
+
+	printf("Memory location of ptr_4 which points to ptr_3 is %p\n", &ptr_4);
+	printf("value ptr_4 points to is %d\n", **ptr_4);
+
+	printf("Memory location of ptr_5 which points to ptr_4 is %p\n", &ptr_5);
+	printf("value ptr_5 points to is %d\n", ***ptr_5);
 	return 0;
 }

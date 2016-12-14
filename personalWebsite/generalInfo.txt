@@ -1,3 +1,16 @@
+Important Bootstrap Things to Remember: http://getbootstrap.com/components/
+- use cool Glyphicons for icons and things
+- dropdowns
+- button groups
+- button dropdowns
+- input groups
+- labels
+- badges
+- jumpotron
+- etc
+
+
+
 What do I want my website to look / act like?
 
 Really go for a minimalist design

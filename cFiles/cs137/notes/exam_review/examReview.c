@@ -140,7 +140,7 @@ void insertionSort(int a[], int n){
 	for (int i = 1; i < n; i++){//we are saying that a[0] is our sorted part
 		int x = a[i];
 		int j = i - 1;
-		while (j >= 0 && a[j] > x){//shifting elements that are greater than x
+		while (j >= 0 && a[j] > x){//putting that element into place in the sorted part of the array
 			a[j + 1] = a[j];
 			--j;
 		}

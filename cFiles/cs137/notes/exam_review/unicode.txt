@@ -24,3 +24,29 @@ then you PAD them accordinng to how many bits and therefore what pattern it is
     1111 0xxx 10yy yyyy 10zz zzzz 10ww wwww
 
 Ex: snowflake image is U+2744 = 10 0111 0100 0100
+there are 14 bits --> 3 bytes
+
+so pad with 0s for now
+0010 0111 0100 0100
+now divide into groups of 6 and add appropriatly
+xxxx yyyyyy zzzzzz
+1110 0010 10011101 10000100
+Steps According to Kash:
+- we wil lbe given binary representation of it
+- count number of #s given
+- <=7 is 1 bytes
+- 7 to 11 is 2 bytes
+11 to 16 is 3 bytes
+16 to 21 is 4 bytes
+each byte is 4 bits
+answer will have number of bytes * 8
+so 4 bytes will have 32 numbers
+
+divide the numbers i have into groups of 6 (or just 7 if there is only one byte)
+
+then if it is 3 bytes, you add n 1s to front and a zero
+and for all the other groups of six you add 10
+so for three byte yo uad to front
+1110 xxxx 10 yy yyyy 10 zz zzzz
+
+(so for each of the rest you split into 6 and add a 10 on to the front of it )

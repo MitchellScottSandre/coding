@@ -4,6 +4,7 @@
 #include <math.h>
 #include <assert.h>
 #include <string.h>
+#include <time.h>
 //==============================Random Algorithms
 //GCD (Eucler's algorithm)
 int gcd(int a, int b){
@@ -78,17 +79,39 @@ double bisect(double a, double b, double epsilon){
 	//--> need to include <assert.h>
 	//--> need to include <math.h>
 	//--> need to have made double function(x) that returns value
-assert(function(a) < 0 && function(b) > 0 && epsilon > 0);
+	assert(function(a) < 0 && function(b) > 0 && epsilon > 0);
 	double m = (a + b) / 2; // this is the mid point between points a, b
 	if (fabs(m) < epsilon) return m;
 	if (function(m) > 0) return bisect(a, m, epsilon);// m is to the right of 0, so try again with a on left of 0, m on right of 0 instead of b
 	else return bisect (b, m, epsilon);
 
 }
+
+//fib 1
+int fibOne(int n){
+	if (n < 0) return -1;
+	if (n == 0) return 0;
+	if (n == 1) return 1;
+	return fibOne(n - 1) + fibOne(n - 2);
+}
+
+int fibTwo(int n){
+	if (n < 0) return -1;//error
+	if (n == 0) return 0;
+	int prev = 0,  curr = 1;
+	for (int i = 1; i < n; i++){
+		int next = prev + curr;
+		prev = curr;
+		curr = next;
+	}
+	return curr;
+}
 //COUNTING CHANGE
 
 //===============================SORTING=======================
 //SELECTION SORT
+//best: O(n squared) worst: same
+//space: 1
 void selectionSort(int a[], int n){
 	if (n <= 0) return;
 	for (int i = 0; i < n - 1; i++){
@@ -110,6 +133,9 @@ void selectionSort(int a[], int n){
 //each time when the size of it grows, you are adding a value, and inserting it into
 //where it should go in the sorted part (so it remains sorted)
 //if need be, shift elements that are > x in the sorted part, then insert n
+
+//best: O(n), worst: O(n^2)
+//space: 1
 void insertionSort(int a[], int n){
 	for (int i = 1; i < n; i++){//we are saying that a[0] is our sorted part
 		int x = a[i];
@@ -126,6 +152,9 @@ void insertionSort(int a[], int n){
 //divide the array in half
 //recursively sort each half (by diving them in half, and continuing to divide them,
 //then merging them into sorted order as your come back up
+
+//best nlogn, worst: nlogn
+//space: n
 void mergeSort(int *a, int *temp, int n){
 	if (n <= 1) return;
 	mergeSort(a, temp, n/2);
@@ -193,6 +222,9 @@ int partition(int a[], int n){//pivot is a[0]
 	swap(a, 0, m);
 	return m;
 }
+
+//best nlogn, nsquared
+//space: n
 void quickSort(int a[], int n){
 	if (n <= 1) return;
 	int m = partition(a, n);
@@ -419,6 +451,9 @@ int main(void){
 	printf("Largest val in y is %d\n", y[*index_maxVal]);//y at the value of largestValInY
 	printf("Why the hell does this not work??\n");
 
+	//const int * const p;//pointer can't change and neither can the value
+
+
 	//sub topic : dynamic memory allocation
 	/*
 	void *malloc (size_t size);//returns a pointer to a block of memory of size bytes long
@@ -439,7 +474,7 @@ int main(void){
 	least effiicent
 	*/
 
-	
+
 
 
 
@@ -504,7 +539,7 @@ int main(void){
 
 	//printing stuff out
 	double ggg = 12341234.444333332;
-	printf("use %%f --> ggg is %f\n",  ggg);
+	printf("use %%f -->ggg is %f\n",  ggg);
 	printf("use %%g -->ggg is %g\n",  ggg);
 	printf("use %%e -->ggg is %e\n",  ggg);
 
@@ -517,5 +552,17 @@ int main(void){
 	printf("added them == %d\n", doStuffWithInts(xval, yval, addTwoNums ) );
 	printf("multiplied them == %d\n", doStuffWithInts(xval, yval, multiplyTwoNums ) );
 
+
+	//fib stuff
+	printf("fib 1....\n");
+	clock_t start = clock();
+	printf("printing out the 44 fib number: %d\n", fibOne(44));
+	clock_t end = clock();
+	printf("Time for fib1 to get 44th number is: %ld\n", (long int)(end - start)/CLOCKS_PER_SEC);
+	printf("fib 2....\n");
+	start = clock();
+	printf("printing out the 44 fib number: %d\n", fibTwo(44));
+    end = clock();
+	printf("Time for fib2 to get 44th number is: %ld\n", (long int)(end - start)/CLOCKS_PER_SEC);
 	return 0;
 }

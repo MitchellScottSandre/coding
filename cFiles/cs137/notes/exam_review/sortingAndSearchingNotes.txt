@@ -1,0 +1,6 @@
+Selection Sort:
+- iterate through the entire array
+    - then, pick the first index as location of min index
+    - iterate through rest of array, find location of smallest value
+    - swap the two (first location picked, actual smallest value index)
+    - repeat

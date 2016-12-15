@@ -420,7 +420,7 @@ int main(void){
 	printf("Testing standard library q sort:\n");
 	//need to make a compareFunction
 	//END OF SORTING
-	//qsort(base array, length of array, size of each index, compareFunction)
+	//qsort( array, length of array, size of each index, compareFunction)
 	const int len_z = sizeof(z)/sizeof(int);
 	qsort(z, len_z, sizeof(z[0]), compareFunction);
 	displayArray(z, len_z);

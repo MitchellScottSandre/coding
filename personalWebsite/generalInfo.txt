@@ -9,7 +9,12 @@ Important Bootstrap Things to Remember: http://getbootstrap.com/components/
 - jumpotron
 - etc
 
-
+COOL IDEAS:
+- check wakatime every night and create a progress bar based on the information?
+- Have an About Me Section -> bars, percent on waka time, percent done school, where I am in the year -->
+--> In the about me, have a bar that has images on it like where I worked ____, school, scool, etc etc etc
+----->maybe include my marks if they are decent? --> a visual time line of my recipe!
+------> animate it with javascript???
 
 What do I want my website to look / act like?
 
@@ -17,7 +22,7 @@ Really go for a minimalist design
 
 Main Block at Top --> gets pushed to side when you scroll down to other sections, but always have those links available
 Links to:
-A Bit About Me
+A Bit About Me -(About Me: have visual bars and graphs etc! Like percent done school, where I am right now (with images) based on month --> at school, on cop)
 My Projects
 My Resume
 Important Links (facebook, github, wakatime, linkedin)

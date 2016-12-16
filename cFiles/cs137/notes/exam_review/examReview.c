@@ -491,7 +491,6 @@ int main(void){
 	toby.weight = 45;
 	toby.age = 5;
 	toby.tailWagging = true;
-	toby.name = malloc(sizeof(char) * 4 + 1);
 	toby.name = "Toby";
 	printf("Displaing Dog Struct 1: Toby\n");
 	displayDogStruct(toby);

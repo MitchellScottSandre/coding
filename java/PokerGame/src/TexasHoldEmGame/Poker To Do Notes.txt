@@ -1,0 +1,224 @@
+Poker Game TO DO:
+De 16th:
+- when you go all in, it still asks for and is waiting for your turn (but you have 0 money)
+----> if someone goes all in, you everyone else can either call or raise or fold...then deal the rest of the cards!
+-----> TO DO: just make sure that everyone has called and such. then, just increase round_turnCounter and deal cards etc and go
+to the River (5 cards up)
+DEC 12:
+--> when you go all in(second round)...it STILL ASKS asks for user's turn
+Work out what happens when you go all in...needs to get everyones call (or raise???) and then deal out rest of cards
+ERROR: sometimes when user goes all in the game freezes
+TO DO: make face up cards a bit LARGER and the text on the board a bit smaller
+TO DO: add which round number it is to the board COMPLETED
+TO DO: every x rounds (not time???) increase the minimum bet!!! and big blinds and small blinds
+ERROR: after user goes all in and WINS you can't go on to the next round???
+ERROR: when someone goes all in, make sure to deal all of the rest of the cards!
+
+dec 11th:
+ERROR: when I go all in and there are less than 10 players, it makes other players have negative money..why??
+ERROR: sometimes displayning coins (as though I could click them and select it to bet) even when I have no coins
+ERROR: go all in..doesn't use all coins??? go all in...people get to 0 dollars. remove them from game! if user gets SOLVE
+to 0 dollars, end game
+ERROR: don't want it saying "backdoor" if there is only 1 card left to be put on table ... you can't get the two cards needed to make
+that hand!!! FIXED
+TO DO: add "recommended move" to display user info... :( currently its deleting...(only displays for 2 cards on table)...before 
+that it was constantly calling and checking getDecision() which changes because it calls random numbers!!!  FIXED
+TO DO: get player play personality from main meny
+TO DO: someone goes all in, someone is out of money, game is over! someone wins! two people left...ughhhh
+TO DO: save functionality
+TO DO: add rules to front page
+TO DO: clean out what is printed on to screen and to output console
+
+dEC 10th:
+ERROR: all players folded on last round. still said it needs to check who wins..but should automatically wins FIXED
+ERROR: the was a straight A 2 3 4 5 on FACE UP cards...yet user 5 had a pair of 4s instead of a straight... for end of round hand name FIXED
+TO DO: if someone wins a hand, highlight their display circle COMPLETED
+TO DO: if user wins hand make "You win this round!" dance around the screen WITH FLASHING LETTERS OF COLOURS --> COMPLETED
+QUESTION: should the bouncingWord class print itself? (do g.print) or should (bouncingWord.drawWord) be called?
+
+Dec 9th
+TO DO: improve change in coin function --deffinitly add in some 1000 and 5000 chips !!
+added--> more player hand info stuff, including NAME / nick name of the hand
+--> it's pretty damn good actually. lot of variety of names!
+COOL TO DO: at end of round, print to the same file info like how many players and the winning hand --> can, later, calculate the odds of how often each winning hand occurs
+TO DO: so be able to finish game. 1) player goes all in. 2) player is out of money. 3) everyone else is out of money. only one person left
+fixed font
+fixed player display information --> added ROUND BET, changed total amount bet to TURN BET
+DEC 8th:
+TO DO: someone goes all in.
+TO DO: someone is out of money. (if user is out of money, game over!!!)
+ERROR: make user --> change in coins logic better...add coins to 100, 500, 1000, 5000!!!! not just down --> FIXED ??? 
+ERROR/TO DO: review gameplay logic step by step and test it out
+ERROR: why is total bet still 0??? COMPLETED
+ERROR: make sure that comp isn't folding accidently when amountToCall is ZERO COMPLETED
+TO DO: yo pick a better font COMPLETED
+Fixed bug with plus and minus buttons...
+ERROR: had 0 x 1000$ chips, and it was still showing a 1000 chip in the select-a-chip section
+TO DO!!!!: make "move some chips to higher chips" function for player; COMPLETED
+TO DO: let the user know if they must call or if they are allowed to raise... (running out of space on screen scott :(  ) COMPLETED
+TO DO: clean up what is printed to console (useful for debugging)
+TO DO: clean up what is added to scrollingInfo (strings)
+TO DO: add save functionality
+TO DO: add rules to start screen
+TO DO: make function getNameOfPlayerHand COMPLETED
+--> used for names of PAIRS --> if at least one of the cards is one of the player's original cards, then use that name
+also, use the odds-based hand names backdoor gutshot straight
+
+TO DO: show information in SEE HAND INFO --> show all 2, 5, 6, or 7 cards
+(User Hand: ); (Face up Cards) 
+Show them what the name of their current hand is (pair, three of a kind, etc)
+Show them number of outs
+Show them pot odds
+Show them player odds
+Show them the name --> basedOnTheirOdds --> backdoor inside straight
+Suggest what they do! (Think of what else to show them...)
+
+Dec 7th
+fixed the BUG
+ERROR: sometimes, not getting the rest of the player's turns --> changed line 998 in PokerGame to try and fix it..
+--->reason: never before were people purely calling ... sometimes with new logic people don't raise!
+TO MAKE: Eventually, I want to add a function addLinesToScrollingInfoToShowCardsNicely --> for at the end of round
+ERROR:asking for userTurn when user has raised, everyone else has called (it has gone around the table...)
+people are not folding enough...
+So integrated the new getMoveNE function..works fine...but when user isbb it just skils and goes to end?
+Error when all other players have folded...just keeps waiting and asking for the user's turn...
+SO...need to have a boolean allOtherPlayersHaveFolded and if it is true for someone just give them all of the pot money
+ONLY get a player's move if everyone else has NOT folded, otherwise, they automatically win and don't get the chance to also fold
+
+Dec 6th:
+need to integrate computer calculations program into the GAME
+ERROR: Once I do that, i can review random cases and add tweaks and gix bugs to the computer move calcualtor
+--->FIXED --> checked that computer 1's move string is not " " meaning that they have played! Comp 1 will always
+be in the game regardless of the number of players chosen
+dec 5th
+ERROR: when players are less than 10, if it is end of round (I will be BB next) and I click NEXT ROUND, then it goes to nextround,
+and immediately deals out all the cards (i can't bet) --> has to do, im guessing, with that player is big blind boolean...
+ERROR: fixed most issues with less than 10 players
+when there are LESS THAN (or equal to) 4 players --> ISSUE. this is because we are doing get next player (5) --> that 5 is the issue
+might need to make that 5 be a variable, and that variable is p->getNextPlayer or something
+fixed and added stuff to correct straight flush, royal flush, and flush --> if there are bugs with these, check it out
+QUESTION: might want to change logic of (sum) for move calculator...because I can make the scale more even (continuous)
+and then do myOdds * sum = output_number. if output number is good enough (meaning my odds * the goodness of what hand that gives)
+then I bet (also comare against the player's personality settings)
+
+dec 4th
+ERROR: why can't i make a game with less than 10 players?
+for this error, i think we should be using
+getNextPlayerOnTableThatHasNotFolded
+instead of getNextPlayerOnTable
+either that or getNextPlayerOnTable IS WRONGGGG
+FIXED: so first round now works fine... but then it goes into infinite loop after first round...why???
+so ERROR: less than 10 players, second round, infinite loop :(
+ERROR: when it calls playersTableORder at that index, well, all players at THAT index is out of bounds@
+fixed that ish
+ERROR: when num players is 5, well im doing p = 5 (next person after p (usually)) % numPlayers... should be the next person (index on table)
+
+
+need to use: boolean someoneAllInOnFlop in case someone goes all in
+ERROR: royal flush logic is wrong
+need to: make one, or two, cardsAwayFromStraight() function
+started reading outs and counting them and stuff..pretty cool
+NEED TO INCLUDE COOL TERMS like gut shot straight draw etc etc --> fun!!
+need to read: http://www.pokerology.com/lessons/drawing-odds/..and understand how to do probability-based betting
+continue adding logic to player decision calculator.. ADDED PERSONALITIES!!!!! now just adding functions to judge how good hand is
+add notes folder to the source code so it gets saved on github
+Dec 2, 2016
+need to PLAN out player bet calculatory better --> include personalities, plus include difficulty!!!
+ugh.. make it dynamic in size!!!
+...having a recommend button.. --> could just have a USE recommendation button too...just automate the game!
+eventually...maybe have a recommend BUTTON???/ this is a cool ideaaaa
+NEED TO: make lastRaiseAmount logic in player/round/game logic...this will be used to determine comp move!!!
+continued comp move calculator logic ... changed some things to the deck to let me just make deck with val and suit
+oh no! it is dealing the 4tth and 5th cards at the same time!!! WHYY --> just made time between rounds 0 seconds. leave it.
+to do: add "Next Round" button.. DONE
+fixed tie logic... DONE
+Full house --> kings full of Jacks KKKJJ DONE
+error with tie logic...going to user (index 0).. :(FIXED
+because when we create the new round the initial values of indexOfDealer is set to indexOfDealer = STARTindexofdealer..
+hey. why the fuck aren't hte big blinds and small blinds etc. rotating??? FIXED
+ERROR: when I set the time between turns to 0...it breaks FIXED
+what the hell happens if someone goes all in?? look at rules.
+they need to have enough money..else need to split the pot..ugh ugh ugh
+fixed (ish) checkIfNotEnoughCoins...but what if the player is out of money!!!!
+add delay between rounds FIXED
+to do eventually: write out completly how this thing works! refer TO EVERYSINGLE FUNCTION NAME
+need to be able to trade chips from higher to lower (trade in a 1000 40 x 25 etc etc... FIXED
+found out why! THEY HAVE 0 x 5 dollar chips!!!! added an i++ in the right loop and fixed it aha
+keeps freezing and crashing and idky
+ERROR: it keeps getting frozen at 3rd round (1, 2, 3) after showing the first 3 cards...probably because comp 7 has folded?
+whats the differene between 3rd round after flop and second round after flop??
+- ERROR: if user has folded, and user is SB, then (first off, it doesn't rotate people) but then it just is a bug and thinks 
+user is still folded at beginning of next round
+- if USER folded..then stop showing user cards too DONE
+- added tie code... BUT BUT BUT BUT BUT SCOTT you only go to check next highest card some of the time...for some things (like straights) 
+ you just SPLIT THE POT :(
+add RULES to start page!
+options menu in top right.
+QUESTION: what if COMP is SB or BB and one of them has folded? BOTH of them????
+ERROR: there was just a tie... both had pair of queens high..need to make a tie breaker function
+--> look at the rules for this.. either award cased off of next highest card or divide up pot! make that into a funciton too...
+
+- nov 29th
+when they FOLD, put their cards away! they should dissappear (just flipped them over instead)...
+Comp folding works fine now..skips them correctly!!!
+Need to WORK ON MAKING COMP LOGIC FOR PLAYING!!!!!
+//maybe make a new class comp_decision_to_play?
+//pass it hand, cards shown, their money, etc etc
+
+- test out other computer functions like fold, check
+- test them out for user TOO
+- fold will be an issue...need to be getting next player on table!!!!! not just p++
+- also applies to having less than 10 ppl on the table
+
+
+- when player is out of money, remove them from game! either change arrays...or change getNextPLayerOnTable function
+- ERROR has "comp raised by 0"... for Big Blind...so something is happening when user raises as Small pBlind and / i thinnk BB fixed
+- ERROR: if user is small blind, and then raises right away, theyve bet 10 + 210 but it says total is 210!fixed
+- check for consistency, "user raised; " ... vs "comp 8, raised" COMMA VS SEMI COLON
+- ERROR: user raises, doesn't set new amount to call! Fixed? Double check this!
+- also, is betting less than it should when the user is big blind or small blind...
+- user should only be allowed to BET or ALL
+- need to : re set round
+- need to : exchange player chips to larger chips 
+- need a pot to coins functions DONE
+- just need to compare string values and  declare winner DONE
+- remember to include copywrite from slick2d dfo http://slick.ninjacave.com/license/
+- need to sort a player's hand by value DONE
+- need the pot to remember what coins were added DONE
+- need to show hands and determine winner...show each person's card's in the scrolling info tab..larger card image...say what they have, say what user has, then say winner DONE
+- i want: button is held down on up or down button, scroll that direction quickly! DONE
+minimum bet doesn't take into account money which user h
+- to do: need to add up arrow, down arrow, and make text apper on left hand side scrolling information ar
+- to do: reset all player info at the beginning of each round, especially totalBetThisRound =0
+- add delay between computer's each making their moves? 1 second? so user can se ewhat is going on?
+- so fixed a lot of stuff. logic for game movement and workflow works okays. w
+- figure out rest of logic for getting bets from all around table
+- look at player compCall compRaise lots of issues here --> fixed
+- pot is increasaing by their total bet, not their most recent be --> fixed
+- add: totalBetThisRound to display of table player --> WORK ON THIS NOW
+- pot amount is wrong too -- fixed??
+- if user is SB, money displayed is 10 dollars more than everyone else 
+-user's total money is 20 dollars lower when user is to left of BB, 20$ more when to right of BB
+- user call button works wrong, adds an aditional 20$ if previous person is BB
+- make a MONEY VALUE to CHIPS[][], [][] etc etc function
+- BUG: --> minimum bet is not being subtracted from user's money...should have them make it up to the minimum bet FIXED
+- BUG: --> Board, displaying chips shows 1000$ chip when it shouldnt (if you remove all the 500$ ones)
+- figure out how to get the actual round (make copy? point to array list?)
+- make main menu?
+- make bet, check, fold, call, plus, minus buttons --> mouseOverArea, eventListeners!!!
+- when plus or minus sign is clicked (minus sign only when betAMount > 0)... plus... need to know minimum allowable bet or raise... LOOK AT RULES.. make more variables
+- make it so that when you click it, colour changes or something
+- when the mouse is over it, colour changes
+- sound
+
+- display scrolling field (recent bets, calls, game actions) --> two possible sizes, depending on number of players!!!!!!
+- display user options menu (for selecting stuff)
+- display POT in TABLE
+- eventually, animation for cards and chips
+- make opening menu
+- make options menu
+- get input by typing and clicking
+- make user turn menu (clicking)
+- sounds!!! Background music
+
+- have options menu in top right -> be able to save game!! save all chip player money and position (dealers buttons) level small blind big blind round number and card information to text file!!!! )

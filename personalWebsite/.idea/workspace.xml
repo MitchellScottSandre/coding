@@ -2,7 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9bdcaa51-4959-4502-bc56-9aae4320be5b" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../personalWebsite2/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../personalWebsite2/img/portfolio/fullsize/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../personalWebsite2/img/portfolio/fullsize/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../personalWebsite2/img/portfolio/fullsize/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../personalWebsite2/img/portfolio/fullsize/4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../personalWebsite2/img/portfolio/fullsize/5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../personalWebsite2/img/portfolio/fullsize/6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../personalWebsite2/img/portfolio/thumbnails/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../personalWebsite2/img/portfolio/thumbnails/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../personalWebsite2/img/portfolio/thumbnails/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../personalWebsite2/img/portfolio/thumbnails/4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../personalWebsite2/img/portfolio/thumbnails/5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../personalWebsite2/img/portfolio/thumbnails/6.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../personalWebsite2/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../personalWebsite2/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../personalWebsite2/css/creative.css" afterPath="$PROJECT_DIR$/../personalWebsite2/css/creative.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../personalWebsite2/css/creative.min.css" afterPath="$PROJECT_DIR$/../personalWebsite2/css/creative.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../personalWebsite2/index.html" afterPath="$PROJECT_DIR$/../personalWebsite2/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../personalWebsite2/less/creative.less" afterPath="$PROJECT_DIR$/../personalWebsite2/less/creative.less" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -295,12 +313,12 @@
       <workItem from="1482282343645" duration="352000" />
       <workItem from="1482282852821" duration="1161000" />
       <workItem from="1482331253535" duration="6182000" />
-      <workItem from="1482341244757" duration="313000" />
+      <workItem from="1482341244757" duration="886000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28700000" />
+    <option name="totallyTimeSpent" value="29273000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

@@ -27,6 +27,9 @@ My Projects
 My Resume
 Important Links (facebook, github, wakatime, linkedin)
 Good Coding Playlists (lists! nice icons! artist name, song name, length, year, album artwork, etc :) )
+Tutoring
+Source Code
+
 
 Have the block scroll down and hit next block, top block gets pushed out of sight (like apple scrolling) )
 

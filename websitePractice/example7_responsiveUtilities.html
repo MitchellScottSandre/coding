@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--For faster mobile-friendly development, use these utility classes for showing and hiding content by device via media query. Also included are utility classes for toggling content when printed.-->
+<!--.visible-xs-     only visible on extra small devices (Phones)-->
+<!--.visible-sm-     only visible on small devices (tablets)-->
+<!--.visible-md-     only visible on medium devices (desktops)-->
+<!--.visible-lg      only visible on large devices (desktops)-->
+<!--.hidden-xs &ndash;&gt; only hidden on extra small devices-->
+<!--.hidden-sm &ndash;&gt; only hidden on small devices -->
+<!--etc-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Example 7: Utilities for Mobile vs Web</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class = "container" style = "padding: 40px;">
+        <div class = "row visible-on">
+            <div class = "col-xs-6 col-sm-3" style = "background-color: #dedef8;
+             box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                <span class = "hidden-xs">Extra small</span>
+                <span class = "visible-xs">✔ Visible on x-small</span>
+            </div>
+            <div class = "col-xs-6 col-sm-3" style = "background-color: #dedef8;
+             box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                <span class = "hidden-sm">Small</span>
+                <span class = "visible-sm">✔ Visible on small</span>
+            </div>
+            <div class = "clearfix visible-xs"></div>
+            <div class = "col-xs-6 col-sm-3" style = "background-color: #dedef8;
+             box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                <span class = "hidden-md">Medium</span>
+                <span class = "visible-md">✔ Visible on medium</span>
+            </div>
+
+            <div class = "col-xs-6 col-sm-3" style = "background-color: #dedef8;
+             box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+                <span class = "hidden-lg">Large</span>
+                <span class = "visible-lg">✔ Visible on large</span>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

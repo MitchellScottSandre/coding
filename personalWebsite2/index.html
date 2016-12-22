@@ -108,11 +108,13 @@
             <div class="header-content-inner">
                 <h1 id="homeHeading">Welcome</h1>
                 <hr>
-                <p>I'm Scott, a Software Engineering Student at the University of Waterloo.</p>
+                <p>I'm Scott, a Software Engineering Student at the University of Waterloo</p>
                 <p>Scroll down to learn more about me!</p>
                 <br/>
 
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Go to About Me</a>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">
+                    About Me <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+                </a>
 
             </div>
         </div>
@@ -120,13 +122,20 @@
 
 
     <section class="bg-primary" id="about">
-        <div class="container">
+        <div class="container"><!--start container primary-->
             <div class="row">
-                <div class="col-lg-12  text-left">
+                <div class="col-lg-9  text-left">
                     <h1 class="section-heading"><strong>A Bit About Me:</strong></h1>
-                    <br>
-                    <div class="visible-lg visible-md ">
-                        <div class="row">
+                </div>
+                <div class="col-lg-3 text-right">
+                    <a href="#moreAboutMe" class="page-scroll btn btn-default btn-xl sr-button">
+                        Photos <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+            <br>
+            <div class="visible-lg visible-md "><!--  visible MD LG -->
+                <div class="row">
                             <div class="col-md-4 ">
                                  <img  src="img/aboutMe/profile2.jpg" class="img-rounded img-responsive"  >
                             </div>
@@ -146,20 +155,20 @@
                                 <br/>
                             </div>
 
-                        </div>
-                    </div>
+                </div>
+            </div><!--  end of visible MD LG -->
 
 
-                    <div class="visible-xs visible-sm">
-                        <div class="row">
+            <div class="visible-xs visible-sm"><!--  visible XS SM -->
+                <div class="row">
                             <div class="col-xs-4 col-sm-4"></div>
                             <div class="col-xs-4 col-sm-4">
                                 <img  src="img/aboutMe/profile2.jpg" class="img-rounded img-responsive"  >
                             </div>
                             <div class="col-xs-4 col-sm-4"></div>
-                        </div>
+                </div>
                         <br>
-                        <div class="row">
+                <div class="row">
                             <div class="col-xs-12 ">
 
                                 <p align = "center">I'm a hardworking, dedicated person who enjoys the challenge of learning new concepts and applying new skills. </p>
@@ -176,11 +185,12 @@
                                 <p2>WakaTime: <a href="https://wakatime.com/@scottsandre"><u>https://wakatime.com/@scottsandre</u></a></p2><br/>
                                 <br/>
                             </div>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
+
+            </div><!--  end of visible XS SM -->
+
+
+
 
 
             <!--<h3>Where Am I Now?</h3>-->
@@ -387,13 +397,16 @@
                     </div2>
 
                 </div><!-- END CO OP 2017 ROW -->
-            </div>
+            </div><!--end visible xs sm -->
+        </div><!--end container primary-->
+    </section>
 
-
-
-                <br>
+    <!--===================NEW SECTION A BIT MORE ABOUT ME DIFFERENT COLOUR ========= -->
+    <section class="bg-secondary" id="moreAboutMe">
+        <div class="container">
+            <br/>
+            <h1 class="section-heading" align = "right"><strong>A Bit More About Me:</strong></h1>
                     <div class="row">
-
                         <div class="visible-lg visible-md ">
                             <p>I enjoy coding, music, and spending time with my friends and family</p>
                                 <div class="w3-row-padding">
@@ -496,7 +509,9 @@
                         <br>
                     </div>
                     <br>
-                    <a href="#projects" class="page-scroll btn btn-default btn-xl sr-button">Go to Projects</a>
+                    <a href="#projects" class="page-scroll btn btn-default btn-xl sr-button">
+                        Projects<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+                    </a>
                     <br>
 
         </div><!--End of Container-->
@@ -508,8 +523,13 @@
     <section id="projects">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-left">
-                    <h1 class="section-heading"><strong>My Projects</strong></h2>
+                <div class="col-lg-9 text-left">
+                    <h1 class="section-heading-2"><strong>My Projects</strong></h2>
+                </div>
+                <div class="col-lg-3 text-right">
+                    <a href="#resume" class="btn btn-primary btn-xl page-scroll">
+                        Resume <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+                    </a>
                 </div>
             </div>
             <br/>
@@ -521,25 +541,53 @@
                     <li data-target="#myCarousel" data-slide-to="1" class=""></li>
                     <li data-target="#myCarousel" data-slide-to="2" class=""></li>
                     <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+                    <li data-target="#myCarousel" data-slide-to="4" class=""></li>
                 </ol>
                 <div class="carousel-inner" role="listbox">
 
                     <div class="item">
-                        <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
                         <div class="container">
                             <div class="carousel-caption">
-                                <h1>Texas Hold 'Em </h1>
-                                <p>aaa</p>
-                                <p>bbb</p>
-                                <p><a class="btn btn-lg btn-primary" href="https://getbootstrap.com/examples/carousel/#" role="button">View Source Code</a></p>
-                            </div>
+                                <h1>Texas Hold 'Em - Glance </h1>
+                                <div2 class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-10">
+                                        <img class="img-rounded" src="img/poker/img2.jpg"style="width:100%;" >
+                                    </div>
+                                    <div class="col-xs-1"></div>
 
+                                </div2>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item next left">
+                        <!--class="third-slide"-->
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>Texas Hold 'Em - Detail</h1>
+                                <p align = "left"><strong>Language:</strong> Java</p>
+                                <p align = "left"><strong>Description:</strong> Complete Texas Hold 'Em Poker game with competitive AI, each with their own unique play personalities and statistics-based decision making. Board contains attractive user interface and dynamic table elements and animations. Available on Windows, MacOs, and Linux.</p>
+                                <p align = "left"><strong>Development:</strong> Oct-Dec 2016, Netbeans IDE with Slick 2D Library</p>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <p align = "left"><a class="btn btn-lg btn-primary" href="https://getbootstrap.com/examples/carousel/#" role="button">Download Now</a></p>
+                                    </div>
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-4">
+                                        <p align = "right"><a class="btn btn-lg btn-primary" href="https://github.com/MitchellScottSandre/coding/tree/master/java/PokerGame" role="button">View on GitHub</a></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
 
                     <div class="item active left">
-                        <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+                        <!--class="second-slide"-->
+                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
                         <div class="container">
                             <div class="carousel-caption">
                                 <h1>Matrix Calculator</h1>
@@ -552,7 +600,8 @@
 
 
                     <div class="item next left">
-                        <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+                        <!--class="third-slide"-->
+                        <img  src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
                         <div class="container">
                             <div class="carousel-caption">
                                 <h1>GooseRun!</h1>
@@ -567,8 +616,9 @@
                         <img  src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
                         <div class="container">
                             <div class="carousel-caption">
-                                <h1>One more sdfsdfsdffor good measure.</h1>
-                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                <h1>Abstract Strategy Games</h1>
+                                <p>ggggg</p>
+                                <p>hhhh</p>
                                 <p><a class="btn btn-lg btn-primary" href="https://getbootstrap.com/examples/carousel/#" role="button">Browse gallery</a></p>
                             </div>
                         </div>

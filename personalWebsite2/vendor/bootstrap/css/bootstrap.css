@@ -6235,6 +6235,8 @@ button.close {
   border-left-color: #fff;
 }
 .carousel {
+  border-radius: 55px 55px 55px 55px;
+  overflow: hidden;
   position: relative;
 }
 .carousel-inner {
@@ -6243,6 +6245,7 @@ button.close {
   overflow: hidden;
 }
 .carousel-inner > .item {
+  overflow: hidden;
   position: relative;
   display: none;
   -webkit-transition: .6s ease-in-out left;
@@ -6315,6 +6318,8 @@ button.close {
   left: 100%;
 }
 .carousel-control {
+  overflow: hidden;
+  border-radius: 55px 55px 55px 55px;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -6329,6 +6334,7 @@ button.close {
   opacity: .5;
 }
 .carousel-control.left {
+  border-radius: 25px;
   background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .0001) 100%);
   background-image:      -o-linear-gradient(left, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .0001) 100%);
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .5)), to(rgba(0, 0, 0, .0001)));
@@ -6337,6 +6343,7 @@ button.close {
   background-repeat: repeat-x;
 }
 .carousel-control.right {
+  border-radius: 25px;
   right: 0;
   left: auto;
   background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .0001) 0%, rgba(0, 0, 0, .5) 100%);

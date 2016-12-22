@@ -432,6 +432,7 @@ int determineIfAWinner(int passedBoard[3][3][3], bool actualWinner) { //checks a
         isAWinner = true && actualWinner;
         return passedBoard[0][2][2] ;
     }
+    return -1;
 }
 
 void randomTurn() {

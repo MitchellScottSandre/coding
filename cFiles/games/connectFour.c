@@ -524,7 +524,7 @@ void startScreen(){
     printf("\n");
 }
 
-void main() {
+int main(void) {
      int numberRows = 6;//rows
      int numberCols = 10;//cols
     const int xWidth = 8;
@@ -630,4 +630,6 @@ void main() {
     if (userScore == scoreLimit){
         printf("Congrats! You won!\n");
     } else { printf("Oh no! You lost!\n");}
+
+    return 0;
 }

@@ -39,20 +39,31 @@ body {
 
 /* Carousel base class */
 .carousel {
+  overflow: hidden;
+  border-radius: 55px 55px 55px 55px;
   height: 500px;
   margin-bottom: 60px;
+  z-index: 1000;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
+  top: 0;
+  bottom: auto;
   z-index: 10;
+}
+
+.carousel-footer{
+  bottom: 0;
 }
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
+  border-radius: 25px;
   height: 500px;
-  background-color: #777;
+  background-color: #000000;
 }
-.carousel-inner > .item > img {
+
+rousel-inner > .item > img {
   position: absolute;
   top: 0;
   left: 0;
@@ -121,6 +132,8 @@ body {
     font-size: 21px;
     line-height: 1.4;
   }
+
+
 
   .featurette-heading {
     font-size: 50px;

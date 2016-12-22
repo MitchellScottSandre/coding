@@ -23,7 +23,9 @@
     <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="css/creative.min.css" rel="stylesheet">
+    <link href="css/creative.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,18 +34,28 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" href="css/modal.css">
+    <link href="css/carousel.css" rel="stylesheet">
     <!--<link rel="stylesheet" href="http://www.modalschools.com/lib/w3.css">-->
     <style>
         p2 {
             font-size: 16px;
             line-height: 1.7;
             margin-bottom: 5px;
+
         }
         div2{
              text-align:center;
          }
         div3{
             text-align:left;
+        }
+
+        rounded{
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
@@ -101,7 +113,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12  text-left">
-                    <h1 class="section-heading">A Bit About Me:</h1>
+                    <h1 class="section-heading"><strong>A Bit About Me:</strong></h1>
                     <br>
                     <div class="visible-lg visible-md ">
                         <div class="row">
@@ -109,20 +121,19 @@
                                  <img  src="img/aboutMe/profile2.jpg" class="img-rounded img-responsive"  >
                             </div>
                             <div class="col-md-8">
+                                <p2>I'm a hardworking, dedicated person who enjoys the challenge of learning new concepts and applying new skills. </p2><br/>
                                 <br/>
-                                <br/>
+
                                 <p2><strong>From:</strong> Oakville, Ontario, Canada</p2><br/>
                                 <p2>Education: University of Waterloo > Software Engineering</p2><br/>
                                 <p2>Most Experienced With: Java, C, C++, HTML, Debugging, Game Logic Development</p2><br/>
                                 <br>
-                                <br/>
+
                                 <p2>GitHub: <a href="http://www.github.com/MitchellScottSandre"><u>github.com/MitchellScottSandre</u></a></p2><br/>
                                 <p2>LinkedIn: <a href="http://www.linkedin.com/in/mitchellscottsandre"><u>linkedin.com/in/MitchellScottSandre</u></p2><br/>
                                 <p2>DevPost: <a href="https://devpost.com/MitchellScottSandre?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav"><u>http://devpost.com/MithellScottSandre</u></a></p2><br/>
                                 <p2>WakaTime: <a href="https://wakatime.com/@scottsandre"><u>https://wakatime.com/@scottsandre</u></a></p2><br/>
                                 <br/>
-
-
                             </div>
 
                         </div>
@@ -133,199 +144,332 @@
                         <div class="row">
                             <div class="col-xs-4 col-sm-4"></div>
                             <div class="col-xs-4 col-sm-4">
-                                <img  src="img/aboutMe/profile.jpg" class="img-rounded img-responsive"  >
+                                <img  src="img/aboutMe/profile2.jpg" class="img-rounded img-responsive"  >
                             </div>
                             <div class="col-xs-4 col-sm-4"></div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-xs-12 ">
-                                <ul>
-                                    <li><strong>From:</strong> Oakville, Ontario, Canada</li>
-                                    <li>Education: University of Waterloo > Software Engineering</li>
-                                    <li>Most Experienced With: Java, C, C++, HTML, Debugging, Game Logic Development</li>
-                                    <br>
-                                    <li>GitHub: <a href="http://www.github.com/MitchellScottSandre"><u>github.com/MitchellScottSandre</u></a></li>
-                                    <li>LinkedIn: <a href="http://www.linkedin.com/in/mitchellscottsandre"><u>linkedin.com/in/MitchellScottSandre</u></a></li>
-                                    <li>DevPost: <a href="https://devpost.com/MitchellScottSandre?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav"><u>http://devpost.com/MithellScottSandre</u></a></li>
-                                    <li>WakaTime: <a href="https://wakatime.com/@scottsandre"><u>https://wakatime.com/@scottsandre</u></a></li>
-                                </ul>
+                                <p2>I'm a hardworking, dedicated person who enjoys the challenge of learning new concepts and applying new skills. </p2>
+                                <br/>
+
+                                <p2><strong>From:</strong> Oakville, Ontario, Canada</p2><br/>
+                                <p2>Education: University of Waterloo > Software Engineering</p2><br/>
+                                <p2>Most Experienced With: Java, C, C++, HTML, Debugging, Game Logic Development</p2><br/>
+                                <br>
+
+                                <p2>GitHub: <a href="http://www.github.com/MitchellScottSandre"><u>github.com/MitchellScottSandre</u></a></p2><br/>
+                                <p2>LinkedIn: <a href="http://www.linkedin.com/in/mitchellscottsandre"><u>linkedin.com/in/MitchellScottSandre</u></p2><br/>
+                                <p2>DevPost: <a href="https://devpost.com/MitchellScottSandre?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav"><u>http://devpost.com/MithellScottSandre</u></a></p2><br/>
+                                <p2>WakaTime: <a href="https://wakatime.com/@scottsandre"><u>https://wakatime.com/@scottsandre</u></a></p2><br/>
+                                <br/>
                             </div>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <br/>
-            <h3>Where Am I Now?</h3>
-            <div class="row"> <!-- Checkmark Row -->
 
-                <div class="col-xs-3"><p align = "center">Co Op 2k16</p></div>
-                <div class="col-xs-3"><p align = "center">Fall 2k16</p></div>
-                <div class="col-xs-3"><p align = "center">Winter 2k17</p></div>
-                <div class="col-xs-3"><p align = "center">Co Op 2k17</p></div>
-            </div>
-            <div class="row"> <!-- Checkmark Row -->
-                        <div class="col-xs-3"></div>
-                        <div class="col-xs-3"></div>
-                        <div class="col-xs-3">
-                            <p align = "center">
+
+            <!--<h3>Where Am I Now?</h3>-->
+            <div class="visible-lg visible-md visible-sm"> <!-- WHERE AM I NOW -- VISIBLE ON LARGE AND MEDIUM AND SMALL-->
+                <div class="row"> <!-- Checkmark Row -->
+                    <div class="col-xs-3"></div>
+                    <div class="col-xs-3"></div>
+                    <div class="col-xs-3">
+                        <p align = "center">
                             <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                            </p>
+                        </p>
+                    </div>
+                    <div class="col-xs-3"></div>
+                </div>
+                <div class="row"> <!-- Year and month Row -->
+
+                    <div class="col-xs-3"><p align = "center">Co Op 2016</p></div>
+                    <div class="col-xs-3"><p align = "center">Fall 2016</p></div>
+                    <div class="col-xs-3"><p align = "center">Winter 2017</p></div>
+                    <div class="col-xs-3"><p align = "center">Co Op 2017</p></div>
+                </div>
+
+
+                <div class="row"> <!-- Drop Down Info Row -->
+                    <div2 class="col-xs-3">
+                        <p>
+                            <a class="btn btn-success" data-toggle="collapse" href="#collapseTD" aria-expanded="false" aria-controls="collapseExample">
+                                TD Securities  <span class="glyphicon glyphicon-menu-down" aria-hidden="true">
+
+                            </a>
+
+                        </p>
+                        <div class="collapse" id="collapseTD">
+                            <div3 class="card card-block">
+                                <u1>
+                                    <li>"Co Op" / Assiciate Intern</li>
+                                    <li>Solutions Developer</li>
+                                </u1>
+                            </div3>
                         </div>
-                        <div class="col-xs-3"></div>
+                    </div2>
+
+
+                    <div2 class="col-xs-3">
+                        <p>
+                            <a class="btn btn-warning" data-toggle="collapse" href="#collapse1A" aria-expanded="false" aria-controls="collapseExample">
+                                SE: 1A  <span class="glyphicon glyphicon-menu-down" aria-hidden="true">
+                            </a>
+
+                        </p>
+                        <div class="collapse" id="collapse1A">
+                            <div3 class="card card-block">
+                                <u1>
+                                    <li>Programming Principles</li>
+                                    <li>Calculus 1 for Engineers</li>
+                                    <li>Linear Algebra</li>
+                                    <li>Linear Circuits</li>
+                                    <li>Physics of Electrical Eng. 1</li>
+                                </u1>
+                            </div3>
+                        </div>
+                    </div2>
+
+
+                    <div2 class="col-xs-3">
+                        <p>
+                            <a class="btn btn-info" data-toggle="collapse" href="#collapse1B" aria-expanded="false" aria-controls="collapseExample">
+                                SE: 1B  <span class="glyphicon glyphicon-menu-down" aria-hidden="true">
+                            </a>
+
+                        </p>
+                        <div class="collapse" id="collapse1B">
+                            <div3 class="card card-block">
+                                <u1>
+                                    <li>Data Abstraction and Implementation</li>
+                                    <li>Calculus 2 for Engineers</li>
+                                    <li>Honours Algebra</li>
+                                    <li>Digital Circuits and Systems</li>
+                                    <li>Physics of Electrical Eng. 2</li>
+                                </u1>
+                            </div3>
+                        </div>
+                    </div2>
+
+
+                    <div2 class="col-xs-3">
+                        <p>
+                            <a class="btn btn-danger" data-toggle="collapse" href="#collapseCP2k17" aria-expanded="false" aria-controls="collapseExample">
+                                Working for You?  <span class="glyphicon glyphicon-menu-down" aria-hidden="true">
+                            </a>
+
+                        </p>
+                        <div class="collapse" id="collapseCP2k17">
+                            <div3 class="card card-block">
+                                <u1>
+                                    <li><a href="#contact"><u>Contact Me</u></a></li>
+                                </u1>
+                            </div3>
+                        </div>
+                    </div2>
+
+                </div>
+            </div><!--END OF VISIBLE ON LARGE AND MEDIUM-->
+
+            <div class="visible-xs "> <!--WHERE AM I NOW -- VISIBLE ON EXTRA SMALL ONLYL-->
+                <div class="row"><!-- TD ROW -->
+                    <div2 class = "col-xs-2"></div2>
+                    <div2 class = "col-xs-3">Co Op 2016</div2>
+
+                    <div2 class = "col-xs-7">
+                        <p>
+                            <a class="btn btn-success" data-toggle="collapse" href="#collapseTD2" aria-expanded="false" aria-controls="collapseExample">
+                                TD Securities  <span class="glyphicon glyphicon-menu-down" aria-hidden="true">
+
+                            </a>
+
+                        </p>
+                        <div class="collapse" id="collapseTD2">
+                            <div3 class="card card-block">
+                                <u1>
+                                    <li>"Co Op" / Assiciate Intern</li>
+                                    <li>Solutions Developer</li>
+                                </u1>
+                            </div3>
+                        </div>
+                    </div2>
+
+                </div><!-- END TD ROW -->
+
+                <div class="row"><!-- 1A ROW -->
+                    <div2 class = "col-xs-2"></div2>
+                    <div2 class = "col-xs-3">Fall 2016</div2>
+
+                    <div2 class = "col-xs-7">
+                        <p>
+                            <a class="btn btn-warning" data-toggle="collapse" href="#collapse1A2" aria-expanded="false" aria-controls="collapseExample">
+                                SE: 1A  <span class="glyphicon glyphicon-menu-down" aria-hidden="true">
+                            </a>
+
+                        </p>
+                        <div class="collapse" id="collapse1A2">
+                            <div3 class="card card-block">
+                                <u1>
+                                    <li>Programming Principles</li>
+                                    <li>Calculus 1 for Engineers</li>
+                                    <li>Linear Algebra</li>
+                                    <li>Linear Circuits</li>
+                                    <li>Physics of Electrical Eng. 1</li>
+                                </u1>
+                            </div3>
+                        </div>
+                    </div2>
+
+                </div><!-- END 1A ROW -->
+
+                <div class="row"><!-- 1B ROW -->
+                    <div2 class = "col-xs-2">
+                        <p align = "center">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </p>
+                    </div2>
+                    <div2 class = "col-xs-3">Winter 2017</div2>
+
+                    <div2 class = "col-xs-7">
+                        <p>
+                            <a class="btn btn-info" data-toggle="collapse" href="#collapse1B2" aria-expanded="false" aria-controls="collapseExample">
+                                SE: 1B  <span class="glyphicon glyphicon-menu-down" aria-hidden="true">
+                            </a>
+
+                        </p>
+                        <div class="collapse" id="collapse1B2">
+                            <div3 class="card card-block">
+                                <u1>
+                                    <li>Data Abstraction and Implementation</li>
+                                    <li>Calculus 2 for Engineers</li>
+                                    <li>Honours Algebra</li>
+                                    <li>Digital Circuits and Systems</li>
+                                    <li>Physics of Electrical Eng. 2</li>
+                                </u1>
+                            </div3>
+                        </div>
+                    </div2>
+
+                </div><!-- END 1B ROW -->
+
+                <div class="row"><!-- CO OP 2017ROW -->
+                    <div2 class = "col-xs-2"></div2>
+                    <div2 class = "col-xs-3">Co Op 2017</div2>
+
+                    <div2 class = "col-xs-7">
+                        <p>
+                            <a class="btn btn-danger" data-toggle="collapse" href="#collapseCP2k17v2" aria-expanded="false" aria-controls="collapseExample">
+                                Working for You?  <span class="glyphicon glyphicon-menu-down" aria-hidden="true">
+                            </a>
+
+                        </p>
+                        <div class="collapse" id="collapseCP2k17v2">
+                            <div3 class="card card-block">
+                                <u1>
+                                    <li><a href="#contact"><u>Contact Me</u></a></li>
+                                </u1>
+                            </div3>
+                        </div>
+                    </div2>
+
+                </div><!-- END CO OP 2017 ROW -->
             </div>
-            <div class="row"> <!-- Progress Bar Row -->
-                        <div class="col-xs-3">
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                                    <span class="sr-only">100% Complete(success)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                                    <span class="sr-only">100% Complete(warning)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="progress">
-                                <div class="progress-bar " role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                                    <span class="sr-only">100% Complete</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="progress">
-                                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-                                    <span class="sr-only">100% Complete(danger)</span>
-                                </div>
-                            </div>
-                        </div>
 
 
-            </div>
-            <div class="row"> <!-- Drop Down Info Row -->
-                <div2 class="col-xs-3">
-                    <p>
-                        <a class="btn btn-success" data-toggle="collapse" href="#collapseTD" aria-expanded="false" aria-controls="collapseExample">
-                            TD Securities
-                        </a>
 
-                    </p>
-                    <div class="collapse" id="collapseTD">
-                        <div3 class="card card-block">
-                            <u1>
-                                <li>"Co Op" / Assiciate Intern</li>
-                                <li>Solutions Developer</li>
-                            </u1>
-                        </div3>
-                    </div>
-                </div2>
-
-
-                <div2 class="col-md-3">
-                    <p>
-                        <a class="btn btn-warning" data-toggle="collapse" href="#collapse1A" aria-expanded="false" aria-controls="collapseExample">
-                            SE: 1A
-                        </a>
-
-                    </p>
-                    <div class="collapse" id="collapse1A">
-                        <div3 class="card card-block">
-                            <u1>
-                                <li>Programming Principles</li>
-                                <li>Calculus 1 for Engineers</li>
-                                <li>Linear Algebra</li>
-                                <li>Linear Circuits</li>
-                                <li>Physics of Electrical Eng. 1</li>
-                            </u1>
-                        </div3>
-                    </div>
-                </div2>
-
-
-                <div2 class="col-md-3">
-                    <p>
-                        <a class="btn btn-primary" data-toggle="collapse" href="#collapse1B" aria-expanded="false" aria-controls="collapseExample">
-                            SE: 1B
-                        </a>
-
-                    </p>
-                    <div class="collapse" id="collapse1B">
-                        <div3 class="card card-block">
-                            <u1>
-                                <li>Data Abstraction and Implementation</li>
-                                <li>Calculus 2 for Engineers</li>
-                                <li>Honours Algebra</li>
-                                <li>Digital Circuits and Systems</li>
-                                <li>Physics of Electrical Eng. 2</li>
-                            </u1>
-                        </div3>
-                    </div>
-                </div2>
-
-
-                <div2 class="col-md-3">
-                    <p>
-                        <a class="btn btn-danger" data-toggle="collapse" href="#collapseCP2k17" aria-expanded="false" aria-controls="collapseExample">
-                            Working for You?
-                        </a>
-
-                    </p>
-                    <div class="collapse" id="collapseCP2k17">
-                        <div3 class="card card-block">
-                            <u1>
-                                <li><a href="#contact"><u>Contact Me</u></a></li>
-                            </u1>
-                        </div3>
-                    </div>
-                </div2>
-
-            </div>
-            <br>
-            <div class="row">
+                <br>
+                    <div class="row">
                         <p>I enjoy coding, music, and spending time with my friends and family</p>
-                        <div class="w3-row-padding">
-                            <div class="col-xs-6 col-md-3">
-                                <img class="img-rounded" src="img/aboutMe/img1.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
-                            </div>
-                            <div class="col-xs-6 col-md-3">
-                                <img class="img-rounded" src="img/aboutMe/img2.jpg"  style="width:100%;cursor:zoom-in" onclick="onClick(this)">
-                            </div>
-                            <div class="col-xs-6 col-md-3">
-                                <img class="img-rounded" src="img/aboutMe/img3.jpg" style="width:100%;cursor:zoom-in"onclick="onClick(this)">
-                            </div>
-                            <div class="col-xs-6 col-md-3">
-                                <img class="img-rounded" src="img/aboutMe/img4.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
-                            </div>
+                        <div class="visible-lg visible-md ">
+                                <div class="w3-row-padding">
+                                    <div class="col-sm-3">
+                                        <img class="img-rounded" src="img/aboutMe/img3.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="img-rounded" src="img/aboutMe/img2.jpg"  style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="img-rounded" src="img/aboutMe/img1.jpg" style="width:100%;cursor:zoom-in"onclick="onClick(this)">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <img class="img-rounded" src="img/aboutMe/img4.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+                                    </div>
 
+                                </div>
                         </div>
-
+                        <div class="visible-sm visible-xs ">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <img class="img-rounded" src="img/aboutMe/img3.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <img class="img-rounded" src="img/aboutMe/img2.jpg"  style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <img class="img-rounded" src="img/aboutMe/img1.jpg" style="width:100%;cursor:zoom-in"onclick="onClick(this)">
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <img class="img-rounded" src="img/aboutMe/img4.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+                                    </div>
+                                </div>
+                        </div>
                         <br>
 
                         <p>I also try to take decent photos with my iPhone</p>
 
                         <div class="w3-row-padding">
-                            <div class="col-xs-4 col-md-2">
-                                <img class="img-rounded" src="img/waterloo/img1.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+                            <div class="visible-lg visible-md ">
+                                    <div class="col-xs-4 col-md-2">
+                                        <img class="img-rounded" src="img/waterloo/img1.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+                                    </div>
+                                    <div class="col-xs-4 col-md-2">
+                                        <img class="img-rounded" src="img/waterloo/img2.jpg"  style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+                                    </div>
+                                    <div class="col-xs-4 col-md-2">
+                                        <img class="img-rounded" src="img/waterloo/img5.jpg" style="width:100%;cursor:zoom-in"onclick="onClick(this)">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img class="img-rounded" src="img/waterloo/img4.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img class="img-rounded" src="img/waterloo/img3.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img class="img-rounded" src="img/waterloo/img6.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+                                    </div>
                             </div>
-                            <div class="col-xs-4 col-md-2">
-                                <img class="img-rounded" src="img/waterloo/img2.jpg"  style="width:100%;cursor:zoom-in" onclick="onClick(this)">
-                            </div>
-                            <div class="col-xs-4 col-md-2">
-                                <img class="img-rounded" src="img/waterloo/img5.jpg" style="width:100%;cursor:zoom-in"onclick="onClick(this)">
-                            </div>
-                            <div class="col-xs-4 col-md-2">
-                                <img class="img-rounded" src="img/waterloo/img4.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
-                            </div>
-                            <div class="col-xs-4 col-md-2">
-                                <img class="img-rounded" src="img/waterloo/img3.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
-                            </div>
-                            <div class="col-xs-4 col-md-2">
-                                <img class="img-rounded" src="img/waterloo/img6.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+
+                            <div class="visible-sm visible-xs ">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <img class="img-rounded" src="img/waterloo/img1.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <img class="img-rounded" src="img/waterloo/img2.jpg"  style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <img class="img-rounded" src="img/waterloo/img5.jpg" style="width:100%;cursor:zoom-in"onclick="onClick(this)">
+                                    </div>
+                                </div>
+                                <br/>
+
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <img class="img-rounded" src="img/waterloo/img4.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <img class="img-rounded" src="img/waterloo/img3.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <img class="img-rounded" src="img/waterloo/img6.jpg" style="width:100%;cursor:zoom-in" onclick="onClick(this)">
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -340,7 +484,7 @@
                     <br>
                     <a href="#projects" class="page-scroll btn btn-default btn-xl sr-button">Go to Projects</a>
                     <br>
-            </div>
+
         </div><!--End of Container-->
 
     </section>
@@ -348,11 +492,83 @@
     <section id="projects">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12 text-right">
-                    <h2 class="section-heading">My Projects</h2>
-                    <hr class="primary">
+                <div class="col-lg-12 text-left">
+                    <h1 class="section-heading"><strong>My Projects</strong></h2>
                 </div>
             </div>
+            <!-- Carousel
+    ================================================== -->
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                    <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+                    <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+
+                    <div class="item">
+                        <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>Example headline.</h1>
+                                <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                                <p><a class="btn btn-lg btn-primary" href="https://getbootstrap.com/examples/carousel/#" role="button">Sign up today</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="item active left">
+                        <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>Another example headline.</h1>
+                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                <p><a class="btn btn-lg btn-primary" href="https://getbootstrap.com/examples/carousel/#" role="button">Learn more</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="item next left">
+                        <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>One more for good measure.</h1>
+                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                <p><a class="btn btn-lg btn-primary" href="https://getbootstrap.com/examples/carousel/#" role="button">Browse gallery</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item next left">
+                        <img  src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>One more sdfsdfsdffor good measure.</h1>
+                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                <p><a class="btn btn-lg btn-primary" href="https://getbootstrap.com/examples/carousel/#" role="button">Browse gallery</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <a class="left carousel-control" href="https://getbootstrap.com/examples/carousel/#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="https://getbootstrap.com/examples/carousel/#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div><!-- /.carousel -->
+
+
         </div>
         <div class="container">
 
@@ -395,6 +611,20 @@
         </div>
     </section>
 
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <!--<script src="js/bootstrap.min.js"></script>-->
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="js/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
 
@@ -406,6 +636,10 @@
     <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
     <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
+
+
+
+
     <!-- Theme JavaScript -->
     <script src="js/creative.min.js"></script>
 
@@ -415,7 +649,339 @@
             document.getElementById("modal01").style.display = "block";
         }
     </script>
+    <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">500x500</text></svg></body><script>function inject() {
 
+    var originalOpenWndFnKey = "originalOpenFunction";
+
+    var originalWindowOpenFn 	= window.open,
+        originalCreateElementFn = document.createElement,
+        originalCreateEventFn 	= document.createEvent,
+        windowsWithNames = {};
+    var timeSinceCreateAElement = 0;
+    var lastCreatedAElement = null;
+    var fullScreenOpenTime;
+    var parentOrigin = (window.location != window.parent.location) ? document.referrer: document.location;
+
+    window[originalOpenWndFnKey] = window.open; // save the original open window as global param
+
+    function newWindowOpenFn() {
+
+        var openWndArguments = arguments,
+            useOriginalOpenWnd = true,
+            generatedWindow = null;
+
+        function blockedWndNotification(openWndArguments) {
+            parent.postMessage({ type: "blockedWindow", args: JSON.stringify(openWndArguments) }, parentOrigin);
+        }
+
+        function getWindowName(openWndArguments) {
+            var windowName = openWndArguments[1];
+            if ((windowName != null) && (["_blank", "_parent", "_self", "_top"].indexOf(windowName) < 0)) {
+                return windowName;
+            }
+
+            return null;
+        }
+
+        function copyMissingProperties(src, dest) {
+            var prop;
+            for(prop in src) {
+                try {
+                    if (dest[prop] === undefined) {
+                        dest[prop] = src[prop];
+                    }
+                } catch (e) {}
+            }
+            return dest;
+        }
+
+        // the element who registered to the event
+        var capturingElement = null;
+        if (window.event != null) {
+            capturingElement = window.event.currentTarget;
+        }
+
+        if (capturingElement == null) {
+            var caller = openWndArguments.callee;
+            while ((caller.arguments != null) && (caller.arguments.callee.caller != null)) {
+                caller = caller.arguments.callee.caller;
+            }
+            if ((caller.arguments != null) && (caller.arguments.length > 0) && (caller.arguments[0].currentTarget != null)) {
+                capturingElement = caller.arguments[0].currentTarget;
+            }
+        }
+
+        /////////////////////////////////////////////////////////////////////////////////
+        // Blocked if a click on background element occurred (<body> or document)
+        /////////////////////////////////////////////////////////////////////////////////
+
+        if ((capturingElement != null) && (
+                (capturingElement instanceof Window) ||
+                (capturingElement === document) ||
+                (
+                    (capturingElement.URL != null) && (capturingElement.body != null)
+                ) ||
+                (
+                    (capturingElement.nodeName != null) && (
+                        (capturingElement.nodeName.toLowerCase() == "body") ||
+                        (capturingElement.nodeName.toLowerCase() == "#document")
+                    )
+                )
+            )) {
+            window.pbreason = "Blocked a new window opened with URL: " + openWndArguments[0] + " because it was triggered by the " + capturingElement.nodeName + " element";
+            // console.info(window.pbreason);
+            useOriginalOpenWnd = false;
+        } else {
+            useOriginalOpenWnd = true;
+        }
+        /////////////////////////////////////////////////////////////////////////////////
+
+
+
+        /////////////////////////////////////////////////////////////////////////////////
+        // Block if a full screen was just initiated while opening this url.
+        /////////////////////////////////////////////////////////////////////////////////
+
+        // console.info("fullscreen: " + ((new Date()).getTime() - fullScreenOpenTime));
+        // console.info("webkitFullscreenElement: " + document.webkitFullscreenElement);
+        var fullScreenElement = document.webkitFullscreenElement || document.mozFullscreenElement || document.fullscreenElement
+        if ((((new Date()).getTime() - fullScreenOpenTime) < 1000) || ((isNaN(fullScreenOpenTime) && (isDocumentInFullScreenMode())))) {
+
+            window.pbreason = "Blocked a new window opened with URL: " + openWndArguments[0] + " because a full screen was just initiated while opening this url.";
+            // console.info(window.pbreason);
+
+            /* JRA REMOVED
+             if (window[script_params.fullScreenFnKey]) {
+             window.clearTimeout(window[script_params.fullScreenFnKey]);
+             }
+             */
+
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+            else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            }
+            else if (document.webkitCancelFullScreen) {
+                document.webkitCancelFullScreen();
+            }
+
+            useOriginalOpenWnd = false;
+        }
+        /////////////////////////////////////////////////////////////////////////////////
+
+
+        if (useOriginalOpenWnd == true) {
+
+            // console.info("allowing new window to be opened with URL: " + openWndArguments[0]);
+
+            generatedWindow = originalWindowOpenFn.apply(this, openWndArguments);
+
+            // save the window by name, for latter use.
+            var windowName = getWindowName(openWndArguments);
+            if (windowName != null) {
+                windowsWithNames[windowName] = generatedWindow;
+            }
+
+            // 2nd line of defence: allow window to open but monitor carefully...
+
+            /////////////////////////////////////////////////////////////////////////////////
+            // Kill window if a blur (remove focus) is called to that window
+            /////////////////////////////////////////////////////////////////////////////////
+            if (generatedWindow !== window) {
+                var openTime = (new Date()).getTime();
+                var originalWndBlurFn = generatedWindow.blur;
+                generatedWindow.blur = function() {
+                    if (((new Date()).getTime() - openTime) < 1000 /* one second */) {
+                        window.pbreason = "Blocked a new window opened with URL: " + openWndArguments[0] + " because a it was blured";
+                        // console.info(window.pbreason);
+                        generatedWindow.close();
+                        blockedWndNotification(openWndArguments);
+                    } else {
+                        // console.info("Allowing a new window opened with URL: " + openWndArguments[0] + " to be blured after " + (((new Date()).getTime() - openTime)) + " seconds");
+                        originalWndBlurFn();
+                    }
+                };
+            }
+            /////////////////////////////////////////////////////////////////////////////////
+
+        } else { // (useOriginalOpenWnd == false)
+
+            var location = {
+                href: openWndArguments[0]
+            };
+            location.replace = function(url) {
+                location.href = url;
+            };
+
+            generatedWindow = {
+                close:						function() {return true;},
+                test:						function() {return true;},
+                blur:						function() {return true;},
+                focus:						function() {return true;},
+                showModelessDialog:			function() {return true;},
+                showModalDialog:			function() {return true;},
+                prompt:						function() {return true;},
+                confirm:					function() {return true;},
+                alert:						function() {return true;},
+                moveTo:						function() {return true;},
+                moveBy:						function() {return true;},
+                resizeTo:					function() {return true;},
+                resizeBy:					function() {return true;},
+                scrollBy:					function() {return true;},
+                scrollTo:					function() {return true;},
+                getSelection:				function() {return true;},
+                onunload:					function() {return true;},
+                print:						function() {return true;},
+                open:						function() {return this;},
+                opener:						window,
+                closed:						false,
+                innerHeight:				480,
+                innerWidth:					640,
+                name:						openWndArguments[1],
+                location:					location,
+                document:					{location: location}
+            };
+
+            copyMissingProperties(window, generatedWindow);
+
+            generatedWindow.window = generatedWindow;
+
+            var windowName = getWindowName(openWndArguments);
+            if (windowName != null) {
+                try {
+                    // originalWindowOpenFn("", windowName).close();
+                    windowsWithNames[windowName].close();
+                    // console.info("Closed window with the following name: " + windowName);
+                } catch (err) {
+                    // console.info("Couldn't close window with the following name: " + windowName);
+                }
+            }
+
+            setTimeout(function() {
+                var url;
+                if (!(generatedWindow.location instanceof Object)) {
+                    url = generatedWindow.location;
+                } else if (!(generatedWindow.document.location instanceof Object)) {
+                    url = generatedWindow.document.location;
+                } else if (location.href != null) {
+                    url = location.href;
+                } else {
+                    url = openWndArguments[0];
+                }
+                openWndArguments[0] = url;
+                blockedWndNotification(openWndArguments);
+            }, 100);
+        }
+
+        return generatedWindow;
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////
+    // Replace the window open method with Poper Blocker's
+    /////////////////////////////////////////////////////////////////////////////////
+    window.open = function() {
+        try {
+            return newWindowOpenFn.apply(this, arguments);
+        } catch(err) {
+            return null;
+        }
+    };
+    /////////////////////////////////////////////////////////////////////////////////
+
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Monitor dynamic html element creation to prevent generating <a> elements with click dispatching event
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    document.createElement = function() {
+
+        var newElement = originalCreateElementFn.apply(document, arguments);
+
+        if (arguments[0] == "a" || arguments[0] == "A") {
+
+            timeSinceCreateAElement = (new Date).getTime();
+
+            var originalDispatchEventFn = newElement.dispatchEvent;
+
+            newElement.dispatchEvent = function(event) {
+                if (event.type != null && (("" + event.type).toLocaleLowerCase() == "click")) {
+                    window.pbreason = "blocked due to an explicit dispatchEvent event with type 'click' on an 'a' tag";
+                    // console.info(window.pbreason);
+                    parent.postMessage({type:"blockedWindow", args: JSON.stringify({"0": newElement.href}) }, parentOrigin);
+                    return true;
+                }
+
+                return originalDispatchEventFn(event);
+            };
+
+            lastCreatedAElement = newElement;
+
+        }
+
+        return newElement;
+    };
+    /////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+    /////////////////////////////////////////////////////////////////////////////////
+    // Block artificial mouse click on frashly created <a> elements
+    /////////////////////////////////////////////////////////////////////////////////
+    document.createEvent = function() {
+        try {
+            if ((arguments[0].toLowerCase().indexOf("mouse") >= 0) && ((new Date).getTime() - timeSinceCreateAElement) <= 50) {
+                window.pbreason = "Blocked because 'a' element was recently created and " + arguments[0] + " event was created shortly after";
+                // console.info(window.pbreason);
+                arguments[0] = lastCreatedAElement.href;
+                parent.postMessage({ type: "blockedWindow", args: JSON.stringify({"0": lastCreatedAElement.href}) }, parentOrigin);
+                return null;
+            }
+            return originalCreateEventFn.apply(document, arguments);
+        } catch(err) {}
+    };
+    /////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+    /////////////////////////////////////////////////////////////////////////////////
+    // Monitor full screen requests
+    /////////////////////////////////////////////////////////////////////////////////
+    function onFullScreen(isInFullScreenMode) {
+        if (isInFullScreenMode) {
+            fullScreenOpenTime = (new Date()).getTime();
+            // console.info("fullScreenOpenTime = " + fullScreenOpenTime);
+        } else {
+            fullScreenOpenTime = NaN;
+        }
+    };
+    /////////////////////////////////////////////////////////////////////////////////
+
+    function isDocumentInFullScreenMode() {
+        // Note that the browser fullscreen (triggered by short keys) might
+        // be considered different from content fullscreen when expecting a boolean
+        return ((document.fullScreenElement && document.fullScreenElement !== null) ||    // alternative standard methods
+        ((document.mozFullscreenElement != null) || (document.webkitFullscreenElement != null)));                   // current working methods
+    }
+
+    document.addEventListener("fullscreenchange", function () {
+        onFullScreen(document.fullscreen);
+    }, false);
+
+    document.addEventListener("mozfullscreenchange", function () {
+        onFullScreen(document.mozFullScreen);
+    }, false);
+
+    document.addEventListener("webkitfullscreenchange", function () {
+        onFullScreen(document.webkitIsFullScreen);
+    }, false);
+
+} inject()
+</script>
 
 
 

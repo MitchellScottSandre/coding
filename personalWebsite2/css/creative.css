@@ -45,8 +45,32 @@ p {
   margin-bottom: 20px;
   color: white;
 }
+
+projectDiv{
+  height:65vh;
+}
+
+.center-pills { display: inline-block; }
 .bg-primary {
   background-color: #F05F40;
+}
+
+.bg-poker{
+  border-radius: 25px;
+  padding-top: 30px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+  background-color: #F05F40;
+}
+
+.bg-matrix{
+  border-radius: 25px;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  background-color: black;
 }
 
 .bg-secondary{
@@ -54,6 +78,7 @@ p {
 }
 
 .bg-blue{
+  height:50vh;
   background-color:#2D7997;
 }
 .bg-dark {
@@ -67,6 +92,8 @@ section {
   padding: 35px 0;
   min-height: 100vh;
 }
+
+
 aside {
   padding: 50px 0;
 }
@@ -220,6 +247,8 @@ header .header-content .header-content-inner p {
     margin-left: auto;
     margin-right: auto;
   }
+
+
 }
 .section-heading {
   margin-top: 0;
@@ -230,6 +259,7 @@ header .header-content .header-content-inner p {
   margin-top: 0;
   color: red;
 }
+
 
 
 .service-box {

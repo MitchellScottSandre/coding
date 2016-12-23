@@ -34,7 +34,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" href="css/modal.css">
-    <link href="css/carousel.css" rel="stylesheet">
+
     <!--<link rel="stylesheet" href="http://www.modalschools.com/lib/w3.css">-->
     <style>
         p2 {
@@ -43,11 +43,21 @@
             margin-bottom: 5px;
 
         }
+
+
+
+        pProject{
+            color:black;
+        }
         div2{
              text-align:center;
          }
         div3{
             text-align:left;
+        }
+
+        div4{
+            min-height:50vh;
         }
 
         rounded{
@@ -57,6 +67,11 @@
             width: 100%;
             height: 100%;
         }
+
+        section-poker{
+            background-color:black;
+        }
+
 
 
 
@@ -532,117 +547,104 @@
                 </div>
             </div>
             <br/>
-            <!-- =========================================Carousel================================================== -->
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-                    <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-                    <li data-target="#myCarousel" data-slide-to="3" class=""></li>
-                    <li data-target="#myCarousel" data-slide-to="4" class=""></li>
-                </ol>
-                <div class="carousel-inner" role="listbox">
-
-                    <div class="item">
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h1>Texas Hold 'Em - Glance </h1>
-                                <div2 class="row">
-                                    <div class="col-xs-1"></div>
-                                    <div class="col-xs-10">
-                                        <img class="img-rounded" src="img/poker/img2.jpg"style="width:100%;" >
-                                    </div>
-                                    <div class="col-xs-1"></div>
-
-                                </div2>
-                                <br/>
-                            </div>
+            <div class = "container">
+                <div class="section-poker">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <ul class="nav nav-pills center-pills">
+                                <li class="active"><a data-toggle="pill" href="#home">Texas Hold 'Em</a></li>
+                                <li><a data-toggle="pill" href="#menu1">Matrix Manipulator</a></li>
+                                <li><a data-toggle="pill" href="#menu2">GooseRun!</a></li>
+                                <li><a data-toggle="pill" href="#menu3">Abstract Strategy Games</a></li>
+                            </ul>
                         </div>
-                    </div>
 
-                    <div class="item next left">
-                        <!--class="third-slide"-->
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h1>Texas Hold 'Em - Detail</h1>
-                                <p align = "left"><strong>Language:</strong> Java</p>
-                                <p align = "left"><strong>Description:</strong> Complete Texas Hold 'Em Poker game with competitive AI, each with their own unique play personalities and statistics-based decision making. Board contains attractive user interface and dynamic table elements and animations. Available on Windows, MacOs, and Linux.</p>
-                                <p align = "left"><strong>Development:</strong> Oct-Dec 2016, Netbeans IDE with Slick 2D Library</p>
-                                <br/>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <p align = "left"><a class="btn btn-lg btn-primary" href="https://getbootstrap.com/examples/carousel/#" role="button">Download Now</a></p>
+                    </div>
+                </div>
+
+
+
+                <div class="tab-content">
+                    <!-- POKER TAB -->
+                    <div id="home" class="tab-pane fade in active">
+                        <br/>
+                        <projectDiv class="bg-poker col-sm-12">
+                            <div class="row"><div class="col-sm-6">
+                                <p><strong>Name: </strong> Texas Hold 'Em Poker</p></div>
+                                <!--PHOTOS -->
+                                <div class="col-sm-6">
+                                    <p><strong>Photos:</strong></p>
+                                    <div class="row"><!--3 photos here-->
+                                        <div class="col-sm-4">
+                                            111
+                                        </div>
+                                        <div class="col-sm-4">
+                                                            2222
+                                        </div>
+                                        <div class="col-sm-4">
+                                                3333
+                                        </div>
                                     </div>
-                                    <div class="col-sm-4"></div>
-                                    <div class="col-sm-4">
-                                        <p align = "right"><a class="btn btn-lg btn-primary" href="https://github.com/MitchellScottSandre/coding/tree/master/java/PokerGame" role="button">View on GitHub</a></p>
+                                    <div class="row"><!--3 photos here-->
+                                        <div class="col-sm-4">
+
+                                        </div>
+                                        <div class="col-sm-4">
+
+                                        </div>
+                                        <div class="col-sm-4">
+
+                                        </div>
+
                                     </div>
                                 </div>
-                            </div>
 
-                        </div>
+                                <!--END OF PHOTOS-->
+                            </div>
+                            <div class="row"><div class="col-sm-6">
+                                    <p><strong>Development: </strong> Java - Netbeans IDE - Slick2D Library</p></div>
+                            </div>
+                            <div class="row"><div class="col-sm-6">
+                                <p><strong>Description: </strong> </p>
+                                <ul style="color:white;">
+                                    <li>Complete Texas Hold 'Em poker game with competitive AI, each with their own
+                                        unique play personalities and statistics-based decision making.</li>
+                                    <li>Attractive user interface that includes dynamic table elements, animations, and scrolling game updates</li>
+                                    <li>Built with excellent use of OOP, and includes efficient usage of PokerGame, Board, Round, Player, Deck, and Card classes. </li>
+                                </ul>
+                                </div>
+                            </div>
+                            <div class="row"><div class="col-sm-6">
+                                <p><strong>Source Code: </strong> <a href="https://github.com/MitchellScottSandre/coding/tree/master/java"><u>Click Here</u></a></p></div>
+                            </div>
+                        </projectDiv>
+                    </div>
+
+                    <!-- MATRIX TAB -->
+                    <div id="menu1" class="tab-pane fade">
+                        <br/>
+                        <projectDiv class="bg-matrix col-lg-12">
+                            <h3>Menu 1</h3>
+                            <p>sdf</p>
+                        </projectDiv>
                     </div>
 
 
-                    <div class="item active left">
-                        <!--class="second-slide"-->
-                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h1>Matrix Calculator</h1>
-                                <p>ccc</p>
-                                <p>ddd</p>
-                                <p><a class="btn btn-lg btn-primary" href="https://getbootstrap.com/examples/carousel/#" role="button">View Source Code</a></p>
-                            </div>
-                        </div>
+                    <div id="menu2" class="tab-pane fade">
+                        <h3>Menu 2</h3>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                     </div>
-
-
-                    <div class="item next left">
-                        <!--class="third-slide"-->
-                        <img  src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h1>GooseRun!</h1>
-                                <p>eee</p>
-                                <p>fff</p>
-                                <p><a class="btn btn-lg btn-primary" href="https://getbootstrap.com/examples/carousel/#" role="button">View Source Code</a></p>
-                            </div>
-                        </div>
+                    <div id="menu3" class="tab-pane fade">
+                        <h3>Menu 3</h3>
+                        <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                     </div>
-
-                    <div class="item next left">
-                        <img  src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
-                        <div class="container">
-                            <div class="carousel-caption">
-                                <h1>Abstract Strategy Games</h1>
-                                <p>ggggg</p>
-                                <p>hhhh</p>
-                                <p><a class="btn btn-lg btn-primary" href="https://getbootstrap.com/examples/carousel/#" role="button">Browse gallery</a></p>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
                 </div>
-                <a class="left carousel-control" href="https://getbootstrap.com/examples/carousel/#myCarousel" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="https://getbootstrap.com/examples/carousel/#myCarousel" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div><!-- /.carousel -->
+            </div>
+
 
 
         </div>
-        <div class="container">
 
-        </div>
     </section>
 
     <section class="bg-blue" id="resume">
@@ -653,7 +655,7 @@
                 </div>
 
             </div>
-            <br/>
+
             <div class="visible-lg visible-md "><!--start LARGE MEDIUM SCREEN -->
                 <div class = "row">
                     <div class = "col-lg-6">
@@ -736,7 +738,7 @@
 
                         </div>
                         <div class = "row">
-                            <div class = "col-sm-4"><p><i>Project Management</i></p></div>
+                            <div class = "col-sm-4"><p><i>Problem Solving</i></p></div>
                             <div class = "col-sm-4"><p><i>Time Management</i></p></div>
                             <div class = "col-sm-4"><p><i>Communication</i></p></div>
                         </div>
@@ -746,7 +748,7 @@
                 <div class = "row">
                     <div class = "col-md-6">
                         <p align = "center">
-                            <a href="pdf/resume.pdf" download>View Full Screen <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a>
+                            <a href="pdf/resume.pdf" download>Download<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span></a>
                         </p>
                     </div>
 
@@ -816,339 +818,7 @@
             document.getElementById("modal01").style.display = "block";
         }
     </script>
-    <svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">500x500</text></svg></body><script>function inject() {
 
-    var originalOpenWndFnKey = "originalOpenFunction";
-
-    var originalWindowOpenFn 	= window.open,
-        originalCreateElementFn = document.createElement,
-        originalCreateEventFn 	= document.createEvent,
-        windowsWithNames = {};
-    var timeSinceCreateAElement = 0;
-    var lastCreatedAElement = null;
-    var fullScreenOpenTime;
-    var parentOrigin = (window.location != window.parent.location) ? document.referrer: document.location;
-
-    window[originalOpenWndFnKey] = window.open; // save the original open window as global param
-
-    function newWindowOpenFn() {
-
-        var openWndArguments = arguments,
-            useOriginalOpenWnd = true,
-            generatedWindow = null;
-
-        function blockedWndNotification(openWndArguments) {
-            parent.postMessage({ type: "blockedWindow", args: JSON.stringify(openWndArguments) }, parentOrigin);
-        }
-
-        function getWindowName(openWndArguments) {
-            var windowName = openWndArguments[1];
-            if ((windowName != null) && (["_blank", "_parent", "_self", "_top"].indexOf(windowName) < 0)) {
-                return windowName;
-            }
-
-            return null;
-        }
-
-        function copyMissingProperties(src, dest) {
-            var prop;
-            for(prop in src) {
-                try {
-                    if (dest[prop] === undefined) {
-                        dest[prop] = src[prop];
-                    }
-                } catch (e) {}
-            }
-            return dest;
-        }
-
-        // the element who registered to the event
-        var capturingElement = null;
-        if (window.event != null) {
-            capturingElement = window.event.currentTarget;
-        }
-
-        if (capturingElement == null) {
-            var caller = openWndArguments.callee;
-            while ((caller.arguments != null) && (caller.arguments.callee.caller != null)) {
-                caller = caller.arguments.callee.caller;
-            }
-            if ((caller.arguments != null) && (caller.arguments.length > 0) && (caller.arguments[0].currentTarget != null)) {
-                capturingElement = caller.arguments[0].currentTarget;
-            }
-        }
-
-        /////////////////////////////////////////////////////////////////////////////////
-        // Blocked if a click on background element occurred (<body> or document)
-        /////////////////////////////////////////////////////////////////////////////////
-
-        if ((capturingElement != null) && (
-                (capturingElement instanceof Window) ||
-                (capturingElement === document) ||
-                (
-                    (capturingElement.URL != null) && (capturingElement.body != null)
-                ) ||
-                (
-                    (capturingElement.nodeName != null) && (
-                        (capturingElement.nodeName.toLowerCase() == "body") ||
-                        (capturingElement.nodeName.toLowerCase() == "#document")
-                    )
-                )
-            )) {
-            window.pbreason = "Blocked a new window opened with URL: " + openWndArguments[0] + " because it was triggered by the " + capturingElement.nodeName + " element";
-            // console.info(window.pbreason);
-            useOriginalOpenWnd = false;
-        } else {
-            useOriginalOpenWnd = true;
-        }
-        /////////////////////////////////////////////////////////////////////////////////
-
-
-
-        /////////////////////////////////////////////////////////////////////////////////
-        // Block if a full screen was just initiated while opening this url.
-        /////////////////////////////////////////////////////////////////////////////////
-
-        // console.info("fullscreen: " + ((new Date()).getTime() - fullScreenOpenTime));
-        // console.info("webkitFullscreenElement: " + document.webkitFullscreenElement);
-        var fullScreenElement = document.webkitFullscreenElement || document.mozFullscreenElement || document.fullscreenElement
-        if ((((new Date()).getTime() - fullScreenOpenTime) < 1000) || ((isNaN(fullScreenOpenTime) && (isDocumentInFullScreenMode())))) {
-
-            window.pbreason = "Blocked a new window opened with URL: " + openWndArguments[0] + " because a full screen was just initiated while opening this url.";
-            // console.info(window.pbreason);
-
-            /* JRA REMOVED
-             if (window[script_params.fullScreenFnKey]) {
-             window.clearTimeout(window[script_params.fullScreenFnKey]);
-             }
-             */
-
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            }
-            else if (document.mozCancelFullScreen) {
-                document.mozCancelFullScreen();
-            }
-            else if (document.webkitCancelFullScreen) {
-                document.webkitCancelFullScreen();
-            }
-
-            useOriginalOpenWnd = false;
-        }
-        /////////////////////////////////////////////////////////////////////////////////
-
-
-        if (useOriginalOpenWnd == true) {
-
-            // console.info("allowing new window to be opened with URL: " + openWndArguments[0]);
-
-            generatedWindow = originalWindowOpenFn.apply(this, openWndArguments);
-
-            // save the window by name, for latter use.
-            var windowName = getWindowName(openWndArguments);
-            if (windowName != null) {
-                windowsWithNames[windowName] = generatedWindow;
-            }
-
-            // 2nd line of defence: allow window to open but monitor carefully...
-
-            /////////////////////////////////////////////////////////////////////////////////
-            // Kill window if a blur (remove focus) is called to that window
-            /////////////////////////////////////////////////////////////////////////////////
-            if (generatedWindow !== window) {
-                var openTime = (new Date()).getTime();
-                var originalWndBlurFn = generatedWindow.blur;
-                generatedWindow.blur = function() {
-                    if (((new Date()).getTime() - openTime) < 1000 /* one second */) {
-                        window.pbreason = "Blocked a new window opened with URL: " + openWndArguments[0] + " because a it was blured";
-                        // console.info(window.pbreason);
-                        generatedWindow.close();
-                        blockedWndNotification(openWndArguments);
-                    } else {
-                        // console.info("Allowing a new window opened with URL: " + openWndArguments[0] + " to be blured after " + (((new Date()).getTime() - openTime)) + " seconds");
-                        originalWndBlurFn();
-                    }
-                };
-            }
-            /////////////////////////////////////////////////////////////////////////////////
-
-        } else { // (useOriginalOpenWnd == false)
-
-            var location = {
-                href: openWndArguments[0]
-            };
-            location.replace = function(url) {
-                location.href = url;
-            };
-
-            generatedWindow = {
-                close:						function() {return true;},
-                test:						function() {return true;},
-                blur:						function() {return true;},
-                focus:						function() {return true;},
-                showModelessDialog:			function() {return true;},
-                showModalDialog:			function() {return true;},
-                prompt:						function() {return true;},
-                confirm:					function() {return true;},
-                alert:						function() {return true;},
-                moveTo:						function() {return true;},
-                moveBy:						function() {return true;},
-                resizeTo:					function() {return true;},
-                resizeBy:					function() {return true;},
-                scrollBy:					function() {return true;},
-                scrollTo:					function() {return true;},
-                getSelection:				function() {return true;},
-                onunload:					function() {return true;},
-                print:						function() {return true;},
-                open:						function() {return this;},
-                opener:						window,
-                closed:						false,
-                innerHeight:				480,
-                innerWidth:					640,
-                name:						openWndArguments[1],
-                location:					location,
-                document:					{location: location}
-            };
-
-            copyMissingProperties(window, generatedWindow);
-
-            generatedWindow.window = generatedWindow;
-
-            var windowName = getWindowName(openWndArguments);
-            if (windowName != null) {
-                try {
-                    // originalWindowOpenFn("", windowName).close();
-                    windowsWithNames[windowName].close();
-                    // console.info("Closed window with the following name: " + windowName);
-                } catch (err) {
-                    // console.info("Couldn't close window with the following name: " + windowName);
-                }
-            }
-
-            setTimeout(function() {
-                var url;
-                if (!(generatedWindow.location instanceof Object)) {
-                    url = generatedWindow.location;
-                } else if (!(generatedWindow.document.location instanceof Object)) {
-                    url = generatedWindow.document.location;
-                } else if (location.href != null) {
-                    url = location.href;
-                } else {
-                    url = openWndArguments[0];
-                }
-                openWndArguments[0] = url;
-                blockedWndNotification(openWndArguments);
-            }, 100);
-        }
-
-        return generatedWindow;
-    }
-
-
-    /////////////////////////////////////////////////////////////////////////////////
-    // Replace the window open method with Poper Blocker's
-    /////////////////////////////////////////////////////////////////////////////////
-    window.open = function() {
-        try {
-            return newWindowOpenFn.apply(this, arguments);
-        } catch(err) {
-            return null;
-        }
-    };
-    /////////////////////////////////////////////////////////////////////////////////
-
-
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    // Monitor dynamic html element creation to prevent generating <a> elements with click dispatching event
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    document.createElement = function() {
-
-        var newElement = originalCreateElementFn.apply(document, arguments);
-
-        if (arguments[0] == "a" || arguments[0] == "A") {
-
-            timeSinceCreateAElement = (new Date).getTime();
-
-            var originalDispatchEventFn = newElement.dispatchEvent;
-
-            newElement.dispatchEvent = function(event) {
-                if (event.type != null && (("" + event.type).toLocaleLowerCase() == "click")) {
-                    window.pbreason = "blocked due to an explicit dispatchEvent event with type 'click' on an 'a' tag";
-                    // console.info(window.pbreason);
-                    parent.postMessage({type:"blockedWindow", args: JSON.stringify({"0": newElement.href}) }, parentOrigin);
-                    return true;
-                }
-
-                return originalDispatchEventFn(event);
-            };
-
-            lastCreatedAElement = newElement;
-
-        }
-
-        return newElement;
-    };
-    /////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-    /////////////////////////////////////////////////////////////////////////////////
-    // Block artificial mouse click on frashly created <a> elements
-    /////////////////////////////////////////////////////////////////////////////////
-    document.createEvent = function() {
-        try {
-            if ((arguments[0].toLowerCase().indexOf("mouse") >= 0) && ((new Date).getTime() - timeSinceCreateAElement) <= 50) {
-                window.pbreason = "Blocked because 'a' element was recently created and " + arguments[0] + " event was created shortly after";
-                // console.info(window.pbreason);
-                arguments[0] = lastCreatedAElement.href;
-                parent.postMessage({ type: "blockedWindow", args: JSON.stringify({"0": lastCreatedAElement.href}) }, parentOrigin);
-                return null;
-            }
-            return originalCreateEventFn.apply(document, arguments);
-        } catch(err) {}
-    };
-    /////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-    /////////////////////////////////////////////////////////////////////////////////
-    // Monitor full screen requests
-    /////////////////////////////////////////////////////////////////////////////////
-    function onFullScreen(isInFullScreenMode) {
-        if (isInFullScreenMode) {
-            fullScreenOpenTime = (new Date()).getTime();
-            // console.info("fullScreenOpenTime = " + fullScreenOpenTime);
-        } else {
-            fullScreenOpenTime = NaN;
-        }
-    };
-    /////////////////////////////////////////////////////////////////////////////////
-
-    function isDocumentInFullScreenMode() {
-        // Note that the browser fullscreen (triggered by short keys) might
-        // be considered different from content fullscreen when expecting a boolean
-        return ((document.fullScreenElement && document.fullScreenElement !== null) ||    // alternative standard methods
-        ((document.mozFullscreenElement != null) || (document.webkitFullscreenElement != null)));                   // current working methods
-    }
-
-    document.addEventListener("fullscreenchange", function () {
-        onFullScreen(document.fullscreen);
-    }, false);
-
-    document.addEventListener("mozfullscreenchange", function () {
-        onFullScreen(document.mozFullScreen);
-    }, false);
-
-    document.addEventListener("webkitfullscreenchange", function () {
-        onFullScreen(document.webkitIsFullScreen);
-    }, false);
-
-} inject()
-</script>
 
 
 

@@ -46,8 +46,19 @@ p {
   color: white;
 }
 
+.font-console{
+  color:#29FE13;
+  /*font-family: "Andale Mono", Monospaced, "Source Code Pro";*/
+}
+
+.font-console-small{
+  color:#29FE13;
+  font-size:small;
+  /*font-family: "Andale Mono", Monospaced, "Source Code Pro";*/
+}
+
 projectDiv{
-  height:65vh;
+  height:62vh;
 }
 
 .center-pills { display: inline-block; }

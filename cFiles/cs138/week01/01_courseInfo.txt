@@ -1,0 +1,30 @@
+Mike Godfrey
+migod@uwaterloo.ca
+
+DC 2340, x34437
+
+Frank Wang is the W17 Tutor for CS 138
+email: cs138@uwaterloo.ca
+office: mc4065
+
+Course Material Overview:
+- C++ bot camp, history of unix and programming languages
+- Scopes, stack frames, and the c, C++ memory model
+- Abstract data types (ADTs), interface vs implementation
+	- stacks, queues, priority queues, trees, BSTs
+	- recursion, functional vs iterative approaches
+	- linked structures, pointers
+- OOP, classes, and objects
+	- constructors, destructors, DIY memory management, access rights
+	intro to inheritance and polymorphism
+	generics and STL containers (vectors, strings, maps, sets)
+- Software Engineering and Design (material scattered throughout the term)
+
+Marmoset uses the g++ (and maybe clang++) compilers --> make sure code will work with the one we specify
+gcc is the c version of g++ (g++ is for c++)
+
+Always use brackets for if, switch, and for bodies
+
+Always use for over while loops
+
+Never use ++, -- operators as part of some long expression, only use them as standalone statements

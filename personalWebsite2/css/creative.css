@@ -62,6 +62,7 @@ projectDiv{
 }
 
 .center-pills { display: inline-block; }
+
 .bg-primary {
   background-color: #F05F40;
 }
@@ -92,6 +93,17 @@ projectDiv{
   padding-left: 30px;
   background-color: #F09C40;
 }
+
+.bg-encryption{
+  border-radius: 25px;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  background-color: #75B1C8;
+}
+
+
 
 .bg-secondary{
   background-color: #2EAE5E;

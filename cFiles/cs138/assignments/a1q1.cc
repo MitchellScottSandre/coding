@@ -14,7 +14,7 @@ int main(int argc, char* argv[]){
 			if (s.length() < n){
 				cout << s << endl;
 			} else {
-			    shorterS = s.substr(0, n);
+			    shorterS = s.substr(0, n);//substring it from start to index n, as required in the assignment
 				cout << shorterS << endl;
 			}
 			getline(cin, s);

@@ -35,11 +35,27 @@ void printRevOrder(int n, string s){
 void printIfContainsFNORD(int n){//contains fnord
 	string s, word;
 	cin.ignore();
+	bool continueSearchingLine;
 	getline(cin, s);
-	istringstream ss(s);
-	while (ss >> word){
-		cout << word;
+	while ( s.length() > 0 ){
+		istringstream ss(s);
+		continueSearchingLine = true;
+		while (ss >> word && continueSearchingLine == true){//keeps going through the line string s and putting words into string word
+			//search the word for fnord
+			if (word.length() == 5 && word.compare("fnord") == 0){ // it equals the word
+				continueSearchingLine = false;
+				printString(n, s);
+			} else if (word.length() > 5){
+				size_t found = word.find("fnord");
+				if (found != -1){//-1 is npos which is no position for string:find apparently
+					continueSearchingLine = false;
+					printString(n, s);
+				}
+			}
+		}
+		getline(cin, s);
 	}
+
 }
 
 int main (int argc, char* argv[]){
@@ -54,23 +70,22 @@ int main (int argc, char* argv[]){
 				functionFromPartOne(n);
 				break;
 			case 'r': //print in reverse order
-				string s;
-				cin.ignore();
-				getline(cin, s);
-				if (s.length() > 0 ){
-					//call the recursive function
-					printRevOrder(n, s);
-				} else {
-					//just print it
-					//printString(n,s);
-					cout << endl;
+				{//need brackets if I am going to declare a variable in the case statement
+					string s;
+					cin.ignore();
+					getline(cin, s);
+					if (s.length() > 0 ){
+						printRevOrder(n, s);//call the recursive function
+					} else {
+						cout << endl;
+					}
+					break;
 				}
-				break;
 			case 'g':
 				printIfContainsFNORD(n);
 				break;
 			default:
-				cerr << "Error, command is illegal";
+				cerr << "Error, command is illegal" << endl;
 				break;
 		}
 	}

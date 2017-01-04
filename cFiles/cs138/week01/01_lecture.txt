@@ -10,3 +10,6 @@ C version of struct is simpler than C++ struct, all things that you can do to a 
 
 C++ is almost perfectly the same as a C++ class? more or less interchangable, except for: default visibility for struct
 is public, default visibility for class is private
+
+zero (null pointer) means FALSE
+non ero means true

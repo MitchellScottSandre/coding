@@ -12,7 +12,7 @@ int main (int argc, char* argv[]){
 
 	//cin.ignore();
 	getline(cin, line);
-	while ( line.length() > 0 ){//continue reading in lines
+	while ( cin.fail() == false ){//continue reading in lines
 		istringstream ss(line);
 		while (ss >> word){
 			allWords.push_back(word);
@@ -34,7 +34,7 @@ int main (int argc, char* argv[]){
 				continue;
 			}
 			lineLength += allWords[i].length();
-			//cout << allWords[i].length();
+		
 			if (lineLength > n ){
 				cout  << endl;
 				lineLength = 0;

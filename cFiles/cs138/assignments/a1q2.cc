@@ -2,6 +2,7 @@ using namespace std;
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <vector>
 
 void printString(int n, string s){
 	string shorterS;
@@ -14,13 +15,18 @@ void printString(int n, string s){
 }
 
 void functionFromPartOne(int n){
-		string s;
-		cin.ignore();
+	string s, shorterS;
+	vector<string> allWords;
+	cin.ignore();
+	getline(cin, s);
+	while ( cin.fail() == false ){
+		allWords.push_back(s);
 		getline(cin, s);
-		while ( s.length() > 0 ){
-			printString(n,s);
-			getline(cin, s);
-		}
+	}
+	//now display
+	for (int i = 0; i < allWords.size(); i++){
+		cout << allWords[i] << endl;
+	}
 }
 
 void printRevOrder(int n, string s){
@@ -34,26 +40,34 @@ void printRevOrder(int n, string s){
 
 void printIfContainsFNORD(int n){//contains fnord
 	string s, word;
+	vector<string> allWords;
 	cin.ignore();
 	bool continueSearchingLine;
 	getline(cin, s);
-	while ( s.length() > 0 ){
+	while ( cin.fail() == false ){
 		istringstream ss(s);
 		continueSearchingLine = true;
 		while (ss >> word && continueSearchingLine == true){//keeps going through the line string s and putting words into string word
 			//search the word for fnord
 			if (word.length() == 5 && word.compare("fnord") == 0){ // it equals the word
 				continueSearchingLine = false;
-				printString(n, s);
+				allWords.push_back(s);
+				//printString(n, s);
 			} else if (word.length() > 5){
 				size_t found = word.find("fnord");
 				if (found != -1){//-1 is npos which is no position for string:find apparently
 					continueSearchingLine = false;
-					printString(n, s);
+					//printString(n, s);
+					allWords.push_back(s);
 				}
 			}
 		}
 		getline(cin, s);
+	}
+	//out of while loop
+	//now print all of them
+	for (int i = 0; i < allWords.size(); i++){
+		printString(n, allWords[i]);
 	}
 
 }

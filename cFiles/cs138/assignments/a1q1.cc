@@ -2,22 +2,23 @@ using namespace std;
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 int main(int argc, char* argv[]){
 	int n;
 	cin >> n;
 	if (n > 0){
 		string s, shorterS;
+		vector<string> allWords;
 		cin.ignore();
 		getline(cin, s);
-		while ( s.length() > 0 ){
-			if (s.length() < n){
-				cout << s << endl;
-			} else {
-			    shorterS = s.substr(0, n);//substring it from start to index n, as required in the assignment
-				cout << shorterS << endl;
-			}
+		while ( cin.fail() == false ){
+			allWords.push_back(s);
 			getline(cin, s);
+		}
+		//now display
+		for (int i = 0; i < allWords.size(); i++){
+			cout << allWords[i] << endl;
 		}
 	} else {
 		cerr << "Error, line length must be positive." << endl;

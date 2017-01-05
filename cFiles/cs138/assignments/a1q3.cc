@@ -20,6 +20,8 @@ int main (int argc, char* argv[]){
 		getline(cin, line);
 	}
 	n = stoi(allWords[0]);
+
+
 	if (n > 0){
 		int lineLength = 0;
 		for (int i = 1; i < allWords.size(); i++){//go through entire vector for each word
@@ -32,17 +34,20 @@ int main (int argc, char* argv[]){
 				continue;
 			}
 			lineLength += allWords[i].length();
-			if (lineLength > n){
-				cout << endl;
+			//cout << allWords[i].length();
+			if (lineLength > n ){
+				cout  << endl;
 				lineLength = 0;
 				i--;//dont want to miss printing this word!!
 			} else {
 				cout << allWords[i] << " ";
+				lineLength++;
 			}
 
 		}
 	} else {
 		cerr << "Error, command is illegal" << endl;
 	}
+	cout << endl;
 	return 0;
 }

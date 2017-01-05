@@ -26,13 +26,13 @@ void displayLineBothJustified(vector<string> wordsOnLine, int n){
 			 	cout << " ";
 	 		}
 			extraSpaces -= x;
-			numGaps--; 
+			numGaps--;
 		}
 
 	}
 	if (numWords == 1 && wordsOnLine[0].length() < n){//only 1 word on the line!!!, fill rest with spaces
 			for (int i = 0; i < n - wordsOnLine[0].length(); i++){
-				cout << ".";
+				cout << " ";
 			}
 	}
 	cout << endl;
@@ -107,11 +107,10 @@ int main (int argc, char* argv[]){
 					}
 			}
 			startIndex = indexSave + 1;
-
 		}
 
 	} else {
-		cerr << "Error, command is illegal" << endl;
+		cerr << "Error, command is illegal." << endl;
 	}
 
 	return 0;

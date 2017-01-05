@@ -68,4 +68,8 @@ Problem specifications have 1) the set of allowed input instances, and 2) the re
 
 page 21..
 
+3.1 Contiguous vs Linked Data Structures:
+- Contiguously-allocated structures are composed of single slabs of memory, and consist of arrays, matrices, heaps, and hash tables
+- Linked Data Structures are composed of distinct chunks of memory bound together by pointers, and include lists, trees, and graph adjacency lists.
+
 

@@ -17,8 +17,8 @@ s.substr(i) //substring started at index i and ending at the end of s
 s.find(str, pos) //returns first index of str in s starting at or after pos, RETUNRS -1 if string NOT FOUND,
 --->technically it returns string::npos
 s.rfind(str, pos) //returns last index of str in s starting at or before pos
-s.replace() replace char within s
-s.insert() //insert it in s
+s.replace() //replace char within s
+s.insert() //insert it within s
 
 s[x] returns a CHAR, if you add two chars together you add TWO INTS together
 
@@ -114,9 +114,9 @@ while (cin >> next){//while, this thing evaluates to true. 1. cin attempts to in
 }
 
 //what happens on line 109:
-1. attemopted read which may trigger eof then
+1. attemopt to read which may trigger eof then
 2. checking if cin is still valid
-
+3, let the language do it for you using cin and eof flag or fail()
 if we enter 123abc
 int n;
 cin >> 123abc puts the 123 into n
@@ -136,7 +136,19 @@ getline works with other kinds of input streams too, not just cin
 
 
 Redirecting standard IO Streams
+1. compile the file to executable
 g++ -o myprog myprog.cc
+
+2. enter input directly ny keybaord, using control D to indicate EOF
+./myprog
+
+3. Input is taken from (existing file) file myinput.txt instead; output shows up on screen
+./myprog < myinput.txt
+
+4. reads in from file and also outputs to desired file too
+./myprog < myinput.txt > myoutput.txt
+
+
 
 ./myprog
 //enter input directly, output shows up on screen
@@ -144,12 +156,10 @@ g++ -o myprog myprog.cc
 //copy from phone
 
 =====================================================================================================================
-
-
 FILE INPUT AND OUTPUT
 - there are library classes ifstream and ofstream that you
 
-
+- must include #include <fstream>
 
 What, exactly, are cin, cout, cerr?
 - they are just plain old global variables that are defined by the C++ standard library
@@ -157,6 +167,16 @@ What, exactly, are cin, cout, cerr?
 void printAnswer(ostream &output, string word){
 
 }
+
+=====================================================================================================================
+
+Advanced Stuff: Inheritance and polymorphism
+- note that cout and cerr are instances of ostream, whereas myoutfile is an instance of ofstream
+--> this is allowed because class ofstream inherits the class ostream
+
+Polymorphism:
+- if A and B are classes where B inherits A, then any instance B may be used where the assumed type is A
+
 
 =====================================================================================================================
 
@@ -177,3 +197,27 @@ a[i] == a + i == i + a == i[a]
 The vector<T> class
 
 Accessing Vector Elements:
+- most common, fast, no bounds checkingA[12] or
+- less common, slower, yes bounds checking A.at(12);
+
+vector <string> monthName (12);//initial size
+vector <int> grades;
+
+once declared, can only put elements of that type into the vector
+- can keep growing, can do grades.resize(newsize int)
+
+can use vector.push_back to add to back, or vector.pop_back to get and also remove the last element
+
+Vector has both a size and a capacity (IMPORTANT)
+Capacity = the number of elements that the vector has room for
+Size = the number of active elements
+size <= capacity always
+v,size() - 1 is the index of the last element, also v.back() points to the last element, too
+
+Advantages of using vector as an array:
+- declared size CAN be an integer VARIABLE, not just a constant
+- safe accessing
+
+DIsadvantages:
+- slower, uses mroe space,
+- maybe use the C++11 array class instead?

@@ -5,6 +5,8 @@ using namespace std;
 #include <vector>
 #include <math.h>
 
+const string SPACE = ".";
+
 void printLinesWithFNORD(vector<vector<string> > allLines){
 	for (int i = 0 ; i < allLines.size(); i++){//iterate through each line in allLines
 		//now search that line for "fnord", if it has it, print that line
@@ -46,11 +48,11 @@ void printNormalOrder(vector<vector<string> > allLines){//iterate through each l
 }
 
 
-//====================start of 2 functions needed for leftAndRightJustified ===========
+
 
 //this is called by displayLineBothJustified and just adds words to the allLines vector!!!
 //then this calls the correct print order function
-vector<string> displayLineBothJustified(vector<string> wordsOnLine, int n){
+vector<string> formatLineBothJustified(vector<string> wordsOnLine, int n){
 	vector<string> thisLine;
 	int lengthOfAllWords = 0;
 	int numWords= wordsOnLine.size();
@@ -63,16 +65,13 @@ vector<string> displayLineBothJustified(vector<string> wordsOnLine, int n){
 		if (wordsOnLine[0].length() > n){
 			string shorterS;
 			shorterS = wordsOnLine[0].substr(0, n);
-			//cout << shorterS;
 			thisLine.push_back(shorterS);
 			break;
 		} else {
-			//cout << wordsOnLine[i] ;
 			thisLine.push_back(wordsOnLine[i]);
 			int x = ceil( (double)extraSpaces / (double)numGaps);
 			for (int p = 0; p < x; p++){
-			 	//cout << " ";
-				thisLine.push_back(" ");
+				thisLine.push_back(SPACE);
 	 		}
 			extraSpaces -= x;
 			numGaps--;
@@ -81,17 +80,64 @@ vector<string> displayLineBothJustified(vector<string> wordsOnLine, int n){
 	}
 	if (numWords == 1 && wordsOnLine[0].length() < n){//only 1 word on the line!!!, fill rest with spaces
 			for (int i = 0; i < n - wordsOnLine[0].length(); i++){
-				//cout << " ";
-				thisLine.push_back(" ");
+				thisLine.push_back(SPACE);
 			}
 	}
 	return thisLine;
-	//cout << endl;
-	//allLines.push_back(thisLine);
-	//what if only one word on the line? fill rest with spaces
 }
 
-void leftAndRightJustified(int n, vector<string> allWords, string c2){
+vector<string> formatLineRightJustified(vector<string> wordsOnLine, int n){
+	vector<string> thisLine;
+	int lengthOfAllWords = 0;
+	int numWords= wordsOnLine.size();
+	int numGaps = numWords - 1;
+	for (int i = 0; i < numWords; i++){
+		lengthOfAllWords += wordsOnLine[i].length();
+	}
+	int x = lengthOfAllWords + numGaps;//total number of chars, including spaces
+	int y = n - x; // number spaces to add to front
+	for (int i = 0; i < y; i++){
+		thisLine.push_back(SPACE);//add spaces to front
+	}
+	for (int i = 0; i < numWords - 1; i++){
+		thisLine.push_back(wordsOnLine[i]);
+		thisLine.push_back(SPACE);
+	}
+	thisLine.push_back(wordsOnLine[numWords - 1]);//last word, NO SPACE!
+
+	return thisLine;
+}
+
+vector<string> formatCenter(vector<string> wordsOnLine, int n){
+	vector<string> thisLine;
+	int lengthOfAllWords = 0;
+	int numWords= wordsOnLine.size();
+	int numGaps = numWords - 1;
+	for (int i = 0; i < numWords; i++){
+		lengthOfAllWords += wordsOnLine[i].length();
+	}
+	int x = lengthOfAllWords + numGaps;//total number of chars, including spaces
+	int y = n - x; // number of extra spaces
+	int z = ceil( (double) y / 2.0);
+	int w = y - z;
+	for (int i = 0; i < z; i++){
+		thisLine.push_back(SPACE);//add spaces to front
+	}
+	for (int i = 0; i < numWords - 1; i++){
+		thisLine.push_back(wordsOnLine[i]);
+		thisLine.push_back(SPACE);
+	}
+	thisLine.push_back(wordsOnLine[numWords - 1]);//last word, no spaces
+
+	//print out correct number of spaces now to make it center
+	for (int i = 0; i < w; i++){
+		thisLine.push_back(SPACE);//add spaces to back
+	}
+
+	return thisLine;
+}
+
+void findMostWordsPerLine_PassToFormatter_CreateAllLinesArray_thenCallDisplayFunction(int n, vector<string> allWords, string c2, string format){
 	vector<vector <string> > allLines;
 	vector<string> thisLine;
 	int lineLength = 0, startIndex = 3;
@@ -114,7 +160,15 @@ void leftAndRightJustified(int n, vector<string> allWords, string c2){
 				} else if (lineLength + allWords[i].length() == n){
 					lineLength = n;
 					wordsOnLine.push_back(allWords[i]);
-					thisLine = displayLineBothJustified(wordsOnLine, n);
+
+					if (format == "j"){
+						thisLine = formatLineBothJustified(wordsOnLine, n);
+					} else if (format == "rl"){
+						thisLine = formatLineRightJustified(wordsOnLine, n);
+					} else {
+						thisLine = formatCenter(wordsOnLine, n);
+					}
+
 					allLines.push_back(thisLine);
 					thisLine.clear();
 					printedThisLine = true;
@@ -126,7 +180,14 @@ void leftAndRightJustified(int n, vector<string> allWords, string c2){
 						wordsOnLine.push_back(allWords[i]);
 						i++;
 						}
-					thisLine = displayLineBothJustified(wordsOnLine, n);
+						if (format == "j"){
+							thisLine = formatLineBothJustified(wordsOnLine, n);
+						} else if (format == "rl"){
+							thisLine = formatLineRightJustified(wordsOnLine, n);
+						} else {
+							thisLine = formatCenter(wordsOnLine, n);
+						}
+					//thisLine = displayLineBothJustified(wordsOnLine, n);
 					allLines.push_back(thisLine);
 					thisLine.clear();
 					printedThisLine = true;
@@ -140,7 +201,15 @@ void leftAndRightJustified(int n, vector<string> allWords, string c2){
 				if (lastWord == true){
 					keepPrinting = false; //finished all of the words
 					if (printedThisLine == false){
-						thisLine = displayLineBothJustified(wordsOnLine, n);
+
+						if (format == "j"){
+							thisLine = formatLineBothJustified(wordsOnLine, n);//BOTH
+						} else if (format == "rl"){
+							thisLine = formatLineRightJustified(wordsOnLine, n);//RIGHT
+						} else {
+							thisLine = formatCenter(wordsOnLine, n);
+						}
+
 						allLines.push_back(thisLine);
 						thisLine.clear();
 						printedThisLine = true;
@@ -159,9 +228,8 @@ void leftAndRightJustified(int n, vector<string> allWords, string c2){
 		printLinesWithFNORD(allLines);
 	}
 
-
 }
-//==============end of 2 functions needed for leftAndRightJustified =========
+
 
 void leftAligned(int n, vector<string> allWords, string c2){
 	vector<vector <string> > allLines;
@@ -202,9 +270,6 @@ void leftAligned(int n, vector<string> allWords, string c2){
 	}
 }
 
-void rightAligned(int n, vector<string> allWords, string c2){
-
-}
 
 int main(int argc, char* argv[]){
 	//n c1 c2
@@ -240,7 +305,7 @@ int main(int argc, char* argv[]){
 		cerr << "Error, command is illegal." << endl;
 		return 0;
 	}
-	if (c1 == "rr" || c1 == "j" || c1=="r1" || c1 =="c"){ //check c1 and c2
+	if (c1 == "rr" || c1 == "j" || c1=="rl" || c1 =="c"){ //check c1 and c2
 		goodInput++;
 	}
 	if (c2 == "f" || c2 =="r" || c2 =="g"){
@@ -254,9 +319,11 @@ int main(int argc, char* argv[]){
 	if (c1 == "rr"){
 		leftAligned(n, allWords, c2);
 	} else if (c1 == "j"){
-		leftAndRightJustified(n, allWords, c2);
+		findMostWordsPerLine_PassToFormatter_CreateAllLinesArray_thenCallDisplayFunction(n, allWords, c2, "j");
 	} else if (c1 == "rl"){
-		rightAligned(n, allWords, c2);
+		findMostWordsPerLine_PassToFormatter_CreateAllLinesArray_thenCallDisplayFunction(n, allWords, c2, "rl");
+	} else {
+		findMostWordsPerLine_PassToFormatter_CreateAllLinesArray_thenCallDisplayFunction(n, allWords, c2, "c");
 	}
 
 	return 0;

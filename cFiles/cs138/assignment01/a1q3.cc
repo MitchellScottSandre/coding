@@ -1,9 +1,8 @@
-using namespace std;
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <vector>
-
+using namespace std;
 int main (int argc, char* argv[]){
 	//what if n is negative
 	string line, word;
@@ -34,7 +33,7 @@ int main (int argc, char* argv[]){
 				continue;
 			}
 			lineLength += allWords[i].length();
-		
+
 			if (lineLength > n ){
 				cout  << endl;
 				lineLength = 0;
@@ -43,7 +42,6 @@ int main (int argc, char* argv[]){
 				cout << allWords[i] << " ";
 				lineLength++;
 			}
-
 		}
 	} else {
 		cerr << "Error, command is illegal" << endl;

@@ -1,9 +1,8 @@
-using namespace std;
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <vector>
-
+using namespace std;
 void printString(int n, string s){
 	string shorterS;
 	if (s.length() < n){
@@ -16,16 +15,18 @@ void printString(int n, string s){
 
 void functionFromPartOne(int n){
 	string s, shorterS;
-	vector<string> allWords;
+	vector<string> allLines;
 	cin.ignore();
-	getline(cin, s);
-	while ( cin.fail() == false ){
-		allWords.push_back(s);
+	while (true){
 		getline(cin, s);
+		if (cin.fail()){
+			break;
+		}
+		allLines.push_back(s);
 	}
 	//now display
-	for (int i = 0; i < allWords.size(); i++){
-		cout << allWords[i] << endl;
+	for (int i = 0; i < allLines.size(); i++){
+		cout << allLines[i] << endl;
 	}
 }
 

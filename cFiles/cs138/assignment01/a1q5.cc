@@ -1,10 +1,9 @@
-using namespace std;
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <vector>
 #include <math.h>
-
+using namespace std;
 const string SPACE = ".";
 
 void printLinesWithFNORD(vector<vector<string> > allLines){
@@ -62,12 +61,13 @@ vector<string> formatLineBothJustified(vector<string> wordsOnLine, int n){
 	}
 	int extraSpaces = n - lengthOfAllWords;
 	for (int i = 0; i < numWords; i++){
-		if (wordsOnLine[0].length() > n){
-			string shorterS;
-			shorterS = wordsOnLine[0].substr(0, n);
-			thisLine.push_back(shorterS);
-			break;
-		} else {
+		// if (wordsOnLine[0].length() > n){
+		// 	string shorterS;
+		// 	shorterS = wordsOnLine[0].substr(0, n);
+		// 	thisLine.push_back(shorterS);
+		// 	break;
+		// } else
+		{
 			thisLine.push_back(wordsOnLine[i]);
 			int x = ceil( (double)extraSpaces / (double)numGaps);
 			for (int p = 0; p < x; p++){
@@ -137,6 +137,16 @@ vector<string> formatCenter(vector<string> wordsOnLine, int n){
 	return thisLine;
 }
 
+vector<string> formatLeftJustified(vector<string> wordsOnLine, int n){
+	vector<string> thisLine;
+	for (int i = 0; i < wordsOnLine.size() - 1; i++){
+		thisLine.push_back(wordsOnLine[i]);
+		thisLine.push_back(SPACE);
+	}
+	thisLine.push_back(wordsOnLine[wordsOnLine.size() - 1]);//last one
+	return thisLine;
+}
+
 void findMostWordsPerLine_PassToFormatter_CreateAllLinesArray_thenCallDisplayFunction(int n, vector<string> allWords, string c2, string format){
 	vector<vector <string> > allLines;
 	vector<string> thisLine;
@@ -154,7 +164,16 @@ void findMostWordsPerLine_PassToFormatter_CreateAllLinesArray_thenCallDisplayFun
 				if (i == allWords.size() - 1){
 					lastWord = true;
 				}
-				if (lineLength + allWords[i].length() < n){
+				if (allWords[i].length() > n){//word is too long!!!
+					string shorterS;
+					shorterS = allWords[i].substr(0, n);
+					thisLine.push_back(shorterS);
+					allLines.push_back(thisLine);
+					thisLine.clear();
+					indexSave = i;
+					break;
+				}
+				else if (lineLength + allWords[i].length() < n){
 					lineLength += allWords[i].length() + 1;
 					wordsOnLine.push_back(allWords[i]);
 				} else if (lineLength + allWords[i].length() == n){
@@ -165,8 +184,10 @@ void findMostWordsPerLine_PassToFormatter_CreateAllLinesArray_thenCallDisplayFun
 						thisLine = formatLineBothJustified(wordsOnLine, n);
 					} else if (format == "rl"){
 						thisLine = formatLineRightJustified(wordsOnLine, n);
-					} else {
+					} else if (format == "c"){
 						thisLine = formatCenter(wordsOnLine, n);
+					} else {
+						thisLine = formatLeftJustified(wordsOnLine, n);
 					}
 
 					allLines.push_back(thisLine);
@@ -184,9 +205,12 @@ void findMostWordsPerLine_PassToFormatter_CreateAllLinesArray_thenCallDisplayFun
 							thisLine = formatLineBothJustified(wordsOnLine, n);
 						} else if (format == "rl"){
 							thisLine = formatLineRightJustified(wordsOnLine, n);
-						} else {
+						} else if (format == "c"){
 							thisLine = formatCenter(wordsOnLine, n);
+						} else {
+							thisLine = formatLeftJustified(wordsOnLine, n);
 						}
+
 					//thisLine = displayLineBothJustified(wordsOnLine, n);
 					allLines.push_back(thisLine);
 					thisLine.clear();
@@ -206,8 +230,10 @@ void findMostWordsPerLine_PassToFormatter_CreateAllLinesArray_thenCallDisplayFun
 							thisLine = formatLineBothJustified(wordsOnLine, n);//BOTH
 						} else if (format == "rl"){
 							thisLine = formatLineRightJustified(wordsOnLine, n);//RIGHT
-						} else {
+						} else if (format == "c"){
 							thisLine = formatCenter(wordsOnLine, n);
+						} else {
+							thisLine = formatLeftJustified(wordsOnLine, n);
 						}
 
 						allLines.push_back(thisLine);
@@ -231,56 +257,9 @@ void findMostWordsPerLine_PassToFormatter_CreateAllLinesArray_thenCallDisplayFun
 }
 
 
-void leftAligned(int n, vector<string> allWords, string c2){
-	vector<vector <string> > allLines;
-	int lineLength = 0;
-	vector<string> thisLine;
-	for (int i = 3; i < allWords.size(); i++){//go through entire vector for each word
-		if (allWords[i].length() > n){
-			//cout << endl;
-			allLines.push_back(thisLine);
-			string shorterS;
-			shorterS = allWords[i].substr(0, n);
-			//cout << shorterS;
-			thisLine.push_back(shorterS);
-			lineLength = 100;
-			continue;
-		}
-		lineLength += allWords[i].length();
-		if (lineLength > n ){
-			allLines.push_back(thisLine); // move on to NEW LINE
-			thisLine.clear();
-			lineLength = 0;
-			i--;//dont want to miss printing this word!!
-		} else {
-			thisLine.push_back(allWords[i]);
-			thisLine.push_back(" ");
-			lineLength++;
-		}
-	}
-	allLines.push_back(thisLine);
-
-	//so now we have added all of the lines to allLines
-	if (c2 == "f"){
-		printNormalOrder(allLines);
-	} else if (c2 == "r"){
-		printReverseOrder(allLines);
-	} else {
-		printLinesWithFNORD(allLines);
-	}
-}
 
 
 int main(int argc, char* argv[]){
-	//n c1 c2
-	//c1: rr (ragged right, left justified, q3)
-	//	  j(right and left justified, q4)
-	//    r1 (ragged left, right justified)
-	//    c (centre the lines)
-	//c2: f (print in order they were read)
-	//    r (print in reverse order)
-	//    g print in order they were read, ONLY IF a word contains fnord
-	//if c1 or c2 are anything else, print 		Error, command is illegal.
 
 	string line, word;
 	int n;
@@ -317,7 +296,8 @@ int main(int argc, char* argv[]){
 	}
 	//=========================CALL THE CORECT FUNCTIONS ==================
 	if (c1 == "rr"){
-		leftAligned(n, allWords, c2);
+		//leftAligned(n, allWords, c2);
+		findMostWordsPerLine_PassToFormatter_CreateAllLinesArray_thenCallDisplayFunction(n, allWords, c2, "rr");
 	} else if (c1 == "j"){
 		findMostWordsPerLine_PassToFormatter_CreateAllLinesArray_thenCallDisplayFunction(n, allWords, c2, "j");
 	} else if (c1 == "rl"){

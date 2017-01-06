@@ -1,9 +1,9 @@
-using namespace std;
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <vector>
 #include <math.h>
+using namespace std;
 
 void displayLineBothJustified(vector<string> wordsOnLine, int n){
 	int lengthOfAllWords = 0;

@@ -15,6 +15,8 @@ hr {
 hr.light {
   border-color: white;
 }
+
+
 a {
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
@@ -223,7 +225,7 @@ header {
   background-size: cover;
   -o-background-size: cover;
   background-position: center;
-  background-image: url('../img/desk_background_3.jpg');
+  background-image: url('../img/background/background_7.jpg');
   text-align: center;
   color: white;
 }

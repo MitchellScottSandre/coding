@@ -1,0 +1,252 @@
+Designing the Details Tech Talk:
+Into to Web Design
+
+You're tasked with building a website soooo what now?
+Content
+What is it for
+How does it look
+Will it constantly be updated
+
+1. All about the intentions (subject, goal, audience)
+-> offer products, or showcase your portfolio, blogger, writing, etc
+-> need a place to put your dank side projects
+-> links to your linkedin, github, facebook, instagram, etc
+
+2. Layout
+- how are you going to plan it
+- don't use tables within tables? what else should we do
+- flexbox ?
+- group related content?
+- single page vs multi page 
+- what kinds of sections do you want?
+- how would you navigate through this content?
+- boxes within boxes...please don't use tables
+- sketch out the website content before you start coding
+- how do you go from the sketch to code??
+
+3. Steal other layouts, and then make it better
+
+Part 2: How do I Make Shit Look Good
+
+4-> Consistency:
+headers and footers
+
+
+Mastering WhiteSpace is Key
+- dont put things everywhere, space things out
+- simple, easy to navigate
+
+I missed number 5 I guessed
+
+6. Form your words Beautifuly
+- Google Fonts is godly --> free font repository... link in your head, inside of your document... include font in your file.. makes it look really pretty..
+
+Serif vs Sans-serif... can be used for titles or headings etc...
+Sans Serif has been a common default override ... Serif is making a comback now...
+
+Thick vs Thin -> different font weights..contrasts...attract people's attention to different things
+
+Don't use fancy fonts for your main text
+Dont use helvetica, don't use lobster, dont use Papyrus, or things with weird names
+
+Playfair display, Layto? wayto?
+
+Welcome to Art Class:
+- Colour!
+- Colour is powerful. Can make or break your website
+- blue looks like trusting, intelligent
+- design everything first in grayscale
+- then add color
+
+Color Schemes: --> just google a color selector to help you pick
+
+- "Colors are hard and I dont have the time"
+- lots of resources: 
+Coolors -->https://coolors.co/  --> helps you select colours, tones, shades, etc, then export it 
+
+Adobe Color CC --> lets you upload an image and then selects great colours to match it 
+
+Free Images to Use Without Being Sued
+unsplash.com -- free photos to use for your website
+
+Background images WILL help your website
+
+Something NOT TO DO:
+- make it readable
+- use nice colours
+
+10.
+- contrast draws attention
+
+Part 3: Let's Talk About Code
+
+How do you vertically center an element?
+- if I know the height of the element because I set it
+do
+position:absolute
+top:50%
+margin-top:-(50% * height of element)
+
+How to horizontally centre an element
+position: absolute ignores margins horizontally
+left:0, right : 0; 
+
+
+html 5 Semantic markup makes everuon'es lives easier
+
+why us <div id="header"> when <header> exists
+section, main,
+
+Please don't:
+ - use bad indentation for <> and their ends </>
+ - have good names for content
+ - don't name a header 'hello'...so DO please have good names for things
+ - have descriptive names for id's of things ex <header id = "..." > </header> so that you know what it is doing
+ - so you know what it's purpose is 
+
+
+---> Positioning: meet z-index, when things get 3D, helps you layer things on top of each other
+firefox can show things on the side..so you can see a 3d layer of the website
+
+
+z-index is the css version of sending things to front or back etc etc..put things on top of other elements
+
+ex. if you want a fixed index for navigation things you can set z-index to be higher than the rest of the z indexes
+
+higher number for z-index means higher priority, will be on the top most layer
+
+Part 4: CSS...and it's time for mobile....
+
+
+Mobile responsiveness in 3 easy steps...
+step 1: add @media queries to your code
+Step 2: make your site look bigger at bigger eizes
+step 3:??????
+step 4: profit
+no seriously though, scale your code for bigger screens....
+always think mobile first? --> yolo
+
+scaling from small to large is easier than scaling from large to small..you can always add more detail if you make it bigger and have extra space...but choosing which information when you go from big to small is a pain
+
+
+@media Queries
+- essentially this tells the browsert to change the style of your css to whatever screen sizes youve told it to check for 
+
+Syntax: 
+@media all and (breakpoint here) {
+	//css
+}
+
+largely used breakpoints include: width, height, aspect ratio, orientation, tjink in min X, not maxX
+
+
+if i only have 600 pixels of height (iphone)...what do I want to show???
+aspect ratio, 16:9, 4:3...show things based on that
+
+can do min ratio (maybe min is 1:1 ...needs to at least be as wide as it is tall etc)
+
+what about in landscape mode??? ahhh
+
+
+Animations:
+CSS has Animations:
+@keyframes <name> {} // is how you specify animations 
+
+ex
+@keyframe fadeIn {
+from {
+	opacity = 0;
+} to {
+	opacity = 1;
+}
+}
+
+Animatioin property name is animation
+so you can specify its name, how long it will take, whether you want it to run infinitly, how many times you want it to run, do you want it to run in reverse
+
+Animate opacity and transform ONLY please...theyre the fastest to animate...don't animate height and width and margins etc....just do opacity and transform(so like translate x, y, z...roate...scale)
+
+Browsers compute your site in this order:
+javascript, html, css layout, css colours, composite (where transform and opacity exist..)
+
+Animating with Javascript: (css is limited)
+
+More browsert intensive, but you can do way mroe stuff
+Javascript libraries everywhere to animate things
+JQuery is also a good library when you need to animate things
+Try to push simple animations to CSS as much as possible, because your browser still accounts for Javascript first
+
+<canvas> can be used in conjucntion with Javascript for cool animation --> showed a cool particle thing where the background reacted to you moving your mouse
+
+Front-End Techs:
+There are pre-css compilers
+SASS is used by bootstrap version 4 for preprocessing and using variables...
+lets you compile css and jsut refresh page and see changes made in css automatically
+nesting, for loops, while loops
+operators, math, inheritance, 
+
+LESS is the other major one (bootstrap 3 is using this)
+simialr to SASS...nested rolls, operations, functions, namespaces and accessors lol what are these things
+
+lets you just import everything to one file..
+
+
+Frameworks:
+- boostrap (is useful)
+- material design... google it..google came out with it a few years ago
+- google has provided the principles for how the lauout should look...how ui works... etc etc
+- typeography
+- dont necessarily do android style websites
+
+- boilerplates!!!!!!!!!!!!!!!!!!!!!!
+
+gives you basic outlines to work with? skeleton to write
+
+buttons...forms...lists..code... Scott google boilerplates   https://html5boilerplate.com/ ..... http://getskeleton.com/
+
+
+Answers to Questions ====================================================================================================
+
+Why use id instead of class when creating a div?
+id 's are faster...maybe not
+id's are for singular elements that won't show up on other pages
+ids can make your code really messy
+classes are supposed to be used multiple times
+<div class = " " > ....
+can be hosted on github pages... (if its static)
+
+node.js servers..... digitalOcean..
+
+
+Design Workflow: Organization Strategies:
+- have a set of file for a website in general
+- have a base set of ffiles that you tweak
+- create modules as you need them
+
+Look at the purpose: what does it need most...needs a logo....need navigation...need artwork..way to display it
+
+seperate each into each section
+logo is own module...what is a module? lawlzzz
+
+header, footer, navigation, keep that stuff the same for all of your pages...
+maybe dont copy and paste your code... maybe you can include headers and footers? that's better...less copy and paste
+
+why do you hate on bootstrap?
+
+downside of it, you can tell when someone is using bootstrap
+
+What programs do you use to code and design?
+Atom...sublime got iritating..."buy sublime now" aha
+Atom is fun
+
+For UI stuff, Figma...
+
+
+
+
+
+
+
+
+
+

@@ -2,8 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9282b47f-e8a1-47c6-ab3d-3fb937aa3cf4" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.html___jb_tmp___" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/generalInfo.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/img/background1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/img/desk_background_1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/img/desk_background_2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/img/desk_background_3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/img/devpost_icon.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/img/devpost_icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/img/github_icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/img/linkedin_icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/index_save_DEC_22.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/intoToWebDesign.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/less/creative.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/less/mixins.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/less/variables.less" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/package.json" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/creative.css" afterPath="$PROJECT_DIR$/css/creative.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -25,11 +42,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="192" column="35" lean-forward="false" selection-start-line="192" selection-start-column="35" selection-end-line="192" selection-end-column="35" />
+            <state relative-caret-position="21991">
+              <caret line="1315" column="0" lean-forward="true" selection-start-line="1315" selection-start-column="0" selection-end-line="1315" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -98,31 +115,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/bootstrap/css/bootstrap.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="25" column="1" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modal.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/modal.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6072">
-              <caret line="276" column="6" lean-forward="false" selection-start-line="276" selection-start-column="4" selection-end-line="276" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="creative.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="creative.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/creative.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="280" column="9" lean-forward="false" selection-start-line="280" selection-start-column="1" selection-end-line="280" selection-end-column="9" />
+            <state relative-caret-position="260">
+              <caret line="227" column="55" lean-forward="false" selection-start-line="227" selection-start-column="55" selection-end-line="227" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -139,17 +136,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ousel</find>
-      <find>car</find>
-      <find>from</find>
-      <find>html</find>
-      <find>h1</find>
-      <find>Experienced</find>
-      <find>white</find>
-      <find>section</find>
-      <find>poker</find>
-      <find>bg</find>
-      <find>full</find>
       <find>matrix</find>
       <find>align</find>
       <find>text-left</find>
@@ -169,6 +155,17 @@
       <find>my project</find>
       <find>section-</find>
       <find>section-pok</find>
+      <find>2017</find>
+      <find>git</find>
+      <find>waka</find>
+      <find>close</find>
+      <find>glyph</find>
+      <find>glyphic</find>
+      <find>icon</find>
+      <find>hardwork</find>
+      <find>background</find>
+      <find>backgro</find>
+      <find>desk</find>
     </findStrings>
     <replaceStrings>
       <replace>desk_background_2</replace>
@@ -191,8 +188,8 @@
         <option value="$PROJECT_DIR$/index_save_DEC_22.html" />
         <option value="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/vendor/bootstrap/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/css/creative.css" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/css/creative.css" />
       </list>
     </option>
   </component>
@@ -200,11 +197,6 @@
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
-    <gulpfiles>
-      <GulpfileState>
-        <gulpfile-path>$PROJECT_DIR$/gulpfile.js</gulpfile-path>
-      </GulpfileState>
-    </gulpfiles>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
@@ -289,6 +281,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="fonts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="personalWebsite2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="personalWebsite2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -322,7 +336,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="SearchEverywhereHistoryKey" value="carousel-control&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/scott/c/coding/personalWebsite2/css/creative.css&#10;desk&#9;FILE&#9;file:///Users/scott/c/coding/personalWebsite2/img/background/desk_background_1.jpg&#10;glyphicon&#9;FILE&#9;file:///Users/scott/c/coding/personalWebsite2/vendor/bootstrap/fonts/glyphicons-halflings-regular.eot&#10;glyph&#9;null&#9;null&#10;icon&#9;FILE&#9;file:///Users/scott/c/coding/personalWebsite2/vendor/font-awesome/less/icons.less&#10;@icon-font-path&#9;null&#9;null&#10;carousel-control&#9;null&#9;null" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="FullScreen" value="true" />
@@ -420,12 +434,12 @@
       <workItem from="1483418387158" duration="2231000" />
       <workItem from="1483470297241" duration="185000" />
       <workItem from="1483570169464" duration="757000" />
-      <workItem from="1483675975387" duration="4473000" />
+      <workItem from="1483675975387" duration="9498000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68585000" />
+    <option name="totallyTimeSpent" value="73610000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -441,7 +455,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1810961" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16441621" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -827,26 +841,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/bootstrap/css/bootstrap.css">
+    <entry file="file://$PROJECT_DIR$/vendor/font-awesome/less/icons.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="25" column="1" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="1" />
+        <state relative-caret-position="202">
+          <caret line="119" column="37" lean-forward="false" selection-start-line="119" selection-start-column="37" selection-end-line="119" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/creative.css">
+    <entry file="file://$PROJECT_DIR$/css/bootstrap_original.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="280" column="9" lean-forward="false" selection-start-line="280" selection-start-column="1" selection-end-line="280" selection-end-column="9" />
+        <state relative-caret-position="330">
+          <caret line="15" column="6" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="6757" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/bootstrap/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="269" column="12" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="6765" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/img/background/desk_background_1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="192" column="35" lean-forward="false" selection-start-line="192" selection-start-column="35" selection-end-line="192" selection-end-column="35" />
+        <state relative-caret-position="21991">
+          <caret line="1315" column="0" lean-forward="true" selection-start-line="1315" selection-start-column="0" selection-end-line="1315" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#section#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -911,6 +938,14 @@
             <element signature="n#style#0;n#div#2;n#div#2;n#div#1;n#div#0;n#div#1;n#div#0;n#section#3;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#section#3;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/creative.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="227" column="55" lean-forward="false" selection-start-line="227" selection-start-column="55" selection-end-line="227" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>

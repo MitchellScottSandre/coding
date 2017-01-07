@@ -44,10 +44,6 @@ p {
   color: white;
 }
 
-.font-blue{
-  color:#448AFF;
-}
-
 .font-console{
   color:#29FE13;
   font-family: "Andale Mono", Monospaced, "Source Code Pro";
@@ -66,7 +62,7 @@ projectDiv{
 .center-pills { display: inline-block; }
 
 .bg-primary {
-  background-color: #FF5722;
+  background-color: #F05F40;
 }
 
 .bg-poker{
@@ -75,7 +71,7 @@ projectDiv{
   padding-right: 30px;
   padding-bottom: 30px;
   padding-left: 30px;
-  background-color: #FF5722;
+  background-color: #F05F40;
 }
 
 .bg-matrix{
@@ -85,7 +81,6 @@ projectDiv{
   padding-bottom: 30px;
   padding-left: 30px;
   background-color: black;
-  border-color:white;
 }
 
 .bg-goose{
@@ -106,16 +101,15 @@ projectDiv{
   background-color: #75B1C8;
 }
 
-.bg-secondary{
-  background-color: #4CAF50;
-}
 
-.bg-black{
-  background-color: black;
+
+.bg-secondary{
+  background-color: #2EAE5E;
 }
 
 .bg-blue{
-  background-color:#448AFF;
+
+  background-color:#2D7997;
 }
 .bg-dark {
   background-color: #222222;
@@ -153,7 +147,6 @@ aside {
 .navbar-default .navbar-header .navbar-brand:hover,
 .navbar-default .navbar-header .navbar-brand:focus {
   color: #eb3812;
-
 }
 .navbar-default .navbar-header .navbar-toggle {
   font-weight: 700;
@@ -174,8 +167,7 @@ aside {
 }
 .navbar-default .nav > li.active > a,
 .navbar-default .nav > li.active > a:focus {
-  /*color: #F05F40 !important;*/
-  color:#448AFF !important;
+  color: #F05F40 !important;
   background-color: transparent;
 }
 .navbar-default .nav > li.active > a:hover,
@@ -426,8 +418,8 @@ fieldset[disabled] .btn-default.active {
 }
 .btn-primary {
   color: white;
-  background-color: #FF5722;
-  border-color: #FF5722;
+  background-color: #F05F40;
+  border-color: #F05F40;
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
   transition: all 0.35s;
@@ -472,7 +464,6 @@ fieldset[disabled] .btn-primary.active {
   color: #F05F40;
   background-color: white;
 }
-
 .btn {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
   border: none;
@@ -480,25 +471,6 @@ fieldset[disabled] .btn-primary.active {
   font-weight: 700;
   text-transform: uppercase;
 }
-
-.btn-green{
-  background-color: #4CAF50;
-  border-color: #4CAF50;
-}
-.btn-yellow{
-  background-color: #FFC107;
-  border-color: #FFC107;
-}
-.btn-lightBlue{
-  background-color: #03A9F4;
-  border-color: #03A9F4;
-}
-
-.btn-purple{
-  background-color: #9C27B0;
-  border-color: #9C27B0;
-}
-
 .btn-xl {
   padding: 15px 30px;
 }

@@ -44,6 +44,21 @@ p {
   color: white;
 }
 
+.smallFont{
+  font-size: 8px;
+}
+.nav-pills{
+  color: #fff;
+}
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+ .nav-pills > li.active > a:focus {
+   color: #fff;
+   background-color: #448AFF;
+ }
+
+
 .font-blue{
   color:#448AFF;
 }
@@ -85,6 +100,7 @@ projectDiv{
   padding-bottom: 30px;
   padding-left: 30px;
   background-color: black;
+  border-style: solid;
   border-color:white;
 }
 
@@ -94,7 +110,7 @@ projectDiv{
   padding-right: 30px;
   padding-bottom: 30px;
   padding-left: 30px;
-  background-color: #F09C40;
+  background-color: #9C27B0;
 }
 
 .bg-encryption{
@@ -103,7 +119,7 @@ projectDiv{
   padding-right: 30px;
   padding-bottom: 30px;
   padding-left: 30px;
-  background-color: #75B1C8;
+  background-color: #FF5722;
 }
 
 .bg-secondary{
@@ -145,14 +161,14 @@ aside {
   transition: all 0.35s;
 }
 .navbar-default .navbar-header .navbar-brand {
-  color: #F05F40;
+  color: #448AFF;
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
   text-transform: uppercase;
 }
 .navbar-default .navbar-header .navbar-brand:hover,
 .navbar-default .navbar-header .navbar-brand:focus {
-  color: #eb3812;
+  color: #448AFF;
 
 }
 .navbar-default .navbar-header .navbar-toggle {
@@ -170,7 +186,7 @@ aside {
 }
 .navbar-default .nav > li > a:hover,
 .navbar-default .nav > li > a:focus:hover {
-  color: #F05F40;
+  color: #448AFF;
 }
 .navbar-default .nav > li.active > a,
 .navbar-default .nav > li.active > a:focus {
@@ -207,22 +223,26 @@ aside {
     border-color: rgba(34, 34, 34, 0.05);
   }
   .navbar-default.affix .navbar-header .navbar-brand {
-    color: #F05F40;
+    color: #448AFF;
     font-size: 14px;
   }
   .navbar-default.affix .navbar-header .navbar-brand:hover,
   .navbar-default.affix .navbar-header .navbar-brand:focus {
-    color: #eb3812;
+    color: #448AFF;
   }
   .navbar-default.affix .nav > li > a,
   .navbar-default.affix .nav > li > a:focus {
     color: #222222;
   }
-  .navbar-default.affix .nav > li > a:hover,
+  .navbar-default.affix .nav > li > a:hover{
+    color: #448AFF;
+  }
   .navbar-default.affix .nav > li > a:focus:hover {
-    color: #F05F40;
+    color: #448AFF;
   }
 }
+
+
 header {
   position: relative;
   width: 100%;
@@ -249,6 +269,7 @@ header .header-content .header-content-inner h1 {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 30px;
+  color:white;
 }
 header .header-content .header-content-inner hr {
   margin: 30px auto;
@@ -260,6 +281,12 @@ header .header-content .header-content-inner p {
   margin-bottom: 50px;
 }
 @media (min-width: 768px) {
+  /*.nav-pills > li.active > a:hover,*/
+  /*.nav-pills > li.active > a:focus {*/
+    /*color: #fff;*/
+    /*background-color: white;*/
+  /*}*/
+
   header {
     min-height: 100%;
   }
@@ -295,7 +322,7 @@ header .header-content .header-content-inner p {
 
 .section-heading-2 {
   margin-top: 0;
-  color: red;
+  color: black;
 }
 
 
@@ -305,6 +332,8 @@ header .header-content .header-content-inner p {
   margin: 100px auto 0;
 }
 @media (min-width: 992px) {
+
+
   .service-box {
     margin: 20px auto 0;
   }
@@ -481,6 +510,7 @@ fieldset[disabled] .btn-primary.active {
   text-transform: uppercase;
 }
 
+/*========================custom button colour==============================s*/
 .btn-green{
   background-color: #4CAF50;
   border-color: #4CAF50;
@@ -494,10 +524,39 @@ fieldset[disabled] .btn-primary.active {
   border-color: #03A9F4;
 }
 
+.btn-blue{
+  color:white;
+  background-color: #448AFF;
+  border-color: #448AFF;
+}
+
 .btn-purple{
   background-color: #9C27B0;
   border-color: #9C27B0;
 }
+
+/* =========================on to progress bar colour====================== */
+.progress-bar-green{
+  background-color: #4CAF50;
+}
+
+.progress-bar-yellow{
+  background-color: #FFC107;
+}
+
+.progress-bar-lightBlue{
+  background-color: #03A9F4;
+}
+
+.progress-bar-purple{
+  background-color: #9C27B0;
+}
+
+.progress-bar-orange{
+  background-color: #F05F40;
+}
+
+
 
 .btn-xl {
   padding: 15px 30px;

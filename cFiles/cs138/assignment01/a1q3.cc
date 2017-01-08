@@ -3,6 +3,10 @@
 #include <sstream>
 #include <vector>
 using namespace std;
+
+const string SPACE = " ";
+
+
 int main (int argc, char* argv[]){
 	//what if n is negative
 	string line, word;
@@ -39,13 +43,23 @@ int main (int argc, char* argv[]){
 				lineLength = 0;
 				i--;//dont want to miss printing this word!!
 			} else {
-				cout << allWords[i] << " ";
+				if (lineLength == allWords[i].length()){//first word
+					cout << allWords[i];
+				}
+				else{//i != allWords.size() - 1
+					cout << SPACE << allWords[i];//for every word besides last word
+				}
+				// else {
+				// 	cout << allWords[i];//ast word, no space
+				// }
 				lineLength++;
 			}
 		}
+
+		cout << endl;
 	} else {
-		cerr << "Error, command is illegal" << endl;
+		cerr << "Error, line length must be positive." << endl ;
 	}
-	cout << endl;
+
 	return 0;
 }

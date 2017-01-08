@@ -61,7 +61,13 @@ vector<string> formatLineBothJustified(vector<string> wordsOnLine, int n){
 	}
 	int extraSpaces = n - lengthOfAllWords;
 	for (int i = 0; i < numWords; i++){
-
+		// if (wordsOnLine[0].length() > n){
+		// 	string shorterS;
+		// 	shorterS = wordsOnLine[0].substr(0, n);
+		// 	thisLine.push_back(shorterS);
+		// 	break;
+		// } else
+		{
 			thisLine.push_back(wordsOnLine[i]);
 			int x = ceil( (double)extraSpaces / (double)numGaps);
 			for (int p = 0; p < x; p++){
@@ -69,7 +75,7 @@ vector<string> formatLineBothJustified(vector<string> wordsOnLine, int n){
 	 		}
 			extraSpaces -= x;
 			numGaps--;
-
+		}
 
 	}
 	if (numWords == 1 && wordsOnLine[0].length() < n){//only 1 word on the line!!!, fill rest with spaces
@@ -141,60 +147,104 @@ vector<string> formatLeftJustified(vector<string> wordsOnLine, int n){
 	return thisLine;
 }
 
-vector<string> callFormatter(vector<string> thisLine, int n, string format){
-	if (format == "j"){
-		thisLine = formatLineBothJustified(thisLine, n);
-	} else if (format == "rl"){
-		thisLine = formatLineRightJustified(thisLine, n);
-	} else if (format == "c"){
-		thisLine = formatCenter(thisLine, n);
-	} else {
-		thisLine = formatLeftJustified(thisLine, n);
-	}
-	return thisLine;
-}
-
 void findMostWordsPerLine_PassToFormatter_CreateAllLinesArray_thenCallDisplayFunction(int n, vector<string> allWords, string c2, string format){
 	vector<vector <string> > allLines;
 	vector<string> thisLine;
 	int lineLength = 0, startIndex = 3;
 	bool keepPrinting = true, printedThisLine, lastWord;
 	lastWord = false;
+	while(keepPrinting == true){//print so it is left and right justified
+		//find max number words whose length including spaces is less than n
+		vector<string> wordsOnLine;
+		lineLength = 0;
+		int indexSave ;
+		printedThisLine = false;
 
-	for (int i = 3; i < allWords.size(); i++){
-		if (lineLength + allWords[i].length() < n){
-			thisLine.push_back(allWords[i]);
-			lineLength += allWords[i].length() + 1;//for the space!!!
-		} else if (lineLength + allWords[i].length() == n){
-			thisLine.push_back(allWords[i]);
-			lineLength += allWords[i].length() ;//NO space!!!
-		} else if (allWords[i].length() > n){
-			thisLine = callFormatter(thisLine, n, format);
-			allLines.push_back(thisLine);
-			//displayLineBothJustified(thisLine, n);
-			thisLine.clear();
-			string shorterS = allWords[i].substr(0, n);
-			thisLine.push_back(shorterS);
-			thisLine = callFormatter(thisLine, n, format);
-			allLines.push_back(thisLine);
+		for (int i = startIndex; i < allWords.size(); i++){//add words to word on line
+				if (i == allWords.size() - 1){
+					lastWord = true;
+				}
+				if (allWords[i].length() > n){//word is too long!!!
+					string shorterS;
+					shorterS = allWords[i].substr(0, n);
+					thisLine.push_back(shorterS);
+					allLines.push_back(thisLine);
+					thisLine.clear();
+					indexSave = i;
+					break;
+				}
+				else if (lineLength + allWords[i].length() < n){
+					lineLength += allWords[i].length() + 1;
+					wordsOnLine.push_back(allWords[i]);
+				} else if (lineLength + allWords[i].length() == n){
+					lineLength = n;
+					wordsOnLine.push_back(allWords[i]);
 
-			thisLine.clear();
-			lineLength = 0;
-		} else {//greater than n, display this line, then must start a new line!
-			thisLine = callFormatter(thisLine, n, format);
-			allLines.push_back(thisLine);
-			thisLine.clear();
-			lineLength = 0;
-			i--;
+					if (format == "j"){
+						thisLine = formatLineBothJustified(wordsOnLine, n);
+					} else if (format == "rl"){
+						thisLine = formatLineRightJustified(wordsOnLine, n);
+					} else if (format == "c"){
+						thisLine = formatCenter(wordsOnLine, n);
+					} else {
+						thisLine = formatLeftJustified(wordsOnLine, n);
+					}
+
+					allLines.push_back(thisLine);
+					thisLine.clear();
+					printedThisLine = true;
+					indexSave = i;
+					break;
+				} else {
+						//what if the word length is > n, we haven't added it yet
+						if (allWords[i].length() > n){
+						wordsOnLine.push_back(allWords[i]);
+						i++;
+						}
+						if (format == "j"){
+							thisLine = formatLineBothJustified(wordsOnLine, n);
+						} else if (format == "rl"){
+							thisLine = formatLineRightJustified(wordsOnLine, n);
+						} else if (format == "c"){
+							thisLine = formatCenter(wordsOnLine, n);
+						} else {
+							thisLine = formatLeftJustified(wordsOnLine, n);
+						}
+
+					//thisLine = displayLineBothJustified(wordsOnLine, n);
+					allLines.push_back(thisLine);
+					thisLine.clear();
+					printedThisLine = true;
+					//we never added this line !!
+					i--;
+					indexSave = i;
+					break;
+				}
+				indexSave = i;
+
+				if (lastWord == true){
+					keepPrinting = false; //finished all of the words
+					if (printedThisLine == false){
+
+						if (format == "j"){
+							thisLine = formatLineBothJustified(wordsOnLine, n);//BOTH
+						} else if (format == "rl"){
+							thisLine = formatLineRightJustified(wordsOnLine, n);//RIGHT
+						} else if (format == "c"){
+							thisLine = formatCenter(wordsOnLine, n);
+						} else {
+							thisLine = formatLeftJustified(wordsOnLine, n);
+						}
+
+						allLines.push_back(thisLine);
+						thisLine.clear();
+						printedThisLine = true;
+					}
+					break;
+				}
 		}
-		if (i == allWords.size() - 1){//last line since it has last word, has not been printed
-			//displayLineBothJustified(thisLine, n);
-			thisLine = callFormatter(thisLine, n, format);
-			allLines.push_back(thisLine);
-		}
-
+		startIndex = indexSave + 1;
 	}
-
 
 	if (c2 == "f"){
 		printNormalOrder(allLines);

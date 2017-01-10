@@ -18,7 +18,7 @@ int main (int argc, char* argv[]){
 	//low get all words
 
 	for (int i = 0; i < allLines.size(); i++){
-		while ( (string) allLines[i]){
+		while ( true){
 			string tmp;
 			cin >> tmp;
 			allWords.push_back(tmp);

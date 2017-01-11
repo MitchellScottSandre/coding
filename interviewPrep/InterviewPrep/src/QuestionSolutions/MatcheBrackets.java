@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class MatcheBrackets {
     
     public static Scanner input = new Scanner (System.in);
-
+    //NO SPACES
     //given a string containing only ( [ ] and ), output true if 
     //all of the brackets are properly paired, or false if not
     //ex: ( [] () [ () ] ) is good
@@ -30,30 +30,34 @@ public class MatcheBrackets {
         }
         System.out.println();
     }
-    public static void main(String[] args) {
-        String line;
-        line = input.nextLine();
+    
+    public static boolean solve(String line){
         LinkedList <Character> stack = new LinkedList<Character>();
-        //ArrayList <Character> stack = new ArrayList<Character>();
         
         for (int i = 0; i < line.length(); i++){
            if (line.charAt(i) == '('){
                stack.push(')');//inserts at front
            } else if (line.charAt(i) == '['){
                stack.push(']');
-           } else if (line.charAt(i) == stack.getFirst()){//closing bracket, matches
+           } else if (stack.isEmpty() == false && line.charAt(i) == stack.getFirst()){//closing bracket, matches
                stack.pop(); // remove one on TOP
            } else {//closing bracket, does NOT MATCH
-               System.out.println("FALSE");
-               break;
+               return false;
            }
         }
         
         if (stack.isEmpty() == true){
-            System.out.println("TRUE");
+            return true;
         } else {
-            System.out.println("FALSE");
+            return false;
         }
+    }
+    public static void main(String[] args) {
+        String line;
+        System.out.print("Enter line of brackets, no spaces: ");
+        line = input.nextLine();
+        System.out.println(solve(line));
+        
     }
     
 }

@@ -1,0 +1,172 @@
+Vector as Stack - Jan 8
+- can be safe, can be un safe, slightly less efficient than arrays (but we don't care)
+- can also dynamically resize bounds (space efficient)
+- starts with nothing in it, add elements to it with push_back to it
+- if it runs out of space, you double the space you had last time
+- usually constant time operation to PUSH BACK, unless you have to resize and reallocate, when it is LINEAR
+
+
+Disadvantages:
+- bounds checking can be slow accessing
+- adding a new element is occasionally a linear-time operation, not constant-time
+- this is called "amortized constant time"
+
+Is an object, has a pointer to continuous storage in memory, but also has SAFETY bits around it
+
+Summary: Vector size and capacity
+- it is legal to access v[i] IFIF 0 <= i < v.size()
+- it is ILLEGAL if i >= size() regardless of capacity
+
+Vector as Array:
+- probably set size once (at declration) and left as it
+- can explicity resize ia v.resize(int)
+- capacity is reset automatically if you resie
+- but use C++11 array if you can
+
+Vector as Stack:
+- number of active elements varies dynamically over the lifetime of the vector
+- use push)back() and pop_back() to add or delete elements, and back() to get a referrence to the last (top) element
+- capacity will be managed for us by the system
+
+
+Vector is a container data structure provided by the C++ STL, they are like c style arrays except
+- they are generic but type safe
+- can't store into into a vector <string>
+- index bounds checking is possible but not required
+- they can be resized during executation, one at a time, or in a big bang
+
+Will learn about later:
+deque???
+list
+map????
+set????
+
+Iterating through a vector:
+1. like an array, if you know the extent, by keeping track or by using v.size()
+2. using ITERATORS, if you push_back/pop_back to manage the collection
+- iterators are an advanced topic, we will return to it later
+
+iterator k, k++ means go to next element in the SET, not just SET ELEMENT PLUS ONE
+
+Lecture 3: some words on unix and the unix shell
+
+1. Core material; 2.Useful material 3. keener material
+
+Core Material:
+
+What's an Operating System:
+- provides services to clients, implimented by the underlying resources, it procides and ABSTRACTION layer
+- manages execution of apps, time sharing, communication
+- it mediates fair use of shared resources, CPU, memory, devices
+- it prevents misbehaviour (no bad things happen)
+- UI can be graphical or command line
+
+Quick History:
+Mainframes (1950s)
+Minicomputers (1970) Unix and C
+Microcomputers (1080s) DOS, Windows, MacOS, Linux
+Mobile Devices (2000s)
+Today:
+Mobile (70 android, 25 ios)
+PC (windows 85, osx 10, linux 2)
+
+OS X (two layers) GUI sits on top of dawin unix dialect
+- android sits on top of LINUX
+
+Quick History of Unix:
+- huge step forward
+- "do one simple thing, efficiently"
+
+Brave GNU World
+GNUs NOT UNIX (recursive acronym)
+Free as in free speech, not free beer
+wanteed truly free unix-like operating system
+
+Original Major Components of GNU
+GCC (GNU Compiler Collection), gcc, g++
+glibc (c library)
+GNU coreutilities (ls, rm, mv, mkdir)
+other stuff (bash, gdb)
+but NO KERNELL --> connects the OS to the memory and CPU
+Linux: just the OS kernel
+
+File Permissions:
+Everything is a file (surprise)
+Each file has 3 sets of permissions, User, Group, other
+
+Read: can see it
+Write: can add or delete files
+execute: can cd there and do stuff
+
+Echo:
+write arguments, seperarated by spaces and terminated by endline
+
+Find:
+find searches for files/dirs within a directory hieratchy, according to various states critera
+find [dir-list][expr]
+options: -name pattern restricts file names to globbing pattern
+
+Grep (one of our best friends)
+regular expression matching
+
+grep pattern, list a bunch of files, and it tells you call of the places where that pattern occurs
+
+Building A Pipeline:
+a multu stage process using a redirectio nrequires explicit creation of intermediate termp files
+sort data > sortdata
+
+
+Unix Shell Commands:
+
+man: print information about command, option names and functionality
+	man bash
+	man ls
+	man man
+	man mkdir
+
+	man is short for manual, it gives you a dense reference page for usuage, not a friendly tutorial
+
+ls: gives a listing of the contents of a directory (folder), by default the current directory
+	most common UNIX command
+	ls [-l] [-a] [<list of files/directories]
+	-a lists "dotfiels" also, which are not typically shown
+	-l gives a long listing for each file
+	-R recursively lists contents of other directories too
+	-t sort by time modified
+	-G colour code files (red for executables, etc etc)
+
+mkdir: creates new directories at specified locations in file hierarchy
+
+cp (copy), mv (move), rm (remove)
+
+cat / less: print files to terminal window
+	cat file-list
+	less file-list
+
+File Permissions....
+
+ssh: secure shell, safe, encrypted, remote-login between clients and server host
+
+diff / cmp: compare 2 files looking for differences
+	diff x y
+		for file x and file y
+
+find: searches for files/dirs within a directory
+	$ find -name "t*" # Important: Why quotes?
+	./test.cc
+	./testdata
+	./oldTests/test-y2k-dir
+
+grep and egrep
+	egrep: adds funky extra poweful pattern matching that is really useful sometimes, nut its slower on big searcheas as it has to do more work
+	fgrep: faster, less reliable
+	egrep: search and print lines matching pattern in findMostWordsPerLine_PassToFormatter_CreateAllLinesArray_thenCallDisplayFunction
+	egrep usage:
+		egrep [-irnv] pattern-string file-list
+
+		egrep example: list lines contain "main" in files with suffix ".cc"
+		$ egrep main *.cc # why no quotes?
+			q1.cc:int main() {
+			q2.cc:int main() {
+
+Next: pipeline, shell scripting!

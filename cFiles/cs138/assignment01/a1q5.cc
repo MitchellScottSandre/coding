@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <sstream>
+// #include <sstream>
 #include <vector>
 #include <math.h>
 using namespace std;
@@ -211,18 +211,26 @@ void findMostWordsPerLine_PassToFormatter_CreateAllLinesArray_thenCallDisplayFun
 
 int main(int argc, char* argv[]){
 
-	string line, word;
+	string line;
 	int n;
 	string c1, c2;
 	vector<string> allWords;
-	getline(cin, line);
-	while ( cin.fail() == false ){//continue reading in all of the lines lines
-		istringstream ss(line);
-		while (ss >> word){
-			allWords.push_back(word);
+	while (true){
+		string word;
+		cin >> word;
+		if (cin.fail()) {
+			break;
 		}
-		getline(cin, line);
+		allWords.push_back(word);
 	}
+	// getline(cin, line);
+	// while ( cin.fail() == false ){//continue reading in all of the lines lines
+	// 	istringstream ss(line);
+	// 	while (ss >> word){
+	// 		allWords.push_back(word);
+	// 	}
+	// 	getline(cin, line);
+	// }
 	//cout << "There were " << allWords.size() << " words entered" << endl;
 	//now do stuff with that information
 	n = stoi(allWords[0]);

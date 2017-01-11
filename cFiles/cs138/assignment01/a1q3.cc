@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <sstream>
+// #include <sstream>
 #include <vector>
 using namespace std;
 
@@ -9,19 +9,27 @@ const string SPACE = " ";
 
 int main (int argc, char* argv[]){
 	//what if n is negative
-	string line, word;
+	string line;
 	int n;
 	vector<string> allWords;
 
 	//cin.ignore();
-	getline(cin, line);
-	while ( cin.fail() == false ){//continue reading in lines
-		istringstream ss(line);
-		while (ss >> word){
-			allWords.push_back(word);
+	while (true){
+		string word;
+		cin >> word;
+		if (cin.fail()) {
+			break;
 		}
-		getline(cin, line);
+		allWords.push_back(word);
 	}
+	// getline(cin, line);
+	// while ( cin.fail() == false ){//continue reading in lines
+	// 	istringstream ss(line);
+	// 	while (ss >> word){
+	// 		allWords.push_back(word);
+	// 	}
+	// 	getline(cin, line);
+	// }
 	n = stoi(allWords[0]);
 
 

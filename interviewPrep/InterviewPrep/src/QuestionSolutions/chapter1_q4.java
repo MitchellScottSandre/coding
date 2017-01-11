@@ -15,31 +15,41 @@ public class chapter1_q4 {
 
     /**
      * Write a method to decide if two strings are anagrams or not
+     * 
+     * defn: a word, phrase, or sentence formed from another by rearranging its letters: “Angel” is an anagram of “glean.”.
      */
     public static Scanner input = new Scanner (System.in);
     
-    public static boolean solve(String one, String two){
-        if (one.length() != two.length()){
+    public static boolean isAnagram(String one, String two){
+        String copyOne = one.replaceAll(" ", "");//get rid of all of the spaces for each
+        String copyTwo = two.replaceAll(" ", "");
+        if (copyOne.length() != copyTwo.length()){//number of chars remaining must be the same
             return false;
         }
-        for (int i = 0; i < one.length(); i++){
-            if (one.charAt(i) != two.charAt(one.length() - 1 - i)){
+        
+        //same length: to be anagrams, must have same number of each letter
+        for (int i = 0; i < copyOne.length(); i++){
+            char c = copyOne.charAt(i); //this is our char
+            copyOne = copyOne.replaceAll(c + "", ""); //remove char
+            int x = copyOne.length();//after length
+            copyTwo = copyTwo.replaceAll(c + "", "");
+            int y = copyTwo.length();
+            if (x != y){
                 return false;
             }
         }
+        
         return true;
     }
     
     public static void main(String[] args) {
         String one, two;
         System.out.println("Question: Are these anagrams?");
-        //what, what the hell is an anagram??? same forwards and backwards? on contain in total the same number of
-        //the same chars?? aha that is important to know
         System.out.print("Enter string one: ");
         one = input.nextLine();
         System.out.print("Enter string two: ");
         two = input.nextLine();
-        System.out.println(solve(one, two));
+        System.out.println(isAnagram(one, two));
     }
     
 }

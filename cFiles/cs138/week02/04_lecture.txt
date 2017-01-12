@@ -1,0 +1,75 @@
+The C/C++ (Java, Python, etc) Memory Model
+
+Memory (RAM) contains
+1. Run time Environment
+	- area of ram that dictates how program actually does work/handles instructions
+	- drastically different depending on what programming language you use
+	- c, c++: contained in executable that you run
+	- java: have an external run time environment that is needed to run
+		java: compiles to byte code, need Java RunTime Environment (designed for your OS), which converts byte code into
+			appropriate instruction for your computer
+
+2. User's Program
+
+3. User's Data and Working Storage
+	a. Program's Static Data
+		- global variables, also static variables
+	b. Freestore (heap) --> Primary Focus of Lecture
+		- operates by storing variables created dynamically, "new", "malloc", "calloc"
+		- generally referenced by pointers
+		- rule of thumb, if it has a pointer, probably on heap (cases where it might not be on heap though)
+	c. Program Stack --> Primary Focus of Lecture
+		- every time program is started, gets added to stack
+		- when it completes, it gets removed from stack
+		- will grow as you add functions
+
+Memory Model: Example
+	We have a main function, main calls f, f calls g
+	main() --> f() --> g()
+	main: has variable 	int test = 0
+	f: no variables
+	g: has variable 	int test = 1
+
+	Our Stack:
+		Word Description:
+		- empty stack
+		- main enters stack
+		- main hits first instruction, creates int test = 0
+		- f gets executed, then it calls g
+		- when g hits end, it pops off
+		- then f pops off
+		- then main pops off
+		- empty stack
+
+		Visual:
+		g [ int test = 1 ]
+
+		f
+
+		main [ test = 0 ]   // stored inside of main, imagine main is a box, and test = 0 is a box inside main
+
+For C and C++ Memory Model:
+	- typically compile the source code into the local OS / hardware-specific language
+	- also, the RTE may be wholly or partly embedded in the compiled code (static versus dynamic linking)
+	- libraries don't have to be included in the executable
+	- if you want an executable that can be moved to other computers (Windows, OS, etc) you can.... "" ?
+
+For Java and C#:
+	- we compile source code into a universal virtual machine (VM) language (JVM or CLR)
+	- VM is then the run time system, and must be implemented to run on various OSs
+
+Creating Linked Structures in C++
+	- we would like to create list-like structures in C++
+		- we saw how to do this in C using C structs and pointers
+			ex:
+				struct ListItem{
+					int value;
+					ListItem *next;
+				}
+		- C++ structures are similar but also different, too
+		- recall: everything you write in C is valid in C++
+	- C++ structs are much more powerful than C structs
+		- they are completely equivalent to C++ classes (besides default access rights of member)
+
+	- The C++ Standard Library defines several useful containers (vector, list, map) which you should use in real life
+	- we will make our own just to learn it

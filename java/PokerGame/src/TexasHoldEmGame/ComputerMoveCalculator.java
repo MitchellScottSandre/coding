@@ -116,7 +116,7 @@ public class ComputerMoveCalculator {
                 howEasyToBluff_level = randomIntWithin(3, 5);
                 bettingRiskTolerance_level = randomIntWithin(6, 10);
                 willBluff_level = randomIntWithin(1, 3);
-                patience_level = randomIntWithin(6, 10);
+                 = randomIntWithin(6, 10);
                 break;
             case PokerGame.TIGHT_PASSIVE:
                 personalityString = PokerGame.namesOfPlayerTypes[PokerGame.TIGHT_PASSIVE];

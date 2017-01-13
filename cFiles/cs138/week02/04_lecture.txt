@@ -32,21 +32,21 @@ Memory Model: Example
 
 	Our Stack:
 		Word Description:
-		- empty stack
-		- main enters stack
-		- main hits first instruction, creates int test = 0
-		- f gets executed, then it calls g
-		- when g hits end, it pops off
-		- then f pops off
-		- then main pops off
-		- empty stack
+			- empty stack
+			- main enters stack
+			- main hits first instruction, creates int test = 0
+			- f gets executed, then it calls g
+			- when g hits end, it pops off
+			- then f pops off
+			- then main pops off
+			- empty stack
 
 		Visual:
-		g [ int test = 1 ]
+			g [ int test = 1 ]
 
-		f
+			f
 
-		main [ test = 0 ]   // stored inside of main, imagine main is a box, and test = 0 is a box inside main
+			main [ test = 0 ]   // stored inside of main, imagine main is a box, and test = 0 is a box inside main
 
 For C and C++ Memory Model:
 	- typically compile the source code into the local OS / hardware-specific language
@@ -73,3 +73,109 @@ Creating Linked Structures in C++
 
 	- The C++ Standard Library defines several useful containers (vector, list, map) which you should use in real life
 	- we will make our own just to learn it
+
+Creating struct/class instances:
+	- Instances of classes/structs are called OBJECTS, there are two ways to create them
+	1. direct instantiation
+			ex:
+			strctName s;
+			s.x = 100;
+			s.y = 200; //stored in the STACK
+			- space allocated is on the run-time stack
+			- but instances disappear at the end of their defining scope
+			- this is a problem if we want to pass around linked structures
+
+	2. Dynamic Instantiation (usually, though a pointer)
+		strctName *sPtr = new strctName; // empty constructor, DON'T NEED TO INCLUDE BRACKETS (but you can)
+		sPtr->x = 100;
+		sPtr->y= 200; //stored in HEAP
+		//do cool shit with sPtr
+		delete sPtr;
+
+	- if you do not delete it, it will just be CHILLIN in the HEAP with NOTHING pointing to it
+		- this is a MEMROY LEAK brah
+	- C++ doesn't have garbage collection
+
+Example:
+	#include <string>
+	#include <iostream>
+	using namespace std;
+
+	struct Coord {
+		int x, y;
+	}; // YOOOO DONT FORGET THIS SEMI COLON
+
+	void print (Coord c){
+		cout << "x is " << c.x << " and y is " << c.y << endl;
+	}
+	//why did i just type this shitty example
+
+Example:
+	int main (int argc, char *argv[]){
+		Coord A;
+		a.x = 3;
+		a.y = 5;
+
+		Coord b = a; // object COPY
+		print(a); // x is 3, y is 5
+		print(b); // x is 3, y is 5
+		a.x = 17;
+		print(a); // x is 17, y is 5
+		print(b); // x is 3, y is 5
+
+		Coord *p1;
+		p1 = new Coord;
+		p1->x = 4;
+		p1->y = 12;
+
+		Coord *p2;
+		p2 = p1;//pointing to same object
+		print (*p1);//prints 4, 12
+		p1->x = 42;//p1 AND p2 value of x gets changed
+		print(*p2);//prints 42, 12
+
+		Coord *p3 = &a;//points to address of a
+		p3->y = 88;
+		print(a); //prints 42, 88
+
+		delete p1; //all you need to delete is this
+		//ERROR -->> delete p2;//but p2 pointed to p1, but p1 doesn't exist anymore
+			//this can be compiled jsut fine, but when you run it
+
+	}
+
+
+	Life Tip:
+
+	if you have an object Coord a, and want to print it using a printPointer function,
+	just pass it (&a), this is an ADDRESS, which is a POINTER, so this works just fine
+
+	Coord *bad(){
+		Coord test;
+		return &test;
+	}
+
+	Never point UP THE STACK with a pointer --> yo why?
+	Pointing DOWN THE STACK with a pointer is fine
+
+C++ Pointers:
+	- it is a strange number
+	- numeric address of the thing that you are pointing to
+	- only need to know the actual number if you want to see if it has been deleted
+	- or you may want to do pointer arithmetic
+
+	- special C++11 value called nullptr
+		means it is not pointing to anything
+	- if you declare a ptr, it will contain random garbage as its initial falue
+	- so, after declaring a pointer, it is best to set it to point to something or set it to a null pointer right away
+	- previously, C++03 used the NULL macro for this purpose
+
+	- can point to anything
+	- we will mostly use them to points to structs and objects
+
+nullptr VS NULL
+- in the old days of C, giving the integer alue zero to a pointer was used to indicate that the pointer wasn't pointing to anything
+- later, the macro NULL was created as somewhat safer and more intuitive way to express the same idea
+- don't make an int NULL = 99;
+
+Kash = L_GATE;

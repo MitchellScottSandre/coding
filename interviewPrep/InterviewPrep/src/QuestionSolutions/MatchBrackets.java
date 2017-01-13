@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author scott
  */
-public class MatcheBrackets {
+public class MatchBrackets {
     
     public static Scanner input = new Scanner (System.in);
     //NO SPACES

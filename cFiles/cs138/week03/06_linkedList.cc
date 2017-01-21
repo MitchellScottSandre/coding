@@ -22,11 +22,11 @@ Node *push (Node *first, string val){
 	Node *p = new Node;
 	p->val = val;
 	p->next = first;
-	return first;
+	return p;
 }
 
 string peek (Node *first){
-	assert(!isEmpty(first));//ensure there is a first element
+	//assert(!isEmpty(first));//ensure there is a first element
 	return first->val;
 }
 

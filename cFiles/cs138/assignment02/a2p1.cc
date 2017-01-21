@@ -5,7 +5,7 @@
 // #include <cassert>
 using namespace std;
 
-string SPACE = ".";
+string SPACE = " ";
 
 int myCeilFnctn(double a){
     if ((int) a == a){
@@ -15,7 +15,7 @@ int myCeilFnctn(double a){
 }
 
 //===================================FORMATTING FUNCTIONS================================
-vector< vector<string> > formatBothJustified(vector< vector<string> > allLinesAndWords_OriginalCopy, int n){
+vector< vector<string> > formatBothJustified(const vector< vector<string> > & allLinesAndWords_OriginalCopy, int n){
     vector< vector<string> > allLinesAndWords_new;
     for (int i = 0; i < allLinesAndWords_OriginalCopy.size(); i++){
         vector<string> wordsOnLine = allLinesAndWords_OriginalCopy[i];
@@ -48,7 +48,7 @@ vector< vector<string> > formatBothJustified(vector< vector<string> > allLinesAn
     return allLinesAndWords_new;
 }
 
-vector< vector<string> > formatRaggedRight(vector< vector<string> > allLinesAndWords_OriginalCopy, int n){
+vector< vector<string> > formatRaggedRight(const vector< vector<string> > & allLinesAndWords_OriginalCopy, int n){
     vector< vector<string> > allLinesAndWords_new;
     for (int i = 0; i < allLinesAndWords_OriginalCopy.size(); i++){
         vector<string> wordsOnLine = allLinesAndWords_OriginalCopy[i];
@@ -64,7 +64,7 @@ vector< vector<string> > formatRaggedRight(vector< vector<string> > allLinesAndW
     return allLinesAndWords_new;
 }
 
-vector< vector<string> > formatRaggedLeft(vector< vector<string> > allLinesAndWords_OriginalCopy, int n){
+vector< vector<string> > formatRaggedLeft(const vector< vector<string> > & allLinesAndWords_OriginalCopy, int n){
     vector< vector<string> > allLinesAndWords_new;
     for (int i = 0; i < allLinesAndWords_OriginalCopy.size(); i++){
         vector<string> wordsOnLine = allLinesAndWords_OriginalCopy[i];
@@ -91,7 +91,7 @@ vector< vector<string> > formatRaggedLeft(vector< vector<string> > allLinesAndWo
     return allLinesAndWords_new;
 }
 
-vector< vector<string> > formatCenter(vector< vector<string> > allLinesAndWords_OriginalCopy, int n){
+vector< vector<string> > formatCenter(const vector< vector<string> > & allLinesAndWords_OriginalCopy, int n){
     vector< vector<string> > allLinesAndWords_new;
     for (int i = 0; i < allLinesAndWords_OriginalCopy.size(); i++){
         vector<string> wordsOnLine = allLinesAndWords_OriginalCopy[i];
@@ -143,15 +143,21 @@ vector< vector<string> > addMostWordsForAllLines(vector <string> allWords, int n
             thisLine.push_back(allWords[i]);
             lineLength += allWords[i].length() ;//NO space!!!
         } else if (allWords[i].length() > n){
-            allLines.push_back(thisLine);
+                if (thisLine.size() > 0){
+                    allLines.push_back(thisLine);
+                }
             thisLine.clear();
             string shorterS = allWords[i].substr(0, n);
             thisLine.push_back(shorterS);
-            allLines.push_back(thisLine);
+                if (thisLine.size() > 0){
+                    allLines.push_back(thisLine);
+                }
             thisLine.clear();
             lineLength = 0;
         } else {//greater than n, display this line, then must start a new line!
-            allLines.push_back(thisLine);
+                if (thisLine.size() > 0){
+                    allLines.push_back(thisLine);
+                }
             thisLine.clear();
             lineLength = 0;
             i--;
@@ -164,22 +170,69 @@ vector< vector<string> > addMostWordsForAllLines(vector <string> allWords, int n
     return allLines;
 }
 
-void print (vector< vector<string> > allLinesPrintMe_copy, bool forward){
+void print (const vector< vector<string> > & allLinesToPrint, bool forward){
     if (forward){
-        for (int i = 0; i < allLinesPrintMe_copy.size(); i++){
-            for (int j = 0; j < allLinesPrintMe_copy[i].size(); j++){
-                cout << allLinesPrintMe_copy[i][j];
+        for (int i = 0; i < allLinesToPrint.size(); i++){
+            for (int j = 0; j < allLinesToPrint[i].size(); j++){
+                cout << allLinesToPrint[i][j];
             }
             cout << endl;
         }
     } else {
-        for (int i = allLinesPrintMe_copy.size() - 1; i > 0; i--){
-            for (int j = 0; j < allLinesPrintMe_copy[i].size(); j++){
-                cout << allLinesPrintMe_copy[i][j];
+        for (int i = allLinesToPrint.size() - 1; i > 0; i--){
+            for (int j = 0; j < allLinesToPrint[i].size(); j++){
+                cout << allLinesToPrint[i][j];
             }
             cout << endl;
         }
     }
+}
+
+void printLineK(const vector< vector<string> > & allLinesToPrint, bool forward, int k){
+    if (k >= allLinesToPrint.size()){
+        return;//NOT A VALID LINE INDEX
+    }
+    int index = k;
+    if (forward == false){
+        index = allLinesToPrint.size() - 1 - k;
+    }
+    //now, print that line
+    for (int j = 0; j < allLinesToPrint[index].size(); j++){
+        cout << allLinesToPrint[index][j];
+    }
+    cout << endl;
+
+}
+
+void printLinesWithS(const vector< vector<string> > & allLinesToPrint, bool forward, string word){
+    int startIndex = 0;
+    int direction = 1;//count up, forward
+    if (forward == false){
+        direction = -1; //count down
+        startIndex = allLinesToPrint.size() - 1;
+    }
+    int counter = 0;
+    int i = startIndex;
+    while (counter != allLinesToPrint.size()){
+        bool lineHasFnord = false;
+        for (int j = 0; j < allLinesToPrint[i].size(); j++){//iterate through all words in that line
+            //search for fnord
+            size_t found = allLinesToPrint[i][j].find(word);
+            if (found != -1){
+                lineHasFnord = true;
+                break;
+            }
+        }
+        if (lineHasFnord == true){//print that entire line
+            for (int j = 0; j < allLinesToPrint[i].size(); j++){
+                cout << allLinesToPrint[i][j];
+            }
+            cout << endl;
+        }
+        i = i + direction;
+        counter++;
+    }
+
 }
 
 int main(int argc, char *argv[]){
@@ -191,15 +244,23 @@ int main(int argc, char *argv[]){
     string textFileName;
     cin >> n >> textFileName;
     //now, process the text from the file
+    if (n < 1){
+        cerr << "Error, line length must be positive." << endl; //end line??
+        return 1;
+    }
     vector<string> allWords;
 	ifstream file (textFileName);
+    if (!file){
+        cerr << "Error, cannot open specified text file." << endl;
+        return 1;
+    }
     string word;
     while (file >> word){//continue reading in while there are words left in the file
 		allWords.push_back(word);
 	}
-
     vector < vector<string> > allLinesOriginal, allLinesPrintMe;
     allLinesOriginal = addMostWordsForAllLines(allWords, n);
+
 
 
     //set defaults
@@ -213,12 +274,10 @@ int main(int argc, char *argv[]){
         if (cin.fail() || command == "q") {
             break;
         }
-        if (command[0] == 'k'){
+        if (command == "k"){
             cin >> kCommandValue;
-            cout << "k command value is " << kCommandValue << endl;
-        } else if (command[0] == 's'){
+        } else if (command == "s"){
             cin >> sCommandValue;
-            cout << "S command value is " << sCommandValue << endl;
         }
 
         if (command == "rr"){//         justification: ragged right (default)
@@ -235,10 +294,13 @@ int main(int argc, char *argv[]){
             printForward = false;
         } else if (command == "p"){//    print command: print!
             print(allLinesPrintMe, printForward);
-        } else if (command == "k"){//   print command: print up to kth line
-
+        } else if (command == "k"){//   print command: print the kth line
+            printLineK(allLinesPrintMe, printForward, kCommandValue);
         } else if (command == "s"){//   print command: print only lines that contain the sCommandValue string
-
+            printLinesWithS(allLinesPrintMe, printForward, sCommandValue);
+        } else {
+            cerr << "Error, command is illegal." << endl;
+            return 1;
         }
 
     }

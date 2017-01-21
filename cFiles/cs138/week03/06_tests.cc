@@ -3,6 +3,7 @@
 #include <cassert>
 using namespace std;
 
+//This program uses REFERENCE PARAMETERS to switch variables, they are like pointers but less messy 
 void swap3(int& x, int& y){
 	int temp = x;
 	x = y;

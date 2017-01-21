@@ -25,3 +25,6 @@ Stack peek(Stack s){
 	assert(!isEmpty(s));
 	return s.back();
 }
+
+//when you call a procedure, you make a COPY OF ALL OF THE THINGS COMING IN
+//so you are making a duplicate object, which could be quite big, a lot of copying

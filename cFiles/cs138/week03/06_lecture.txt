@@ -10,6 +10,10 @@ Stack Interface vs Implementation:
 	- So on to the VECTOR-based approach
 		- yes, we will talk about efficiency and parameter copying afterwards
 
+Hide the Stack Implementation:
+add " typedef Node *Stack" ;//that way every stack is a node pointer and you do not need to keep using pointers
+
+
 Complexity of Stack Operations
 LinkedList Implementation:
 	push, pop, peek, nuke
@@ -28,9 +32,9 @@ SE Teachable Moment: Adapters
 An Adapter:
 - the stack implemented by a vector is an example of what's called an adapter
 - the stack ADT has a small, well understood API, push, pop, ...
-	- but vector has lots of other functionality stacks really do not need!!
+- but vector has lots of other functionality stacks really do not need!!
+- want to design an interface that provides only exactly what the client needs, NO MORE, that is just confusing
 
-	//FILL IN MORE
 
 
 Bondage and Discipline:
@@ -64,3 +68,12 @@ const& parameters
 
 Reference Parameters vs Pointers:
 //more notes here
+
+
+References vs Reference Parameters
+- C++, normal identifies (variables) can be referenes too, but generally we use them onlyto give a more convenient name to something long
+
+References Params and ADTs
+
+
+Use const in operations when we will not change values in stack

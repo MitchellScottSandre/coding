@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D23C1C901E2323E1006E5E12"
-               BuildableName = "CS 138"
-               BlueprintName = "CS 138"
-               ReferencedContainer = "container:CS 138.xcodeproj">
+               BlueprintIdentifier = "D2E25F4A1E3302F8009D7BB0"
+               BuildableName = "C++ Programs"
+               BlueprintName = "C++ Programs"
+               ReferencedContainer = "container:C++ Programs.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D23C1C901E2323E1006E5E12"
-            BuildableName = "CS 138"
-            BlueprintName = "CS 138"
-            ReferencedContainer = "container:CS 138.xcodeproj">
+            BlueprintIdentifier = "D2E25F4A1E3302F8009D7BB0"
+            BuildableName = "C++ Programs"
+            BlueprintName = "C++ Programs"
+            ReferencedContainer = "container:C++ Programs.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D23C1C901E2323E1006E5E12"
-            BuildableName = "CS 138"
-            BlueprintName = "CS 138"
-            ReferencedContainer = "container:CS 138.xcodeproj">
+            BlueprintIdentifier = "D2E25F4A1E3302F8009D7BB0"
+            BuildableName = "C++ Programs"
+            BlueprintName = "C++ Programs"
+            ReferencedContainer = "container:C++ Programs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D23C1C901E2323E1006E5E12"
-            BuildableName = "CS 138"
-            BlueprintName = "CS 138"
-            ReferencedContainer = "container:CS 138.xcodeproj">
+            BlueprintIdentifier = "D2E25F4A1E3302F8009D7BB0"
+            BuildableName = "C++ Programs"
+            BlueprintName = "C++ Programs"
+            ReferencedContainer = "container:C++ Programs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

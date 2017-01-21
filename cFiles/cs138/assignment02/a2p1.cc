@@ -7,7 +7,47 @@ using namespace std;
 
 string SPACE = ".";
 
+int myCeilFnctn(double a){
+    if ((int) a == a){
+        return a ;
+    }
+    return (a  + 1) / 1;
+}
+
 //===================================FORMATTING FUNCTIONS================================
+vector< vector<string> > formatBothJustified(vector< vector<string> > allLinesAndWords_OriginalCopy, int n){
+    vector< vector<string> > allLinesAndWords_new;
+    for (int i = 0; i < allLinesAndWords_OriginalCopy.size(); i++){
+        vector<string> wordsOnLine = allLinesAndWords_OriginalCopy[i];
+        vector<string> thisLine;
+    	int lengthOfAllWords = 0;
+    	int numWords= wordsOnLine.size();
+    	int numGaps = numWords - 1;
+    	for (int i = 0; i < numWords; i++){
+    		lengthOfAllWords += wordsOnLine[i].length();
+    	}
+    	int extraSpaces = n - lengthOfAllWords;
+    	for (int i = 0; i < numWords; i++){
+
+    			thisLine.push_back(wordsOnLine[i]);
+    			int x = myCeilFnctn( (double)extraSpaces / (double)numGaps);
+    			for (int p = 0; p < x; p++){
+    				thisLine.push_back(SPACE);
+    	 		}
+    			extraSpaces -= x;
+    			numGaps--;
+    	}
+    	if (numWords == 1 && wordsOnLine[0].length() < n){//only 1 word on the line!!!, fill rest with spaces
+    			for (int i = 0; i < n - wordsOnLine[0].length(); i++){
+    				thisLine.push_back(SPACE);
+    			}
+    	}
+        allLinesAndWords_new.push_back(thisLine);//add the line to the return array
+    }
+
+    return allLinesAndWords_new;
+}
+
 vector< vector<string> > formatRaggedRight(vector< vector<string> > allLinesAndWords_OriginalCopy, int n){
     vector< vector<string> > allLinesAndWords_new;
     for (int i = 0; i < allLinesAndWords_OriginalCopy.size(); i++){
@@ -46,6 +86,40 @@ vector< vector<string> > formatRaggedLeft(vector< vector<string> > allLinesAndWo
     	}
     	thisLine.push_back(wordsOnLine[numWords - 1]);//last word, NO SPACE!
         allLinesAndWords_new.push_back(thisLine);//add the line to all lines new
+    }
+
+    return allLinesAndWords_new;
+}
+
+vector< vector<string> > formatCenter(vector< vector<string> > allLinesAndWords_OriginalCopy, int n){
+    vector< vector<string> > allLinesAndWords_new;
+    for (int i = 0; i < allLinesAndWords_OriginalCopy.size(); i++){
+        vector<string> wordsOnLine = allLinesAndWords_OriginalCopy[i];
+        vector<string> thisLine;
+        int lengthOfAllWords = 0;
+        int numWords= wordsOnLine.size();
+        int numGaps = numWords - 1;
+        for (int i = 0; i < numWords; i++){
+            lengthOfAllWords += wordsOnLine[i].length();
+        }
+        int x = lengthOfAllWords + numGaps;//total number of chars, including spaces
+        int y = n - x; // number of extra spaces
+        int z = myCeilFnctn( (double) y / 2.0);; // need to fix this!
+        int w = y - z;
+        for (int i = 0; i < z; i++){
+            thisLine.push_back(SPACE);//add spaces to front
+        }
+        for (int i = 0; i < numWords - 1; i++){
+            thisLine.push_back(wordsOnLine[i]);
+            thisLine.push_back(SPACE);
+        }
+        thisLine.push_back(wordsOnLine[numWords - 1]);//last word, no spaces
+
+        //print out correct number of spaces now to make it center
+        for (int i = 0; i < w; i++){
+            thisLine.push_back(SPACE);//add spaces to back
+        }
+        allLinesAndWords_new.push_back(thisLine);//add the line to the return array
     }
 
     return allLinesAndWords_new;
@@ -152,9 +226,9 @@ int main(int argc, char *argv[]){
         } else if (command == "rl"){//  justification: ragged left
             allLinesPrintMe = formatRaggedLeft(allLinesOriginal, n);
         } else if (command == "c"){//   justification: centered
-
+            allLinesPrintMe = formatCenter(allLinesOriginal, n);
         } else if (command == "j"){//   justification: aligned left and right
-
+            allLinesPrintMe = formatBothJustified(allLinesOriginal, n);
         } else if (command == "f"){//   print direction: forward
             printForward = true;
         } else if (command == "r"){//   print direction: reverse

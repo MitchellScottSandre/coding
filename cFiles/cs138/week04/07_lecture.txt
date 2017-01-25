@@ -13,9 +13,40 @@ Review: Reference Parameters
 	- Use a const reference parameter when you want to be able to JUST use the VALUE of the object
 	- preferred approach in C++
 
-//TO DO: look online at list of example functions that use reference parameters
+NEW WAY WITH REFERENCE PARAMS:
+		bool isEmpty (const Stack& s){
+		 	return s.size()==0;
+		}
+		void push (Stack& s, string e){
+		 	s.push_back(e);
+		}
+		void pop (Stack& s) {
+		 	assert (!isEmpty(s));
+		 	s.pop_back();
+		}
+		string peek (const Stack& s){
+		 	assert (!isEmpty(s));
+		 	return s.back();
+		}
 
-//TO DO: look online at Main program as with Linked Lists with Ref Params
+OLD WAY WITHOUT REFERENCE PARAMS:
+		bool isEmpty (Stack s) {
+		 	return s.size()==0;
+		}
+		Stack push (Stack s, string e){
+			 s.push_back(e);
+		 	return s;
+		}
+		Stack pop (Stack s) {
+		 	assert (!isEmpty(s));
+		 	s.pop_back();
+		 	return s;
+		}
+		string peek (Stack s) {
+		 	assert (!isEmpty(s));
+			 return s.back();
+		}
+
 
 ============================================================================================================================================
 
@@ -45,3 +76,81 @@ Scopes of Identifiers and ARs:
 	- When a new scope is entered, an activation record (AR, area of storage on the run-time stack, also called a STACK FRAME) is created for it
 		- ARs contain storage for parameters, the eventual return value (if any), and local variables PLIT is remember the location of where the call was made from in the calling aenvironment
 		- when a variable declaration is encountered, space for that variable is created in the current AR
+
+	- try not returning in multiple places, returning in one place can make code easier to read
+
+============================================================================================================================================
+
+Recursion:
+	- recursion is a general technique for solving a large problem, typically by progressively breaking down the input until it is small enough to solve easily, then combining the results back together
+	- 3 basic parts of a recursive solution to a problem
+		1. Trivial base cases that can be solved easily and directly
+		2. Reduction operator, that makes the data smaller, closer to the base case
+		3. Composition Operator that composes answer to smaller problem to get solution to full problem
+
+Towers of Hanoi:
+
+void hanoi(int N, int src, int dest, int temp){
+	if (N > 0){
+		hanoi(N - 1, src, temp, dest);
+		cout << "Move from " << src << " to " << dest << endl;
+		hanoi(N - 1, temp, dest, src);//switched src with temp, temp with dest, dest with src
+	}
+}
+
+int main(int argc, char * argv[]){
+	int N;
+	cout << How many rings?";
+	cin >> N;
+	assert(N > 0);
+	hanoi(N, 1, 3, 2);
+}
+
+============================================================================================================================================
+
+The QUEUE ADT (FIFO, first in first out)
+	- permitted operations are called ENTER, LEAVE, FIRST, ISEMPTY
+	- plus maybe a constructor initQueue and maybe a nuke  destructor-like operation to clean up
+
+More Formally:
+- initQueue: creates and returns a new empty queue
+- enter: takes an element eNew and a queue q and returns a new queue with
+- leave: (dequeue) takes a queue q and returns a new queue that is identical to q except with the first element removed
+	ex: e2 ..... en
+- first: (front) takes a queue and returns (DOES NOT remove) first element
+- isEmpty: Takes a queue and returns true or false, depending on if queue is empty
+- nuke: just cleans up (no observable meaning to client)
+
+Even More Formally:
+	//name: (gets) -> (returns)
+	- initQueue: -> queue
+		pre: true
+		post: returned value is a new empty queue
+
+	- enter: queue X Value -> queue
+		pre: true (assume it exists)
+		post: returned queue is e1....eN eNew
+
+	- leave: queue -> queue
+		pre:
+		post:
+
+	//TO DO
+
+Implementing a Queue:
+	- requires accesss to both ends of the queue
+
+	Try Using A Vector:
+	- in real life there is a robust Queue data type we can use
+	- "enter" calls push_back
+	- where do we store first? easy to access end, hard to access first
+	- can't make it a standalone global variable, as we want to be able to create multiple distinct queues
+
+	Struct Queue {
+		vector <string> store;
+		int first;
+	};
+
+	void initQueue(Queue & q){
+
+	}

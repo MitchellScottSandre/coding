@@ -21,6 +21,181 @@ Implementing a Queue as VECTOR:
 ============================================================================================================================================
 
 Implementing a Queue as a Linked List:
+	- want to define a nice, abstract, clean looking type for clients to use
+	- have to keep track of both a first and last pointer
+	- can't use the trick of letting a Node * represent the ADT as we did with Stack
+	- instead we need a structured representation to represent a Queue
+		a Struct to model the queue itself, in addition to the Node struct type
+
+	Linked List Implementation:
+	- enter (constant)
+	- leave (constant)
+	- first (constant)
+	- nuke (Linear time)
+
+	Vector Implementation:
+	- ummmmm no thanks
 
 
 ============================================================================================================================================
+
+A Note On Defensive Programming
+Two Complementary Appraches to Understanding What Went Wrong:
+- using a debugger (long tutorial, but we will need this eventually)
+- inserting print statements and assertions (easy)
+
+- comment anything that's non obvious, you will thank yourself later on
+- do not over comment
+
+- When to insert a (debugging) print statement
+	- at the beginning ofa function call (print function name + params)
+	//TO DO, more notes here;
+
+When should we use assertions?
+	- use it when you want to be dead sure of some fact before proceeding, if it's false, there's no point in continuing
+
+Two Usual Kinds of Cases:
+	- check that logic/assumptions are correct,
+	- if first is nullptr, we expect that last will be too
+
+	check that user is being reasonable (up to them to behave, not you)
+	- ex, popping on an empty stack
+
+Smart Trick:
+
+const bool DEBUG = true;
+
+if (DEBUG){
+	cerr << "enter: " << val << endl;
+}
+
+============================================================================================================================================
+
+Dynamic Arrays
+- vectors (a library) are usually implemented using a dynamic array (a fundamental feature of the programming language), which is why we are studying them
+- in fact theres not much need to use any kind of C style arrays in C__ since we have vectors
+
+C++ Arrays Can be Declared in Two Ways:
+1. Statically (as in C)
+	- storage allocated on the stack
+	- Array bound (N) must be a compile time constant
+	Ex:
+		int main (...){
+			const int N = 5;
+			int A[N];//legal
+			int m;
+			cin >> m;
+			int B[m];//illegal
+		}
+2. Dynamic Arrays (C++ only)
+	- storage is allocated on the heap
+	- array bound can be a run time positive integer value
+	- MUST delete when done (need "[]")
+
+	string * myAlloc (int n){
+		assert(n > 0);
+		return new string[n];
+	}
+
+	int main(...){
+		int N;
+		cin >> N;
+		int * A = new int[N];
+		string * B = myAlloc(N);
+		for (int i = 0; i < N; i++){
+			cin >> A[i] >> B[i];
+		}
+		//do more stuff
+		delete [] A;
+		delete [] B;
+		return 0;
+	}
+
+How Does "delete [] A" work??
+	- system needs to remember how many elements are in the heap-chunk that was allocated for the dynamic array, ie, the EXTENT
+
+	Q: the extent of the array must
+
+	//TO DO fille in rest of Q + A
+
+	//TO DO copy example
+
+No Extent For You!
+- the extent of a dynamically allocated array has to be stored somewhere
+- BUT it is not accessible programmatically or any other way
+	- only the compiler and run time truly knows where to find it
+	- a dynamically allocated array is just an array, it is not an object and does not have an API
+	// TO DO fill in rest of these notes
+
+============================================================================================================================================
+
+The Linked List
+- generic thing we have been working with to impliments our stacks, queues, etc, is called a linked list
+- has:
+	- special pointer to the first element
+	- a bunch of node instances, linked to each other to form a line via a "next" pointer
+
+- Linked Lists Can Be:
+-//TO DO, fill in this
+
+Variants of the LinkedList:
+- doubly linked list
+	- link to first and last elements of list, can traverse forwards or backwards
+	struct Node {
+		string val;
+		Node * next;
+		Node * prev;
+	};
+
+Binary Tree (more later)
+	- special "root" Node
+	- each node has two "child" links, a left and a right_tower
+	- can be sorted (BST, heap) or not
+	- non binary trees also exist
+	- everything down left is less than me, everything down right is greater than me
+	struct BST_Node{
+		string val;
+		Node * left;
+		Node * right;
+	}
+============================================================================================================================================
+
+Lists and Ordering:
+//TO DO fill in first val
+- use same Node
+- we need to define: initList, insert, remove, has, isEmpty, print
+- this is going to be trickier than before
+
+Linked Structures are easy to get WRONG!!!
+- you may not notice the incorrect link until much later,
+Think Defensively: some tricks....
+- when you declare a pointer, set it so some meaningful value soon after
+- set pointers to nullptr....
+//TO DO fill in rest of this
+
+
+Suggestions:
+- draw pictures
+- break down into all possible edge cases
+	- empty list, one elment list, big list
+	- first element, middle element, last element
+	- item isn't there, duplicate, all values the same
+	- see if you can merge some of the cases together
+
+Testing Testing Testing!
+	- don't just rely on marmoset
+	- make large number of test cases
+
+
+SIMPLE TEST CASE PROCESS
+1. design a set of test cases for your code, give each a descriptive namespace
+2. for each test case, create a plain textfile with the expected output for each test return
+	t24-illegalWidth-expected.txt
+	t24-illegalWidth-out.txt
+3. use diff
+	diff t24-illegalWidth-expected.txt t24-illegalWidth-out.txt
+
+Regression Testing!
+
+Test-Driven Employment! part of most "agile development" processes
+tests evolve as code does

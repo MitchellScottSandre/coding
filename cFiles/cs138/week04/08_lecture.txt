@@ -1,0 +1,26 @@
+//TO DO copy Queue code
+
+============================================================================================================================================
+
+Implementing a Queue as VECTOR:
+- requires access to both ends of the list
+	- enter adds new elements on to the endl
+	- leave removes old elements from the beginning
+
+	struct Queue {
+		vector<string> store;
+		int first;
+	}
+
+	//TO DO fill in this more
+
+	BAD CASE:
+	- queue might only ever have 3 elements, but you keep adding and leaving (shifting up first)
+      and then the vector just keeps getting larger and larger
+
+============================================================================================================================================
+
+Implementing a Queue as a Linked List:
+
+
+============================================================================================================================================

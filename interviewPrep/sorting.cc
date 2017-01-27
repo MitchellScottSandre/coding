@@ -11,12 +11,13 @@ Selection Sort
 2. go and find smallest element
 3. swap them
 */
-void selectionSort(int a[], int n){
+void selectionSort(vector <int> & a){
+	int n = a.size();
 	assert(n >= 0);
 	for (int i = 0 ; i < n ; i ++){
 		int min = i; //index of CURRENT element
 		for (int j = i + 1; j < n ; j++){
-			if (a[j] < a[i] ){
+			if (a[j] < a[min] ){
 				min = j;//go and find the SMALLEST element
 			}
 		}
@@ -26,17 +27,35 @@ void selectionSort(int a[], int n){
 	}
 }
 
-void generateRandomArray(vector<int> & data){
-	srand (time(NULL));
-	for (int i = 0; i < data.size(); i++){
-		data[i] = rand() % 50;
-	}
-
+void mergeSort(int * a, int * temp, int n){
+	if (n <= 1) return;
+	mergeSort(a, n/2);//left side
+	mergeSort(a + n/2 + 1, n/2 - 1);
 }
 
+void generateRandomArray(vector<int> & data, int length){
+	srand (time(NULL));
+	for (int i = 0; i < length; i++){
+		data.push_back(rand() % 50);
+	}
+}
+
+void displayArray(const vector <int> & data){
+	for (int i = 0; i < data.size(); i++){
+		cout << data[i] << ", ";
+	}
+	cout << endl;
+}
+
+
 int main(int argc, char * argv[]){
-
-
-
+	vector <int> data;
+	int length = 20;
+	generateRandomArray(data, length);
+	cout << "BEFORE: " << endl;
+	displayArray(data);
+	selectionSort(data);
+	cout << "AFTER: " << endl;
+	displayArray(data);
 	return 0;
 }

@@ -29,8 +29,53 @@ void selectionSort(vector <int> & a){
 
 void mergeSort(int * a, int * temp, int n){
 	if (n <= 1) return;
-	mergeSort(a, n/2);//left side
-	mergeSort(a + n/2 + 1, n/2 - 1);
+	mergeSort(a, temp, n/2);//left side
+	mergeSort(a + n/2, temp, n - n/2);
+
+	int i = 0, j = n/2; k = 0;
+	while (i < n/2 && j < n){
+		if (a[i] <= a[j]){
+			temp[k++] = a[i++];
+		} else {
+			temp[k++] = a[j++];
+		}
+	}
+
+	//only going to enter one of these loops
+	while (i < n/2){
+		temp[k++] = a[i++];
+	}
+	while (j < n){
+		temp[k++] = a[j++];
+	}
+
+	//copy them over
+	for (i = 0; i < n; i++){
+		a[i] = temp[i];
+	}
+}
+
+int swap(int a[], int x, int y){
+	
+}
+
+int partition(int a[], int n){
+	int m = 0;
+	for (int i = 1; i < n; i++){
+		if (a[i] < a[0]){
+			m++;
+			swap(a, m, i);
+		}
+	}
+	swap(a,m,0);
+	return m;
+}
+
+void quicksort(int a[], int n){
+	if (n <= 1) return;
+	int m = partition(a, n);
+	quicksort(a, m);
+	quicksort(a + m + 1, n - m - 1);
 }
 
 void generateRandomArray(vector<int> & data, int length){

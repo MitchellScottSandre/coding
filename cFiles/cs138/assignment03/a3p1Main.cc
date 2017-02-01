@@ -89,5 +89,6 @@ int main (int argc, char* argv[]) {
     assert (isEmpty (s1));
     cout << "Illegal direction should cause error mesg\n";
     print (s1, 'k');
+//    addFront()
 	return 0;
 }

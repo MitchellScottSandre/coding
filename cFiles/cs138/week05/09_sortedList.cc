@@ -7,7 +7,7 @@ struct Node {
 	string val;
 	string otherStuff; //not going to touch this
 	Node * next;
-}
+};
 
 typedef Node * SortedList;
 
@@ -15,7 +15,7 @@ void initList(SortedList & first){
 	first = nullptr;
 }
 
-bool is empty(const SortedList & first){
+bool isEmpty(const SortedList & first){
 	return nullptr == first;
 }
 

@@ -4,7 +4,7 @@
 #include <cassert>
 using namespace std;
 
-Struct Queue {
+struct Queue {
 	vector <string> store;
 	int first;//index of first
 };
@@ -28,7 +28,8 @@ void leave(Queue & q){
 
 string first (const Queue & q){
 	assert(!isEmpty(q));
-	return q.store.at(first);
+	return q.store[first];
+	//return q.store.at(first);
 }
 
 int main(int argc, char * argv[]){
@@ -39,6 +40,6 @@ int main(int argc, char * argv[]){
 	 cout << first(q1) << endl;
 	 leave (q1);
 	 cout << first(q1) << endl;
-	 nuke (q1);
+//	 nuke (q1);
 	return 0;
 }

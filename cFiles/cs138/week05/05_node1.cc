@@ -8,7 +8,7 @@ struct Node {
   Node *next;
 };
 
-int main (int argc, char *argc[]){
+int main (int argc, char *argv[]){
   Node *p = new Node;
   p->val = "first";
   p->next = nullptr;
@@ -23,7 +23,7 @@ int main (int argc, char *argc[]){
   s->next = q;
   Node *temp = s;
   while (temp != nullptr){
-    cout << temp->val < <end;
+    cout << temp->val << endl;
     temp = temp->next;
   }
   delete p;//clean up!

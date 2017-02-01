@@ -56,7 +56,7 @@ void mergeSort(int * a, int * temp, int n){
 }
 
 int swap(int a[], int x, int y){
-	
+
 }
 
 int partition(int a[], int n){

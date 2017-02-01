@@ -248,6 +248,7 @@ int main(int argc, char *argv[]){
         cerr << "Error, line length must be positive." << endl; //end line??
         return 1;
     }
+    
     vector<string> allWords;
 	ifstream file (textFileName);
     if (!file){

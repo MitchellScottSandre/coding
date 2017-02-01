@@ -1,4 +1,3 @@
-//TO DO copy Queue code
 
 ============================================================================================================================================
 
@@ -12,7 +11,7 @@ Implementing a Queue as VECTOR:
 		int first;
 	}
 
-	//TO DO fill in this more
+
 
 	BAD CASE:
 	- queue might only ever have 3 elements, but you keep adding and leaving (shifting up first)
@@ -48,8 +47,11 @@ Two Complementary Appraches to Understanding What Went Wrong:
 - do not over comment
 
 - When to insert a (debugging) print statement
-	- at the beginning ofa function call (print function name + params)
-	//TO DO, more notes here;
+	- at the beginning of a  function call (print function name + params)
+	- at the end of a function call (print results and state of world)
+	- just before deleting something
+	- at any major decision point
+	- any time you do something "interesting"
 
 When should we use assertions?
 	- use it when you want to be dead sure of some fact before proceeding, if it's false, there's no point in continuing
@@ -116,16 +118,30 @@ How Does "delete [] A" work??
 
 	Q: the extent of the array must
 
-	//TO DO fille in rest of Q + A
-
-	//TO DO copy example
+					#include <iostream>
+				#include <string>
+				#include <cassert>
+				using namespace std;
+				string* myAlloc (int n) {
+				 assert (n>0);
+				 return new string[n];
+				}
+				int main (int argc, char* argv[]) {
+				 string* A = myAlloc(10);
+				 string* B = myAlloc(20);
+				 string* temp = A;
+				 A = B; // No problem "swapping"; they're just ptrs!
+				 B = temp;
+				 delete []A; // If we stored extent w ptr, this
+				 delete []B; // would NOT work, but it does
+				}
 
 No Extent For You!
 - the extent of a dynamically allocated array has to be stored somewhere
 - BUT it is not accessible programmatically or any other way
 	- only the compiler and run time truly knows where to find it
 	- a dynamically allocated array is just an array, it is not an object and does not have an API
-	// TO DO fill in rest of these notes
+
 
 ============================================================================================================================================
 
@@ -136,7 +152,11 @@ The Linked List
 	- a bunch of node instances, linked to each other to form a line via a "next" pointer
 
 - Linked Lists Can Be:
--//TO DO, fill in this
+	- unordered
+	- ordered by insertion time
+	- ordered by key value
+	- ordered by some strange, other convention
+
 
 Variants of the LinkedList:
 - doubly linked list
@@ -161,7 +181,7 @@ Binary Tree (more later)
 ============================================================================================================================================
 
 Lists and Ordering:
-//TO DO fill in first val
+- so far our lists (stack, queue) have been ordered by the arrival time in some way
 - use same Node
 - we need to define: initList, insert, remove, has, isEmpty, print
 - this is going to be trickier than before
@@ -170,8 +190,7 @@ Linked Structures are easy to get WRONG!!!
 - you may not notice the incorrect link until much later,
 Think Defensively: some tricks....
 - when you declare a pointer, set it so some meaningful value soon after
-- set pointers to nullptr....
-//TO DO fill in rest of this
+
 
 
 Suggestions:

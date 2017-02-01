@@ -23,7 +23,8 @@ Lazy (aka short-circuit) evaluation
 	- what happens here if cur == nullptr?
 	- while (nullptr != cur && cur->val)
 
-	//TO DO fill in rest
+	- lazy refers to if (A || B) if A is true, doesn't check B
+	or, if (A && B) and A is false, doesn't need to check B
 
 For Insert:
 	- create a new node, set its val

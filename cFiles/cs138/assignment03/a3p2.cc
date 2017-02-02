@@ -162,4 +162,4 @@ void print(const Stack & s){//assume it is not NULL
 	}
 	cout << "The Top element is " << top(s) << endl;;
 
-}
+} 

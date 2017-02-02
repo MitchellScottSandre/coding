@@ -166,37 +166,87 @@ void print(const Stack & s){//assume it is not NULL
 
 int main(int argc, char * argv[]){
 	Stack s1;
-    initStack(3,s1);
-	cout << "Test case: it is empty... is empty = " << isEmpty(s1) << endl;
+	initStack(1, s1);
 	push("aaa", s1);
 	push("bbb", s1);
 	push("ccc", s1);
 	push("ddd", s1);
-	cout << "testing swapping" << endl;
-	cout << "Before: " << endl;
+	push("eee", s1);
+	push("fff", s1);
+	push("ggg", s1);
+	push("hhh", s1);
+	push("iii", s1);
+	push("jjj", s1);
+	push("kkk", s1);
+	cout << "Size should be 11. size is " << size(s1) << endl;
+	cout << "Top should be kkk. top is " << top(s1) << endl;
+	cout << "Swapping. Before top 2 should be kkk , jjj" << endl;
 	print(s1);
-	cout << "After: " << endl;
+	cout << "After swapping, top 2 should be jjj, kkk" << endl;
 	swap(s1);
 	print(s1);
-
-	cout << "Size of s1 is " << size(s1) << endl;
-	cout << "Test case: it is NOT empty... is empty = " << isEmpty(s1) << endl;
-	cout << "Top Element loc is " << s1.topElt << endl;
-	cout << "Before popping" << endl;
-	cout << "before Top Element loc is " << s1.topElt << endl;
-	print(s1);
-	cout << "popping..." << endl;
+	cout << "popping 5 times, new top should be fff" << endl;
+	pop(s1);
+	pop(s1);
+	pop(s1);
+	pop(s1);
 	pop(s1);
 	print(s1);
-	cout << "after Top Element loc is " << s1.topElt << endl;
 
-	cout << "Popping stack of size 1" << endl;
+	cout << endl;
+	cout << "==============================================" << endl;
+	cout << endl;
+	cout << "Making new stack. chunk size is 100" << endl;
 	Stack s2;
-	initStack(10, s2);
-	//push("aaa", s2);
+	initStack(100, s2);
+	for (int i = 0; i < 100; i++){
+		push(to_string(i), s2);
+	}
+	cout << "Size should be 100. size is " << size(s2) << endl;
+	cout << "Top should be 99. top is " << top(s2) << endl;
+	cout << "Swapping. Before top 2 should be 99 , 98" << endl;
 	print(s2);
-	//pop(s2);
+	cout << "After swapping, top 2 should be 98, 99" << endl;
+	swap(s2);
 	print(s2);
-	cout << "Size of s2 is " << size(s2) << endl;
+
+
 	return 0;
 }
+
+// int main(int argc, char * argv[]){
+// 	Stack s1;
+//     initStack(3,s1);
+// 	cout << "Test case: it is empty... is empty = " << isEmpty(s1) << endl;
+// 	push("aaa", s1);
+// 	push("bbb", s1);
+// 	push("ccc", s1);
+// 	push("ddd", s1);
+// 	cout << "testing swapping" << endl;
+// 	cout << "Before: " << endl;
+// 	print(s1);
+// 	cout << "After: " << endl;
+// 	swap(s1);
+// 	print(s1);
+//
+// 	cout << "Size of s1 is " << size(s1) << endl;
+// 	cout << "Test case: it is NOT empty... is empty = " << isEmpty(s1) << endl;
+// 	cout << "Top Element loc is " << s1.topElt << endl;
+// 	cout << "Before popping" << endl;
+// 	cout << "before Top Element loc is " << s1.topElt << endl;
+// 	print(s1);
+// 	cout << "popping..." << endl;
+// 	pop(s1);
+// 	print(s1);
+// 	cout << "after Top Element loc is " << s1.topElt << endl;
+//
+// 	cout << "Popping stack of size 1" << endl;
+// 	Stack s2;
+// 	initStack(10, s2);
+// 	//push("aaa", s2);
+// 	print(s2);
+// 	//pop(s2);
+// 	print(s2);
+// 	cout << "Size of s2 is " << size(s2) << endl;
+// 	return 0;
+// }

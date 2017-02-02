@@ -1,0 +1,109 @@
+The Sorted (singly) Linked List
+
+
+For Remove:
+	- start at the beginning ...
+	//TO DO
+
+	//TO DO: copy down rest of test cases for remove
+
+Overall:
+Supports lookip, insert, remove, nuke
+ initSortedList, isEmpty, size
+
+Enter:
+	post: sortedList is sorted and sortedList has same elements as before, and newst element, all sorted
+
+============================================================================================================================================
+Fundamental Truth of SW Testing:
+	- you simply cannot test "everthing", cominatorial explosion of possible worlds hits you quickly
+	- testing becomes an optimization game: Given XX person hours, what is the most effective way to design, implement, and repeatedly execute a testing infrastructure?
+
+Black Box Testing: what possible different cases could be true of the incoming data?
+White Box: construct different test cases to exercise every line of code, every if condition
+	- can i make a look run 0 times
+
+============================================================================================================================================
+
+Complexity of Sorted Linked List Ops
+- lookup (to get the element's correct place)
+	- average: n/2 == O(n)
+	- worst: n == O(n)
+
+- insert, remove:
+	- effectively they require lookup too
+	- once you arrive, it's an O(1) operation to adjust a few pointers == O(n)
+
+============================================================================================================================================
+Priority Queue
+- like a queue, but each element has a value AND an integer priority (usually >= 0)
+- enter is the same as before
+- leave means remove the oldest element from among those with the MOST IMPORTANT priority
+- thus, the PQ is a data container that is both sorted (queues are sorted by priority) and ordered // TO DO
+
+- Always have to specify, does highest or lowest priority mean "most important"
+- for now, we will assume lowest is most important
+
+- note that the c++ standard library provides an implementation of priority_queue, which is what you should use in real life
+
+FirstPQ O(1)
+leave O(1)
+// TO DO
+
+============================================================================================================================================
+HEAP NOTES //
+
+We usually implement a binary heap using a vector (element type is usually some kind of struct with a key)
+- do not explicitly store pointers, instead calculate index of a nodes parent/children; for node at index i of the underlying vector
+	- left child is at index 2*i + 1
+	- right child is at 2*i + 2
+
+- because of the way heaps are built, there isn't much wasted storage!!
+
+LOL (list of Lists) or HEAP: which PQ is best?
+			Enter			Leave		First
+LOL			O(K)			O(1)		O(1)
+Heap		O(logN)			O(log N)	O(1)
+
+
+============================================================================================================================================
+
+Graphs and Trees
+
+A Graph:
+
+	- a graph G consists of a set of verticies (aka nodes) V plus a set of edges E
+	- let V =
+	// TO DO
+	G = {V, E}; // nodes and edges
+	V = {V1, V2, V3, V4};
+	E = { (V1, V2), (V1, V3), (V2, V3), (V4, V3)};
+	- the actually physical layout of the diagram is unimportant as long as the edges are connecting the correct nodes
+	- nodes and edges can have additional attributes
+		- nodes are cities with name and population; edges have weights indicating distance and cost of tolls etc
+
+============================================================================================================================================
+The Traveling Salesman Problem (TSP)
+
+Given a list of cities (nodes) and the distances between each pair of cities (weight edges)
+	- what is the shorted possible route that visits each city exactly once and returns back to the original city
+
+Solving TSP:
+	- you can, in principle, grind out the answer by brute force
+		- pick a starting city then a second, third, etc
+	- what is the complexity of this approach? assuming there are N cities
+		answer: O(N!) --> not realistic for large N
+
+	Realistic Good News
+		- there are polynomial time heuristics that can solve TSP to within a few percent of optimal with high probability on real world problems
+
+	Mathematical Good / Bad News:
+		- there is (very strongly believed to be) no exact solution to TSP that is polynomial time
+			- we believe there is no such K that there is a solution that is guaranteed to be no worse than O(N^K) for an arbitrary graph of N nodes
+
+	TSP is a n example of an NP hard problem
+		- a forma ldescription of this wil lcome later in the course
+		- roughly, these are problems that are solvable in principle, but not practically
+		
+	Result of this:
+	Cook's Theorem:

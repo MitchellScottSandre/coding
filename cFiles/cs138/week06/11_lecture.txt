@@ -1,0 +1,55 @@
+ Trees:
+	- special kind of graph
+	- if the tree is non-empty, there is a single special node called the ROOT
+	- each node may have zero or more CHILDREN
+	- there root node has no PARENT; every other node has exactly one parent
+	- there can be no cycles in the underlying undirected graph
+
+	Facts about trees:
+	- typically, we direct edges from the parent to the child node
+	- must be fully connected (no orphan nodes or clusters)
+	- for any node, there is a unique path to it from the root
+
+	- the "top" node is the root; its the only node with no parent
+		- when we program, we typically use a special pointer to point to the root node, like the first element of a list
+		- so nullptr == root means the tree has no elements
+	- a node with no children is called a leaf
+	- non-leaves are called internal nodes
+	- the HEIGHT of a node is the length of the longest path from it down to a leaf
+		- the height of a tree is the height of the root
+	- the DEPTH of a node is the length of the path from the root to it
+
+=========================================================================================================
+
+Binary Trees:
+- a binary tree, each node has at MOST TWO children
+- usually call them the left and right child
+- the binary search tree is one kind of a binary tree
+- the heap is also a king of binary tree, but it is not a BST as the ordering property of it is different
+
+Binary Search Tree:
+- each node has a "key" value (that can be compared by <)
+	- we assume no duplicate keys for now
+- each node can have up to two children (left and right)
+- the BST PROPERTY holds for every node in the tree:
+	- the keys of all nodes in the left subtree (if any) are < my key
+	- the keys of all nodes in the right subtree (if any) are > my key
+- the following is NOT the BST Property:
+	- at each node left.key < key < right.key
+	- this is logically weaker than the BST property
+
+BST Operations:
+- we are going to examine LOOKUP, INSERT, PRINT, and DELETE on BSTs
+- assume keys are STRINGS
+- assume some other data called otherstuff
+
+BSTs all the way down:
+- the BST property holds at every node in the entire tree
+- this means that if you pick an arbitrary node, the subtree with that node as root is also a BST
+	- this is important, as it means we can use recursion to implement most of our routines
+	- also, when we change a BST, we need worry only that the changes preserve the BST property; unchanged subtrees should still be ok
+
+BST lookup:
+- in a sorted linked list, we start at the first element
+- in a BST, we start at the root
+	- but if we do not find what we are looking for, where do we go next?

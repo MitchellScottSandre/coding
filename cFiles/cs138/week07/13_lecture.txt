@@ -1,0 +1,101 @@
+=====================================================================================================================
+The Dictionary ADT:
+- collection of ordered pairs of the form: (key, value)
+	- idea is a simple lookup table
+	- adding (key, value) to dict means that dict[key] should return value afterwards
+
+Implementing a Dictionary:
+TODO copy chart
+
+===================================================================================================================================
+The C++ Map:
+map<T1, T2> m;
+- T1 is the key field type; it must support operator<; which must in turn be a strict WEAK ORDERING
+- T2 is the value field; can be anything
+
+TODO copy sample code from slide
+
+- C++ map maintains the elements as sorted, and is usually implemented using a red-black tree
+- a red black tree is a kind of BST that does some sort ...
+TODO: finish
+
+
+====================================================================================================================================
+
+Lecture 13:
+- the hash table is constant time O(1) for most functions
+- hashing in a nutshell:
+	- a hash table is simply a vector of k slots
+	- the slot type might be a struct instance or a pointer to a struct
+	- ex: vector <studentRecord> hashTable(k)
+	- a hash FUNCTION takes a key value (like a student number) and calculates a valid bucket index
+	- hash : key -> [0.k-1]
+	- we do not care about locality (if key1 is close to key2, doesn't mean their hash table locations will be close)
+
+A Simple Example:
+	- suppose I have a set of about 400 student records that I want to be able to access quickly via student #
+	- student records have name, student number, addresses, lists of grades, etc
+	- we assume that student numbers are unique and that the last three digits are reasonably randomly distributed
+	- we will also assume we have 1000 slots or "buckets" in which to store the records, labelled from 0 to 999
+
+A Simple Algorithm: tell me the last three digits of the student number, I will put the record in that bucket
+	- problem with this approach: a collision occurs when different input elements map to the same bucket
+
+	Closed Hashing: use some strategy to find another bucket in the table
+		- linear probing: search linearly (next one, next one) until you find it
+
+	Good Solution for Collisions: Make a hash table of linked lists (called OPEN HASHING)
+	Open Hashing: each bucket is actually a pointer to short linked list / BST of records
+
+Closed Hashing With Linear Probing:
+- on lookup, look where the hash function tells you to go, then start probing until
+	- you find what you are looking for
+	- or you find an empty slot (and thus you know it is not there)
+	TODO
+
+Problems:
+- it is bounded in the number of possible elements we can store (unless we grab a bigger vector and copy over every so often, which we could do)
+- as N (# records) approaches K (# buckets) insert takes longer and longer
+- usually it keeps track how full the hash table is. when it reaches 80%, double the size and copy everything over
+
+- Deletes??
+- if you just delete the element, this wrecks the lookup assumption (wont search for other values after it, what if there was a collision)
+- basically, you should never truly delete items, just mark them as zombies and keep them in place
+- future inserts can overwrite zombies, but lookups treat them as present but uninteresting
+- every so often when we build a new hash table with the only NON ZOMBIE values
+
+//lots of code to copy
+
+The Cost of Closed Hashing:
+- linear probing means keep adding one to the index and check again
+	- there are other probing techniques
+	TODO
+
+The Constant Time Promise:
+- as the table gets fuller and fuller you will end up with more and more probing being done
+- if the table is 95% full, you only have a 5% chance of hitting an available bucket on the first try
+- if a table is almost full of ACTIVE elements, insert approaches O(N)
+
+=================== END OF CLOSED HASHING ================
+
+OPEN HASHING WITH CHAINING:
+- we will borrow the LOL (list of lits) idea from our priority queue implementation
+- each bucket holds a pointer to a list rather than an element
+- this is called
+TODO
+
+
+
+Important Characteristics of a Hash Function:
+1. Deterministic, based on key value [absolute requirement]
+	- must get the same answer for the same input
+	- cannot use a random number tag
+	- instead we want to take some intrinsic property of the input data that feels random and use that to select the bucket
+2. Good, even ish spread of results over buckets
+3. Cheap to computer
+
+Some more examples:
+- human names and natural language words are very lumpy in their distribution
+- need to stread them out. English: ltos of Ss but not so many Xs
+- one commonly suggested hash for character strings:
+	- sum aski values of name, mod by k

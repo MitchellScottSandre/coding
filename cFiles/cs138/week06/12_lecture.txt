@@ -138,3 +138,8 @@ The C++ Map:
 Iterators:
 //TODO
 - up to the data structure to define them
+
+Cosine Similarity:
+	- long vector, a bunch of articles, universal vector for all words in all articles,
+	- for each article, construct number of occurrences for each word
+	- multiply the number of each word from each article together

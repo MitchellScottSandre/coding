@@ -1,0 +1,74 @@
+Introduction to Object Oriented Programming:
+
+Let's Distinguish between 3 ideas:
+	- Procedural Programming
+		- procedures and variables
+		- variables are created in main program and passed as parameters to procedures
+		- can have structs
+		- we create and manipulate instances of the struct type we have defined
+
+	- Object-Based Programming: class has sub parts, variables, and operations
+		- classes(fields + methods) + instances
+		- structs have variable sub parts AND procedures that act on their sub-parts
+		- subparts are called FIELDS or MEMBER variables
+		- such procedures are called METHODS of the CLASS
+
+	- Object-Oriented Programming:
+		- classes/instances + inheritance/polymorphism + generics
+		- classes can extend other classes
+		- i.e. inheritance: class A (parent) serves as partial blueprint for class B (child)
+		- child class B inherits all fields/methods of parent class A
+		- child class B can add new fields/methods, and OVERRIDE the definitions of methods inherited from parent class A
+
+		- sometimes you never make an instance of a [parent] class, you only make / use the child classes
+		- EX: never make a monster class, but you can make a ORC or a TROLL (which are children or MONSTER class)
+
+		- some classes can NEVER have any instances, they exist only to define common shapes of descendant classes
+		- these are called abstract classes in many languages (Java)
+		- but in C++, they are called Abstract Base Classes (ABC)
+
+		Ex: vector <GameObject *> V;
+		//game object could have Orc, Sword, Gold, Knife classes (all different, all children of GameObject)
+		- cab create instances of related classes in a uniform manner
+			- polymorphism
+		- //TODO
+
+===========================================================================================================================================
+
+	Review: Classes vs Structs
+	- we are going to use classes for OO code and structs for non-OO code in cs138
+
+	- private: only functions in that SAME class can access it
+	- protected: descendants can view/access it
+	- public: everyone can access it
+
+	//TODO
+
+	Class Declaration vs Definition:
+
+		// TODO
+
+	Defining Methods:
+
+
+	//TODO: copy OO stack
+
+	Things to Notice:
+		- need to DECLARE all methods inside the c
+
+===========================================================================================================================================
+	Constructors (ctors):
+		Balloon:Balloon() : colour ("Lyons hunting tartan") {}
+		Balloon:: Balloon(string colour) : colour (colour) {}
+
+	A constructor (short hand: ctor) is a special kind of method that specifies one possible construction recipe for a new instance of the class
+	- it has the same name as the class
+	- it specifies what needs to be done to the sub parts to create a new instance
+	- for any given instance, it is called EXACTLY once, at the beginning of its lifetime (no other constructor will be called again)
+	- has no declared return typedef
+
+	- there may be several constructors for a class, but they differ in the paramters they take
+		- this is called OVERLOADING
+		- these are alternative recipes for creation, but an outside client can call only one, for any given instance
+	- often, but not always, we define at least the DEFAULT constructor
+		- the one with NO arguments

@@ -90,15 +90,14 @@ void initPQ (PQ& pq) {
 }
 
 bool isEmptyPQ (const PQ & pq) {
-	//return sizePQ(pq) == 0;
-	//return nullptr == pq;
-    return nullptr == pq || nullptr == pq->queue.first;
+    //return nullptr == pq;
+	return nullptr == pq || nullptr == pq->queue.first;
 }
 
 void enterPQ (PQ & pq, string val, int priority) {
 
 	if (isEmptyPQ(pq) == true){//==========================================EMPTY (nullptr) BEFORE
-		cerr << "Queue was empty" << endl;
+		//cerr << "Queue was empty" << endl;
 		initPQ(pq);//makes pq, gives it a queue (empty), sets next to nullptr, sets priority to -1
 	    pq -> priority = priority;
 		enterQ(pq->queue, val);
@@ -108,7 +107,7 @@ void enterPQ (PQ & pq, string val, int priority) {
 
 	//priority to insert is lower than first priority
 	if (priority < pq->priority){//========================================insert BEFORE FIRST
-		cerr << "Priority to insert lower than first priority" << endl;
+		//cerr << "Priority to insert lower than first priority" << endl;
 		PQ newPQ;
 		initPQ(newPQ);
 		newPQ ->priority = priority;
@@ -218,51 +217,4 @@ void printPQ(const PQ & pq){
 		temp = temp->next;
 	}
 	delete temp; //??
-}
-
-int main (int argc, char * argv[]){
-	PQ pq;
-	initPQ(pq);
-	cout << "PQ is empty : " << isEmptyPQ(pq) << endl;
-
-	PQ pq2;
-	pq2 = nullptr;
-	cout << "PQ2 is empty : " << isEmptyPQ(pq2) << endl;
-	// PQ pq = nullptr;//PQnode *
-	// enterPQ(pq, "apples", 10);
-	// enterPQ(pq, "butter", 4);
-	// enterPQ(pq, "carrots", 4);
-	// enterPQ(pq, "dinner", 4);
-	// enterPQ(pq, "elf", 3);
-	// enterPQ(pq, "flips", 7);
-	// enterPQ(pq, "ghost", 7);
-	// enterPQ(pq, "hello!", 12);
-	// enterPQ(pq, "igloo!", 2);
-	// enterPQ(pq, "joker!", 15);
-	// enterPQ(pq, "king", 2);
-	// printPQ(pq);
-	// cout << "Sizeo of PQ is " << sizePQ(pq) << endl;
-	//
-	// cout << endl;
-	//
-	// cout << "First element is " << firstPQ(pq) << endl;
-	// cout << "Calling leave function..." << endl;
-	// leavePQ(pq);
-	// cout << "First element is " << firstPQ(pq) << endl;
-	// cout << "Sizeo of PQ is " << sizePQ(pq) << endl;
-	//
-	// cout << endl;
-	//
-	// cout << "Size by priority of 4 is " << sizeByPriority(pq, 4) << endl;
-	// cout << "Size by priority of 3 is " << sizeByPriority(pq, 3) << endl;
-	// cout << "Size by priority of 0 is " << sizeByPriority(pq, 0) << endl;
-	// cout << "Size by priority of 55 is " << sizeByPriority(pq, 55) << endl;
-	// cout << "Size by priority of -3 is " << sizeByPriority(pq, -3) << endl;
-	//
-	// cout << "Number of priorities is " << numPriorities(pq) << endl;
-	// leavePQ(pq);
-	// cout << "Number of priorities is now (just deleted first one)" << numPriorities(pq) << endl;
-
-
-	return 0;
 }

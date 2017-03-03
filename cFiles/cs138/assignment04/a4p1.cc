@@ -46,13 +46,20 @@ void enterQ (Queue& q, string val) {
 }
 
 string firstQ (const Queue& q) {
+	if (isEmptyQ(q) == true){
+		cerr << "Error, queue is empty." << endl;
+		assert(false);
+	}
     //cerr << "Error, queue is empty." << endl;
-	assert(!isEmptyQ(q));
+	//assert(!isEmptyQ(q));
 	return q.first->val;
 }
 void leaveQ (Queue& q) {
-    //cerr << "Error, queue is empty." << endl;
-	assert(!isEmptyQ(q));
+	if (isEmptyQ(q) == true){
+		cerr << "Error, queue is empty." << endl;
+		assert(false);
+	}
+	//assert(!isEmptyQ(q));
 	Qnode * p = q.first;
 	q.first = q.first->next;
 	if (nullptr == q.first){
@@ -117,9 +124,6 @@ void enterPQ (PQ & pq, string val, int priority) {
 		return;
 	}
 
-	//check if existing PQnode for that priority
-		//yes, just add it
-		//no, create a PQnode of that priority, then add it
 	PQnode * temp = pq;
 	if (temp->priority == priority){//====================================insert AT FIRST
 		enterQ(temp->queue, val);
@@ -140,9 +144,6 @@ void enterPQ (PQ & pq, string val, int priority) {
 			}
 			temp = temp->next;
 		}
-		//add it TO end
-		//temp->next is NULLPTR
-		//insert new PQnode
 		PQ newPQ;
 		initPQ(newPQ);
 		newPQ ->priority = priority;
@@ -152,20 +153,22 @@ void enterPQ (PQ & pq, string val, int priority) {
 		return;
 	}
 
-	//delete temp?
+
 }
 
 string firstPQ (const PQ& pq) {
-	assert(!isEmptyPQ(pq));
-    //cerr << "Error FIRTSPQ, priority queue is empty." << endl;
-
+	if (isEmptyPQ(pq) == true){
+		cerr << "Error FIRTSPQ, priority queue is empty." << endl;
+		assert(false);
+	}
 	return firstQ(pq->queue);
 }
 
 void leavePQ (PQ& pq) {
-	assert(!isEmptyPQ(pq));
-    //cerr << "Error LEAVEPQ, priority queue is empty." << endl;
-	//sizeQ,leaveQ
+	if (isEmptyPQ(pq) == true){
+		cerr << "Error LEAVEPQ, priority queue is empty." << endl;
+		assert(false);
+	}
 	leaveQ(pq->queue);
 	if (sizeQ(pq->queue) == 0){
 		PQ temp = pq;

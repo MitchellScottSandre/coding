@@ -65,6 +65,18 @@ void BST_insert (BST& root, string key, string stuff) {
 		BST_insert(root->right, key, stuff);
     }
 }
+// void BST_insert (BST& root, string key) {
+//     if (nullptr == root) {
+// 		root = new BST_Node;
+// 		root->key = key;
+// 		root->left = nullptr;
+// 		root->right = nullptr;
+//     } else if (key < root->key) {
+// 		BST_insert(root->left, key);
+//     } else {
+// 		BST_insert(root->right, key);
+//     }
+// }
 
 void BST_print (const BST& root) {
     if (nullptr != root) {
@@ -88,7 +100,9 @@ void BST_remove2(BST & parent, BST & child, int leftOrRight){//0 left, 1 right
 
 	if (child->left == nullptr && child->right == nullptr){//child has no children
 		cerr << "target node has no children" << endl;
-		delete child;
+		//delete child;
+		child = nullptr;
+		//child = nullptr;
 		if (leftOrRight == LEFT){
 			parent->left = nullptr;
 		} else {
@@ -110,7 +124,8 @@ void BST_remove2(BST & parent, BST & child, int leftOrRight){//0 left, 1 right
 		} else {
 			parent->right = child->right;
 		}
-		delete child;
+		//delete child;
+		child = nullptr;
 	} else if (child->right == nullptr){//child has 1 child, only has LEFT
 		cerr << "Child->left is " << child->left->key << endl;
 		cerr << "target node has LEFT child ONLY" << endl;
@@ -120,8 +135,8 @@ void BST_remove2(BST & parent, BST & child, int leftOrRight){//0 left, 1 right
 		} else {
 			parent->right = child->left;
 		}
-
-		delete child;
+		//delete child;
+		child = nullptr;
 	}
 }
 
@@ -129,13 +144,21 @@ void BST_remove (BST& root, string key) {
     assert(BST_has(root, key));
 	if (root->key == key){//first, middle root!
 		if (root->left == nullptr && root->right == nullptr){
+			cerr << "first node has no children" << endl;
 			cerr << "Tree or subtree is now empty" << endl;
 			root = nullptr;
+			//delete root;
 			return;
 		} else if (root->left == nullptr){
+			cerr << "first node has 1 child, right only" << endl;
+			BST temp = root;
 			root = root->right;
+			delete temp;
 		} else if (root->right == nullptr){
+			cerr << "first node has 1 child, left only" << endl;
+			BST temp = root;
 			root = root->left;
+			delete temp;
 		} else {
 			cerr << "target is FIRT node and has TWO children" << endl;
 			string replacementKey = maxKeyInSubtree(root->left);
@@ -162,47 +185,17 @@ void BST_remove (BST& root, string key) {
 }
 
 int main (int argc, char* argv[]) {
-
 	BST tree;
 	BST_init(tree);
 
-
 	BST_insert(tree, "llama", "1");
-	//BST_insert(tree, "dingo", "2");
-    //BST_insert(tree, "rat", "3");
-	// BST_insert(tree, "cat", "4");
-	// BST_insert(tree, "elephant", "5");
-	// BST_insert(tree, "dog", "6");
-	// BST_insert(tree, "alpaca", "7");
-	// BST_insert(tree, "tiger", "8");
-	// BST_insert(tree, "rhino", "9");
-	// BST_insert(tree, "yellowfin", "10");
-	cout << "Original: " << endl;
+	BST_insert(tree, "dingo", "2");
+	cout << "printing:" << endl;
 	BST_print(tree);
-	cout << "Calling remove llama -> " << endl;
 	BST_remove(tree, "llama");
-	cout << "After: " << endl;
+
+	cout << "printing:" << endl;
 	BST_print(tree);
-	// cout << "max val in subtree is (from root) : " << maxValueInSubtree(tree) << endl;
-	// BST_print(tree);
-	//
-	// BST tree2;
-	// BST_init(tree2);
-	// BST_insert(tree2, "g", "asdf");
-	// BST_remove(tree2, "g");
-	// cout << "just removed 1 element from tree of length 1. tree is empty? : " << BST_isMT(tree2) << endl;
-	//
-	// BST tree3;
-	// BST_init(tree3);
-	// BST_insert(tree3, "c", "asdf");
-	// BST_insert(tree3, "b", "ggg");
-	// cout << "--" << endl;
-	// BST_print(tree3);
-	// BST_remove(tree3, "c");
-	// cout << "--" << endl;
-	// BST_print(tree3);
-
-
 
 	return 0;
 }

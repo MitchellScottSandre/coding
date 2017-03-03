@@ -3,12 +3,27 @@ The Dictionary ADT:
 - collection of ordered pairs of the form: (key, value)
 	- idea is a simple lookup table
 	- adding (key, value) to dict means that dict[key] should return value afterwards
+	- value can be a string, a set of values, or a pointer to an object
+	- the dictionary may or may not be sorted by the key balues
 
 Implementing a Dictionary:
-TODO copy chart
+- add (key,  value)
+- overwrite(key, value)
+- lookup(key)
+- remove (key)
+
+- add: inserts the ordered pair (key, value) in to the dictionary
+	- we will assume that is an error to add a pair if there is already an element defined on that key
+- overwrite: takes a KEY and a VALUE and overwrites the existing value for key with the new value
+- lookup: takes a key and returns the associated value stored in the dictionary
+- dictionaries may support a PRINT operation
+	- but dictionary are not assumed to be sorted by default --> print may print out in any order,
+	- will print each element exactly once
 
 ===================================================================================================================================
 The C++ Map:
+- provides the map data type that implements the idea of a dictionary
+- map is an ORDERED (sorted) container, as are the related structures multimap and multiset
 map<T1, T2> m;
 - T1 is the key field type; it must support operator<; which must in turn be a strict WEAK ORDERING
 - T2 is the value field; can be anything

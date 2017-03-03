@@ -168,7 +168,7 @@ Therefore, let us try:
 3. delete target node
 
 A Variant Approach (arguably, conceptually simpler)
-1. find replacement NodeChunk
+1. find replacement Node
 2. copy the DATA VALUES of the replacement node (but not the pointers) into the target Node
 	- if this is a BIG object, this might be expensive, but yolo for now
 3. call BST_delete (target->left, target->key)

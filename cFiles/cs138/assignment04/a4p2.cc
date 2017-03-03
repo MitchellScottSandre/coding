@@ -88,7 +88,7 @@ void BST_remove2(BST & parent, BST & child, int leftOrRight){//0 left, 1 right
     BST toBeDeleted = child;
 
 	if (child->left == nullptr && child->right == nullptr){//child has no children
-		delete child;
+		delete toBeDeleted;
 		if (leftOrRight == LEFT){
 			parent->left = nullptr;
 		} else {

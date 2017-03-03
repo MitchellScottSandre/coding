@@ -72,3 +72,37 @@ Let's Distinguish between 3 ideas:
 		- these are alternative recipes for creation, but an outside client can call only one, for any given instance
 	- often, but not always, we define at least the DEFAULT constructor
 		- the one with NO arguments
+
+THE DEFAULT C++ CONSTRUCTOR:
+- constructor with no arguments
+//TODO
+- if you define no constructors for your class/struct, then a default constructor will be defined for you by the compiler
+- if you DO define one or more other ctors, then the compiler will NOT define the default one for you
+===========================================================================================================================================
+
+Inside a Method:
+	- a method can be called by an instance of the class
+	Balloon b;
+	b.speak();
+
+	//TODO:
+
+	- inside a method body, we can access subparts of the OBJECT by just referring to the fields or using the this->
+	- this is a pointer that points to the OBJECTs variable
+	//TODO:
+
+	Lookup Order:
+	- is there a local variable of that name (defined inside the method)
+	//TODO
+
+
+Constructors: Java-style vs C++
+	//this is java code
+	public class Balloon {
+
+	}
+
+	//TODO
+
+
+Flurble::Flurble

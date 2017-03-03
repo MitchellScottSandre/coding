@@ -160,7 +160,7 @@ void BST_remove2(BST & parent, BST & child, int leftOrRight){//0 left, 1 right
     BST toBeDeleted = child;
 
 	if (child->left == nullptr && child->right == nullptr){//child has no children
-		delete child;
+		delete toBeDeleted;
 		if (leftOrRight == LEFT){
 			parent->left = nullptr;
 		} else {
@@ -256,7 +256,7 @@ void SBL_arrive (SBL& sbl, string name) {
 }
 
 string SBL_first (const SBL& sbl) {
-	if (SBL_size(sbl) == 0){
+	if (isEmptyQ(sbl.order) == true){
 		cerr << "Error, SBL is empty." << endl;
 		assert(false);
 	}
@@ -269,7 +269,8 @@ void SBL_leave (SBL& sbl){
 		cerr << "Error, SBL is empty." << endl;
 		assert(false);
 	}
-	BST_remove(sbl.names, SBL_first(sbl));
+	
+	BST_remove(sbl.names, firstQ(sbl.order));
 	leaveQ(sbl.order);
 	sbl.numPeople--;
 }
@@ -281,7 +282,7 @@ bool SBL_lookup (const SBL& sbl, string name){
 void SBL_printInArrivalOrder (const SBL& sbl) {
 	if (SBL_size(sbl) > 0){
 		printQ(sbl.order);
-	}
+	}l
 }
 
 void SBL_printInLexicographicalOrder (const SBL& sbl) {

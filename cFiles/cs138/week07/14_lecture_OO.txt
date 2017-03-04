@@ -12,6 +12,7 @@ Let's Distinguish between 3 ideas:
 		- structs have variable sub parts AND procedures that act on their sub-parts
 		- subparts are called FIELDS or MEMBER variables
 		- such procedures are called METHODS of the CLASS
+		- basically OOP but just for one class, with no inheritance
 
 	- Object-Oriented Programming:
 		- classes/instances + inheritance/polymorphism + generics
@@ -31,7 +32,7 @@ Let's Distinguish between 3 ideas:
 		//game object could have Orc, Sword, Gold, Knife classes (all different, all children of GameObject)
 		- cab create instances of related classes in a uniform manner
 			- polymorphism
-		- //TODO
+
 
 ===========================================================================================================================================
 
@@ -42,19 +43,41 @@ Let's Distinguish between 3 ideas:
 	- protected: descendants can view/access it
 	- public: everyone can access it
 
-	//TODO
+	Nit: Using the default constructor (ctor)
+		Balloon b;						//on stack
+		Balloon rb ("red"); 			//on stack
+		Balloon * pb = new Balloon;		//on heap
+		Balloon * prb = new Balloon("red");//on heap
+		we want these two statements to do the same thing:
+		Flurble * f1 = new Flurble;
+		Flurble * f2 = new Flurble();
 
 	Class Declaration vs Definition:
+		- the declaration of a class specifies its SHAPE
+			- if it inherits from another class
+			- what data subparts (fields) it has
+			- what methods / constructors it supports and their signatures
+			- if it defines a constructor
+			- what the ACCESS RIGHTS are for its fields/methods with respect to other class
+			- public or private or protected
 
-		// TODO
+		- the methods/constructors/destructors must still be defined, usually after the declaration
 
 	Defining Methods:
+		- need to provide implementations (definitions) of each method (including con and destructors) AFTER their declarations
+		- Balloon::Balloon() means the Balloon method (constructor) of no args of the class Balloon
+		- similarly, void Balloon::speak()
+		- speak() by itself is not a procedure, its full name is and must be Balloon::speak()
 
-
-	//TODO: copy OO stack
 
 	Things to Notice:
-		- need to DECLARE all methods inside the c
+		- need to DECLARE ALL methods inside the class definition
+		- instantiate a class just like a struct
+			- object can be on the stack or on the heap, depending on how you instantiate it
+			- use -> to call methods via a ptr; "." to call via an object
+		- Stack reference parameter drops out of procs; it is IMPLICIT now!!!!!
+			- passed by reference by default now :)
+
 
 ===========================================================================================================================================
 	Constructors (ctors):
@@ -75,7 +98,6 @@ Let's Distinguish between 3 ideas:
 
 THE DEFAULT C++ CONSTRUCTOR:
 - constructor with no arguments
-//TODO
 - if you define no constructors for your class/struct, then a default constructor will be defined for you by the compiler
 - if you DO define one or more other ctors, then the compiler will NOT define the default one for you
 ===========================================================================================================================================
@@ -84,25 +106,37 @@ Inside a Method:
 	- a method can be called by an instance of the class
 	Balloon b;
 	b.speak();
-
-	//TODO:
-
 	- inside a method body, we can access subparts of the OBJECT by just referring to the fields or using the this->
 	- this is a pointer that points to the OBJECTs variable
-	//TODO:
+
 
 	Lookup Order:
 	- is there a local variable of that name (defined inside the method)
-	//TODO
+	- is it a parameter?
+	- is it a field of the defining class?
+	- is it a field on an inheritance ancestor of the defining class?
 
 
 Constructors: Java-style vs C++
-	//this is java code
-	public class Balloon {
 
+	Balloon::Balloon(string colour){
+		this->colour = colour;
 	}
 
-	//TODO
+	- this is a common Java way, BUT in C++ we will use INITIALIZERS (cleaner??)
 
+Constructors and Initializers:
+	- C++ Advice: do as much as you can using initializers
+	- the constructor body is only for the awkward initialization bits that you can't do via an initializer for some reason
+	- any sub-part that is not set using an initializer will be constructed automatically using the default constructor for its type
+	---> even if you reset the value in the body
 
-Flurble::Flurble
+	Format is:    partName(value)
+	//no "this" needed for partName
+	- Initializers are used for 2 purposes
+		- calling constructor of parent class when using inheritance
+		- initializing member variables
+
+	- Balloon::Balloon() : colour("transparent") {}
+
+	- Balloon::Balloon(string colour) : colour(colour) {}

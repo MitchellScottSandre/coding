@@ -1,4 +1,5 @@
 // EMPTY == never used; ACTIVE == in use; ZOMBIE == deleted
+//CLOSED HASH WITH LINEAR PROBING
 enum Status {EMPTY, ACTIVE, ZOMBIE};
 const int NOT_FOUND = -1;
 

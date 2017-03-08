@@ -28,8 +28,6 @@ map<T1, T2> m;
 - T1 is the key field type; it must support operator<; which must in turn be a strict WEAK ORDERING
 - T2 is the value field; can be anything
 
-TODO copy sample code from slide
-
 - C++ map maintains the elements as sorted, and is usually implemented using a red-black tree
 - a red black tree is a kind of BST that does some sort ...
 TODO: finish
@@ -83,8 +81,11 @@ Problems:
 
 The Cost of Closed Hashing:
 - linear probing means keep adding one to the index and check again
-	- there are other probing techniques
-	TODO
+- typically, with closed hashing, you allocate space for all of the table entires in the table itself at the beginning
+	- this can be wasteful if the table is mostly empty much of the time
+	- but you don't have to allocate new Node with each insert, which may be preferred to improve performance during active use
+	- IE: you pay the allocation cost once, up front and at the beginning
+		- BUT if you do run out of space, then you typically grab a new vector (twice the num elements) and copy old table into the new table
 
 The Constant Time Promise:
 - as the table gets fuller and fuller you will end up with more and more probing being done
@@ -96,9 +97,7 @@ The Constant Time Promise:
 OPEN HASHING WITH CHAINING:
 - we will borrow the LOL (list of lits) idea from our priority queue implementation
 - each bucket holds a pointer to a list rather than an element
-- this is called
-TODO
-
+- this is called OPEN HASHING WITH CHAINING
 
 
 Important Characteristics of a Hash Function:

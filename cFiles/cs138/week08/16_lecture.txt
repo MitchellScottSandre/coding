@@ -1,0 +1,113 @@
+Review:
+Classes/Instances:
+	- classes have fields/methods; can be instantiated
+	- methods can be overloaded
+	- special methods include constructors and destructors
+
+Inheritance/Polymorphism(next up):
+	- classes can extend other classes
+		- inherit variables/methods from parent
+		- add new vars/methods, redefine (override) inherited methods
+	- within an inheritance hierarchy:
+		- leaf classes are concrete (exist, you implement them); internal ones are usually abstract (act as parents, never actually implemented)
+		- instances can be treated polymorphically
+
+Inheritance:
+//TODO
+
+- so we design abstract classes
+	- these define the instance variables and methods that will be common to all concrete descendant classes
+	- we call this a PARENT or ABSTRACT BASE CLASS (ABC)//never create instances of these
+
+- and then we design concrete classes that inherit the properties of the common ABCs, and ... //TODO
+
+Polymorphism:
+	- the second main benefit of inheritance is being able to treate objects of similar kinds in a uniform way
+	- so whatever kind of Humanoid we have, and whateer kind of Weapon they are holding,this should work
+	vector<Humanoid *> humanoidList;
+	Humanoid * h = humanoidList.back();
+	Weapon * w = h->getWeapon();
+	cout << w->getWeight() << endl;
+
+Static and Dynamic Types of Pointers:
+	- a pointer to a parent class P can point to an instance of P or any inheritance descendant class
+	Humanoid * p = new Elf("Elrond");//Humanoid is an ABC
+	Dwarf * d = new Dwarf("Gimli");
+	Humanoid * p2 = d;
+	Monsert * m = nullptr;
+	//TODO
+
+Inheritance:
+
+Inheritance Summary:
+- if class CHILD inherits from class PARENT
+	- all member variables of PARENT are also member variables of CHILD
+		- CHILD can add new member variables too
+	- all member functions ("methods") declared in PARENT are also member functions of CHILD
+		- by default, you get the PARENT definition (if there is one), but the CHILD may override it
+		- an abstranct // TODO
+
+Inheritance: An Example:
+- we want to design a hierarchy of geometric figures that could be used by drawing tool we are creating
+	- we'll start with just CIRCLES and RECTANGLES
+	- both have colour, x, y, location
+	- circles also have a radius, and rectangles have a width and height
+- our drawing tool will want to be able to  treat all Figures in the same way sometimes
+	- keep a list of them in the same vector, ordered by relative position (which is in front)
+
+Design View (UML Class Diagram): //Unified Modeling Language
+// - private
+// + public
+// # protected
+Figure: (Abstract Class)
+	- int x, y
+	- string colour
+	+ void draw()
+	+ double area()
+	+ void getPos(int &x, int & y)
+	void setPos(int x, int y)
+
+--->Circle (inherit Figure)
+	- int radius
+	+ void draw()
+	+ double area()
+	+ void getRadius(int & r)//rectangle will return 2, so we will pass a variable(s) in each case, be CONSISTENT
+	+ void setRadius(int r)
+
+--->Rectangle (inherits Figure)
+	- int w, h
+	+ void draw()
+	+ double area
+	+ void setSize(int w, int h)
+	+ void getSize(int & w, int & h)
+
+Virtual: someone might override me later one, always look just in case
+
+Should I declare this Method as Virtual or Not?
+- virtual:
+	- i expect this method to be overriden by a descendant class
+	- safe to make every method virtual, might be a little slower
+
+- Non-virtual:
+	- i do NOT expect this method to be overriden by a descendant class
+
+- so now we have Figure
+- next? worry about virtual methods defined in Figure; worry about methods unique to Circle and Rectangle
+
+DRY Principle of Design: DONT REPEAT YOURSELF
+- if you have something interesting to do in design, find a way to do it in only one place
+- so don't copy and paste code
+
+IF you have a set of entities with similar but non-identical shapes and behaviours, we can use inheritance to
+1. group the common parts within an abstract Parent class
+//TODO
+
+//TODO
+
+
+****If Parent has private method, children can't call it, but they can SEE IT and OVERRIDE IT
+
+Allowed to do:
+Figure * f = new Circle("blue", 2, 5, 6); //coin flip
+can't do a vector of Figure
+can do a vector of figure pointers

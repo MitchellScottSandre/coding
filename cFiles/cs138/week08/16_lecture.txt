@@ -13,7 +13,7 @@ Inheritance/Polymorphism(next up):
 		- instances can be treated polymorphically
 
 Inheritance:
-//TODO
+- often we have the case where we have a collection of classes that have a lot in common but also have some important differences
 
 - so we design abstract classes
 	- these define the instance variables and methods that will be common to all concrete descendant classes
@@ -34,10 +34,11 @@ Static and Dynamic Types of Pointers:
 	Humanoid * p = new Elf("Elrond");//Humanoid is an ABC
 	Dwarf * d = new Dwarf("Gimli");
 	Humanoid * p2 = d;
-	Monsert * m = nullptr;
-	//TODO
+	Monster * m = nullptr;
 
-Inheritance:
+	- for a pointer, we use these terms:
+		- its STATIC TYPE is the type it was declared to be
+		- its DYNAMIC TYPE is the type of the object its currently pointer to (or nullptr)
 
 Inheritance Summary:
 - if class CHILD inherits from class PARENT
@@ -45,7 +46,11 @@ Inheritance Summary:
 		- CHILD can add new member variables too
 	- all member functions ("methods") declared in PARENT are also member functions of CHILD
 		- by default, you get the PARENT definition (if there is one), but the CHILD may override it
-		- an abstranct // TODO
+		- an abstranct method declared by a Parent must eventually be defined by a descendant; a concrete class cannot have an abstract method
+		- Child can add new member functions, too
+	- constructors and destructors of the Parent are NOT inherited
+		- **** child constructors should call Parent constructor in initializer
+		- parent's destructor is called automaticaly by Child's destructor
 
 Inheritance: An Example:
 - we want to design a hierarchy of geometric figures that could be used by drawing tool we are creating
@@ -94,16 +99,29 @@ Should I declare this Method as Virtual or Not?
 - so now we have Figure
 - next? worry about virtual methods defined in Figure; worry about methods unique to Circle and Rectangle
 
+ABC Constructors:
+	- an ABC cannot be instantiated, so why does Figure have constructors?
+		- because the descendant classes need a build recipe for the common parts defined in the parent!
+		- so the ABC constructors will be invoked ONLY by the constructors of the concrete descendants, as an INITIALIZER expressions
+		- which means we should make them PROTECTED
+	- always try to make class elements as hidden as possible
+
+Constructors and Inheritance:
+	- if you inherit from a class, the "parent parts" have to be initialized somehow
+
+Ex:
+	Circle::Circle(string colour, int x, int y, int radius) : Figure (colour, x, y), radius(radius) {}
+
 DRY Principle of Design: DONT REPEAT YOURSELF
 - if you have something interesting to do in design, find a way to do it in only one place
 - so don't copy and paste code
 
 IF you have a set of entities with similar but non-identical shapes and behaviours, we can use inheritance to
 1. group the common parts within an abstract Parent class
-//TODO
-
-//TODO
-
+2. then, define child classes that inherit from or extend that parent
+	-> these child classes need express only their differences from the parent
+Note: any instance of any child class can be trated as if it were an instance of the parent class
+	-> this is POLYMORPHISM
 
 ****If Parent has private method, children can't call it, but they can SEE IT and OVERRIDE IT
 
@@ -111,3 +129,19 @@ Allowed to do:
 Figure * f = new Circle("blue", 2, 5, 6); //coin flip
 can't do a vector of Figure
 can do a vector of figure pointers
+
+
+Design Consistency (sometimes easier said than done)
+-> getRadius doesn't return an int, it changes passed reference value
+->do this because getSize for a rectangle (width and height) needs to change two!!! values; can't return two
+
+
+The Template Method Design Pattern:
+	- parent has high-level recipe that is the same for all children
+	- but the recipe has sub-pieces whose details will  be different depending on the details of the children
+	- the parent method is typically public, while the recipe sub-pieces are private and abstract and declared in parent
+	- the children figure out how to implement the recipe sub-pieces only; the parent specifies the rest
+
+Attempt # 3:
+- the template method pattern is a fundamental OO design idiom, and works really well most of the time
+- **** instead of having a getKind() method for each of the children, make KIND into a CONST member variable of the parent class

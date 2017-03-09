@@ -30,3 +30,5 @@ void Figure::draw() const {
 string Circl::getKind() const {
 	return "Circle";
 }
+
+/

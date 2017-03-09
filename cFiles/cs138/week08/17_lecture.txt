@@ -5,3 +5,9 @@ The C++ Standard Temmplate Library:
 2. kids of iterators that can navigate through the containers
 3. algorithms that take an iterator and perform an interesting operation on the elements in that Range
 	Ex: sort, random_shuffle, next_permutation
+
+Iterators:
+- the iterator is a fundamental design pattern of OOP
+	- it represents an abstract way of
+
+//TODO

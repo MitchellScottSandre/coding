@@ -134,3 +134,20 @@ How do we handle object sharing?
 2. You need a clear understand of who "owns" the shared object (and who is responsible for deleting it in their destructor)
 3. The "owner" class needs to define a protocol for changing ownership
 	- you should probably do this with a method rather than justa public field
+
+"I do it myself":
+- by convention, we use struct instances as plain old passive data holders, whereas we DESIGN classes so that their instances are active things with behaviour, semantics, interesting constraints, etc
+	- so maybe the class should do the data management itself
+	- probablu the class designer knows better than the client!
+
+- if you create an object that is going to be shared by other objects, consider carefully where you want to create it
+	- usually, shared objects should be created on the heap via new
+		- wont be automatically deleted when their scope ends
+	- will need a clear understanding of how this object is eventually going to be deleted (who owns it)
+	- so seeing an objects address ("&obj") passed into a function that expects a pointer should make you uneasy..is the function going to keep a reference to that object??
+
+	Accessors and Mutators:
+		- any method can be seen as either an ACCESSOR or a MUTATOR
+		- an ACCESSOR reports on the value of the object, but doesn't change it; a true accessor can be declared as const
+		- a MUTATOR may change the value of the object
+		- getters and setters

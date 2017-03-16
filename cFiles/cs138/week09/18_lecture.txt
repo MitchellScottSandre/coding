@@ -1,0 +1,149 @@
+Lecture 18: March 16
+
+Important from last Lecture:
+Parent * mike;
+	//make mike point to an object that is a Parent or inheritnace descendant of parent
+	mike->m();
+		- if Parent::M is NOT virtual, this will always call Parent::m()
+		- if Parent::m IS virtual, find out what class of object, call it C, mike points to right now
+			- if C defines its OWN version of m, it will call C::m()
+			- if C doesn not define its own version, it will walk up the inheritance hierarchy to find the most recent class where m() was given a definition
+
+NOTE: Constructors and Inheritance
+	- if you inherit from a class, the "parent parts" have to be initialized somehow
+		- children do not inherit parental constructors; they call them as initializers!
+		EX: Circle::Circle(string colour, int x, int y, int r) : Figure (colour, x, y), r(r) {}
+	- Abstract Base Classes usually have protected constructors which are invoked only by their CHILDREN in the child ctors
+	- if you don't call a parent's constructor in the initialization list, then an implit //TODO
+
+Destructors and Inheritance:
+	- as we just saw, if you have an inheritance hierarchy, you should probably have a virtual public destructor defined in the highest level ABC eve if it does nothing interesting
+	- Destructor chaining in an inheritance hierarchy:
+		- when defining a dtor, you need to worry about cleaning up only the parts your class defines not the parts of your inheritance parents of children
+		- the dtors of your (direct) sub objects will be invoked automatically; worry only about stuff on the heap that your class owns
+		- you don't need to explicitly invoke your parent's dtor, it will be invoked automatically after yours finishes executing
+		- destructor chaining happens in the reverse order of construction
+			- first child's dtor, then parent's dtor, then grandparent's dtor ... etc
+
+Polymorphism and Inheritance:
+	- within an inheritance hierarchy of entity kinds, we want to bump the commonalities up as high as possible in the inheritance tree
+		- even if we don't know how to implement them concretely, ex, draw(), speak()
+		- let the children show the differences plus give the concrete impls of the abstract methods
+		- generallly, want internal nodes to be abstract, leaves to be concrete, though this is not always possible
+
+Liskov's Principle of Substitutability (PoS):
+	- PoS says that you should always be able to conceptually replace any instance of parent with an instance of child
+		- that is, it should make "sense" to do so, even if its not actually possible
+		- that is, the parent is a GENERALIZED version of its children;
+		- children are SPECIALIZED versions of their parents
+	EX:
+		- circle is-a Figure; Rectangle is-a Figure
+		- Rectangle is-a Polygon is-a FIgure
+
+NOTE: The STL was designed with the assumption that its classes would not be inherited from; so, for performance reasons, no STL methods are declared as virtual
+
+- they made a Stack() class that inherited vector. stupid.
+What's wrong with this design?
+	1. we should probably define a generic stack class, not one only for strings, don't know how to do this yet
+	2. the STL was designed under the assumption that its classes would NOT be inherited from
+	3. you get all of those pesky, inappropriate vector operation along for the ride, too, like insert(), erase(), at(); etc NOT PART OF STACK
+
+New Question: Support we wanted to add a Square class to hierarchy of Figure -> 1 Circle; 2 Rectangle. where do we put it?
+Options:
+1. SQUARE is a subclass of Rectangle
+	- easiest, least invasive to existing system (though often that's a bad idea)
+	- but what do we do with the inherited method setSize(w, h);
+	- Rectangle is a GENERALIZED square (rectangle is a higher up, less specific square)
+	Some possibilities:
+		- Redefine so second variable is ignored, or tave avg, or take max, etc
+		- add setSize of one variable, refine original to do nothing
+	But
+		- both of these break PoS (at the low level)
+		- also, it's usually a bad idea to inherit from a concrete class
+
+2. Add Square as an intermediate class between Figure and Rectangle
+	- add setSize(w) in Square, then add setSize (w, h) in Rectangle
+	- but this breaks PoS: the parent is supposed to be more general than the child
+
+3. Make Square and Rectangle inheritance siblings instead
+	- so no consolidation of common code is possible: seems like a waste
+	- Squares cannot be treated as Rectangles and vice versa, just as Figures
+
+Elegance vs Practicality:
+- the elegant design answer is to make them inheritance siblings
+- but the PRACTICAL answer is to make Square a child of Rectangle and just ignore the setSize(int, int) issue
+	- especially if there is a lot of "work" in implementing these classes that can practically be reused;
+	- this approach obeys PoS at the high level, if not at the method level
+
+- Note that if Figures are immutable size-wise once set in the ctor, then there is no problem with option 1
+	-setSize of two args would not be present
+	- Rectangle has get/setLoc, draw(), drawRectangle(w, h)
+	- square would simply add a ctor of one size argument and no new methods
+	Square::Square(int r) : Rectangle(r, r) {}
+
+SOLID Design Principles for OOP:
+1. Single Responsibility
+2. Open/Closed
+3. Liskov Substitutability
+4. Interface Segregation
+5. Dependency Inversion [too subtle for us now]
+
+1. Single Responsibility:
+	- each class should have a single functional responsibility within the design of the problem
+		- the responsibility should be clear and obvious to any outside client
+		- the provided functionality should be narrowly and crisply encapsulated by the public API
+		- a class should have only one reason to change
+
+	Example:
+		- a class that compiles and prints a report. it might change because
+		a) different content is needed or,
+		b) different formatting is needed
+		- in this case, separate out the content from formatting into two distinct classes
+
+2. Open/Closed
+	- a class should be open for extension but closed to modification (via inheritance)
+		- open for extension: subclasses can add new (but related) features to those inherited from the parent
+		- closed to modification: don't override or remove existing parent functionality
+		- overriding (implementing) abstract methods is fine, tho
+
+4. Interface Segregation
+	- Split larger interfaces into a set of smaller interfaces that model different roles of use
+		- when a class interface grows too big, identify sets of related functionality that model the different intended high-level uses
+		- sometimes a "natural" interface boundary turns out to be larger and more complex than anticipated; if so, look to partition the interfaces into natural subgroups
+		- god classes are different; they grow large by acquiring lots of (mainly) unrelated functionality over time
+	Example:
+		- ATM has a functionality for withdrawal, deposit, account inquiry, etc
+		- but each of these tasks has options and details, and the full interface to support all of these is huge
+		- better to break up the interface into related uses: withdrawal, deposit, etc
+		- the ATM API may be considered to be the union of the sub-interfaces
+
+============================================================================================================================================================
+
+Evaluating Hash Functions:
+	- here we are talking specifically about hash function that are used to build hash tables
+		- we are NOT talking about cryptographic hash functions, which have additional requirements
+	- for simplicity, we will assume that given a key, then computing the hash value is reasonably fast
+	- we will also assume:
+		- we are using OPEN HASHING WITH CHAINING
+		- //TODO
+
+	=======================================
+
+	- we will usually evaluate efficiency in terms of space and/or time
+	- space efficiency:
+
+	Recall:
+		- Closed: (Circle) Each slot is an object
+		- Open:	each slot is a pointer, usually to a linked list
+
+	Approach:	Closed Hashing w											Open Hashing w
+				linear Probing												open chaining
+	Waste:		Each unused/zombie vector spot costs one OBJECT				Each unused vector spot costs one POINTER
+
+	Overhead:	N/A															Each used bucket and list element also costs
+																			a pointer
+
+	- SO, for open hashing, a good SPACE EFFICIENT hash function will minimize the number of unused buckets
+		- SPACE-WISE, an even spread is just as good as the case where every bucket except one has a single element
+		  and the remaining bucket has all the rest... tho obviously lookups would be very slow in that case
+		- so we consider # of empty buckets as our key metric for space //TODO

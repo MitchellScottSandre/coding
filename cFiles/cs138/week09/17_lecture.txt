@@ -128,6 +128,7 @@ Some useful STL Algorithms:
 	- random_shuffle
 	- next_permutation** //Can cycle through all N! permutations of an ordered container!
 
+
 Polymorphism: Which Method Definition?
 
 	- let's recall this snipper:
@@ -141,3 +142,47 @@ f = new P;
 g = new C;
 f->m3();//illegal, f is a P*
 g->m3();//illegal!!!! g is a C, BUT BUT g is a P* statically (it was statically created as P FIRST)
+
+Review:
+OBP and OOP Review:
+	- inheritance naturally supports POLYMORPHISM, the ability to treat "similar" objects in a uniform way
+		ex:
+			vector<Figure *> v;
+			//add stuff to v
+			v.back()->draw();
+	- note that polymorphism doesn't actually REQUIRE inheritance
+
+OBP and OOP: Design Advice:
+	- make data as private as possible
+		- if you need to "share" within an inheritance hierarchy, try to keep parental variables PRIVATE;
+		- use PROTECTED methods to share
+		- whenever possible, let the parent class do all the housekeeping/direct manipulation of the member variables it introduces
+	- design MATTERS
+		- spend time thinking about your hierarchies, your public interfaces, who is responsible for what
+		- don't be afraid to move things around during design
+
+Polymorphism: Which method definition?
+	recall:
+	for (int i = 0; i < v.size(); i++){
+		Figure * f = v.at(i);
+		f->draw();//Circle? Square? Polymorphism!
+	}
+
+	- but, how does the object know which method definition to use?
+	- let's draw a conceptual picture to explain
+	- for simplicity, we assume that all methods are concrete and virtual
+
+	- so, how does the system know which method implementation to use, since "correct" one can vary with the dynamic type?
+	- if f is statically a Figure *, how does the compiler/run-time system know if f->draw() means Circle::draw() or Rectangle::draw()
+
+	- when an instance method is called (via an object) and a stack frame is allocated for the method call, there is a THIS pointer in the stack fram pointing back to the calling object
+	- so the run time knows which object's subparts are being changed inside the method body
+
+Circle * c = new Circle("red", 0, 0, 5);
+c->setRadius(25);//legal
+Figure * f = c;
+f->setColour("green");//legal
+f->setRadius(33);//ILLEGAL
+
+NOTE: it doesn't matter that f actually points to a Circle instance;
+		--> since it was declared as a Figure * you can only treat is as a GENERIC FIGURE, and Figure does not support a setRadius method

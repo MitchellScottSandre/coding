@@ -125,7 +125,8 @@ Evaluating Hash Functions:
 	- for simplicity, we will assume that given a key, then computing the hash value is reasonably fast
 	- we will also assume:
 		- we are using OPEN HASHING WITH CHAINING
-		- //TODO
+		- there are K buckets with N total elements, usually K >> N
+		- Ci is the length of the chain at bucket i, for i = 0..(k-1)
 
 	=======================================
 
@@ -146,4 +147,37 @@ Evaluating Hash Functions:
 	- SO, for open hashing, a good SPACE EFFICIENT hash function will minimize the number of unused buckets
 		- SPACE-WISE, an even spread is just as good as the case where every bucket except one has a single element
 		  and the remaining bucket has all the rest... tho obviously lookups would be very slow in that case
-		- so we consider # of empty buckets as our key metric for space //TODO
+		- so we consider # of empty buckets as our key metric for space efficiency, but it's not clear how important it really is
+		- in particular, the space efficiency of a hash table tells you nothing useful about how even the distribution of elements across the bucket is, and this is what really impacts performance!
+
+	- we define the LOAD FACTOR of a hash table to be N/K
+	- java.util.HashMap uses a default threshold of 0.75 before grabbing more storage and re-adding the elements into the new table
+	-..but how could we measure what a good distribution is?
+
+Evaluating Hash Functions:
+	- for time efficiency, we could ask about the average chain length..
+		- but this is ALWAYS N/K, independent of the "spread" (ie. evenness of the distribution of elements across the buckets by the hash function)
+		- the average chain length tells us NOTHING USEFUL
+		- on the other hand, the MEDIAN CHAIN LENGTH, and MAX CHAIN LENGTH actually gives us some useful information, especially since the long chains are statistically more likely to get accesses
+
+	- what we really want to know is the average case and worst case LOOKUP TIMES, in terms of # of comparisons needed
+		- the ideal case is that the spread is uniform across all buckets, which therefore each have length N/K elements, and so lookup is O(N/K)
+
+	- however, even if you have a non-deal spread, you can still compute the average and worst case # comparisons/"probes" easily
+		- for each bucket i, it should be pretty obvious that the worst case # of comparisons is Ci, and that the average case is Ci/2
+
+	- so the overall WORST case is :
+		SUM of ALL (worst case for bucket i) * likelihood of landing in bucket i
+
+
+When we evaluate your function
+	- we will look at the worst case for your functions, as described above and implemented in the new version of HashTable::report()
+
+For assignment 6:
+	- if the hash funtion you devised seems like it's an OK choice, it probably is
+	- don't overfit for the data
+		- try different values of N and K
+		- try using a different word list (we will!)
+
+NOTE: if you tune your solution to the data set, it will likely be a terrible general-purpose solution, this is called OVERFITTING
+- DONT TUNE AN ALGORITHM TO JUST ONE SET OF DATA

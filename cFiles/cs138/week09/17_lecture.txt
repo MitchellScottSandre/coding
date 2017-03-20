@@ -186,3 +186,10 @@ f->setRadius(33);//ILLEGAL
 
 NOTE: it doesn't matter that f actually points to a Circle instance;
 		--> since it was declared as a Figure * you can only treat is as a GENERIC FIGURE, and Figure does not support a setRadius method
+
+Review: Static VS Dynamic TYPING:
+	- every pointer has a static type, which is its DECLARED type
+	- the static type does not change during program execution
+	- every pointer also has a DYNAMIC type, which is the type of object that it is currently pointer to (or nullptr)
+		- during execution, a pointer's dynamic type might change whenever it is assigned a new value
+	- a pointer can be set to point to an object of ANY SUbCLASS of its declared type

@@ -9,6 +9,6 @@
 using namespace std;
 
 int main(int argc, char * argv[]){
-	cout << scrabbleValue("hello world") << endl;
+	cout << scrabbleValue("aaaaa") << endl;
 	return 0;
 }

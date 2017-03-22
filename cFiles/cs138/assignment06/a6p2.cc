@@ -1,4 +1,13 @@
+#include <algorithm>
 #include<iomanip>
+#include <string>
+#include <iostream>
+#include <vector>
+#include <cctype> // I added this
+using namespace std;
+
+int scrabbleValue(string word);
+int scrabbleValue(char letter);
 
 // Passive data node for hash tables.
 struct Node {
@@ -8,23 +17,23 @@ struct Node {
 
 class HashTable {
     public :
-	HashTable ();
-	HashTable (int K);
-	virtual ~HashTable();
-	void insert (string word);
-	void remove (string word);	    // You implement this!
-	bool lookup (string word) const;
-	void print () const;
-	void report () const;
-	static const int DefaultSize;
+    	HashTable ();
+    	HashTable (int K);
+    	virtual ~HashTable();
+    	void insert (string word);
+    	void remove (string word);	    // You implement this!
+    	bool lookup (string word) const;
+    	void print () const;
+    	void report () const;
+    	static const int DefaultSize;
     protected :
-	int getTableSize() const;
+	   int getTableSize() const;
     private :
-	vector<Node*> table;
-	// The "hash" function will be defined by each child class,
-	// each one using a different strategy.  But it needs to be
-	// abstract (aka "pure virtual") in the abstract parent class.
-	virtual int hash (string key) const = 0;
+	   vector<Node*> table;
+	   // The "hash" function will be defined by each child class,
+	   // each one using a different strategy.  But it needs to be
+	   // abstract (aka "pure virtual") in the abstract parent class.
+	   virtual int hash (string key) const = 0;
 
 };
 
@@ -152,4 +161,52 @@ void HashTable::report () const {
     const int median = stats[firstNonZeroBucketIndex + numNonZeros/2];
     const int average = totalNumEntries / numNonZeros;
     cout << "Overflow list length:  Max = " << maxOverflowSize << "  Median = " << median << "  Average = " << average <<  endl;
+}
+
+class SimpleHashTable : public HashTable{
+    public:
+        SimpleHashTable();
+        SimpleHashTable(int K);
+         ~SimpleHashTable();
+    private:
+         virtual int hash (string key) const = 0;
+};
+
+SimpleHashTable::SimpleHashTable() : HashTable() {}
+SimpleHashTable::SimpleHashTable(int K) : HashTable(K) {}
+SimpleHashTable::~SimpleHashTable() {}
+
+int SimpleHashTable::hash(string key){
+    int numBuckets = getTableSize();
+    int val = scrabbleValue(key);
+    return numBuckets % val;
+}
+
+int scrabbleValue(char letter){
+	char c = letter;
+	tolower(c);
+	if (c =='q' || c=='z'){
+		return 10;
+	} else if (c =='j' || c == 'x'){
+		return 8;
+	} else if (c == 'k'){
+		return 5;
+	} else if (c == 'f' || c == 'h' || c == 'v' || c == 'w' || c == 'y'){
+		return 4;
+	} else if (c == 'b' || c == 'c' || c == 'm' || c == 'p'){
+		return 3;
+	} else if (c == 'd' || c == 'g'){
+		return 2;
+	} else if (c == 'e' || c == 'a' || c == 'i' || c == 'o' || c == 'n' || c == 'r' || c == 't' || c == 'l' || c == 's' || c == 'u'){
+		return 1;
+	}
+	return 0;
+}
+
+int scrabbleValue(string word){
+	int sum = 0;
+	for (int i = 0; i < word.size(); i++){
+		sum += scrabbleValue(word[i]);
+	}
+	return sum;
 }

@@ -1,0 +1,145 @@
+March 21: Generics, Templates, and Type Parameterization
+- templates are a C++ language mechanism that can be used to implement GENERIC functions and classes
+
+Generic Functions:
+	- defining a generic function allows you to supply the type of parameters only when you actually use the function
+		- effectively, we passed in a type name as a "special" parameter to the procedure
+	- the only constraints here are that both x and y have to be of the same type, and any uses of variables of type T have to be
+		permissible by type T's "RULES"
+			- for swap, T has to support assignment
+			- for printPair, T has to support the operator<<
+			- works for ints and strings, but not for Balloons unless we define one
+
+Generics:
+	- the actual checking of whether what you've said actually makes sense is performed during a special phase of compilation called template instantiation
+	- if you mess up, you generally get an incomprehensible error message
+	- the implementation details of what is going on underneath the hood are somewhat complicated
+
+Generic CLASSES:
+	- we already know how to create generic functions
+	- we can also make generic classes
+	- we can use this idea to create generalized containers, for example
+	- we have seen this already in vector<T>
+
+The ADAPTER Design Pattern:
+	- often, you find you have some data structures that implement what you want, but the API does not resemble what you would naturally desire
+		- for example, vector can be used to model a stack, but vector has quite a few more operations that you need for just stacks
+		- pop_back doesn't quite do what you want anyways (it removes but doesn't return the top element)
+		 	- though, stack::pop() doesn't return the element either
+		- you don't want to force the rest of your system to remember the magical incantations for making a vector behave like a stack
+		- an adapter is sometimes called a WRAPPER CLASS
+
+The Adapter Solution:
+	1. define the API you really want,
+		- for Stack, this is push, pop, etc, NOT push_back, pop_back...
+	2. Instantiate (don't inherit) an object from the "workhorse" class that will do the actual heavy lifting, probably as a private data member
+	3. define the appropriate operations as fairly trivial operations on the workhorse class
+		- this is sometimes called forwarding or delegating
+
+	//just look at slide if you want to see this
+
+Adapters and the STL:
+	- STL Defines its own adapter classes for stack, queue, and priority_queue
+		you can also specify, if you want, ex, your stack to be implemented by a vector, deque, or list from the STL
+	- "The STL way" encourages you to define your own adapter classes based on STL container classes, if you have special purpose needs that are almost satisfied by an existing STL class
+		- and to NOT use inheritance
+		- STL Containers declare their methods as non-virtual for efficiency, so adapting is usually the right thing to do
+
+The C++ Standard Library:
+	- what's in the official C++ Standard Library is defined by the various official language standards: C++-1998, 2003, 2011, 2014, 2017 (soon)
+		- not every compiler supports every new language features
+		- some compilers also support additional language features and libraries that are not part of the standard (visual studio)
+	- we have concentrated on the C++03 standard, as that is most common
+		- the STL parts were actually defined in C++98 and were not changed for C++03
+		- compilers were slow to provide good implementations of STL
+
+STL Containers:
+- C++98/03 defines three main data container categories:
+	1. Sequence containers: vector, list, deque
+	2. Container Adapters: stack, queue, priority_queue
+	3. Ordered associative containers: [multi]set, [multi]map
+
+C++11 adds:
+	1. sequence containers: array, forward_list
+	2. [nothing new]
+	3. Unordered associative containers: unordered_[multi]set, unordered_[multi]map;
+
+1. Sequence Containers:
+	- there is a total ordering of contiguous values (no gaps) on elements based on the order in which you added them in to the container
+		- aka, NOT based on some intrinsic value of the elements
+		- EX: vector, deque, list
+	- they provide similar functionality but differ on:
+	a. some access methods
+		- vector and deque allow random access to elements (via [] or at() )
+		- deque allows push_back AND push_front (+pop_front and also front)
+	b. performance
+		- list must be implemented as a doubly-linked list, so finding/deleting an arbitrary element is O(N)
+	====================================================================================================
+	Vector:
+		- can think of as an expandable array that support access with bounds checking, via <vector<T>::at()
+		- vector elements MUST BE STORED CONTIGUOUSLY according to the C++ standard, so ptr arithmetic will work and O(1) random access is allowed
+		- append is AMORTIZED CONSTANT TIME; sometimes have to copy N elements
+			Access Kind				Complexity		API Support
+			random access			O(1)			operator[] or at()
+			append/delete last		O(1)			push_back/pop_back
+			prepend/delete first	O(N)			not supported as an API call
+			random insert/delete	O(N)			insert/erase
+
+		Weird Thing:
+		vector<string> v;
+		v.resize(4);
+		v.at(2) = "hello";
+		string * p = &v.at(2);
+		v.push_back("more");
+		cout<<*p << endl;
+
+	Implementing a Vector:
+		- we know this is done using a dynamically-allocated heap-based array
+			- a vector object probably has at least 3 fields: a pointer to the heap-based array plus ints that track the SIZE and CAPACITY
+			- use obvious definitions of operator[] and at() based on address calculation (start of array + offset)
+			- insertion onto the end is AMORTIZED CONSTANT TIME as we have discussed
+
+		- calling push_back when size==capacity forces a RE-ALLOCATION
+			- grab a new heap-based array of twice the old size, and copy the elements over
+		**** - this invalidates any external references to individual vector elements, including iterators
+			- note that this is an O(N) OBJECT copy, not a pointer copy, this can be expensive
+			- can we do better?
+
+
+	====================================================================================================
+	Deque:
+	- double ended queue, similar to vectors, but allow fast insertion/deletion at BEGINNING and END
+	- random access "fast" but NO guarantee elements are stored contiguously
+	- ponter arithmetic won't work
+	- operator[] and at() must be overloaded to work correctly
+
+	Access Kind				Complexity		API Support
+	random access			O(1)			operator[] or at()
+	append/delete last		O(1)			push_back/pop_back
+	prepend/delete first	O(N)			not supported as an API call
+	random insert/delete	O(N)			insert/erase
+
+	Implementing a Deque:
+		- Idea #1: a circular buffer of OBJECTS
+			- maintain a dynamic array of objects, like we did with vector
+			- when we need storage, re-allocate: get a bigger dynamic array from the heap, copy the objects over to the new space, and delete the old dynamic array
+			- clever part: treat the storage like a CIRCULAR BUFFER so you can add to back or front in constant time
+			- this idea works, but it is inefficient in terms of space
+
+			- this means we need to provide specialized definitions of operator[] and at() using offsets and modular arithmetic when you start to add elements at the front
+				- however, you just adding or subtracting a constant int or two, which is fast to perform
+				- this means that insertion at EITHER END is also amortized constant time, in terms of # of object copies performed
+				- it's O(1) unless you need to reallocate, in which case it O(N)
+
+			- this implementation has the disadvantage that (as with vector) any insertion potentially invalidates external references to elements and any active iterators
+				- so it works, but this isn't what is normally done
+				- also, it requires O(N) OBJECT copies on reallocation
+
+			- the C++ standard requires that insertion at the beginning/end of a deque be CONSTANT time in terms of the number of time a copy constructor is called
+				- ie, how many OBJECT copies are created
+				- amortized constant time is not acceptable, according to the standard
+				- so we need another way
+		- Idea #2: a circular buffer of POINTERS
+			- the approach that is normally used for a deque involves a set of fixed-length arrays ("CHUNKS"), plus a master dynamic array (vector) of pointers(a circular buffer) that points to the chunks
+				- after the first insertion, there is one chunk with one element filled
+				- subsequent adds at either end may require another chunk to be allocated and linked to by the master circular buffer

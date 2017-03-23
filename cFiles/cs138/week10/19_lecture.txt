@@ -139,7 +139,27 @@ C++11 adds:
 				- ie, how many OBJECT copies are created
 				- amortized constant time is not acceptable, according to the standard
 				- so we need another way
+
+
 		- Idea #2: a circular buffer of POINTERS
 			- the approach that is normally used for a deque involves a set of fixed-length arrays ("CHUNKS"), plus a master dynamic array (vector) of pointers(a circular buffer) that points to the chunks
 				- after the first insertion, there is one chunk with one element filled
 				- subsequent adds at either end may require another chunk to be allocated and linked to by the master circular buffer
+
+			- let's assume N deque elements total, and a chunk size of K
+				- then the circular buffer has about N/K elements
+				- we need to allocate new chunks periodically (every K insertions at front/back)
+					- this has a mild overhead cost, but involves NO OBJECT COPYING (apart from the single new object chunk being added at the front / back)
+				- if the circular buffer is full, then we need to reallocate
+					- but we don't reallocate the chunks, just the circular buffer of pointers by coyping (only) the pointers over to a new, bigger buffer
+					- this means that any external references to elements are still valid
+				- how often does reallocation (of the circular pointer buffer) happen?
+					- as with vector, only when we exceed the capacity of (about) N elements
+				- how much copying is involved in a reallocation?
+					- we copy N/K POINTERS (size of circular buffer)
+					- with a deque, we are copying only N?K which is fast; with a vector we may be copying N large objects (not pointers)
+			- how well does this work?
+				- operator[], at() and iterate implications need to be a bit clever
+					- just modular arithmetic + a pointer dereference, not too hard
+					- still O(1) tho in reality often a bit slower than vector
+				- inserting at either end is faster than a vector as the (occasional) reallocations cost N/K POINTER copies rather than N object copies

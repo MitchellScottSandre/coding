@@ -1,3 +1,6 @@
+//http://www.cse.yorku.ca/~oz/hash.html
+//https://en.wikipedia.org/wiki/MurmurHash
+
 #include <algorithm>
 #include<iomanip>
 #include <string>
@@ -201,4 +204,26 @@ int SimpleHashTable::hash(string key) const {
         sum += key[i];
     }
     return sum % numBuckets;
+}
+
+class SmartHashTable : public HashTable{
+    public:
+        SmartHashTable();
+        SmartHashTable(int K);
+         ~SmartHashTable();
+    private:
+         virtual int hash (string key) const;
+};
+
+SmartHashTable::SmartHashTable() : HashTable() {}
+SmartHashTable::SmartHashTable(int K) : HashTable(K) {}
+SmartHashTable::~SmartHashTable() {}
+
+int SmartHashTable::hash(string key) const {
+    int index = 1;
+    for(int i=0; i<key.size();i ++) {
+       index ^= 173 ^ ((key[i]*91) << i);
+    }
+   return index%getTableSize();
+
 }

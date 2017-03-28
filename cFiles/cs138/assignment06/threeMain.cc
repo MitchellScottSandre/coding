@@ -22,16 +22,28 @@ string randomWord(int length){
 }
 
 int main(int argc, char * argv[]){
-	SmartHashTable s = SmartHashTable(1000);
+	SmartHashTable s = SmartHashTable(100000);
+	ifstream file ("twl-words.txt");
+	string word;
+	while (true){
+		file >> word;
+		if (file.fail()){
+			break;
+		}
+		s.insert(word);
+	}
+	s.report();
 
-	// int numWords = 2000;
+
+
+	// int numWords = 20000;
 	// for (int i = 0; i < numWords; i++){
 	// 	int wordLen = 2 + rand() %  10;
 	// 	string word = randomWord(wordLen);
 	// 	s.insert(word);
 	// }
 
-	
+
 
 	s.print();
 	s.report();

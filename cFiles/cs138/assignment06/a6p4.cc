@@ -1,9 +1,10 @@
 #include <algorithm>
-#include<iomanip>
+#include <iomanip>
 #include <string>
 #include <iostream>
+#include <fstream>
 #include <vector>
-#include <cctype> // I added this
+#include <cassert>
 using namespace std;
 
 // Passive data node for hash tables.
@@ -126,6 +127,7 @@ void HashTable::print() const {
     }
 }
 
+
 // So we can tell how good your hash function is ...
 // Do NOT override this function in the version you submit.  We will check!
 void HashTable::report () const {
@@ -228,4 +230,121 @@ int SmartHashTable::hash(string key) const {
     }
    return index%getTableSize();
    //http://www.echochamber.me/viewtopic.php?t=52779
+}
+
+// Ancillary function for powerset.  It adds a character onto the beginning
+// of each string in a vector.
+vector<string> addChar (const vector<string>& v, char c) {
+    vector<string> ans;
+    for (int i=0; i<(int)v.size() ; i++) {
+		ans.push_back(c + v.at(i));
+    }
+    return ans;
+}
+
+// Note that I wrote this in scheme first!  Programming "shell game"
+// recursion puzzles is easier with weak typing.
+// This takes a string and returns the power(multi)set of its characters
+// as a vector.  For example, powerset of "aab" would be the vector with
+// elements (in no particular order): "aab" "ab" "aa" "a" "ab" "a" "b".
+// Assume we don't care about eliminating duplicates for now.
+vector<string> powerset (string s) {
+    vector<string> ans;
+    if (s.size() == 0) {
+		ans.push_back("");
+    } else {
+		char c = s.at(0);
+		string rest = s.substr(1);
+		vector<string> psetRest = powerset (rest);
+		ans = addChar (psetRest, c);
+		ans.insert(ans.end(), psetRest.begin(), psetRest.end());
+    }
+    return ans;
+}
+
+int scrabbleValue(char letter){
+	char c = letter;
+	tolower(c);
+	if (c =='q' || c=='z'){
+		return 10;
+	} else if (c =='j' || c == 'x'){
+		return 8;
+	} else if (c == 'k'){
+		return 5;
+	} else if (c == 'f' || c == 'h' || c == 'v' || c == 'w' || c == 'y'){
+		return 4;
+	} else if (c == 'b' || c == 'c' || c == 'm' || c == 'p'){
+		return 3;
+	} else if (c == 'd' || c == 'g'){
+		return 2;
+	} else if (c == 'e' || c == 'a' || c == 'i' || c == 'o' || c == 'n' || c == 'r' || c == 't' || c == 'l' || c == 's' || c == 'u'){
+		return 1;
+	}
+	return 0;
+}
+
+int scrabbleValue(string word){
+	int sum = 0;
+	for (int i = 0; i < word.size(); i++){
+		sum += scrabbleValue(word[i]);
+	}
+	return sum;
+}
+
+
+int main(int argc, char * argv[]){//argc is number of arguments, argv contains them
+    if (argc != 2){
+        cerr << "Error, no word list file name provided." << endl;
+        return 0;
+    }
+    string wordlistFileName = argv[1];
+
+	ifstream file (wordlistFileName);
+    if (!file.is_open()){
+		cerr << "Error, couldn’t open word list file." << endl;
+		return 0;
+	}
+	SmartHashTable table = SmartHashTable(1000000);
+	string word;
+	while (file >> word){
+		table.insert(word);
+	}
+
+	//cout << "done inserting words" << endl;
+
+	while(true){
+			cin >> word;
+			if (cin.fail()){
+				break;
+			}
+
+			vector<string> wordPowerSet = powerset(word);//now, find the maximum valued Scrabble word that can be made from those letters.
+			int highestScrabbleScore = -1;
+			string bestWord = "";
+			for (int i = 0; i < wordPowerSet.size(); i++){			//need to do every possible combination, see if it is a word in the given list, and then output max scrabble value
+				string s = wordPowerSet[i];
+				sort (s.begin(), s.end());
+				//cout << "sorted word # " << (i + 1) << " of powerset is " << s << endl;
+				do {
+					if (table.lookup(s) == true){
+						//cout << "table contains: " << s << endl;
+						int x = scrabbleValue(s);
+						if (x > highestScrabbleScore){
+							highestScrabbleScore = x;
+							bestWord = s;
+						}
+					}
+				} while (next_permutation(s.begin(), s.end()));
+			}
+			cout << word << ": ";
+			if (highestScrabbleScore == -1){
+				cout << "no matches" << endl;
+			} else {
+				cout << bestWord << " has score of " << highestScrabbleScore << endl;
+			}
+
+	}
+
+
+	return 0;
 }

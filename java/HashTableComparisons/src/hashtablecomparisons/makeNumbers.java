@@ -18,11 +18,12 @@ public class makeNumbers {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException {
+        System.out.println("Test");
         PrintWriter writer = new PrintWriter("numbers.txt");
         for (int i = 0; i < 200000; i++){
-            writer.println(i);
+            //writer.println(i);
         }
-        writer.close();
+        //writer.close();
     }
     
 }

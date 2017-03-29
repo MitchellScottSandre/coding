@@ -1,0 +1,119 @@
+Unit Testing vs Integration Testing:
+
+REVIEW: who depends on whom?
+	#include:
+		- if you use quotes, the compiler looks in the current directory
+		- if you use brackets, it looks in the standard library locations
+		- but where are the interface files for the standard library actually stored?
+			- often a subdirectory of /usr/include
+
+How are the implementations of library functions found?
+	- well, for separately compiled libraries, once again the compiler just knows where to find them and how to link them to my program
+	- for various technical reasons, classes that are defined using C++ templates MUST be fully defined inside the interface file
+		//there's no .h/.cc split for templates
+	- so, if you include vector, string, iostream, etc, you are actually including quite a bit of source code!
+	- this means that each .cc file that includes vector has its own copy of the source code for vector etc pulled in by the preprocessor during compilation
+
+Automatic Builds using Make
+	- there is a powerful, old, Unix command line tool called make that can automate the build recipes
+		- make is fairly smart about what needs to be rebuilt after changes occur
+		- you will need to give it a recipe for building your system in a file called Makefile
+		- also ANT, MAVEN, SCONS, etc
+
+FYI: Building Java Programs
+	- in Java, we don't separate out interface from implementation, it all goes into one big .java file
+	- usually we put one major class in each .java file
+
+	- there is no preprocessor or template instantiation phase
+		so no #include, etc,
+
+	- usually, for a given progra comprising many classes, there is one class that has the "real" main program in it
+	- but any class can have its own main program, too
+	- this allows each individual class to contain unit tests for that class (tho its also common to define separate testing classes in parallel)
+
+	- a Java source file, call it Foo.java, can be compiled separately
+		javac Foo.java
+		- this will automatically trigger the compilation (if needed) of all other classes that Foo uses or depends on
+		- javac is smart about not recompiling files that haven't changed since last time
+
+	- separate compilation produces a file called Foo.class
+		if Foo has a main function, you can run it at the command line:
+		java Foo
+
+	- [referring to examples Child and Balloon] here, both ballon.java and child.java have main function
+	- that means both classes can be run at the command line via "java"
+	- it's common to create test suites for each source code class; this is called unit testing
+C++ vs Java: A Little History
+
+	C++: C with classes, first C-like OO language
+		- [Objective C was the second]
+		- relies mainly on clever programmers for good performance
+	Java: Simpler, cleaner, portable C++
+		- C++ offers: faster, unsafe way vs slower, safe way
+		- Java offers only slower ,safer way (EG: checks pointer validity, array bounds)
+		- relies mainly on clever run-time system (JVM) implementation for good performance (JIT compilation)
+	C#: Java, with hindsight
+		- As with Java, "safer" way only: no safe or fast choices
+		- As with Java, the run-time system (CLR) does a lot of the heavy lifting
+
+C++ vs Java: Commonalities
+	- C-like syntax
+	- support for basic types: ints, floats, bools, etc
+	- similar memory model
+	- strong support for OOP, generics
+	- strong exception handling
+	- strong library support
+
+
+Source Model: C++ vs Java
+
+	C++:
+		- compile anywhere
+		- compiles to native, platform-dependent code
+	Java:
+		- compile once, run anywhere
+		- compiles to "Java byte code", a universal low-level object code
+		- needs a JVM to fun
+
+
+C++ vs Java: Differences
+	- look at notes on slides
+==================================================================================================================================
+
+A few Notes on Computer History, C++, and Other Programming Languages:
+
+	1940s/50s:
+		- programming is done directly in machine language and (later), assembly language
+	1950s:
+		- First "high level languages": FORTRAN, COBOL, and LISP
+			- are all still in common use!
+			- FORTRAN designed for scientific calculations, LISP (Scheme, Racket) for CS, COBOL for business (data processing)
+
+	1960s: //TODO
+
+=============================================LANGUAGES================================================
+FORTRAN == (Mathematical) FORMula TRANslation
+	- first "high-level programming language"
+	- //TODO
+
+COBOL == Common Business-Oriented Language
+	- Admiral Grace Hopper (US NAVY) 1959
+	- designed for data processing
+		- manipulating HR data, computing payrolls, etc
+		- banks, insurance companies, government agencies all have LOTS of old COBOL systems even today
+	- language features:
+		- procedural/imperative style: "structs", GOTOs (make logic hard to follow), code reals like (awkward, verbose) prose
+		- MOVE X TO Y; ADD Y TO // TODO
+
+=============================================LANGUAGES================================================
+
+Machine and Assembly Language:
+	- the CPU of your home
+
+	- Each family of CPUs
+
+Assembly Language:
+	- programming directly
+		- usually we
+	- instead, software developers
+		- Java (and C#)

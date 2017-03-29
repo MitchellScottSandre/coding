@@ -268,3 +268,30 @@ Compile Guard: ifndef
 	- the second time Balloon.h is included, the variable HAS been defined already, so the class declaration is skipped
 
 Next Step: Linking
+	- assume each foo.cc file has now been compiled into an object code (binary) file foo.o
+		- because we have included the .h files for each method/type we need, the compiler has basically left "slots" open for each .o file for appropriately named entitites to be filled in later
+		- once all of the .o files have been generated, we throw them into one big box called a.out and hope all of the definitions can now be resolved
+			g++ *.o//creates executable a.out
+		- so Child.o.o is looking for the Balloon cxrs, which it finds in Balloon.o
+		- and main.o is looking for Child cxr, dxr, and Child::speak()
+		- a.out should have a main program defined, which is what gets executed when you run a.out at the command line
+
+Note on Inclusion:
+	- note that technically, main.cc does not have to include Balloon.h, string, or iostream, as it includes Child.d which already includes them
+		- bad idea to rely on this; must safer for each file to include all of (and only) the .h files that it uses
+		- it doesn't cost anything, since ifndef guards prevent double copying
+	- ALSO, do NOT get into the habit of including files you don't use / need
+		- can cause code bloat and confusion later on
+
+Compilation Dependencies Matter:
+	- suppose you have compiled your program successfully and then you decide to make changes on some of the source files
+	- you may not have to recompile everything!
+	- if file A.cc depends (transitively) on file B.h and file B.h changes, then A.cc needs to be recompiled
+	- so if Balloon.h changes, what has to be redone?
+	- what if Balloon.cc changes?
+
+	- changing a major design decision (ex, at the API level) typically means changing the .h files
+		- also means changing all of the files that include the changed .h files
+	- fixing a bug often involves changing only .cc files
+
+	

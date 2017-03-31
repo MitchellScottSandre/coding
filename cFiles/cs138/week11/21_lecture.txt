@@ -86,15 +86,34 @@ A few Notes on Computer History, C++, and Other Programming Languages:
 		- programming is done directly in machine language and (later), assembly language
 	1950s:
 		- First "high level languages": FORTRAN, COBOL, and LISP
-			- are all still in common use!
-			- FORTRAN designed for scientific calculations, LISP (Scheme, Racket) for CS, COBOL for business (data processing)
+		- are all still in common use!
+		- FORTRAN designed for scientific calculations, LISP (Scheme, Racket) for CS, COBOL for business (data processing)
 
-	1960s: //TODO
+	1960s:
+		- first attempt to define clean, abstract imperative languages
+		- first object-oriented language: Simula67(for simulations)
+
+- Machine and Assembly Language
+	- CPUs have set of very low level instructions that they can execute directly
+		- load/store contents of memory address to/from register
+		- perform arithmetic operations on values in registers
+		- skip to another place in the current program
+	- each family of CPUs have their own instruction set (machine language)
+	- assembly language is a slightly easier-to-use abstraction of a given machine language
+
+Assembly Language:
+	- Programming directly in assembly language is possible, but very very hard
+	- we prefer High-Level Languages like C/C++, Java, Python, etc
+	- then use compiler or interpreter to automatically generate machine language instead
+		- Java and C# use a technique called Virtual Machine that makes it easier to write code to be used on any platform
 
 =============================================LANGUAGES================================================
+1950s:
 FORTRAN == (Mathematical) FORMula TRANslation
 	- first "high-level programming language"
-	- //TODO
+	- John Backus, 1957, IBM
+	- procedural/imperative style, DO-loops, IF statement, arithmetic, ints, floats, arrays
+	- no {} blocks, use GOTOs instead
 
 COBOL == Common Business-Oriented Language
 	- Admiral Grace Hopper (US NAVY) 1959
@@ -103,17 +122,76 @@ COBOL == Common Business-Oriented Language
 		- banks, insurance companies, government agencies all have LOTS of old COBOL systems even today
 	- language features:
 		- procedural/imperative style: "structs", GOTOs (make logic hard to follow), code reals like (awkward, verbose) prose
-		- MOVE X TO Y; ADD Y TO // TODO
+		- MOVE X TO Y; ADD Y TO X GIVING z; if X GREATER THAN Y ...
+
+LISP: (SCHEME/Racket)
+	- John McCarthy, MIT, 1958
+	- simple, elegant, designed by a mathematician
+	- functional programming: you provide a set of functions definitions and then apply the functions to arguments
+	- NO LOOPS; recursion instead
+
+1970s:
+	- C and Unix co-developed at AT&T Bell Labs
+		- Ritchie, Thompson, Kernighan
+	- C is a breakthrough! so is UNIX
+		- can write coe efficiently, fairly portable, very powerful
+	- DIY memory management, lots of insecure code and errors
+
+	- late 1970s, on the first "micros"
+		- BASIC
+		- small, simple procedural language
+		- easy to learn
+		- cheack to run on small computers
+
+1980s:
+	- C++ AT&T Bell Labs
+	- powerful and efficient OO language, but very complicated
+
+1990s:
+	(early)
+	- Java at Sun Microsystems
+	- Idea: an OO language that will work everywhere
+	- take the best ideas of C++ but remove complicated and error-prone features
+	- portability achieved through a virtual machine
+
+	(late)
+	- Microsoft .NET and C#
+		- tried to do the same thing as Java, but with several years of hindsight and experience using/learning from java
+
 
 =============================================LANGUAGES================================================
 
-Machine and Assembly Language:
-	- the CPU of your home
+Industrial Programming Today:
+	- Old Days: Design a monolithic system to run on top of a desired OS on particular hardware
+		- porting to a new development platform takes a lot of work!
 
-	- Each family of CPUs
+	- these days: design a piece of a component that interacts with a bunch of other services, platforms, and peer components across various networks and the cloud
+		- underlying OS is rather irrelevant
+		- web services, rich frameworks, scripting languages
+		- interaction is assumed via APIs, services like JSON, XML
 
-Assembly Language:
-	- programming directly
-		- usually we
-	- instead, software developers
-		- Java (and C#)
+"Scripting Languages"
+	- JavaScript, Pythong, PHP, Scala, Ruby...
+	- Old Days:
+		- monolithic programs did the heavy lifting
+		- co-ordination used shell scrips (Bash) to move files around, start processes, etc
+
+	- These days:
+		- scripting languages are much more powerful, support OO and modules
+		- easier to create medium sized programs
+		- typically dynamically-typed, can be hard to debug
+
+We Did C++ because:
+	- C/C++/Java memory model dominates all others in the industry
+	- C++ supports full OOB and OOP
+	- lots of interesting language design features, points, templates, multiple inheritance
+
+A Word About C++ Compilers:
+	- g++ is an open source C++ compiler from the GCC project, mature, high quality, supports c++11
+	- clang++ is another one, overtaking g++
+	- faster to compile, produce faster object code, gives nicer error messages
+
+Compiler Architecture 101:
+	- common to design a compiler with an explicit front and back end
+	- front end: translates source code into a set of intermediate data structures that are largely independent of both the source language (C++) and the target platform (linux, max, etc)
+	- back end: takes the intermediate data structures and generates binary executables that are tied to target the OS

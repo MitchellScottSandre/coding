@@ -9,7 +9,7 @@ struct BST_Node {
     string otherStuff;
     BST_Node* left;
     BST_Node* right;
-;}
+};
 
 typedef BST_Node* BST;
 

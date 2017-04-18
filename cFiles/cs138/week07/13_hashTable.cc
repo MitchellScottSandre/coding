@@ -9,7 +9,7 @@ struct Node {
 	Status status;
 };
 
-typedef vector<Node> HashTable;
+typedef vector<Node *> HashTable;
 
 //numActiveElements should really be part of the table variable
 int numActiveElements;

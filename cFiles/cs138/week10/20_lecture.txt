@@ -18,7 +18,7 @@ New: List
 C++:11
 - STD::array
 	- functionally, it's a compile-time fixed-size vector
-	- array<string. 12> monthName = {"jan", ..., "dec"};
+	- array<string, 12> monthName = {"jan", ..., "dec"};
 	- can use at(), size(), length()
 	- why not just use a vector?
 		- best reason: strong typing: if you know the size should be fixed, enforce it via using an array
@@ -293,5 +293,3 @@ Compilation Dependencies Matter:
 	- changing a major design decision (ex, at the API level) typically means changing the .h files
 		- also means changing all of the files that include the changed .h files
 	- fixing a bug often involves changing only .cc files
-
-	

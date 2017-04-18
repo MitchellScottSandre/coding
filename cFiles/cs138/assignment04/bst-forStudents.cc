@@ -7,7 +7,7 @@ using namespace std;
 struct BST_Node {
     string key;
     string stuff;
-    BST_Node* left; 
+    BST_Node* left;
     BST_Node* right;
 };
 
@@ -47,16 +47,16 @@ string BST_lookup (const BST& root, string key) {
 
 void BST_insert (BST& root, string key, string stuff) {
     if (nullptr == root) {
-	root = new BST_Node; 
-	root->key = key; 
-	root->stuff = stuff; 
-	root->left = nullptr; 
+	root = new BST_Node;
+	root->key = key;
+	root->stuff = stuff;
+	root->left = nullptr;
 	root->right = nullptr;
     } else if (key < root->key) {
 	BST_insert(root->left, key, stuff);
     } else {
 	BST_insert(root->right, key, stuff);
-    } 
+    }
 }
 
 void BST_print (const BST& root) {
@@ -69,9 +69,9 @@ void BST_print (const BST& root) {
 }
 
 // Now you do this one
-void BST_remove (BST& root, string key) { 
-    cerr << "Error, couldn't find \"" << key << "\" in the BST\n"; 
+void BST_remove (BST& root, string key) {
+    cerr << "Error, couldn't find \"" << key << "\" in the BST\n";
 }
 
-int main (int argc, char* argv[]) { 
+int main (int argc, char* argv[]) {
 }

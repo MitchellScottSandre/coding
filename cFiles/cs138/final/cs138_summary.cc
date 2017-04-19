@@ -26,6 +26,8 @@ AAA is user Permissions
 BBB is group Permissions
 CCC is other Permissions
 
+grep:search for stuffe
+
 ======================== End of Unix History =========================
 
 String Stuff:
@@ -117,7 +119,7 @@ Deque: ("deck")
 	- double ended queue, similar to vectors, but allows fast insertion/deletion at BEGINNING and END
 	- Idea 1: circular buffer of objects (NO)
 	- Idea 2: circular buffer of object pointers
-		- set of fixed-length arrays ("CHUNKS"), plus a master dynaim array (vector) of pointers (a circular bufer) that point to those chunks
+		- set of fixed-length arrays ("CHUNKS"), plus a master dynamic array (vector) of pointers (a circular bufer) that point to those chunks
 
 Associative Containers:
 	- ordering of the elements is based on a key value, NOT on the order of insertion
@@ -168,6 +170,8 @@ OOP:
 	Important from last Lecture:
 	Parent * mike;
 		//make mike point to an object that is a Parent or inheritnace descendant of parent
+		//parent also has Parent::m()
+		Parent * mike;
 		mike->m();
 			- if Parent::M is NOT virtual, this will always call Parent::m()
 			- if Parent::m IS virtual, find out what class of object, call it C, mike points to right now
@@ -241,10 +245,10 @@ Operator Overloading:
 			bool operator== (const Money& m1, const Money& m2)
 
 	3 Basic Rules of Operator Overloading in C++ from StackOverflow:
-	1. whenever the meaning of an operator is not obviously clear, do NOT Overload it
-		- us a well-chosen method with a good name
-	2. always stick to the operator's well known semantics
-	3. always provide all out of the set of RELATED operations too
+		1. whenever the meaning of an operator is not obviously clear, do NOT Overload it
+			- us a well-chosen method with a good name
+		2. always stick to the operator's well known semantics
+		3. always provide all out of the set of RELATED operations too
 
 Separate Compilation:
 	1. compile each of the compilation units (the .cc files)
@@ -263,6 +267,13 @@ Random Stuff:
 	- Global Variables: useage is frowned upon, defined outside the enclosing function/struct/class
 	- Local Variables: are defined within a function/method body; come into existance when the function is called, and die when the function is terminated
 	- Member/Instance Variables: sup part of a class; created when the instance is created; die when the instance dies
+	- reference vs reference parameters: parameters are passed as parameters to a method (makes sense); regualar references are like Employee & e = EmployeeList.at(i)
+
+			A* x = new A();     //Constructor
+			A y = *x;           //Copy Constructor
+			*x = y;             //Copy assignment operator
+			delete y;           //Destructor
+	- static variables must be defined separately from their declaration
 
 Terms:
 	- template method design patterns
@@ -290,4 +301,9 @@ Terms:
 	- Anti-symmetric (A < B implies b is not less than or equal to a)
 	- transitive  (a < b, b < c ==> a < c)
 	- library uses this test to see if a == b;
-	 if (!(a < b) && !(b < a))
+	 		if (!(a < b) && !(b < a))
+	- identifier (name we have picked for a variable or for a procedure)
+	- activation record (stack frame): area of storage on the run-time stack for when program enters a new scope
+	- lazy evaluation/short circuit evaluation: will not test the second part of a comparison operation (AND, OR) if the first one makes it impossible or makes it already true
+	- Principle of Least Astonishment:
+		- API elements should not do surprising things

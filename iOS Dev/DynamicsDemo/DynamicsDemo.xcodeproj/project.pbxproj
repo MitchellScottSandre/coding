@@ -7,27 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D28CD7C21F03CC94007E95B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CD7C11F03CC94007E95B0 /* AppDelegate.swift */; };
-		D28CD7C81F03CC94007E95B0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CD7C71F03CC94007E95B0 /* GameScene.swift */; };
-		D28CD7CA1F03CC94007E95B0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28CD7C91F03CC94007E95B0 /* GameViewController.swift */; };
-		D28CD7CD1F03CC94007E95B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28CD7CB1F03CC94007E95B0 /* Main.storyboard */; };
-		D28CD7CF1F03CC94007E95B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D28CD7CE1F03CC94007E95B0 /* Assets.xcassets */; };
-		D28CD7D21F03CC94007E95B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28CD7D01F03CC94007E95B0 /* LaunchScreen.storyboard */; };
+		D26458B91F07259C005D725A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26458B81F07259C005D725A /* AppDelegate.swift */; };
+		D26458BB1F07259C005D725A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26458BA1F07259C005D725A /* ViewController.swift */; };
+		D26458BE1F07259C005D725A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D26458BC1F07259C005D725A /* Main.storyboard */; };
+		D26458C01F07259C005D725A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D26458BF1F07259C005D725A /* Assets.xcassets */; };
+		D26458C31F07259C005D725A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D26458C11F07259C005D725A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D28CD7BE1F03CC94007E95B0 /* ColourSwitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColourSwitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D28CD7C11F03CC94007E95B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D28CD7C71F03CC94007E95B0 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		D28CD7C91F03CC94007E95B0 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		D28CD7CC1F03CC94007E95B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D28CD7CE1F03CC94007E95B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D28CD7D11F03CC94007E95B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D28CD7D31F03CC94007E95B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D26458B51F07259C005D725A /* DynamicsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D26458B81F07259C005D725A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D26458BA1F07259C005D725A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D26458BD1F07259C005D725A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D26458BF1F07259C005D725A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D26458C21F07259C005D725A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D26458C41F07259C005D725A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D28CD7BB1F03CC94007E95B0 /* Frameworks */ = {
+		D26458B21F07259C005D725A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,74 +35,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D28CD7B51F03CC94007E95B0 = {
+		D26458AC1F07259C005D725A = {
 			isa = PBXGroup;
 			children = (
-				D28CD7C01F03CC94007E95B0 /* ColourSwitch */,
-				D28CD7BF1F03CC94007E95B0 /* Products */,
+				D26458B71F07259C005D725A /* DynamicsDemo */,
+				D26458B61F07259C005D725A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D28CD7BF1F03CC94007E95B0 /* Products */ = {
+		D26458B61F07259C005D725A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D28CD7BE1F03CC94007E95B0 /* ColourSwitch.app */,
+				D26458B51F07259C005D725A /* DynamicsDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D28CD7C01F03CC94007E95B0 /* ColourSwitch */ = {
+		D26458B71F07259C005D725A /* DynamicsDemo */ = {
 			isa = PBXGroup;
 			children = (
-				D28CD7C11F03CC94007E95B0 /* AppDelegate.swift */,
-				D28CD7C71F03CC94007E95B0 /* GameScene.swift */,
-				D28CD7C91F03CC94007E95B0 /* GameViewController.swift */,
-				D28CD7CB1F03CC94007E95B0 /* Main.storyboard */,
-				D28CD7CE1F03CC94007E95B0 /* Assets.xcassets */,
-				D28CD7D01F03CC94007E95B0 /* LaunchScreen.storyboard */,
-				D28CD7D31F03CC94007E95B0 /* Info.plist */,
+				D26458B81F07259C005D725A /* AppDelegate.swift */,
+				D26458BA1F07259C005D725A /* ViewController.swift */,
+				D26458BC1F07259C005D725A /* Main.storyboard */,
+				D26458BF1F07259C005D725A /* Assets.xcassets */,
+				D26458C11F07259C005D725A /* LaunchScreen.storyboard */,
+				D26458C41F07259C005D725A /* Info.plist */,
 			);
-			path = ColourSwitch;
+			path = DynamicsDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D28CD7BD1F03CC94007E95B0 /* ColourSwitch */ = {
+		D26458B41F07259C005D725A /* DynamicsDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D28CD7D61F03CC94007E95B0 /* Build configuration list for PBXNativeTarget "ColourSwitch" */;
+			buildConfigurationList = D26458C71F07259C005D725A /* Build configuration list for PBXNativeTarget "DynamicsDemo" */;
 			buildPhases = (
-				D28CD7BA1F03CC94007E95B0 /* Sources */,
-				D28CD7BB1F03CC94007E95B0 /* Frameworks */,
-				D28CD7BC1F03CC94007E95B0 /* Resources */,
+				D26458B11F07259C005D725A /* Sources */,
+				D26458B21F07259C005D725A /* Frameworks */,
+				D26458B31F07259C005D725A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ColourSwitch;
-			productName = ColourSwitch;
-			productReference = D28CD7BE1F03CC94007E95B0 /* ColourSwitch.app */;
+			name = DynamicsDemo;
+			productName = DynamicsDemo;
+			productReference = D26458B51F07259C005D725A /* DynamicsDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D28CD7B61F03CC94007E95B0 /* Project object */ = {
+		D26458AD1F07259C005D725A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
-				ORGANIZATIONNAME = "Razeware LLC";
+				ORGANIZATIONNAME = ScottSandre;
 				TargetAttributes = {
-					D28CD7BD1F03CC94007E95B0 = {
+					D26458B41F07259C005D725A = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 8EABX2KS59;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = D28CD7B91F03CC94007E95B0 /* Build configuration list for PBXProject "ColourSwitch" */;
+			buildConfigurationList = D26458B01F07259C005D725A /* Build configuration list for PBXProject "DynamicsDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -112,55 +109,54 @@
 				en,
 				Base,
 			);
-			mainGroup = D28CD7B51F03CC94007E95B0;
-			productRefGroup = D28CD7BF1F03CC94007E95B0 /* Products */;
+			mainGroup = D26458AC1F07259C005D725A;
+			productRefGroup = D26458B61F07259C005D725A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D28CD7BD1F03CC94007E95B0 /* ColourSwitch */,
+				D26458B41F07259C005D725A /* DynamicsDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D28CD7BC1F03CC94007E95B0 /* Resources */ = {
+		D26458B31F07259C005D725A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D28CD7CD1F03CC94007E95B0 /* Main.storyboard in Resources */,
-				D28CD7CF1F03CC94007E95B0 /* Assets.xcassets in Resources */,
-				D28CD7D21F03CC94007E95B0 /* LaunchScreen.storyboard in Resources */,
+				D26458C31F07259C005D725A /* LaunchScreen.storyboard in Resources */,
+				D26458C01F07259C005D725A /* Assets.xcassets in Resources */,
+				D26458BE1F07259C005D725A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D28CD7BA1F03CC94007E95B0 /* Sources */ = {
+		D26458B11F07259C005D725A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D28CD7C81F03CC94007E95B0 /* GameScene.swift in Sources */,
-				D28CD7CA1F03CC94007E95B0 /* GameViewController.swift in Sources */,
-				D28CD7C21F03CC94007E95B0 /* AppDelegate.swift in Sources */,
+				D26458BB1F07259C005D725A /* ViewController.swift in Sources */,
+				D26458B91F07259C005D725A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D28CD7CB1F03CC94007E95B0 /* Main.storyboard */ = {
+		D26458BC1F07259C005D725A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D28CD7CC1F03CC94007E95B0 /* Base */,
+				D26458BD1F07259C005D725A /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		D28CD7D01F03CC94007E95B0 /* LaunchScreen.storyboard */ = {
+		D26458C11F07259C005D725A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D28CD7D11F03CC94007E95B0 /* Base */,
+				D26458C21F07259C005D725A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -168,7 +164,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		D28CD7D41F03CC94007E95B0 /* Debug */ = {
+		D26458C51F07259C005D725A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -218,7 +214,7 @@
 			};
 			name = Debug;
 		};
-		D28CD7D51F03CC94007E95B0 /* Release */ = {
+		D26458C61F07259C005D725A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -261,56 +257,53 @@
 			};
 			name = Release;
 		};
-		D28CD7D71F03CC94007E95B0 /* Debug */ = {
+		D26458C81F07259C005D725A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8EABX2KS59;
-				INFOPLIST_FILE = ColourSwitch/Info.plist;
+				INFOPLIST_FILE = DynamicsDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.ColourSwitch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.scottsandre.DynamicsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		D28CD7D81F03CC94007E95B0 /* Release */ = {
+		D26458C91F07259C005D725A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8EABX2KS59;
-				INFOPLIST_FILE = ColourSwitch/Info.plist;
+				INFOPLIST_FILE = DynamicsDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.ColourSwitch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.scottsandre.DynamicsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D28CD7B91F03CC94007E95B0 /* Build configuration list for PBXProject "ColourSwitch" */ = {
+		D26458B01F07259C005D725A /* Build configuration list for PBXProject "DynamicsDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D28CD7D41F03CC94007E95B0 /* Debug */,
-				D28CD7D51F03CC94007E95B0 /* Release */,
+				D26458C51F07259C005D725A /* Debug */,
+				D26458C61F07259C005D725A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D28CD7D61F03CC94007E95B0 /* Build configuration list for PBXNativeTarget "ColourSwitch" */ = {
+		D26458C71F07259C005D725A /* Build configuration list for PBXNativeTarget "DynamicsDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D28CD7D71F03CC94007E95B0 /* Debug */,
-				D28CD7D81F03CC94007E95B0 /* Release */,
+				D26458C81F07259C005D725A /* Debug */,
+				D26458C91F07259C005D725A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D28CD7B61F03CC94007E95B0 /* Project object */;
+	rootObject = D26458AD1F07259C005D725A /* Project object */;
 }

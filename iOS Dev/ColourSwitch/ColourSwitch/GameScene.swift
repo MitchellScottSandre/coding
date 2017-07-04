@@ -31,10 +31,13 @@ class GameScene: SKScene {
     //================================================================================================
     
     let colors = [SKColor.yellow, SKColor.red, SKColor.blue, SKColor.purple]
-    var player = SKShapeNode(circleOfRadius: 40)
-    var obstacles: [SKNode] = [] // Empty array  of SKNodes, which are the container nodes for SKShapeNodes
     let obstacleSpacing: CGFloat = 800
     let cameraNode = SKCameraNode()
+    let scoreLabel = SKLabelNode()
+    
+    var player = SKShapeNode(circleOfRadius: 40)
+    var obstacles: [SKNode] = [] // Empty array  of SKNodes, which are the container nodes for SKShapeNodes
+    var score = 0
     
     //================================================================================================
     //MARK: Scene Updating/Detection/Gameplay
@@ -50,6 +53,7 @@ class GameScene: SKScene {
         self.physicsWorld.contactDelegate = self
         setupPlayerAndObstacles()
         
+        // Add player
         let playerBody = SKPhysicsBody(circleOfRadius: 35)
         playerBody.mass = 1.5
         playerBody.isDynamic = true
@@ -57,6 +61,7 @@ class GameScene: SKScene {
         playerBody.collisionBitMask = PhysicsCategory.Edge
         self.player.physicsBody = playerBody
         
+        // Add ledge at bottom
         let ledge = SKNode()
         ledge.position = CGPoint(x: size.width/2, y: 160)
         let ledgeBody = SKPhysicsBody(rectangleOf: CGSize(width: 200, height: 10))
@@ -67,9 +72,17 @@ class GameScene: SKScene {
         addChild(ledge)
         self.physicsWorld.gravity.dy = -22
         
+        // Setup Camera
         addChild(self.cameraNode)
         camera = cameraNode
         cameraNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        
+        scoreLabel.position = CGPoint(x: -350, y: -900) // from centre of screen
+        scoreLabel.fontColor = SKColor.white
+        scoreLabel.fontSize = 150
+        scoreLabel.text = String(score)
+        cameraNode.addChild(scoreLabel) // Score moves with camera
+        
     }
     
     // update() gets called before each frame is rendered
@@ -77,7 +90,8 @@ class GameScene: SKScene {
         // Add new obstacles
         if player.position.y > obstacleSpacing * CGFloat(obstacles.count - 2){
             print("score")
-            // TODO: Update score
+            score += 1
+            scoreLabel.text = String(score)
             addObstacle()
         }
         
@@ -97,6 +111,8 @@ class GameScene: SKScene {
         print("BOOM")
         player.physicsBody?.velocity.dy = 0
         player.removeFromParent()
+        score = 0
+        scoreLabel.text = String(score)
         
         // Remove the obstacles
         for node in obstacles {
@@ -128,12 +144,14 @@ class GameScene: SKScene {
     }
     
     func addObstacle(){
-        let choice = Int(arc4random_uniform(2))
+        let choice = Int(arc4random_uniform(3))
         switch choice {
         case 0:
             addCircleObstacle()
         case 1:
             addSquareObstacle()
+        case 2:
+            addCrossObstacle()
         default: print("Something went wrong")
         }
     }
@@ -177,6 +195,28 @@ class GameScene: SKScene {
         let rotateAction = SKAction.rotate(byAngle: -2.0 * CGFloat(M_PI), duration: 7.0)
         obstacle.run(SKAction.repeatForever(rotateAction))
     }
+    
+    func addCrossObstacle(){
+        // Make the cross shape
+        let crossPath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 350, height: 40), cornerRadius: 20)
+        let obstacle = obstacleByDuplicatingPath(crossPath, clockwise: true)
+        obstacles.append(obstacle)
+        
+        // Choose where to place the cross shape
+        let sideShift = self.size.width / CGFloat((Int(arc4random_uniform(3)) + 5))
+        let leftOrRightSide = Int(arc4random_uniform(2)) //0 left, 1 right
+        if leftOrRightSide == 0 {
+            obstacle.position = CGPoint(x: size.width / 2 - sideShift, y: obstacleSpacing * CGFloat(obstacles.count))
+        } else {
+            obstacle.position = CGPoint(x: size.width / 2 + sideShift, y: obstacleSpacing * CGFloat(obstacles.count))
+        }
+        obstacles.append(obstacle)
+        addChild(obstacle)
+        
+        let rotateAction = SKAction.rotate(byAngle: -2.0 * CGFloat(M_PI), duration: 7.0)
+        obstacle.run(SKAction.repeatForever(rotateAction))
+    }
+    
     
     // Create the 4 different coloured parts of the shape
     func obstacleByDuplicatingPath(_ path: UIBezierPath, clockwise: Bool) -> SKNode {

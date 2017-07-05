@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		827B3CB11ADE121D00E4AA19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827B3CB01ADE121D00E4AA19 /* AppDelegate.swift */; };
-		827B3CB31ADE121D00E4AA19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827B3CB21ADE121D00E4AA19 /* ViewController.swift */; };
-		827B3CB61ADE121D00E4AA19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 827B3CB41ADE121D00E4AA19 /* Main.storyboard */; };
 		827B3CB81ADE121D00E4AA19 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 827B3CB71ADE121D00E4AA19 /* Images.xcassets */; };
 		827B3CBB1ADE121D00E4AA19 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 827B3CB91ADE121D00E4AA19 /* LaunchScreen.xib */; };
 		827B3CC71ADE121D00E4AA19 /* FloTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827B3CC61ADE121D00E4AA19 /* FloTests.swift */; };
-		827B3CD31ADE128500E4AA19 /* PushButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827B3CD21ADE128500E4AA19 /* PushButtonView.swift */; };
-		827B3CD51ADE180100E4AA19 /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 827B3CD41ADE180100E4AA19 /* CounterView.swift */; };
-		D278E8EF1F0B11EE00F5964C /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D278E8EE1F0B11EE00F5964C /* GraphView.swift */; };
+		D2AC2DDE1F0C76700009A36E /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC2DDD1F0C76700009A36E /* GraphView.swift */; };
+		D2AC2DE01F0C76850009A36E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC2DDF1F0C76850009A36E /* AppDelegate.swift */; };
+		D2AC2DE21F0C768B0009A36E /* CounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC2DE11F0C768B0009A36E /* CounterView.swift */; };
+		D2AC2DE51F0C769F0009A36E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2AC2DE31F0C769F0009A36E /* Main.storyboard */; };
+		D2AC2DE71F0C76A70009A36E /* PushButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC2DE61F0C76A70009A36E /* PushButtonView.swift */; };
+		D2AC2DE91F0C76AC0009A36E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AC2DE81F0C76AC0009A36E /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,17 +31,17 @@
 /* Begin PBXFileReference section */
 		827B3CAB1ADE121D00E4AA19 /* Flo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		827B3CAF1ADE121D00E4AA19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		827B3CB01ADE121D00E4AA19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		827B3CB21ADE121D00E4AA19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		827B3CB51ADE121D00E4AA19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		827B3CB71ADE121D00E4AA19 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		827B3CBA1ADE121D00E4AA19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		827B3CC01ADE121D00E4AA19 /* FloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		827B3CC51ADE121D00E4AA19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		827B3CC61ADE121D00E4AA19 /* FloTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloTests.swift; sourceTree = "<group>"; };
-		827B3CD21ADE128500E4AA19 /* PushButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushButtonView.swift; sourceTree = "<group>"; };
-		827B3CD41ADE180100E4AA19 /* CounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
-		D278E8EE1F0B11EE00F5964C /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraphView.swift; path = ../GraphView.swift; sourceTree = "<group>"; };
+		D2AC2DDD1F0C76700009A36E /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		D2AC2DDF1F0C76850009A36E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D2AC2DE11F0C768B0009A36E /* CounterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterView.swift; sourceTree = "<group>"; };
+		D2AC2DE41F0C769F0009A36E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D2AC2DE61F0C76A70009A36E /* PushButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushButtonView.swift; sourceTree = "<group>"; };
+		D2AC2DE81F0C76AC0009A36E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +83,12 @@
 		827B3CAD1ADE121D00E4AA19 /* Flo */ = {
 			isa = PBXGroup;
 			children = (
-				D278E8EE1F0B11EE00F5964C /* GraphView.swift */,
-				827B3CB01ADE121D00E4AA19 /* AppDelegate.swift */,
-				827B3CB21ADE121D00E4AA19 /* ViewController.swift */,
-				827B3CD21ADE128500E4AA19 /* PushButtonView.swift */,
-				827B3CD41ADE180100E4AA19 /* CounterView.swift */,
-				827B3CB41ADE121D00E4AA19 /* Main.storyboard */,
+				D2AC2DE81F0C76AC0009A36E /* ViewController.swift */,
+				D2AC2DE61F0C76A70009A36E /* PushButtonView.swift */,
+				D2AC2DDF1F0C76850009A36E /* AppDelegate.swift */,
+				D2AC2DE11F0C768B0009A36E /* CounterView.swift */,
+				D2AC2DDD1F0C76700009A36E /* GraphView.swift */,
+				D2AC2DE31F0C769F0009A36E /* Main.storyboard */,
 				827B3CB71ADE121D00E4AA19 /* Images.xcassets */,
 				827B3CB91ADE121D00E4AA19 /* LaunchScreen.xib */,
 				827B3CAE1ADE121D00E4AA19 /* Supporting Files */,
@@ -165,7 +165,7 @@
 		827B3CA31ADE121D00E4AA19 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Caroline Begbie";
 				TargetAttributes = {
 					827B3CAA1ADE121D00E4AA19 = {
@@ -203,7 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				827B3CB61ADE121D00E4AA19 /* Main.storyboard in Resources */,
+				D2AC2DE51F0C769F0009A36E /* Main.storyboard in Resources */,
 				827B3CBB1ADE121D00E4AA19 /* LaunchScreen.xib in Resources */,
 				827B3CB81ADE121D00E4AA19 /* Images.xcassets in Resources */,
 			);
@@ -223,11 +223,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D278E8EF1F0B11EE00F5964C /* GraphView.swift in Sources */,
-				827B3CB31ADE121D00E4AA19 /* ViewController.swift in Sources */,
-				827B3CD31ADE128500E4AA19 /* PushButtonView.swift in Sources */,
-				827B3CB11ADE121D00E4AA19 /* AppDelegate.swift in Sources */,
-				827B3CD51ADE180100E4AA19 /* CounterView.swift in Sources */,
+				D2AC2DE91F0C76AC0009A36E /* ViewController.swift in Sources */,
+				D2AC2DE01F0C76850009A36E /* AppDelegate.swift in Sources */,
+				D2AC2DDE1F0C76700009A36E /* GraphView.swift in Sources */,
+				D2AC2DE71F0C76A70009A36E /* PushButtonView.swift in Sources */,
+				D2AC2DE21F0C768B0009A36E /* CounterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,20 +250,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		827B3CB41ADE121D00E4AA19 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				827B3CB51ADE121D00E4AA19 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		827B3CB91ADE121D00E4AA19 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				827B3CBA1ADE121D00E4AA19 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		D2AC2DE31F0C769F0009A36E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D2AC2DE41F0C769F0009A36E /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -354,9 +354,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Flo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -365,6 +367,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Flo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -375,6 +378,7 @@
 		827B3CCE1ADE121D00E4AA19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -395,6 +399,7 @@
 		827B3CCF1ADE121D00E4AA19 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

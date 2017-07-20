@@ -59,7 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Called immediately after this scene is presented by the main view
     override func didMove(to view: SKView) {
         super.didMove(to: view)
-        
+  
         // Create a barrier around the screen
         let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame) //no mass or volume, not affected by physical interactions
         borderBody.friction = 0.0

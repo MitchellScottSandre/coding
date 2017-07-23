@@ -11,17 +11,18 @@ import SpriteKit
 
 class Level{
     
-    let gameBorderOutline: CGPath
-    public var startNumberBalls : Int
+    //let gameBorderOutline: CGPath
+    let startNumberBalls : Int
     let numberPlayers : Int
     let scoreLimit : Int
-    //var
+    let scoreRegions : [CGRect]
     
-    init(startBalls: Int, numPlayers: Int, scoreLimit: Int, borderOutline: CGPath){
+    init(startBalls: Int, numPlayers: Int, scoreLimit: Int, scoreRegions: [CGRect]){
         self.startNumberBalls = startBalls
-        self.gameBorderOutline = borderOutline
+        //self.gameBorderOutline = borderOutline
         self.scoreLimit = scoreLimit
         self.numberPlayers = numPlayers
+        self.scoreRegions = scoreRegions
     }
     
     

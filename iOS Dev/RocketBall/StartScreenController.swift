@@ -16,24 +16,6 @@ class StartScreenController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let goToScene = LevelScene(fileNamed:"LevelScene"){
-            let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            
-            skView.ignoresSiblingOrder = true
-            
-            goToScene.scaleMode = .aspectFit
-            
-            //Make Level
-            
-            let levelOutline : UIBezierPath = UIBezierPath(rect: goToScene.frame)
-            let level = Level(startBalls: 1, numPlayers: 2, scoreLimit: 5, borderOutline: levelOutline.cgPath)
-            
-            goToScene.level = level
-            
-            skView.presentScene(goToScene)
-        }
     }
 
     override func didReceiveMemoryWarning() {

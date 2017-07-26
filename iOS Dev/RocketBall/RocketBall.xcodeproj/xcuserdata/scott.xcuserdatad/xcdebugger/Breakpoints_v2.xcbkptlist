@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RocketBall/Ball.swift"
+            timestampString = "522717755.794641"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "Ball"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RocketBall.Ball.__deallocating_deinit"
+                  moduleName = "RocketBall"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scott/c/coding/iOS%20Dev/RocketBall/RocketBall/Ball.swift"
+                  timestampString = "522725822.395352"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RocketBall.Ball.deinit"
+                  moduleName = "RocketBall"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scott/c/coding/iOS%20Dev/RocketBall/RocketBall/Ball.swift"
+                  timestampString = "522725822.398257"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RocketBall/Paddle.swift"
+            timestampString = "522725507.751441"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "Paddle"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RocketBall.Paddle.node.getter : __ObjC.SKSpriteNode"
+                  moduleName = "RocketBall"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scott/c/coding/iOS%20Dev/RocketBall/RocketBall/Paddle.swift"
+                  timestampString = "522725683.354201"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "25">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RocketBall.Paddle.node.setter : __ObjC.SKSpriteNode"
+                  moduleName = "RocketBall"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/scott/c/coding/iOS%20Dev/RocketBall/RocketBall/Paddle.swift"
+                  timestampString = "522725683.356976"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "54">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

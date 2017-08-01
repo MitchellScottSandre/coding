@@ -13,14 +13,21 @@ import GameKit
 let spriteName_startingBall : String = "ball"
 
 // Category Bit Masks
-
 struct PhysicsCategory {
     static let Ball:           UInt32 = 0x1 << 0
     static let Paddle:         UInt32 = 0x1 << 1
     static let ScoreRegions: [UInt32] = [0x1 << 2, 0x1 << 3, 0x1 << 4, 0x1 << 5] //for players 0, 1, 2, 3
     static let Border:         UInt32 = 0x1 << 6
+}
+
+struct Constants {
+    static let userPaddleName = "user_paddle"
+    static let compPaddleName = "comp_paddle"
     
     static let PLAYER: Int = 0
+    static let COMP_1: Int = 1
+    static let COMP_2: Int = 2
+    static let COMP_3: Int = 3
 }
 
 class LevelScene: SKScene, SKPhysicsContactDelegate {
@@ -33,6 +40,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     var balls : [Ball] = []
     var players: [Player] = []
     var paddles: [Paddle] = []
+    var userTouchingPaddle: Bool = false
     //=========================================================================================================
     // MARK: Game Logic
     //=========================================================================================================
@@ -79,22 +87,22 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         for i in 0..<level.scoreRegions.count {
             var paddle: Paddle
             switch(level.playerLocations[i]){
-            case PlayerLocations.LEFT:
+            case PlayerLocations.BOTTOM:
                 paddle = Paddle(isHuman: i == 0,
                                 width: level.paddle_defaultWidth,
                                 fill: SKColor.blue,
-                                startY: level.scoreRegions[i].midY,
+                                startX: level.scoreRegions[i].midX,
                                 orientation: CGVector(dx: level.scoreRegions[i].maxX - level.scoreRegions[i].minX, dy: level.scoreRegions[i].maxY - level.scoreRegions[i].minY),
-                                location: PlayerLocations.LEFT,
-                                scoreRegionX: level.scoreRegions[i].midX)
-            case PlayerLocations.RIGHT:
+                                location: PlayerLocations.BOTTOM,
+                                scoreRegionY: level.scoreRegions[i].midY)
+            case PlayerLocations.TOP:
                 paddle = Paddle(isHuman: i == 0,
                                 width: level.paddle_defaultWidth,
                                 fill: SKColor.blue,
-                                startY: level.scoreRegions[i].midY,
+                                startX: level.scoreRegions[i].midX,
                                 orientation: CGVector(dx: level.scoreRegions[i].maxX - level.scoreRegions[i].minX, dy: level.scoreRegions[i].maxY - level.scoreRegions[i].minY),
-                                location: PlayerLocations.RIGHT,
-                                scoreRegionX: level.scoreRegions[i].midX) //TODO what about regions at an angle?
+                                location: PlayerLocations.TOP,
+                                scoreRegionY: level.scoreRegions[i].midY) //TODO what about regions at an angle?
             default:
                 fatalError("Impossible player location")
             
@@ -146,11 +154,30 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     //=========================================================================================================
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        let touch = touches.first
+        let touchLocation = touch!.location(in: self)
         
+        if let body = self.physicsWorld.body(at: touchLocation){
+            if body.node!.name == Constants.userPaddleName{
+                userTouchingPaddle = true
+            }
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?){
-        
+        //TODO SCOTT handle slanted regions?
+        if userTouchingPaddle {
+            let touch = touches.first
+            let thisLocation = touch!.location(in: self)
+            let prevLocation = touch!.previousLocation(in: self)
+            let paddle = paddles[Constants.PLAYER].node
+            
+            var paddleX = paddle.position.x + thisLocation.x - prevLocation.x
+            paddleX = max(paddleX, paddle.size.width / 2)
+            paddleX = min(paddleX, level.scoreRegions[Constants.PLAYER].maxX - paddle.size.width / 2)
+            
+            paddle.position = CGPoint(x: paddleX, y: paddle.position.y)
+        }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?){

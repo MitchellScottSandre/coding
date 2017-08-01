@@ -19,7 +19,7 @@ class PlayLevelScreenController: UIViewController {
         skView.showsNodeCount = true
         skView.ignoresSiblingOrder = true
         
-        let level = Level(startBalls: 1, numPlayers: 1, scoreLimit: 5, leftX: skView.bounds.origin.x, rightX: skView.bounds.size.width - 1, height: skView.bounds.size.height)
+        let level = Level(startBalls: 1, numPlayers: 2, scoreLimit: 5, height: skView.bounds.size.height, width: skView.bounds.size.width, locations: [PlayerLocations.BOTTOM, PlayerLocations.TOP])
         let goToScene = LevelScene(size: skView.bounds.size, level: level)
         goToScene.scaleMode = .aspectFit
         

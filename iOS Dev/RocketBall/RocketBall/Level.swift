@@ -10,14 +10,14 @@ import Foundation
 import SpriteKit
 
 struct PlayerLocations{
-    static let LEFT = 0
-    static let TOP_LEFT = 1
-    static let TOP = 2
-    static let TOP_RIGHT = 3
-    static let RIGHT = 4
-    static let BOTTOM_RIGHT = 5
-    static let BOTTOM = 6
-    static let BOTTOM_LEFT = 7
+    static let BOTTOM = 0
+    static let BOTTOM_LEFT = 1
+    static let LEFT = 2
+    static let TOP_LEFT = 3
+    static let TOP = 4
+    static let TOP_RIGHT = 5
+    static let RIGHT = 6
+    static let BOTTOM_RIGHT = 7
 }
 
 class Level{
@@ -28,28 +28,42 @@ class Level{
     let startNumberBalls : Int
     let numberPlayers : Int
     let scoreLimit : Int
-    let scoreRegions : [CGRect]
+    var scoreRegions : [CGRect]
     let playerLocations: [Int]
     
-    // Primary Constructor. Players at positions 0, 4
-    init(startBalls: Int, numPlayers: Int, scoreLimit: Int, leftX: CGFloat, rightX: CGFloat, height: CGFloat){
+    // Primary Constructor. Players at positions BOTTOM, TOP
+    init(startBalls: Int, numPlayers: Int, scoreLimit: Int, height: CGFloat, width: CGFloat, locations: [Int]){
         self.startNumberBalls = startBalls
         self.scoreLimit = scoreLimit
         self.numberPlayers = numPlayers
+        self.playerLocations = locations
+        self.scoreRegions = []
+        for i in 0..<self.playerLocations.count {
+            let scoreZone: CGRect
+            
+            switch (self.playerLocations[i]){
+            case PlayerLocations.BOTTOM:
+                scoreZone = CGRect(x: 0.0, y: 0.0,        width: width, height: 1)
+            case PlayerLocations.TOP:
+                scoreZone = CGRect(x: 0.0, y: height - 1, width: width, height: 1)
+            default:
+                fatalError("ToDo: other possible score zones!")
+            }
+            self.scoreRegions.append(scoreZone)
+        }
         
-        let playerScoreZone = CGRect(x: leftX, y: 0.0, width: 1, height: height)
-        let computerScoreZone = CGRect(x: rightX - 1, y: 0.0, width: 1, height: height)
-        self.scoreRegions = [playerScoreZone, computerScoreZone]
-        self.playerLocations = [PlayerLocations.LEFT, PlayerLocations.RIGHT]
+        //let playerScoreZone = CGRect(x: 0.0, y: bottomY, width: width, height: 1)
+        //let computerScoreZone = CGRect(x: 0.0, y: topY - 1, width: width, height: 1)
+        //self.scoreRegions = [playerScoreZone, computerScoreZone]
     }
     
-    init(startBalls: Int, numPlayers: Int, scoreLimit: Int, scoreRegions: [CGRect], locations: [Int]){
-        self.startNumberBalls = startBalls
-        self.scoreLimit = scoreLimit
-        self.numberPlayers = numPlayers
-        self.scoreRegions = scoreRegions
-        self.playerLocations = locations
-    }
+//    init(startBalls: Int, numPlayers: Int, scoreLimit: Int, scoreRegions: [CGRect], locations: [Int]){
+//        self.startNumberBalls = startBalls
+//        self.scoreLimit = scoreLimit
+//        self.numberPlayers = numPlayers
+//        self.scoreRegions = scoreRegions
+//        self.playerLocations = locations
+//    }
     
     
 }

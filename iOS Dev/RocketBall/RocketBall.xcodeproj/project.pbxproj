@@ -12,6 +12,7 @@
 		D29E6C121F25708A003049F7 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E6C111F25708A003049F7 /* Ball.swift */; };
 		D29E6C141F257096003049F7 /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E6C131F257096003049F7 /* Paddle.swift */; };
 		D29E6C161F2570A0003049F7 /* Powerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E6C151F2570A0003049F7 /* Powerup.swift */; };
+		D2D51B751F2FF65F00425112 /* ScoreRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D51B741F2FF65F00425112 /* ScoreRegion.swift */; };
 		D2EA19DD1F1047B50066CFC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA19DC1F1047B50066CFC8 /* AppDelegate.swift */; };
 		D2EA19E21F1047B50066CFC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA19E01F1047B50066CFC8 /* Main.storyboard */; };
 		D2EA19E41F1047B50066CFC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2EA19E31F1047B50066CFC8 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		D29E6C111F25708A003049F7 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		D29E6C131F257096003049F7 /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
 		D29E6C151F2570A0003049F7 /* Powerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Powerup.swift; sourceTree = "<group>"; };
+		D2D51B741F2FF65F00425112 /* ScoreRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreRegion.swift; sourceTree = "<group>"; };
 		D2EA19D91F1047B50066CFC8 /* RocketBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RocketBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EA19DC1F1047B50066CFC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2EA19E11F1047B50066CFC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			children = (
 				D2EA19F51F1050B30066CFC8 /* LevelScene.swift */,
 				D212598D1F202C8100BE78C6 /* Level.swift */,
+				D2D51B741F2FF65F00425112 /* ScoreRegion.swift */,
 				D21259911F20352C00BE78C6 /* Player.swift */,
 				D29E6C111F25708A003049F7 /* Ball.swift */,
 				D29E6C151F2570A0003049F7 /* Powerup.swift */,
@@ -164,6 +167,7 @@
 				D2EA19FA1F1052D20066CFC8 /* StartScreenController.swift in Sources */,
 				D212598E1F202C8100BE78C6 /* Level.swift in Sources */,
 				D29E6C161F2570A0003049F7 /* Powerup.swift in Sources */,
+				D2D51B751F2FF65F00425112 /* ScoreRegion.swift in Sources */,
 				D21259921F20352C00BE78C6 /* Player.swift in Sources */,
 				D29E6C121F25708A003049F7 /* Ball.swift in Sources */,
 				D2EA19F61F1050B30066CFC8 /* LevelScene.swift in Sources */,

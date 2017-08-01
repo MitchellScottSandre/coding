@@ -16,7 +16,7 @@ class Paddle {
     
     var paddleWidth: CGFloat
     var fillColor: SKColor
-    var distanceFromScoreRegion: CGFloat = 100 {
+    var distanceFromScoreRegion: CGFloat = 50 {
         didSet{
             //TODO:
         }
@@ -28,7 +28,7 @@ class Paddle {
     var node: SKSpriteNode
     
     
-    init(isHuman: Bool, width: CGFloat, fill: SKColor, startY: CGFloat, orientation: CGVector, location: Int, scoreRegionX: CGFloat){
+    init(isHuman: Bool, width: CGFloat, fill: SKColor, startX: CGFloat, orientation: CGVector, location: Int, scoreRegionY: CGFloat){
         self.isHuman = isHuman
         self.paddleWidth = width
         self.fillColor = fill
@@ -43,14 +43,16 @@ class Paddle {
         self.node.physicsBody!.contactTestBitMask = PhysicsCategory.Ball
         
         switch(paddleLocation){
-        case PlayerLocations.LEFT:
-            self.node.zRotation = CGFloat(Double.pi / 2)
-            self.node.position = CGPoint(x: scoreRegionX + distanceFromScoreRegion, y: startY)
-        case PlayerLocations.RIGHT:
-            self.node.zRotation = CGFloat(Double.pi / 2)
-            self.node.position = CGPoint(x: scoreRegionX - distanceFromScoreRegion, y: startY)
+        case PlayerLocations.BOTTOM:
+            //self.node.zRotation = CGFloat(Double.pi / 2)
+            self.node.position = CGPoint(x: startX, y: scoreRegionY + distanceFromScoreRegion)
+        case PlayerLocations.TOP:
+            //self.node.zRotation = CGFloat(Double.pi / 2)
+            self.node.position = CGPoint(x: startX, y: scoreRegionY - distanceFromScoreRegion)
         default:
             fatalError("Impossible player location")
         }
+        
+        self.node.name = isHuman ? Constants.userPaddleName : Constants.compPaddleName
     }
 }

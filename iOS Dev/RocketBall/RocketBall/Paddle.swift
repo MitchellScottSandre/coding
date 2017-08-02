@@ -10,7 +10,6 @@ import Foundation
 import SpriteKit
 
 class Paddle {
-    var paddleLocation: Int
     var isHuman: Bool
     let paddleHeight: CGFloat = 20.0
     
@@ -28,12 +27,10 @@ class Paddle {
     var node: SKSpriteNode
     
     
-    init(isHuman: Bool, width: CGFloat, fill: SKColor, startX: CGFloat, orientation: CGVector, location: Int, scoreRegionY: CGFloat){
+    init(isHuman: Bool, width: CGFloat, fill: SKColor, startX: CGFloat, scoreRegionY: CGFloat){
         self.isHuman = isHuman
         self.paddleWidth = width
         self.fillColor = fill
-        self.orientationVector = orientation
-        self.paddleLocation = location
         
         self.node = SKSpriteNode(color: fillColor, size: CGSize(width: width, height: paddleHeight))
         self.node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: width, height: paddleHeight))
@@ -42,15 +39,10 @@ class Paddle {
         self.node.physicsBody!.categoryBitMask = PhysicsCategory.Paddle
         self.node.physicsBody!.contactTestBitMask = PhysicsCategory.Ball
         
-        switch(paddleLocation){
-        case PlayerLocations.BOTTOM:
-            //self.node.zRotation = CGFloat(Double.pi / 2)
+        if isHuman {
             self.node.position = CGPoint(x: startX, y: scoreRegionY + distanceFromScoreRegion)
-        case PlayerLocations.TOP:
-            //self.node.zRotation = CGFloat(Double.pi / 2)
+        } else {
             self.node.position = CGPoint(x: startX, y: scoreRegionY - distanceFromScoreRegion)
-        default:
-            fatalError("Impossible player location")
         }
         
         self.node.name = isHuman ? Constants.userPaddleName : Constants.compPaddleName

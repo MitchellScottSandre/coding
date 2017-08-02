@@ -16,7 +16,7 @@ let spriteName_startingBall : String = "ball"
 struct PhysicsCategory {
     static let Ball:           UInt32 = 0x1 << 0
     static let Paddle:         UInt32 = 0x1 << 1
-    static let ScoreRegions: [UInt32] = [0x1 << 2, 0x1 << 3, 0x1 << 4, 0x1 << 5] //for players 0, 1, 2, 3
+    static let ScoreRegions: [UInt32] = [0x1 << 2, 0x1 << 3]
     static let Border:         UInt32 = 0x1 << 6
 }
 
@@ -44,7 +44,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     //=========================================================================================================
     // MARK: Game Logic
     //=========================================================================================================
-
+    
     init(size: CGSize, level: Level){
         self.level = level
         
@@ -55,7 +55,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func update(_ currentTime: TimeInterval) {
         //gameState.update(deltaTime: currentTime) TODO
     }
@@ -77,50 +77,35 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
             let ball = Ball(radius: 16, fillColor: SKColor.green, strokeColor: SKColor.green, startX: self.size.width / 2, startY: self.size.height / 2)
             
             self.addChild(ball.node)
-
+            
             ball.node.physicsBody!.applyImpulse(CGVector(dx: randomDirection(), dy: randomDirection()))
-
+            
             balls.append(ball)
         }
         
         // Make paddles
-        for i in 0..<level.scoreRegions.count {
-            var paddle: Paddle
-            switch(level.playerLocations[i]){
-            case PlayerLocations.BOTTOM:
-                paddle = Paddle(isHuman: i == 0,
-                                width: level.paddle_defaultWidth,
-                                fill: SKColor.blue,
-                                startX: level.scoreRegions[i].midX,
-                                orientation: CGVector(dx: level.scoreRegions[i].maxX - level.scoreRegions[i].minX, dy: level.scoreRegions[i].maxY - level.scoreRegions[i].minY),
-                                location: PlayerLocations.BOTTOM,
-                                scoreRegionY: level.scoreRegions[i].midY)
-            case PlayerLocations.TOP:
-                paddle = Paddle(isHuman: i == 0,
-                                width: level.paddle_defaultWidth,
-                                fill: SKColor.blue,
-                                startX: level.scoreRegions[i].midX,
-                                orientation: CGVector(dx: level.scoreRegions[i].maxX - level.scoreRegions[i].minX, dy: level.scoreRegions[i].maxY - level.scoreRegions[i].minY),
-                                location: PlayerLocations.TOP,
-                                scoreRegionY: level.scoreRegions[i].midY) //TODO what about regions at an angle?
-            default:
-                fatalError("Impossible player location")
-            
-            }
-            
-            self.addChild(paddle.node)
-            paddles.append(paddle)
-        }
+        var userPaddle: Paddle = Paddle(isHuman: true,
+                                        width: level.paddle_defaultWidth,
+                                        fill: SKColor.blue,
+                                        startX: level.scoreRegions[0].frame.midX,
+                                        scoreRegionY: level.scoreRegions[0].frame.midY)
+        var compPaddle: Paddle = Paddle(isHuman: false,
+                                        width: level.paddle_defaultWidth,
+                                        fill: SKColor.blue,
+                                        startX: level.scoreRegions[1].frame.midX,
+                                        scoreRegionY: level.scoreRegions[1].frame.midY)
+        paddles.append(userPaddle)
+        paddles.append(compPaddle)
+        self.addChild(userPaddle.node)
+        self.addChild(compPaddle.node)
         
         // Make contact detection areas
         for i in 0..<level.scoreRegions.count {
-            let scoreRegion = level.scoreRegions[i]
-            let scoreRegionNode = SKNode()
-            scoreRegionNode.physicsBody = SKPhysicsBody(edgeLoopFrom: scoreRegion)
-            scoreRegionNode.physicsBody?.categoryBitMask = PhysicsCategory.ScoreRegions[i]
-            self.addChild(scoreRegionNode)
+            level.scoreRegions[i].physicsBody = SKPhysicsBody(edgeLoopFrom: level.scoreRegions[i].frame)
+            level.scoreRegions[i].physicsBody?.categoryBitMask = PhysicsCategory.ScoreRegions[i]
+            self.addChild(level.scoreRegions[i])
         }
-
+        
     }
     
     // Handle contact collisions
@@ -135,7 +120,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
             firstBody = contact.bodyB
             secondBody = contact.bodyA
         }
-
+        
         for i in 0..<level.numberPlayers {
             if (firstBody.categoryBitMask == PhysicsCategory.Ball && secondBody.categoryBitMask == PhysicsCategory.ScoreRegions[i]){
                 print("Player \(i) got hit!")
@@ -174,7 +159,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
             
             var paddleX = paddle.position.x + thisLocation.x - prevLocation.x
             paddleX = max(paddleX, paddle.size.width / 2)
-            paddleX = min(paddleX, level.scoreRegions[Constants.PLAYER].maxX - paddle.size.width / 2)
+            paddleX = min(paddleX, level.scoreRegions[Constants.PLAYER].frame.maxX - paddle.size.width / 2)
             
             paddle.position = CGPoint(x: paddleX, y: paddle.position.y)
         }

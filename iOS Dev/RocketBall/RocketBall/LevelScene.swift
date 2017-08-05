@@ -24,10 +24,8 @@ struct Constants {
     static let userPaddleName = "user_paddle"
     static let compPaddleName = "comp_paddle"
     
-    static let PLAYER: Int = 0
-    static let COMP_1: Int = 1
-    static let COMP_2: Int = 2
-    static let COMP_3: Int = 3
+    static let USER_PLAYER: Int = 0
+    static let COMP_PLAYER: Int = 1
 }
 
 class LevelScene: SKScene, SKPhysicsContactDelegate {
@@ -38,16 +36,17 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     
     var level : Level
     var balls : [Ball] = []
-    var players: [Player] = []
+    var players: [Player]
     var paddles: [Paddle] = []
     var userTouchingPaddle: Bool = false
+    
     //=========================================================================================================
-    // MARK: Game Logic
+    // MARK: LevelScene Init/SetUp Logic
     //=========================================================================================================
     
     init(size: CGSize, level: Level){
         self.level = level
-        
+        self.players = level.players
         super.init(size: size)
     }
     
@@ -74,11 +73,10 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         
         // Make starting balls
         for _ in 0..<level.startNumberBalls {
-            let ball = Ball(radius: 16, fillColor: SKColor.green, strokeColor: SKColor.green, startX: self.size.width / 2, startY: self.size.height / 2)
+            let ballStartX: CGFloat = self.size.width / (CGFloat(level.startNumberBalls) / 1.0)
+            let ball = Ball(radius: 16, fillColor: SKColor.green, strokeColor: SKColor.green, startX: ballStartX, startY: self.size.height / 2, partOfChain: false) //startY always the same
             
             self.addChild(ball.node)
-            
-            ball.node.physicsBody!.applyImpulse(CGVector(dx: randomDirection(), dy: randomDirection()))
             
             balls.append(ball)
         }
@@ -106,6 +104,8 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(level.scoreRegions[i])
         }
         
+        //TODO: wait for user to tap start game!
+        startGame()
     }
     
     // Handle contact collisions
@@ -130,8 +130,20 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         if (firstBody.categoryBitMask == PhysicsCategory.Ball && secondBody.categoryBitMask == PhysicsCategory.Paddle){
             print("hit paddle!")
         }
-        
-        
+    }
+    
+    //=========================================================================================================
+    // MARK: GamePlay Logic
+    //=========================================================================================================
+    
+    func startGame(){
+        for i in 0..<self.balls.count {
+            balls[i].node.physicsBody!.applyImpulse(CGVector(dx: randomDirection(), dy: randomDirection()))
+        }
+    }
+    
+    func isGameOver() -> Bool {
+        return false;
     }
     
     //=========================================================================================================
@@ -155,11 +167,11 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
             let touch = touches.first
             let thisLocation = touch!.location(in: self)
             let prevLocation = touch!.previousLocation(in: self)
-            let paddle = paddles[Constants.PLAYER].node
+            let paddle = paddles[Constants.USER_PLAYER].node
             
             var paddleX = paddle.position.x + thisLocation.x - prevLocation.x
             paddleX = max(paddleX, paddle.size.width / 2)
-            paddleX = min(paddleX, level.scoreRegions[Constants.PLAYER].frame.maxX - paddle.size.width / 2)
+            paddleX = min(paddleX, level.scoreRegions[Constants.USER_PLAYER].frame.maxX - paddle.size.width / 2)
             
             paddle.position = CGPoint(x: paddleX, y: paddle.position.y)
         }
@@ -179,7 +191,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     
     func randomDirection() -> CGFloat {
         let speedFactor: CGFloat = 12.0
-        if randomFloat(from: 0.0, to: 100.0) >= 50 { // flips a coin, randomness to its direction
+        if randomFloat(from: 0.0, to: 100.0) >= 50 {
             return -speedFactor
         } else {
             return speedFactor

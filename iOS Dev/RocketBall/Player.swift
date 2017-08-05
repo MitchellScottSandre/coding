@@ -10,12 +10,22 @@ import Foundation
 
 class Player {
     
-//    var human : Bool
-//    var name : String
-//    var numberLives : Int
+    var human : Bool
+    var name : String
+    var numberLives : Int
     
-    init(){
-        
+    init(human: Bool, name: String, startNumberLives: Int){
+        self.human = human
+        self.name = name
+        self.numberLives = startNumberLives
+    }
+    
+    func loseLife(){
+        self.numberLives = self.numberLives - 1
+    }
+    
+    func isAlive() -> Bool {
+        return self.numberLives > 0
     }
     
     

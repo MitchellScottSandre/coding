@@ -15,6 +15,7 @@ class Ball{
     var ballSpeed: CGFloat = 10.0
     var damage: Int = 1
     var node: SKShapeNode
+    var partOfChain: Bool
     
     var fillColor: SKColor {
         didSet {
@@ -28,10 +29,11 @@ class Ball{
         }
     }
     
-    init(radius: CGFloat, fillColor: SKColor, strokeColor: SKColor, startX: CGFloat, startY: CGFloat){
+    init(radius: CGFloat, fillColor: SKColor, strokeColor: SKColor, startX: CGFloat, startY: CGFloat, partOfChain: Bool){
         self.ballRadius = radius
         self.fillColor = fillColor
         self.strokeColor = strokeColor
+        self.partOfChain = partOfChain
         
         //self.node = SKSpriteNode
         self.node = SKShapeNode(circleOfRadius: ballRadius)

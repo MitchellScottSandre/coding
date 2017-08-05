@@ -22,17 +22,27 @@ class Level{
     let startNumberBalls : Int
     let numberPlayers : Int
     let scoreLimit : Int
-    var scoreRegions : [SKShapeNode]
+    var scoreRegions : [SKSpriteNode]
+    var players : [Player]
     
     // Primary Constructor. Players at positions BOTTOM, TOP
     init(startBalls: Int, numPlayers: Int, scoreLimit: Int, height: CGFloat, width: CGFloat){
         self.startNumberBalls = startBalls
         self.scoreLimit = scoreLimit
         self.numberPlayers = numPlayers
-        self.scoreRegions = []
         
-        scoreRegions.append(SKShapeNode(rect: CGRect(x: 0.0, y: 0.0, width: width, height: 1)))
-        scoreRegions.append(SKShapeNode(rect: CGRect(x: 0.0, y: height - 1, width: width, height: 1)))
+        var userScoreRegion = SKSpriteNode(color: SKColor.purple, size: CGSize(width: width, height: 3))
+        userScoreRegion.position = CGPoint(x: width / 2.0, y: 0.0)
+        
+        var compScoreRegion = SKSpriteNode(color: SKColor.purple, size: CGSize(width: width, height: 3))
+        compScoreRegion.position = CGPoint(x: width / 2.0, y: height - compScoreRegion.frame.height)
+        
+        self.scoreRegions = [userScoreRegion, compScoreRegion]
+        
+        var userPlayer: Player = Player(human: true, name: "userName", startNumberLives: self.scoreLimit)
+        var compPlayer: Player = Player(human: false, name: "compName", startNumberLives: self.scoreLimit)
+        
+        players = [userPlayer, compPlayer]
     }
     
 }

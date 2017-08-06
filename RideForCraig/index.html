@@ -13,75 +13,358 @@
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="vendor/font-awesome-4.7.0/css/font-awesome.min.css">
+
     <!--Custom-->
     <script src="js/main.js"></script>
 
     <link href="css/custom.css" rel="stylesheet">
 </head>
-<body id="pageTop">
+<body id="pageTop" data-spy="scroll" data-target="#mainNav">
+
     <!-------------------------------------Navbar-------------------------------------->
-    <nav class="navbar navbar-toggleable-sm navbar-light bg-faded fixed-top" id="mainNav">
+    <nav class="navbar navbar-light navbar-toggleable-sm bg-faded fixed-top" id="mainNav">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#pageTop"><strong>Ride for Craig</strong></a>
+        <a class="navbar-brand" href="#pageTop"><strong>Ride For Craig</strong></a>
 
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="nav navbar-nav w-100 justify-content-end">
                 <!--About Dropdown-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#about" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        About the Ride
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About the Cause
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#about_general">General</a>
-                        <a class="dropdown-item" href="#about_why">Why we Ride</a>
+                        <a class="dropdown-item" href="#general">General</a>
+                        <a class="dropdown-item" href="#whyWeRide">Why We Ride</a>
                     </div>
                 </li>
                 <!--Get Involved Dropdown-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#getInvolved" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Get Involved
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#getInvolved_signUp">Cyclist Sign-Up</a>
-                        <a class="dropdown-item" href="#getInvolved_volunteer">Volunteer</a>
-                        <a class="dropdown-item" href="#getInvolved_sponsor">Sponsor Us</a>
-                        <a class="dropdown-item" href="#getInvolved_donate">Donate</a>
-                        <a class="dropdown-item" href="#getInvolved_socialMedia">Social Media</a>
+                        <a class="dropdown-item" href="#cyclistSignUp">Cyclist Sign-Up</a>
+                        <a class="dropdown-item" href="#volunteer">Volunteer</a>
+                        <a class="dropdown-item" href="#sponsorUs">Sponsor Us</a>
+                        <a class="dropdown-item" href="#donate">Donate</a>
                     </div>
                 </li>
                 <!--What to Expect Dropdown-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#whatToExpect" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         What to Expect
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#whatToExpect_preparation">Preparation</a>
-                        <a class="dropdown-item" href="#whatToExpect_thingsNeeded">Things You'll Need</a>
-                        <a class="dropdown-item" href="#whatToExpect_dayOne">Day One</a>
-                        <a class="dropdown-item" href="#whatToExpect_dayTwo">Day Two</a>
+                        <a class="dropdown-item" href="#preparation">Preparation</a>
+                        <a class="dropdown-item" href="#thingsYoullNeed">Things You'll Need</a>
+                        <a class="dropdown-item" href="#dayOne">Day One</a>
+                        <a class="dropdown-item" href="#dayTwo">Day Two</a>
                     </div>
+                </li>
+                <!--Contact Us-->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        Contact Us
+                    </a>
                 </li>
             </ul>
         </div>
     </nav>
 
+    <!------------------------------------- Header -------------------------------------->
+    <header>
+        <div class="bg"></div>
+        <div class="d-flex justify-content-center">
+            <div class="header-content">
+                <div class="header-content-inner">
+                    <h1 id="welcomeMessage" style="display:none">Welcome!</h1>
+                    <br/>
+                    <hr/>
+                    <br/>
+                    <p>Ride For Craig is happening September 10th</p>
+                    <p><a  class="btn btn-primary" target="_blank" href="https://secure2.convio.net/uwo/sandre.html">Donate Now</a> or scroll down to find out more!</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
     <!------------------------------------- Main Container -------------------------------------->
     <div class="container-fluid">
-        <header>
-            <div class="header-content">
-                s
-            </div>
-        </header>
-        <div class="d-flex justify-content-center">
+        <!------------------------------------- About Section -------------------------------------->
+        <section id="general">
+            <div class="container-fluid" >
+                <!--<div class="col-12">-->
+                    <div class="hidden-sm-down">
+                        <h1 class="section-heading">About The Cause</h1>
+                    </div>
+                    <div class="hidden-md-up">
+                        <h2 class="section-heading">About The Cause</h2>
+                    </div>
+                    <div class="row" id="whyWeRide">
+                            <div class="section-description col-md-8 offset-md-2 col-xs-10 offset-xs-1">
+                                <h5 id="aboutTheCause_description">a</h5>
+                            </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>Why We Ride</h3>
+                            <br/>
+                            <!--Browser View-->
+                            <div class="hidden-sm-down">
+                                <div class="row">
+                                    <div class="col-1 offset-1">
+                                        <h3><span class="badge badge-primary">For Craig</span></h3>
+                                    </div>
+                                    <div class="col-8 offset-1">
+                                        <p id="whyWeRide_1"></p>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-1 offset-1">
+                                        <h3><span class="badge badge-success">To Help</span></h3>
+                                    </div>
+                                    <div class="col-8 offset-1">
+                                        <p id="whyWeRide_2"></p>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-1 offset-1">
+                                        <h3><span class="badge badge-warning">1 in 5</span></h3>
+                                    </div>
+                                    <div class="col-8 offset-1">
+                                        <p id="whyWeRide_3"></p>
+                                    </div>
+                                </div>
+                            </div>
 
-        </div>
+                            <!--Mobile View-->
+                            <div class="hidden-md-up">
+                                <div id="whyWeRideAccordian" role="tablist" aria-multiselectable="true">
+                                    <!-- Card One -->
+                                    <div class="card">
+                                        <div class="card-header" role="tab" id="headingOne">
+                                            <a data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                <h3>
+                                                    <span class="badge badge-primary">For Craig</span>
+                                                    <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
+                                                </h3>
+                                            </a>
+                                        </div>
 
-        <p>sdf</p>
-        <p>sdf</p>
-        <p>sdf</p>
-        <p>sdf</p>
+                                        <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="card-block" >
+                                                <p id="whyWeRide_1_mobile"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card Two -->
+                                    <div class="card">
+                                        <div class="card-header" role="tab" id="headingTwo">
+                                            <a data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                                <h3>
+                                                    <span class="badge badge-success">For Western Students</span>
+                                                    <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
+                                                </h3>
+                                            </a>
+                                        </div>
+
+                                        <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="card-block" >
+                                                <p id="whyWeRide_2_mobile"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card Two -->
+                                    <div class="card">
+                                        <div class="card-header" role="tab" id="headingThree">
+                                            <a data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                                <h3>
+                                                    <span class="badge badge-warning">For the 1 in 5</span>
+                                                    <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
+                                                </h3>
+                                            </a>
+                                        </div>
+
+                                        <div id="collapseThree" class="collapse show" role="tabpanel" aria-labelledby="collapseThree">
+                                            <div class="card-block" >
+                                                <p id="whyWeRide_3_mobile"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!--</div> &lt;!&ndash; End of col-12 &ndash;&gt;-->
+            </div> <!-- End of container-fluid -->
+        </section>
+        <br/>
+        <hr/>
+        <!------------------------------------- Get Involved Section -------------------------------------->
+        <section id="getInvolved">
+            <div class="container-fluid">
+                <!--<div class="col-12">-->
+                    <div class="hidden-sm-down">
+                        <h1 class="section-heading">Get Involved</h1>
+                    </div>
+                    <div class="hidden-md-up">
+                        <h2 class="section-heading">Get Involved</h2>
+                    </div>
+                    <div class="row">
+                        <div class="section-description col-md-8 offset-md-2 col-xs-10 offset-xs-1">
+                            <h5 id="getInvolved_description"></h5>
+                        </div>
+                    </div>
+                    <br/>
+                    <!--Browser View-->
+                    <div class="hidden-sm-down">
+                        <div class="card-columns" style="padding-left: 20px; padding-right: 20px">
+                            <!--Cyclist Card-->
+                            <div class="card card-outline-primary">
+                                <div class="card-block">
+                                    <h3 class="card-title"><i class="fa fa-bicycle" aria-hidden="true"></i> &nbsp; Sign Up as a Cyclist</h3>
+                                    <p id="cyclistText"></p>
+                                    <ul>
+                                        <li>$15 registration fee to cover the costs of the campsite, food and other supplies</li>
+                                        <li>Don't want to bike? Campers are welcome to join us Saturday night at Pinehurst ($10)</li>
+                                    </ul>
+                                    <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe4ryEN1Zd4Et9UZi6qNW4PT60LJAFIt1djrSlGUEckCr-slA/viewform" class="btn btn-primary">Cyclist Sign-Up</a>
+                                </div>
+                            </div>
+                            <!--Volunteer Card-->
+                            <div class="card card-outline-success">
+                                <div class="card-block">
+                                    <h3 class="card-title"><i class="fa fa-car" aria-hidden="true"></i> &nbsp; Volunteer During the Event</h3>
+                                    <p class="card-text" id="volunteerText_1"></p>
+                                    <p class="card-text" id="volunteerText_2"></p>
+                                    <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSePE4X-iRnFPd4u-N2cAie-BCY1yczZybAstmKkavNxEp-qEg/viewform" class="btn btn-primary">Volunteer Sign-Up</a>
+                                </div>
+                            </div>
+                            <!--Sponsor Us Card-->
+                            <div class="card card-outline-warning">
+                                <div class="card-block">
+                                    <h3 class="card-title"><i class="fa fa-handshake-o" aria-hidden="true"></i> &nbsp; Sponsor Us </h3>
+                                    <p class="card-text" id="sponsorUsText"></p>
+                                    <ul>
+                                        <li>Lightweight bikes (ideally road bikes)</li>
+                                        <li>Food and Drinks</li>
+                                        <li>Bike Racks</li>
+                                        <li>Transportation (see Volunteer Sign-Up)</li>
+                                        <li>Accommodations in London Sunday night</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--Donate Card-->
+                            <div class="card card-outline-info">
+                                <div class="card-block">
+                                    <h3 class="card-title"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp; Donate</h3>
+                                    <p class="card-text" id="donateText"></p>
+                                    <a target="_blank" href="https://secure2.convio.net/uwo/sandre.html" class="btn btn-primary">Donate Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Mobile View-->
+                    <div class="hidden-md-up">
+                        <!--Cyclist Card-->
+                        <div class="card card-outline-primary">
+                            <div class="card-block">
+                                <h3 class="card-title">Sign Up as a Cyclist</h3>
+                                <p id="cyclistText_mobile"></p>
+                                <ul style="padding-left: 10px;">
+                                    <li>$15 registration fee to cover the costs of the campsite, food and other supplies</li>
+                                    <li>Don't want to bike? Campers are welcome to join us Saturday night at Pinehurst ($10)</li>
+                                </ul>
+                                <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe4ryEN1Zd4Et9UZi6qNW4PT60LJAFIt1djrSlGUEckCr-slA/viewform" class="btn btn-primary">Cyclist Sign-Up</a>
+                            </div>
+                        </div>
+                        <!--Volunteer Card-->
+                        <div class="card card-outline-success">
+                            <div class="card-block">
+                                <h3 class="card-title">Volunteer During the Event</h3>
+                                <p class="card-text" id="volunteerText_1_mobile"></p>
+                                <p class="card-text" id="volunteerText_2_mobile"></p>
+                                <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSePE4X-iRnFPd4u-N2cAie-BCY1yczZybAstmKkavNxEp-qEg/viewform" class="btn btn-primary">Volunteer Sign-Up</a>
+                            </div>
+                        </div>
+                        <!--Sponsor Us Card-->
+                        <div class="card card-outline-warning">
+                            <div class="card-block">
+                                <h3 class="card-title">Sponsor Us</h3>
+                                <p class="card-text" id="sponsorUsText_mobile"></p>
+                                <!--<ul>-->
+                                    <li>Lightweight bikes (ideally road bikes)</li>
+                                <div class="more">
+                                    <li>Food and Drinks</li>
+                                    <li>Bike Racks</li>
+                                    <li>Transportation (see Volunteer Sign-Up)</li>
+                                    <li>Accommodations in London Sunday night</li>
+                                </div>
+                                <!--</ul>-->
+                                <span class="pull-right text-info">Show More</span>
+                            </div>
+                        </div>
+                        <!--Donate Card-->
+                        <div class="card card-outline-info">
+                            <div class="card-block">
+                                <h3 class="card-title">Donate</h3>
+                                <p class="card-text" id="donateText_mobile"></p>
+                                <a target="_blank" href="https://secure2.convio.net/uwo/sandre.html" class="btn btn-primary">Donate Now</a>
+                            </div>
+                        </div>
+                    </div> <!-- End of Mobile View -->
+                <!--</div> &lt;!&ndash; end of col 12 &ndash;&gt;-->
+            </div> <!-- end of container fluid -->
+        </section>
+        <hr/>
+        <!------------------------------------- What to Expect Section -------------------------------------->
+        <section id="whatToExpect">
+            <div class="container-fluid">
+                <div class="col-12">
+                    <div class="hidden-sm-down">
+                        <h1 class="section-heading">What to Expect</h1>
+                    </div>
+                    <div class="hidden-md-up">
+                        <h2 class="section-heading">What to Expect</h2>
+                    </div>
+                    <!--Browser View-->
+                    <div class="hidden-sm-down">
+                        <div class="row">
+                            <div class="col-1 offset-1">
+                                <h3><span class="badge badge-primary">Preparation</span></h3>
+                            </div>
+                            <div class="col-8 offset-2">
+                                <p id="">sdf</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Mobile View-->
+                    <div class="hidden-md-up">
+
+                    </div>
+                </div> <!-- End of col 12 -->
+            </div> <!-- End of container fluid -->
+        </section>
     </div>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 </body>
 </html>

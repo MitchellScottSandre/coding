@@ -1,8 +1,17 @@
 
 body {
     position: relative;
+    padding-top: 30px;
 }
 
+.container-fluid {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.card li {
+    padding-left: 1.28571429em;
+    text-indent: -1.28571429em;
+}
 /*--------- Navbar ---------*/
 nav .navbar-nav > li{
     padding-left:15px;
@@ -53,10 +62,29 @@ section {
 
 section .section-heading {
     padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+section .section-subtitle {
+    padding-left: 20px;
+}
+
+section .section-heading-mobile {
+    padding-bottom: 20px;
+    padding-left: 0px;
 }
 
 section .section-description{
     text-align: center;
+}
+
+section .section-block {
+    border-radius: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .more {
@@ -82,11 +110,15 @@ section .section-description{
     background-color: sandybrown;
 }
 
+.nav-pills .nav-item {
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
 /* Cards */
 .card-columns {
     column-count: 2;
 }
-
 /* Icons */
 .fa-bicycle {
     color: black;

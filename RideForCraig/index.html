@@ -7,7 +7,7 @@
     <script type="text/javascript" src="vendor/jQuery/jquery-3.2.1.js"></script>
 
     <!--Tether-->
-    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <script src="vendor/tether/tether.min.js"></script>
 
     <!--Bootstrap-->
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -15,7 +15,7 @@
 
     <!--Font Awesome-->
     <link rel="stylesheet" href="vendor/font-awesome-4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="vendor/font-awesome-4.7.0/css/font-awesome-animation.min.css">
     <!--Custom-->
     <script src="js/main.js"></script>
 
@@ -38,8 +38,8 @@
                         About the Cause
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#general">General</a>
-                        <a class="dropdown-item" href="#whyWeRide">Why We Ride</a>
+                        <a class="dropdown-item navToggler" href="#general">General</a>
+                        <a class="dropdown-item navToggler" href="#whyWeRide">Why We Ride</a>
                     </div>
                 </li>
                 <!--Get Involved Dropdown-->
@@ -48,10 +48,10 @@
                         Get Involved
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#cyclistSignUp">Cyclist Sign-Up</a>
-                        <a class="dropdown-item" href="#volunteer">Volunteer</a>
-                        <a class="dropdown-item" href="#sponsorUs">Sponsor Us</a>
-                        <a class="dropdown-item" href="#donate">Donate</a>
+                        <a class="dropdown-item navToggler" href="#cyclistSignUp">Cyclist Sign-Up</a>
+                        <a class="dropdown-item navToggler" href="#volunteer">Volunteer</a>
+                        <a class="dropdown-item navToggler" href="#sponsorUs">Sponsor Us</a>
+                        <a class="dropdown-item navToggler" href="#donateCard">Donate</a>
                     </div>
                 </li>
                 <!--What to Expect Dropdown-->
@@ -60,15 +60,21 @@
                         What to Expect
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#preparation">Preparation</a>
-                        <a class="dropdown-item" href="#thingsYoullNeed">Things You'll Need</a>
-                        <a class="dropdown-item" href="#dayOne">Day One</a>
-                        <a class="dropdown-item" href="#dayTwo">Day Two</a>
+                        <a class="dropdown-item navToggler" href="#preparation" >Preparation</a>
+                        <a class="dropdown-item navToggler" href="#thingsYoullNeed" >Things You'll Need</a>
+                        <a class="dropdown-item navToggler" href="#dayOne" >Day One</a>
+                        <a class="dropdown-item navToggler" href="#dayTwo" >Day Two</a>
                     </div>
+                </li>
+                <!--Donate-->
+                <li class="nav-item" >
+                    <a class="nav-link navToggler" href="#donate">
+                        Donate
+                    </a>
                 </li>
                 <!--Contact Us-->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link navToggler" href="#contactUs">
                         Contact Us
                     </a>
                 </li>
@@ -77,8 +83,10 @@
     </nav>
 
     <!------------------------------------- Header -------------------------------------->
+    <section>
     <header>
-        <div class="bg"></div>
+        <div class="bg">
+        </div>
         <div class="d-flex justify-content-center">
             <div class="header-content">
                 <div class="header-content-inner">
@@ -92,114 +100,113 @@
             </div>
         </div>
     </header>
-
+        <div style="visiblity: none; bottom: 45px; position: relative;" id="general"></div>
+    </section>
     <!------------------------------------- Main Container -------------------------------------->
     <div class="container-fluid">
         <!------------------------------------- About Section -------------------------------------->
-        <section id="general">
+        <section>
             <div class="container-fluid" >
                 <!--<div class="col-12">-->
                     <div class="hidden-sm-down">
                         <h1 class="section-heading">About The Cause</h1>
                     </div>
-                    <div class="hidden-md-up">
-                        <h2 class="section-heading">About The Cause</h2>
+                    <div class="hidden-md-up text-center">
+                        <h2 class="section-heading-mobile">About The Cause</h2>
                     </div>
-                    <div class="row" id="whyWeRide">
+                    <div class="row">
                             <div class="section-description col-md-8 offset-md-2 col-xs-10 offset-xs-1">
                                 <h5 id="aboutTheCause_description">a</h5>
                             </div>
                     </div>
                     <br/>
-                    <div class="row">
-                        <div class="col-12">
-                            <h3>Why We Ride</h3>
-                            <br/>
-                            <!--Browser View-->
-                            <div class="hidden-sm-down">
-                                <div class="row">
-                                    <div class="col-1 offset-1">
-                                        <h3><span class="badge badge-primary">For Craig</span></h3>
-                                    </div>
-                                    <div class="col-8 offset-1">
-                                        <p id="whyWeRide_1"></p>
-                                    </div>
+                    <div style="visiblity: none; bottom: 50px; position: relative;" id="whyWeRide"></div>
+                    <h3 class="section-subtitle" id="">Why We Ride</h3>
+                    <br/>
+                    <!--Browser View-->
+                    <div class="hidden-md-down">
+                        <div class="row justify-content-center">
+                            <div class="col-1">
+                                <h3><span class="badge badge-primary">For Craig</span></h3>
+                            </div>
+                            <div class="col-8 offset-1">
+                                <p id="whyWeRide_1"></p>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row justify-content-center">
+                            <div class="col-1">
+                                <h3><span class="badge badge-success">To Help</span></h3>
+                            </div>
+                            <div class="col-8 offset-1">
+                                <p id="whyWeRide_2"></p>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row justify-content-center">
+                            <div class="col-1">
+                                <h3><span class="badge badge-warning">1 in 5</span></h3>
+                            </div>
+                            <div class="col-8 offset-1">
+                                <p id="whyWeRide_3"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Mobile View-->
+                    <div class="hidden-lg-up">
+                        <div style="visiblity: none; bottom: 45px; position: relative;" id="whyWeRide_mobile"></div>
+                        <div id="whyWeRideAccordian" role="tablist" aria-multiselectable="true">
+                            <!-- Card One -->
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingOne">
+                                    <a data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <h3>
+                                            <span class="badge badge-primary">For Craig</span>
+                                            <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
+                                        </h3>
+                                    </a>
                                 </div>
-                                <br/>
-                                <div class="row">
-                                    <div class="col-1 offset-1">
-                                        <h3><span class="badge badge-success">To Help</span></h3>
-                                    </div>
-                                    <div class="col-8 offset-1">
-                                        <p id="whyWeRide_2"></p>
-                                    </div>
-                                </div>
-                                <br/>
-                                <div class="row">
-                                    <div class="col-1 offset-1">
-                                        <h3><span class="badge badge-warning">1 in 5</span></h3>
-                                    </div>
-                                    <div class="col-8 offset-1">
-                                        <p id="whyWeRide_3"></p>
+
+                                <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="card-block-mobile" >
+                                        <p id="whyWeRide_1_mobile"></p>
                                     </div>
                                 </div>
                             </div>
 
-                            <!--Mobile View-->
-                            <div class="hidden-md-up">
-                                <div id="whyWeRideAccordian" role="tablist" aria-multiselectable="true">
-                                    <!-- Card One -->
-                                    <div class="card">
-                                        <div class="card-header" role="tab" id="headingOne">
-                                            <a data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                <h3>
-                                                    <span class="badge badge-primary">For Craig</span>
-                                                    <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
-                                                </h3>
-                                            </a>
-                                        </div>
+                            <!-- Card Two -->
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingTwo">
+                                    <a data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        <h3>
+                                            <span class="badge badge-success">For Western Students</span>
+                                            <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
+                                        </h3>
+                                    </a>
+                                </div>
 
-                                        <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-                                            <div class="card-block" >
-                                                <p id="whyWeRide_1_mobile"></p>
-                                            </div>
-                                        </div>
+                                <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="collapseTwo">
+                                    <div class="card-block-mobile" >
+                                        <p id="whyWeRide_2_mobile"></p>
                                     </div>
+                                </div>
+                            </div>
 
-                                    <!-- Card Two -->
-                                    <div class="card">
-                                        <div class="card-header" role="tab" id="headingTwo">
-                                            <a data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                                <h3>
-                                                    <span class="badge badge-success">For Western Students</span>
-                                                    <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
-                                                </h3>
-                                            </a>
-                                        </div>
+                            <!-- Card Three -->
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingThree">
+                                    <a data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                        <h3>
+                                            <span class="badge badge-warning">For the 1 in 5</span>
+                                            <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
+                                        </h3>
+                                    </a>
+                                </div>
 
-                                        <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo">
-                                            <div class="card-block" >
-                                                <p id="whyWeRide_2_mobile"></p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Card Two -->
-                                    <div class="card">
-                                        <div class="card-header" role="tab" id="headingThree">
-                                            <a data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                                                <h3>
-                                                    <span class="badge badge-warning">For the 1 in 5</span>
-                                                    <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
-                                                </h3>
-                                            </a>
-                                        </div>
-
-                                        <div id="collapseThree" class="collapse show" role="tabpanel" aria-labelledby="collapseThree">
-                                            <div class="card-block" >
-                                                <p id="whyWeRide_3_mobile"></p>
-                                            </div>
-                                        </div>
+                                <div id="collapseThree" class="collapse show" role="tabpanel" aria-labelledby="collapseThree">
+                                    <div class="card-block-mobile" >
+                                        <p id="whyWeRide_3_mobile"></p>
                                     </div>
                                 </div>
                             </div>
@@ -217,8 +224,8 @@
                     <div class="hidden-sm-down">
                         <h1 class="section-heading">Get Involved</h1>
                     </div>
-                    <div class="hidden-md-up">
-                        <h2 class="section-heading">Get Involved</h2>
+                    <div class="hidden-md-up text-center">
+                        <h2 class="section-heading-mobile">Get Involved</h2>
                     </div>
                     <div class="row">
                         <div class="section-description col-md-8 offset-md-2 col-xs-10 offset-xs-1">
@@ -227,7 +234,9 @@
                     </div>
                     <br/>
                     <!--Browser View-->
-                    <div class="hidden-sm-down">
+                    <div class="hidden-md-down">
+                        <div style="visiblity: none; bottom: 70px; position: relative;" id="cyclistSignUp"></div>
+                        <div style="visiblity: none; bottom: 70px; position: relative;" id="sponsorUs"></div>
                         <div class="card-columns" style="padding-left: 20px; padding-right: 20px">
                             <!--Cyclist Card-->
                             <div class="card card-outline-primary">
@@ -236,9 +245,9 @@
                                     <p id="cyclistText"></p>
                                     <ul>
                                         <li>$15 registration fee to cover the costs of the campsite, food and other supplies</li>
-                                        <li>Don't want to bike? Campers are welcome to join us Saturday night at Pinehurst ($10)</li>
+                                        <li >Don't want to bike? Campers are welcome to join us Saturday night at Pinehurst ($10)</li>
                                     </ul>
-                                    <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe4ryEN1Zd4Et9UZi6qNW4PT60LJAFIt1djrSlGUEckCr-slA/viewform" class="btn btn-primary">Cyclist Sign-Up</a>
+                                    <a id="volunteer" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe4ryEN1Zd4Et9UZi6qNW4PT60LJAFIt1djrSlGUEckCr-slA/viewform" class="btn btn-primary">Cyclist Sign-Up</a>
                                 </div>
                             </div>
                             <!--Volunteer Card-->
@@ -260,11 +269,12 @@
                                         <li>Food and Drinks</li>
                                         <li>Bike Racks</li>
                                         <li>Transportation (see Volunteer Sign-Up)</li>
-                                        <li>Accommodations in London Sunday night</li>
+                                        <li id="donateCard">Accommodations in London Sunday night</li>
                                     </ul>
                                 </div>
                             </div>
                             <!--Donate Card-->
+                            <div style="visiblity: none; bottom: 70px; position: relative;" ></div>
                             <div class="card card-outline-info">
                                 <div class="card-block">
                                     <h3 class="card-title"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp; Donate</h3>
@@ -276,49 +286,53 @@
                     </div>
 
                     <!--Mobile View-->
-                    <div class="hidden-md-up">
+                    <div class="hidden-lg-up">
                         <!--Cyclist Card-->
-                        <div class="card card-outline-primary">
+                        <div style="visiblity: none; bottom: 45px; position: relative;" id="cyclistSignUp_mobile"></div>
+                        <div class="card card-outline-primary" >
                             <div class="card-block">
-                                <h3 class="card-title">Sign Up as a Cyclist</h3>
+                                <h4 class="card-title"><i class="fa fa-bicycle" aria-hidden="true"></i> &nbsp;Sign Up as a Cyclist</h4>
                                 <p id="cyclistText_mobile"></p>
-                                <ul style="padding-left: 10px;">
                                     <li>$15 registration fee to cover the costs of the campsite, food and other supplies</li>
-                                    <li>Don't want to bike? Campers are welcome to join us Saturday night at Pinehurst ($10)</li>
-                                </ul>
-                                <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe4ryEN1Zd4Et9UZi6qNW4PT60LJAFIt1djrSlGUEckCr-slA/viewform" class="btn btn-primary">Cyclist Sign-Up</a>
+                                    <div class="more">
+                                        <li>Don't want to bike? Campers are welcome to join us Saturday night at Pinehurst ($10)</li>
+                                    </div>
+                                <br/>
+                                <a style="display: inline;"target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe4ryEN1Zd4Et9UZi6qNW4PT60LJAFIt1djrSlGUEckCr-slA/viewform" class="btn btn-primary">Cyclist Sign-Up</a>
+                                <span style="display: inline;" class="pull-right text-info showMoreText">Show More</span>
                             </div>
                         </div>
                         <!--Volunteer Card-->
-                        <div class="card card-outline-success">
+                        <div style="visiblity: none; bottom: 45px; position: relative;" id="volunteer_mobile"></div>
+                        <div class="card card-outline-success" >
                             <div class="card-block">
-                                <h3 class="card-title">Volunteer During the Event</h3>
+                                <h4 class="card-title"><i class="fa fa-car" aria-hidden="true"></i> &nbsp;Volunteer</h4>
                                 <p class="card-text" id="volunteerText_1_mobile"></p>
                                 <p class="card-text" id="volunteerText_2_mobile"></p>
                                 <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSePE4X-iRnFPd4u-N2cAie-BCY1yczZybAstmKkavNxEp-qEg/viewform" class="btn btn-primary">Volunteer Sign-Up</a>
                             </div>
                         </div>
                         <!--Sponsor Us Card-->
-                        <div class="card card-outline-warning">
+                        <div style="visiblity: none; bottom: 45px; position: relative;" id="sponsorUs_mobile"></div>
+                        <div class="card card-outline-warning" >
                             <div class="card-block">
-                                <h3 class="card-title">Sponsor Us</h3>
+                                <h4 class="card-title"><i class="fa fa-handshake-o" aria-hidden="true"></i> &nbsp;Sponsor Us</h4>
                                 <p class="card-text" id="sponsorUsText_mobile"></p>
-                                <!--<ul>-->
-                                    <li>Lightweight bikes (ideally road bikes)</li>
+                                <li>Bikes (ideally road bikes)</li>
                                 <div class="more">
                                     <li>Food and Drinks</li>
                                     <li>Bike Racks</li>
-                                    <li>Transportation (see Volunteer Sign-Up)</li>
+                                    <li>Transportation (see Volunteer)</li>
                                     <li>Accommodations in London Sunday night</li>
                                 </div>
-                                <!--</ul>-->
-                                <span class="pull-right text-info">Show More</span>
+                                <span class="pull-right text-info showMoreText">Show More</span>
                             </div>
                         </div>
                         <!--Donate Card-->
+                        <div style="visiblity: none; bottom: 50px; position: relative;" id="donateCard_mobile"></div>
                         <div class="card card-outline-info">
                             <div class="card-block">
-                                <h3 class="card-title">Donate</h3>
+                                <h4 class="card-title"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;Donate</h3>
                                 <p class="card-text" id="donateText_mobile"></p>
                                 <a target="_blank" href="https://secure2.convio.net/uwo/sandre.html" class="btn btn-primary">Donate Now</a>
                             </div>
@@ -331,40 +345,364 @@
         <!------------------------------------- What to Expect Section -------------------------------------->
         <section id="whatToExpect">
             <div class="container-fluid">
-                <div class="col-12">
-                    <div class="hidden-sm-down">
-                        <h1 class="section-heading">What to Expect</h1>
+                <div class="hidden-sm-down">
+                    <h1 class="section-heading">What to Expect</h1>
+                </div>
+                <div class="hidden-md-up text-center">
+                    <h2 class="section-heading-mobile">What to Expect</h2>
+                </div>
+                <!--Browser View-->
+                <div class="hidden-md-down">
+                    <br/>
+                    <div class="row justify-content-center">
+                        <div class="col-1">
+                            <h3><span class="badge badge-primary">Preparation</span></h3>
+                        </div>
+                        <div class="col-8 offset-2" style="padding-left: 20px;">
+                            <p id="preparation"></p>
+                        </div>
                     </div>
-                    <div class="hidden-md-up">
-                        <h2 class="section-heading">What to Expect</h2>
+                    <br/>
+                    <div class="row justify-content-center">
+                        <div class="col-1">
+                            <h3><span class="badge badge-success">Things You'll Need</span></h3>
+                        </div>
+                        <div class="col-4 offset-2" style="padding-left: 20px;">
+                            <ul class="list-group">
+                                <li id="bring_0" class="list-group-item"></li>
+                                <li id="bring_1" class="list-group-item list-group-item-success"></li>
+                                <li id="bring_2" class="list-group-item">Helmet and Road Bike</li>
+                                <li id="bring_3" class="list-group-item list-group-item-success"></li>
+                            </ul>
+                        </div>
+                        <div class="col-4">
+                            <ul class="list-group">
+                                <li id="bring_4" class="list-group-item list-group-item-success"></li>
+                                <li id="bring_5" class="list-group-item"></li>
+                                <li id="bring_6" class="list-group-item list-group-item-success"></li>
+                                <li id="bring_7" class="list-group-item "></li>
+                            </ul>
+                        </div>
                     </div>
-                    <!--Browser View-->
-                    <div class="hidden-sm-down">
-                        <div class="row">
-                            <div class="col-1 offset-1">
-                                <h3><span class="badge badge-primary">Preparation</span></h3>
+                    <br/>
+                    <div class="row justify-content-center">
+                        <div class="col-1">
+                            <h3><span class="badge badge-warning">Schedule</span></h3>
+                        </div>
+                        <div class="col-8 offset-2" style="padding-left: 20px;">
+                            <div class="row justify-content-center">
+                                <ul class="nav nav-pills">
+                                    <li class="nav-item">
+                                        <span class="nav-link active" id="dayOneSelector">Day One</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <span class="nav-link" id="dayTwoSelector">Day Two</span>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="col-8 offset-2">
-                                <p id="">sdf</p>
+                            <br/>
+                            <div class="row" id="dayOneContent">
+                                <div class="col-lg-4 col-md-3">
+                                    <img src="img/img9.JPG" class="img-thumbnail">
+                                </div>
+                                <div class="col-lg-8 col-md-9">
+                                    <ul>
+                                        <li>Meet at
+                                            <a href="https://www.google.ca/maps/place/White+Oaks+Secondary+School/@43.4634799,-79.7041529,17z/data=!3m1!4b1!4m5!3m4!1s0x882b5d23c1f3babd:0x68bf31d4a96f60b1!8m2!3d43.4634799!4d-79.7019642">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i> White Oaks Secondary School
+                                            </a>
+                                            at 10:00AM
+                                        </li>
+                                        <li>
+                                            We will leave at 10:30AM and ride approximately 75 km to
+                                            <a href="https://www.google.ca/maps/place/Pinehurst+Lake+Conservation+Area/@43.2492949,-80.5518533,10.7z/data=!4m5!3m4!1s0x882c732d249cbda1:0x14b3fae8d27cc7fc!8m2!3d43.2651268!4d-80.3892808">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i> Pinehurst Conservation Area
+                                            </a>
+                                        </li>
+                                        <li id="day1_2"></li>
+                                        <li id="day1_3"></li>
+                                        <li id="day1_4"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row" id="dayTwoContent">
+                                <div class="col-4">
+                                    <img src="img/img6.JPG" class="img-thumbnail">
+                                </div>
+                                <div class="col-8">
+                                    <ul>
+                                        <li id="day2_0"></li>
+                                        <li>We will spend most of the day biking the 80km to
+                                            <a href="https://www.google.ca/maps/place/Western+University/@42.9883616,-81.2791265,12.85z/data=!4m8!1m2!2m1!1sWestern+University!3m4!1s0x882eee0e6ac42bd1:0xaa87f353aab9799b!8m2!3d43.0095971!4d-81.2737336">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i> Western University</a>, but guess what? It’s all downhill! <i class="fa fa-smile-o" aria-hidden="true"></i>
+                                        </li>
+                                        <li id="day2_2"></li>
+                                        <li>Lastly, to celebrate the ride we will be heading over to
+                                            <a href="https://www.google.ca/maps/place/The+Spoke/@43.0086472,-81.2769167,16.01z/data=!3m1!5s0x882eee3d04f3ac3b:0xee704e962788acf0!4m8!1m2!2m1!1sThe+Spoke!3m4!1s0x0:0xed4cefbe716fc086!8m2!3d43.0084092!4d-81.2761112">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i> The Spoke</a>, the campus bar and restaurant, and have a drink or two with dinner
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!--Mobile View-->
-                    <div class="hidden-md-up">
-
+                    <br/>
+                    <div class="row justify-content-center">
+                        <div class="col-1">
+                            <h3><span class="badge badge-danger">Notes</span></h3>
+                        </div>
+                        <div class="col-8 offset-2" style="padding-left: 20px;">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="text-center"><h6>We <strong>STRONGLY</strong> suggest using a road (not mountain) bike. Trust us on this one</h6></div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="text-center"><h6 id="note_1"></h6></div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="text-center"><h6 id="note_2"></h6></div>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col-5 offset-1">
+                                    <div class="text-center"><h6 id="note_3"></h6></div>
+                                </div>
+                                <div class="col-5">
+                                    <div class="text-center"><h6 id="note_4"></h6></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div> <!-- End of col 12 -->
+                </div>
+                <!--Mobile View-->
+                <div class="hidden-lg-up">
+                    <div id="whatToExpectAccordian" role="tablist" aria-multiselectable="true">
+                        <!-- Dropdown One -->
+                        <div class="card">
+                            <div class="card-header" role="tab" id="headingFour">
+                                <a data-toggle="collapse" data-parent="#whatToExpectAccordian" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                    <h3>
+                                        <span class="badge badge-primary">Preparation</span>
+                                        <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
+                                    </h3>
+                                </a>
+                            </div>
+
+                            <div id="collapseFour" class="collapse show" role="tabpanel" aria-labelledby="collapseFour">
+                                <div class="card-block" >
+                                    <p id="prepation_mobile"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dropdown Two -->
+                        <div class="card">
+                            <div class="card-header" role="tab" id="headingFive">
+                                <a data-toggle="collapse" data-parent="#whatToExpectAccordian" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                                    <h3>
+                                        <span class="badge badge-success">Things You'll Need</span>
+                                        <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
+                                    </h3>
+                                </a>
+                            </div>
+
+                            <div id="collapseFive" class="collapse show" role="tabpanel" aria-labelledby="collapseFive">
+                                <div class="card-block">
+                                    <li id="bring_0_mobile"></li>
+                                    <li id="bring_1_mobile"></li>
+                                    <li id="bring_2_mobile"></li>
+                                    <div class="more">
+                                        <li id="bring_3_mobile"></li>
+                                        <li id="bring_4_mobile"></li>
+                                        <li id="bring_5_mobile"></li>
+                                        <li id="bring_6_mobile"></li>
+                                        <li id="bring_7_mobile"></li>
+                                    </div>
+                                    <span class="pull-right text-info showMoreText">Show More</span>
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <!--Day One Card-->
+                    <div class="card card-outline-primary" >
+                        <div class="card-header">
+                            <div>
+                                <img src="img/img9.JPG" class="img-thumbnail pull-left" style="width: 50%; display: inline;">
+                            </div>
+                            <div class="justify-content-center text-center">
+                                <h4 class="card-title justify-content-center">Day One</h4>
+                                <i class="fa fa-sun-o fa-2x fa-spin" style="padding-top: 5px"></i>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <li>Meet at
+                                <a href="https://www.google.ca/maps/place/White+Oaks+Secondary+School/@43.4634799,-79.7041529,17z/data=!3m1!4b1!4m5!3m4!1s0x882b5d23c1f3babd:0x68bf31d4a96f60b1!8m2!3d43.4634799!4d-79.7019642">
+                                     White Oaks Secondary School
+                                </a>
+                                at 10:00AM
+                            </li>
+                            <li>
+                                We will leave at 10:30AM and ride approximately 75 km to
+                                <a href="https://www.google.ca/maps/place/Pinehurst+Lake+Conservation+Area/@43.2492949,-80.5518533,10.7z/data=!4m5!3m4!1s0x882c732d249cbda1:0x14b3fae8d27cc7fc!8m2!3d43.2651268!4d-80.3892808">
+                                    Pinehurst Conservation Area
+                                </a>
+                            </li>
+                            <div class="more">
+                                <li id="day1_2_mobile"></li>
+                                <li id="day1_3_mobile"></li>
+                                <li id="day1_4_mobile"></li>
+                            </div>
+                            <span class="pull-right text-info showMoreText">Show More</span>
+                        </div>
+                    </div>
+                    <br/>
+                    <!--Day Two Card-->
+                    <div class="card card-outline-primary" >
+                        <div class="card-header">
+                            <div>
+                                <img src="img/img6.JPG" class="img-thumbnail pull-right" style="width: 50%; display: inline;">
+                            </div>
+                            <div class="justify-content-center text-center">
+                                <h4 class="card-title justify-content-center">Day Two</h4>
+                                <i class="fa fa-sun-o fa-2x fa-spin" style="padding-top: 5px"></i>
+                                <i class="fa fa-sun-o fa-2x fa-spin" style="padding-top: 5px"></i>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <li id="day2_0_mobile"></li>
+                            <li>We will spend most of the day biking the 80km to
+                                <a href="https://www.google.ca/maps/place/Western+University/@42.9883616,-81.2791265,12.85z/data=!4m8!1m2!2m1!1sWestern+University!3m4!1s0x882eee0e6ac42bd1:0xaa87f353aab9799b!8m2!3d43.0095971!4d-81.2737336">
+                                    Western University</a>, but guess what? It’s all downhill! &nbsp; &nbsp; &nbsp;<i class="fa fa-smile-o" aria-hidden="true"></i>
+                            </li>
+                            <div class="more">
+                                <li id="day2_2_mobile"></li>
+                                <li>Lastly, to celebrate the ride we will be heading over to
+                                    <a href="https://www.google.ca/maps/place/The+Spoke/@43.0086472,-81.2769167,16.01z/data=!3m1!5s0x882eee3d04f3ac3b:0xee704e962788acf0!4m8!1m2!2m1!1sThe+Spoke!3m4!1s0x0:0xed4cefbe716fc086!8m2!3d43.0084092!4d-81.2761112">
+                                        The Spoke</a>, the campus bar and restaurant, and have a drink or two with dinner
+                                </li>
+                            </div>
+                            <span class="pull-right text-info showMoreText">Show More</span>
+                        </div>
+                    </div>
+                    <br/>
+                    <!-- Dropdown Three -->
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingSix">
+                            <a data-toggle="collapse" data-parent="#whatToExpectAccordian" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                                <h3>
+                                    <span class="badge badge-danger">Notes</span>
+                                    <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
+                                </h3>
+                            </a>
+                        </div>
+
+                        <div id="collapseSix" class="collapse show" role="tabpanel" aria-labelledby="collapseSix">
+                            <div class="card-block" >
+                                <li>We <strong>STRONGLY</strong> suggest using a road (not mountain) bike. Trust us on this one</li>
+                                <li id="note_1_mobile"></li>
+                                <div class="more">
+                                    <li id="note_2_mobile"></li>
+                                    <li id="note_3_mobile"></li>
+                                    <li id="note_4_mobile"></li>
+                                </div>
+                                <span class="pull-right text-info showMoreText">Show More</span>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--End of Mobile View-->
+
+                <br/>
             </div> <!-- End of container fluid -->
         </section>
-    </div>
+        <hr/>
+        <div class="row justify-content-center">
+            <div class="col-xs-12 col-md-5">
+                <!-- Donate -->
+                <section id="donate">
+                    <div class="container-fluid bg-primary text-white section-block" >
+                        <div class="hidden-sm-down">
+                            <h1 class="section-heading" style="display: inline;">Donate</h1>
+                            <h1 class="section-heading pull-right" style="display: inline;">
+                                <i class="fa fa-heart faa-pulse animated faa-slow"></i>
+                            </h1>
+                        </div>
+                        <div class="hidden-md-up text-center">
+                            <h2 class="section-heading-mobile" style="display: inline;">Donate</h2>
+                            <h2 class="section-heading-mobile" style="display: inline; padding-left: 50px">
+                                <i class="fa fa-heart faa-pulse animated faa-slow"></i>
+                            </h2>
+                        </div>
+                        <hr style="border-color: white; width: 95%"/>
+                        <div class="text-center" id="donateBox">
+                            <p id="donateText_1"></p>
+                            <div class="more">
+                                <p id="donateText_2"></p>
+                            </div>
+                            <a class="btn btn-warning" target="_blank" href="https://secure2.convio.net/uwo/sandre.html">Donate Now or Find Out More</a>
+                            <br/><br/>
+                            <span class="pull-right text-white showMoreText">Show More</span>
+                            <br/>
+                        </div>
 
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+                    </div> <!-- End of Container Fluid -->
+                </section>
+            </div>
+            <div class="col-xs-12 col-md-5 offset-md-1">
+                <section id="contactUs" >
+                    <div class="container-fluid bg-inverse text-white section-block">
+                        <div class="hidden-sm-down">
+                            <h1 class="section-heading" style="display: inline;">Contact Us</h1>
+                            <h1 class="section-heading pull-right" style="display: inline;">
+                                <i class="fa fa-envelope faa-shake animated faa-slow"></i>
+                            </h1>
+                        </div>
+                        <div class="hidden-md-up text-center">
+                            <h2 class="section-heading-mobile" style="display: inline;">Contact Us</h2>
+                            <h2 class="section-heading-mobile" style="display: inline; padding-left: 50px">
+                                <i class="fa fa-envelope faa-shake animated faa-slow"></i>
+                            </h2>
+                        </div>
+                        <hr style="border-color: white; width: 95%"/>
+                        <div class="row justify-content-center">
+                            <div class="col-3 offset-md-1 offset-xs-1" >
+                                <i class="fa fa-envelope-o fa-2x"></i>
+                            </div>
+                            <div class="col-6 text-left-center">
+                                <div class="hidden-sm-down">
+                                    <a style="color: white;" href="mailto:ride4craig@gmail.com">ride4craig@gmail.com</a>
+                                </div>
+                                <div class="hidden-md-up text-center">
+                                    <a style="color: white;" href="mailto:ride4craig@gmail.com">ride4craig@<br/>gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row justify-content-center">
+                            <div class="col-3 offset-md-1">
+                                <i class="fa fa-facebook-official fa-2x"></i>
+                            </div>
+                            <div class="col-6 text-left">
+                                <a style="color: white;" href="">Join the FB Group</a>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row justify-content-center">
+                            <div class="col-3 offset-md-1 offset-xs-1" >
+                                <i class="fa fa-twitter fa-2x"></i>
+                            </div>
+                            <div class="col-6 text-left">
+                                <a style="color: white;" href="">#rideForCraig</a>
+                            </div>
+                        </div>
+                    </div> <!-- End of Container Fluid -->
+                </section>
+            </div>
+        </div>
+    </div>
     <br/>
 </body>
 </html>

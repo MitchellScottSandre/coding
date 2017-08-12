@@ -16,6 +16,10 @@
     <!--Font Awesome-->
     <link rel="stylesheet" href="vendor/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="vendor/font-awesome-4.7.0/css/font-awesome-animation.min.css">
+
+    <!--LightBox2-->
+    <link href="vendor/lightbox2/lightbox.min.css" rel="stylesheet">
+    <script src="vendor/lightbox2/lightbox.min.js"></script>
     <!--Custom-->
     <script src="js/main.js"></script>
 
@@ -34,17 +38,17 @@
             <ul class="nav navbar-nav w-100 justify-content-end">
                 <!--About Dropdown-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         About the Cause
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item navToggler" href="#general">General</a>
-                        <a class="dropdown-item navToggler" href="#whyWeRide">Why We Ride</a>
+                        <a class="dropdown-item navToggler" href="#whyWeRide">Why We're Riding</a>
                     </div>
                 </li>
                 <!--Get Involved Dropdown-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle"   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Get Involved
                     </a>
                     <div class="dropdown-menu">
@@ -56,14 +60,14 @@
                 </li>
                 <!--What to Expect Dropdown-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         What to Expect
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item navToggler" href="#preparation" >Preparation</a>
                         <a class="dropdown-item navToggler" href="#thingsYoullNeed" >Things You'll Need</a>
-                        <a class="dropdown-item navToggler" href="#dayOne" >Day One</a>
-                        <a class="dropdown-item navToggler" href="#dayTwo" >Day Two</a>
+                        <a class="dropdown-item navToggler" href="#schedule" >Schedule</a>
+                        <a class="dropdown-item navToggler" href="#notes" >Notes</a>
                     </div>
                 </li>
                 <!--Donate-->
@@ -85,23 +89,52 @@
     <!------------------------------------- Header -------------------------------------->
     <section>
     <header>
-        <div class="bg">
-        </div>
-        <div class="d-flex justify-content-center">
+        <div class="bg"></div>
+        <div class="headerContainer">
             <div class="header-content">
                 <div class="header-content-inner">
                     <h1 id="welcomeMessage" style="display:none">Welcome!</h1>
                     <br/>
-                    <hr/>
                     <br/>
-                    <p>Ride For Craig is happening September 10th</p>
-                    <p><a  class="btn btn-primary" target="_blank" href="https://secure2.convio.net/uwo/sandre.html">Donate Now</a> or scroll down to find out more!</p>
+                    <h3>Ride For Craig is happening September 9-10</h3>
+                    <br/>
+                    <h4><a  class="btn btn-success btn-lg" target="_blank" href="https://secure2.convio.net/uwo/sandre.html"><strong>Donate Now</strong></a></h4>
                 </div>
             </div>
+            <br/>
+            <br/>
+            <a href="#general"><i class="fa fa-chevron-down fa-3x" aria-hidden="true" style="color: white;"></i></a>
         </div>
     </header>
-        <div style="visiblity: none; bottom: 45px; position: relative;" id="general"></div>
+        <div style="visiblity: none; bottom: 20px; position: relative;" id="general"></div>
     </section>
+    <br/>
+    <br/>
+    <br/>
+    <div class="row imageRow">
+        <div class="col-4">
+            <a data-lightbox="craig1" href="img/craig1.JPG">
+                <div class="card">
+                    <img class="card-img-top img-thumbnail" src="img/craig1.JPG" style="object-position: 0px 12%;">
+                </div>
+            </a>
+        </div>
+        <div class="col-4">
+            <a data-lightbox="craig2" href="img/craig2.JPG">
+                <div class="card">
+                    <img class="card-img-top img-thumbnail" src="img/craig2.JPG" style="object-position: 15% 10%;">
+                </div>
+            </a>
+        </div>
+        <div class="col-4">
+            <a data-lightbox="craig3" href="img/craig3.JPG">
+                <div class="card">
+                    <img class="card-img-top img-thumbnail" src="img/craig3.JPG"  style="object-position: 0px 24%;">
+                </div>
+            </a>
+        </div>
+    </div>
+    <br/>
     <!------------------------------------- Main Container -------------------------------------->
     <div class="container-fluid">
         <!------------------------------------- About Section -------------------------------------->
@@ -116,16 +149,18 @@
                     </div>
                     <div class="row">
                             <div class="section-description col-md-8 offset-md-2 col-xs-10 offset-xs-1">
-                                <h5 id="aboutTheCause_description">a</h5>
+                                <h5 id="aboutTheCause_description_1"></h5>
+                                <br/>
+                                <h5 id="aboutTheCause_description_2"></h5>
                             </div>
                     </div>
                     <br/>
                     <div style="visiblity: none; bottom: 50px; position: relative;" id="whyWeRide"></div>
-                    <h3 class="section-subtitle" id="">Why We Ride</h3>
+                    <h3 class="section-subtitle" id="">Why We're Riding</h3>
                     <br/>
                     <!--Browser View-->
                     <div class="hidden-md-down">
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center whyWeRideInfo">
                             <div class="col-1">
                                 <h3><span class="badge badge-primary">For Craig</span></h3>
                             </div>
@@ -134,7 +169,7 @@
                             </div>
                         </div>
                         <br/>
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center whyWeRideInfo">
                             <div class="col-1">
                                 <h3><span class="badge badge-success">To Help</span></h3>
                             </div>
@@ -143,7 +178,7 @@
                             </div>
                         </div>
                         <br/>
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center whyWeRideInfo">
                             <div class="col-1">
                                 <h3><span class="badge badge-warning">1 in 5</span></h3>
                             </div>
@@ -162,7 +197,7 @@
                                 <div class="card-header" role="tab" id="headingOne">
                                     <a data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         <h3>
-                                            <span class="badge badge-primary">For Craig</span>
+                                            <span class="badge badge-background">For Craig</span>
                                             <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
                                         </h3>
                                     </a>
@@ -217,6 +252,30 @@
         </section>
         <br/>
         <hr/>
+        <div class="row imageRow">
+            <div class="col-4">
+                <a data-lightbox="img1" href="img/img1.JPG">
+                    <div class="card">
+                        <img class="card-img-top img-thumbnail" src="img/img1.JPG">
+                    </div>
+                </a>
+            </div>
+            <div class="col-4">
+                <a data-lightbox="img2" href="img/img2.JPG">
+                    <div class="card">
+                        <img class="card-img-top img-thumbnail" src="img/img2.JPG">
+                    </div>
+                </a>
+            </div>
+            <div class="col-4">
+                <a data-lightbox="img1" href="img/img1.JPG">
+                    <div class="card">
+                        <img class="card-img-top img-thumbnail" src="img/img3.JPG"  style="object-position: 0px 40%;">
+                    </div>
+                </a>
+            </div>
+        </div>
+        <hr/>
         <!------------------------------------- Get Involved Section -------------------------------------->
         <section id="getInvolved">
             <div class="container-fluid">
@@ -243,11 +302,8 @@
                                 <div class="card-block">
                                     <h3 class="card-title"><i class="fa fa-bicycle" aria-hidden="true"></i> &nbsp; Sign Up as a Cyclist</h3>
                                     <p id="cyclistText"></p>
-                                    <ul>
-                                        <li>$15 registration fee to cover the costs of the campsite, food and other supplies</li>
-                                        <li >Don't want to bike? Campers are welcome to join us Saturday night at Pinehurst ($10)</li>
-                                    </ul>
-                                    <a id="volunteer" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe4ryEN1Zd4Et9UZi6qNW4PT60LJAFIt1djrSlGUEckCr-slA/viewform" class="btn btn-primary">Cyclist Sign-Up</a>
+                                    <a id="volunteer" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe4ryEN1Zd4Et9UZi6qNW4PT60LJAFIt1djrSlGUEckCr-slA/viewform"
+                                       class="btn btn-primary">Cyclist Sign-Up</a>
                                 </div>
                             </div>
                             <!--Volunteer Card-->
@@ -256,7 +312,8 @@
                                     <h3 class="card-title"><i class="fa fa-car" aria-hidden="true"></i> &nbsp; Volunteer During the Event</h3>
                                     <p class="card-text" id="volunteerText_1"></p>
                                     <p class="card-text" id="volunteerText_2"></p>
-                                    <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSePE4X-iRnFPd4u-N2cAie-BCY1yczZybAstmKkavNxEp-qEg/viewform" class="btn btn-primary">Volunteer Sign-Up</a>
+                                    <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSePE4X-iRnFPd4u-N2cAie-BCY1yczZybAstmKkavNxEp-qEg/viewform"
+                                       class="btn btn-success">Volunteer Sign-Up</a>
                                 </div>
                             </div>
                             <!--Sponsor Us Card-->
@@ -279,7 +336,7 @@
                                 <div class="card-block">
                                     <h3 class="card-title"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp; Donate</h3>
                                     <p class="card-text" id="donateText"></p>
-                                    <a target="_blank" href="https://secure2.convio.net/uwo/sandre.html" class="btn btn-primary">Donate Now</a>
+                                    <a target="_blank" href="https://secure2.convio.net/uwo/sandre.html" class="btn btn-info">Donate Now</a>
                                 </div>
                             </div>
                         </div>
@@ -289,17 +346,13 @@
                     <div class="hidden-lg-up">
                         <!--Cyclist Card-->
                         <div style="visiblity: none; bottom: 45px; position: relative;" id="cyclistSignUp_mobile"></div>
-                        <div class="card card-outline-primary" >
+                        <div class="card card-outline-primary">
                             <div class="card-block">
                                 <h4 class="card-title"><i class="fa fa-bicycle" aria-hidden="true"></i> &nbsp;Sign Up as a Cyclist</h4>
                                 <p id="cyclistText_mobile"></p>
-                                    <li>$15 registration fee to cover the costs of the campsite, food and other supplies</li>
-                                    <div class="more">
-                                        <li>Don't want to bike? Campers are welcome to join us Saturday night at Pinehurst ($10)</li>
-                                    </div>
-                                <br/>
-                                <a style="display: inline;"target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe4ryEN1Zd4Et9UZi6qNW4PT60LJAFIt1djrSlGUEckCr-slA/viewform" class="btn btn-primary">Cyclist Sign-Up</a>
-                                <span style="display: inline;" class="pull-right text-info showMoreText">Show More</span>
+
+                                <a style="display: inline;"target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe4ryEN1Zd4Et9UZi6qNW4PT60LJAFIt1djrSlGUEckCr-slA/viewform"
+                                   class="btn btn-primary">Cyclist Sign-Up</a>
                             </div>
                         </div>
                         <!--Volunteer Card-->
@@ -309,7 +362,8 @@
                                 <h4 class="card-title"><i class="fa fa-car" aria-hidden="true"></i> &nbsp;Volunteer</h4>
                                 <p class="card-text" id="volunteerText_1_mobile"></p>
                                 <p class="card-text" id="volunteerText_2_mobile"></p>
-                                <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSePE4X-iRnFPd4u-N2cAie-BCY1yczZybAstmKkavNxEp-qEg/viewform" class="btn btn-primary">Volunteer Sign-Up</a>
+                                <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSePE4X-iRnFPd4u-N2cAie-BCY1yczZybAstmKkavNxEp-qEg/viewform"
+                                   class="btn btn-success">Volunteer Sign-Up</a>
                             </div>
                         </div>
                         <!--Sponsor Us Card-->
@@ -334,13 +388,32 @@
                             <div class="card-block">
                                 <h4 class="card-title"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;Donate</h3>
                                 <p class="card-text" id="donateText_mobile"></p>
-                                <a target="_blank" href="https://secure2.convio.net/uwo/sandre.html" class="btn btn-primary">Donate Now</a>
+                                <a target="_blank" href="https://secure2.convio.net/uwo/sandre.html"
+                                   class="btn btn-info">Donate Now</a>
                             </div>
                         </div>
                     </div> <!-- End of Mobile View -->
                 <!--</div> &lt;!&ndash; end of col 12 &ndash;&gt;-->
             </div> <!-- end of container fluid -->
         </section>
+        <hr/>
+        <div class="row imageRow">
+            <div class="col-4">
+                <div class="card">
+                    <img class="card-img-top img-thumbnail" src="img/img4.JPG" >
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <img class="card-img-top img-thumbnail" src="img/img5.JPG"  style="object-position: 50% 20%;">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <img class="card-img-top img-thumbnail" src="img/img6.JPG" >
+                </div>
+            </div>
+        </div>
         <hr/>
         <!------------------------------------- What to Expect Section -------------------------------------->
         <section id="whatToExpect">
@@ -359,10 +432,16 @@
                             <h3><span class="badge badge-primary">Preparation</span></h3>
                         </div>
                         <div class="col-8 offset-2" style="padding-left: 20px;">
-                            <p id="preparation"></p>
+                            <p id="preparation">
+                                We suggest that you prepare for the ride by doing some training on your own.
+                                Practice rides or any cardio and endurance exercises will help you to prepare.
+                                That being said, <strong>don’t be intimidated by the length of the ride.</strong>
+                                Last year we went at a slow pace and <strong>everyone was able to complete it</strong> - biking 160km over two days is challenging, but doable!
+                            </p>
                         </div>
                     </div>
                     <br/>
+                    <div style="visiblity: none; bottom: 70px; position: relative;" id="thingsYoullNeed"></div>
                     <div class="row justify-content-center">
                         <div class="col-1">
                             <h3><span class="badge badge-success">Things You'll Need</span></h3>
@@ -370,33 +449,34 @@
                         <div class="col-4 offset-2" style="padding-left: 20px;">
                             <ul class="list-group">
                                 <li id="bring_0" class="list-group-item"></li>
-                                <li id="bring_1" class="list-group-item list-group-item-success"></li>
+                                <li id="bring_1" class="list-group-item list-group-item-danger"></li>
                                 <li id="bring_2" class="list-group-item">Helmet and Road Bike</li>
-                                <li id="bring_3" class="list-group-item list-group-item-success"></li>
+                                <li id="bring_3" class="list-group-item list-group-item-danger"></li>
                             </ul>
                         </div>
                         <div class="col-4">
                             <ul class="list-group">
-                                <li id="bring_4" class="list-group-item list-group-item-success"></li>
+                                <li id="bring_4" class="list-group-item list-group-item-danger"></li>
                                 <li id="bring_5" class="list-group-item"></li>
-                                <li id="bring_6" class="list-group-item list-group-item-success"></li>
+                                <li id="bring_6" class="list-group-item list-group-item-danger"></li>
                                 <li id="bring_7" class="list-group-item "></li>
                             </ul>
                         </div>
                     </div>
                     <br/>
+                    <div style="visiblity: none; bottom: 70px; position: relative;" id="schedule"></div>
                     <div class="row justify-content-center">
                         <div class="col-1">
                             <h3><span class="badge badge-warning">Schedule</span></h3>
                         </div>
                         <div class="col-8 offset-2" style="padding-left: 20px;">
                             <div class="row justify-content-center">
-                                <ul class="nav nav-pills">
+                                <ul class="nav nav-pills schedulePills">
                                     <li class="nav-item">
-                                        <span class="nav-link active" id="dayOneSelector">Day One</span>
+                                        <span class="nav-link nav-link-day-active" id="dayOneSelector">Day One</span>
                                     </li>
                                     <li class="nav-item">
-                                        <span class="nav-link" id="dayTwoSelector">Day Two</span>
+                                        <span class="nav-link nav-link-day" id="dayTwoSelector">Day Two</span>
                                     </li>
                                 </ul>
                             </div>
@@ -447,29 +527,30 @@
                         </div>
                     </div>
                     <br/>
+                    <div style="visiblity: none; bottom: 20px; position: relative;" id="notes"></div>
                     <div class="row justify-content-center">
                         <div class="col-1">
-                            <h3><span class="badge badge-danger">Notes</span></h3>
+                            <h3><span class="badge badge-info">Notes</span></h3>
                         </div>
                         <div class="col-8 offset-2" style="padding-left: 20px;">
                             <div class="row">
                                 <div class="col-4">
-                                    <div class="text-center"><h6>We <strong>STRONGLY</strong> suggest using a road (not mountain) bike. Trust us on this one</h6></div>
+                                    <div class="text-center noteStrong"><h6>We <strong>STRONGLY</strong> suggest using a road (not mountain) bike. Trust us on this one</h6></div>
                                 </div>
                                 <div class="col-4">
-                                    <div class="text-center"><h6 id="note_1"></h6></div>
+                                    <div class="text-center noteWeak"><h6 id="note_1"></h6></div>
                                 </div>
                                 <div class="col-4">
-                                    <div class="text-center"><h6 id="note_2"></h6></div>
+                                    <div class="text-center noteStrong"><h6 id="note_2"></h6></div>
                                 </div>
                             </div>
                             <br/>
                             <div class="row">
                                 <div class="col-5 offset-1">
-                                    <div class="text-center"><h6 id="note_3"></h6></div>
+                                    <div class="text-center noteWeak"><h6 id="note_3"></h6></div>
                                 </div>
                                 <div class="col-5">
-                                    <div class="text-center"><h6 id="note_4"></h6></div>
+                                    <div class="text-center noteWeak"><h6 id="note_4"></h6></div>
                                 </div>
                             </div>
                         </div>
@@ -479,11 +560,12 @@
                 <div class="hidden-lg-up">
                     <div id="whatToExpectAccordian" role="tablist" aria-multiselectable="true">
                         <!-- Dropdown One -->
+                        <div style="visiblity: none; bottom: 45px; position: relative;" id="preparation_mobile"></div>
                         <div class="card">
                             <div class="card-header" role="tab" id="headingFour">
                                 <a data-toggle="collapse" data-parent="#whatToExpectAccordian" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
                                     <h3>
-                                        <span class="badge badge-primary">Preparation</span>
+                                        <span class="badge badge-background">Preparation</span>
                                         <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
                                     </h3>
                                 </a>
@@ -497,11 +579,12 @@
                         </div>
 
                         <!-- Dropdown Two -->
+                        <div style="visiblity: none; bottom: 40px; position: relative;" id="thingsYoullNeed_mobile"></div>
                         <div class="card">
                             <div class="card-header" role="tab" id="headingFive">
                                 <a data-toggle="collapse" data-parent="#whatToExpectAccordian" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
                                     <h3>
-                                        <span class="badge badge-success">Things You'll Need</span>
+                                        <span class="badge badge-background">Things You'll Need</span>
                                         <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
                                     </h3>
                                 </a>
@@ -527,8 +610,9 @@
                     </div>
                     <br/>
                     <!--Day One Card-->
-                    <div class="card card-outline-primary" >
-                        <div class="card-header">
+                    <div style="visiblity: none; bottom: 45px; position: relative;" id="schedule_mobile"></div>
+                    <div class="card card-outline-warning" >
+                        <div class="card-header" id="dayOneCardHeader" style="z-index: -1;">
                             <div>
                                 <img src="img/img9.JPG" class="img-thumbnail pull-left" style="width: 50%; display: inline;">
                             </div>
@@ -560,8 +644,8 @@
                     </div>
                     <br/>
                     <!--Day Two Card-->
-                    <div class="card card-outline-primary" >
-                        <div class="card-header">
+                    <div class="card card-outline-info" >
+                        <div class="card-header" id="dayTwoCardHeader" style="z-index: -1;">
                             <div>
                                 <img src="img/img6.JPG" class="img-thumbnail pull-right" style="width: 50%; display: inline;">
                             </div>
@@ -589,11 +673,12 @@
                     </div>
                     <br/>
                     <!-- Dropdown Three -->
+                    <div style="visiblity: none; bottom: 45px; position: relative;" id="notes_mobile"></div>
                     <div class="card">
                         <div class="card-header" role="tab" id="headingSix">
                             <a data-toggle="collapse" data-parent="#whatToExpectAccordian" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
                                 <h3>
-                                    <span class="badge badge-danger">Notes</span>
+                                    <span class="badge badge-background">Notes</span>
                                     <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
                                 </h3>
                             </a>
@@ -619,21 +704,40 @@
             </div> <!-- End of container fluid -->
         </section>
         <hr/>
+        <div class="row imageRow">
+            <div class="col-4">
+                <div class="card">
+                    <img class="card-img-top img-thumbnail" src="img/img10.JPG" style="object-position: 0px 25%;">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <img class="card-img-top img-thumbnail" src="img/img11.JPG" style="object-position: 0px 10%;">
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="card">
+                    <img class="card-img-top img-thumbnail" src="img/img12.JPG"  style="object-position: 0px 25%;">
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <!-- Donate and Contact -->
         <div class="row justify-content-center">
             <div class="col-xs-12 col-md-5">
                 <!-- Donate -->
                 <section id="donate">
-                    <div class="container-fluid bg-primary text-white section-block" >
+                    <div class="container-fluid text-white section-block" id="donateBlock">
                         <div class="hidden-sm-down">
                             <h1 class="section-heading" style="display: inline;">Donate</h1>
                             <h1 class="section-heading pull-right" style="display: inline;">
-                                <i class="fa fa-heart faa-pulse animated faa-slow"></i>
+                                <i class="fa fa-heart faa-pulse animated faa-slow" style="color: #fe5f55;"></i>
                             </h1>
                         </div>
                         <div class="hidden-md-up text-center">
                             <h2 class="section-heading-mobile" style="display: inline;">Donate</h2>
                             <h2 class="section-heading-mobile" style="display: inline; padding-left: 50px">
-                                <i class="fa fa-heart faa-pulse animated faa-slow"></i>
+                                <i class="fa fa-heart faa-pulse animated faa-slow" style="color: #fe5f55;"></i>
                             </h2>
                         </div>
                         <hr style="border-color: white; width: 95%"/>
@@ -642,7 +746,7 @@
                             <div class="more">
                                 <p id="donateText_2"></p>
                             </div>
-                            <a class="btn btn-warning" target="_blank" href="https://secure2.convio.net/uwo/sandre.html">Donate Now or Find Out More</a>
+                            <a class="btn btn-success" target="_blank" href="https://secure2.convio.net/uwo/sandre.html">Donate Now or Find Out More</a>
                             <br/><br/>
                             <span class="pull-right text-white showMoreText">Show More</span>
                             <br/>
@@ -676,7 +780,7 @@
                                     <a style="color: white;" href="mailto:ride4craig@gmail.com">ride4craig@gmail.com</a>
                                 </div>
                                 <div class="hidden-md-up text-center">
-                                    <a style="color: white;" href="mailto:ride4craig@gmail.com">ride4craig@<br/>gmail.com</a>
+                                    <a style="color: white;" target="_blank"  href="mailto:ride4craig@gmail.com">ride4craig@<br/>gmail.com</a>
                                 </div>
                             </div>
                         </div>
@@ -686,7 +790,7 @@
                                 <i class="fa fa-facebook-official fa-2x"></i>
                             </div>
                             <div class="col-6 text-left">
-                                <a style="color: white;" href="">Join the FB Group</a>
+                                <a style="color: white;" target="_blank"  href="https://www.facebook.com/groups/254308575089428/permalink/254310315089254/?notif_t=group_description_change&notif_id=1502492296700671">Join the FB Group</a>
                             </div>
                         </div>
                         <br/>
@@ -695,7 +799,7 @@
                                 <i class="fa fa-twitter fa-2x"></i>
                             </div>
                             <div class="col-6 text-left">
-                                <a style="color: white;" href="">#rideForCraig</a>
+                                <a style="color: white;">#rideForCraig</a>
                             </div>
                         </div>
                     </div> <!-- End of Container Fluid -->

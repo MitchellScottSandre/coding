@@ -1,7 +1,8 @@
-
+:root {
+    --borderRadius:20px;
+}
 body {
     position: relative;
-    padding-top: 30px;
 }
 
 .container-fluid {
@@ -19,11 +20,13 @@ nav .navbar-nav > li{
 }
 /*--------- Header ---------*/
 header{
+    padding-top: 40px;
     text-align: center;
     width: 100%;
     height: 100vh;
 }
-header .bg {
+/*header .bg {*/
+header .bg  {
     position: absolute;
     width: 100%;
     height: 100vh;
@@ -31,33 +34,45 @@ header .bg {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: auto;
-    opacity: 0.60;
-    filter: alpha(opacity=60); /* For IE8 and earlier */
-}
-header .header-content {
-    position: relative;
-    text-align: center;
-    padding-top: 220px;
-    width: 100%;
-}
-header .header-content .header-content-inner h1 {
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 50px;
-    color:black;
+    filter: blur(6px);
 }
 
-header .header-content hr {
-    border-color: white;
-    max-width: 200px;
+header .headerContainer {
+    position: relative;
+    top: 50%;
+    transform: translate(0, -60%);
+    padding: 20px;
 }
+header .header-content {
+    text-align: center;
+    width: 100%;
+}
+
+header .header-content .header-content-inner {
+    /*background-color: red;*/
+}
+
+header .header-content .header-content-inner h1 {
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 55px;
+    color: #fe5f55;
+}
+
+header .header-content h3{
+    color:white;
+}
+
+
+/*header .header-content hr {*/
+    /*border-color: #5E2BFF;*/
+    /*max-width: 100px;*/
+/*}*/
 
 /*--------- Section ---------*/
 section {
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
 section .section-heading {
@@ -91,23 +106,33 @@ section .section-block {
     display: none;
 }
 
+.imageRow img {
+    height: 20vh;
+    object-fit: cover;
+}
+
 /*About Section*/
 #general p {
     padding: 20px;
     border-radius: 15px;
 }
 
+.whyWeRideInfo p, #preparation{
+    padding: 20px;
+    border-radius: var(--borderRadius);
+}
+
 /* Section Pargraphs By ID*/
-#whyWeRide_1 {
-    background-color: lightcyan;
+#whyWeRide_1, #preparation{
+    background-color: #B0EAEF;
 }
 
 #whyWeRide_2 {
-    background-color: lightgreen;
+    background-color: #FE9992;
 }
 
 #whyWeRide_3 {
-    background-color: sandybrown;
+    background-color: #FFE1AA;
 }
 
 .nav-pills .nav-item {
@@ -119,8 +144,127 @@ section .section-block {
 .card-columns {
     column-count: 2;
 }
+
+.card-block-mobile p{
+    padding: 20px;
+}
+
+.card #headingOne, #headingFour {
+    background-color: #52d1dc;
+}
+.card #headingTwo, #headingFive, #headingSix {
+    background-color: #fe5f55;
+}
+.card #headingThree{
+    background-color: #ffbc42;
+}
+
+.card .fa-caret-square-o-down {
+    color: white;
+}
+
+#dayOneCardHeader {
+    background-color: #FFE1AA;
+}
+#dayTwoCardHeader {
+    background-color: #D3C5FF;
+}
+
 /* Icons */
 .fa-bicycle {
     color: black;
 }
 
+.noteStrong {
+    padding: 7px;
+    border-radius: 10px;
+    background-color: #D3C5FF;
+}
+
+.noteWeak{
+    padding: 7px;
+    border-radius: 10px;
+    background-color: #F3EFFF;
+}
+/* Customize Bootstrap*/
+
+.badge-primary {
+    background-color: #52d1dc;
+}
+
+.badge-success {
+    background-color: #fe5f55;
+}
+
+.badge-warning {
+    background-color: #ffbc42;
+}
+
+.badge-background {
+    background-color:transparent;
+}
+
+.badge-info {
+    background-color: #5E2BFF;
+}
+
+.btn-primary {
+    background-color: #52d1dc;
+    border-color: #52d1dc;
+}
+
+.btn-success {
+    background-color: #fe5f55;
+    border-color: #fe5f55;
+}
+
+.btn-warning  {
+     background-color: #ffbc42;
+     border-color: #ffbc42;
+ }
+
+.btn-info {
+    background-color: #5E2BFF;
+    border-color: #5E2BFF;
+}
+
+.card-outline-primary {
+    border-width: 5px;
+    border-color: #52d1dc;
+    border-radius: var(--borderRadius);
+    margin-bottom: 10px;
+}
+.card-outline-success {
+    border-width: 5px;
+    border-color: #fe5f55;
+    border-radius: var(--borderRadius);
+    margin-bottom: 10px;
+}
+.card-outline-warning {
+    border-width: 5px;
+    border-color: #ffbc42;
+    border-radius: var(--borderRadius);
+    margin-bottom: 10px;
+}
+.card-outline-info {
+    border-width: 5px;
+    border-color: #5E2BFF;
+    border-radius: var(--borderRadius);
+}
+
+.list-group-item-danger {
+    background-color: #FE9992;
+    color: black;
+}
+
+.nav-link-day-active {
+    background-color: #ffbc42;
+}
+
+.schedulePills .nav-link:hover{
+    background-color: #FFE1AA;
+}
+
+#donateBlock {
+    background-color: #52d1dc;
+}

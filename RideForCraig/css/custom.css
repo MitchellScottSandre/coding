@@ -18,6 +18,22 @@ nav .navbar-nav > li{
     padding-left:15px;
     padding-right:15px;
 }
+
+nav .navbar-nav > li > .dropdown-menu .active {
+    background-color: #d3d4d9;
+}
+
+.navbar-nav > li.open > a:hover,
+.navbar-nav > li.open > a:focus {
+    background-color: red;
+    color: red;
+}
+
+nav .bg-faded {
+    opacity: 0.3;
+    background: none;
+}
+
 /*--------- Header ---------*/
 header{
     padding-top: 40px;
@@ -25,7 +41,31 @@ header{
     width: 100%;
     height: 100vh;
 }
-/*header .bg {*/
+/* Link Colours*/
+#aboutLink, #contactLink {
+    color: #873EA9;
+ }
+#aboutLink:hover, #contactLink:hover {
+    color: #75259B;
+}
+#involvedLink {
+    color: #52d1dc;
+}
+#involvedLink:hover {
+    color: #30BECB;
+}
+#expectLink {
+     color: #ffbc42;
+ }
+#expectLink:hover {
+    color: #F2A212;
+}
+#donateLink {
+    color: #fe5f55;
+}
+#donateLink:hover {
+    color: #E9372E;
+}
 header .bg  {
     position: absolute;
     width: 100%;
@@ -34,13 +74,13 @@ header .bg  {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    filter: blur(6px);
+    filter: blur(5px);
 }
 
 header .headerContainer {
     position: relative;
     top: 50%;
-    transform: translate(0, -60%);
+    transform: translate(0, -50%);
     padding: 20px;
 }
 header .header-content {
@@ -49,7 +89,7 @@ header .header-content {
 }
 
 header .header-content .header-content-inner {
-    /*background-color: red;*/
+    padding: 20px;
 }
 
 header .header-content .header-content-inner h1 {
@@ -57,7 +97,7 @@ header .header-content .header-content-inner h1 {
     margin-top: 0;
     margin-bottom: 0;
     font-size: 55px;
-    color: #fe5f55;
+    color: white;
 }
 
 header .header-content h3{
@@ -65,14 +105,22 @@ header .header-content h3{
 }
 
 
+/*!* Links *!*/
+/*#generalLinkItem {*/
+    /*background-color: red;*/
+/*}*/
+
+
 /*header .header-content hr {*/
-    /*border-color: #5E2BFF;*/
+    /*border-color: #873EA9;*/
     /*max-width: 100px;*/
 /*}*/
 
 /*--------- Section ---------*/
 section {
     padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 section .section-heading {
@@ -176,13 +224,13 @@ section .section-block {
 }
 
 .noteStrong {
-    padding: 7px;
+    padding: 10px;
     border-radius: 10px;
     background-color: #D3C5FF;
 }
 
 .noteWeak{
-    padding: 7px;
+    padding: 10px;
     border-radius: 10px;
     background-color: #F3EFFF;
 }
@@ -205,17 +253,31 @@ section .section-block {
 }
 
 .badge-info {
-    background-color: #5E2BFF;
+    background-color: #873EA9;
 }
 
-.btn-primary {
+.btn-lightBlue {
     background-color: #52d1dc;
     border-color: #52d1dc;
+    color: white;
 }
 
-.btn-success {
+.btn-lightBlue:hover, .btn-lightBlue:focus, .btn-lightBlue:active, .btn-lightBlue.active, .btn-lightBlue:active:focus {
+    background-color: #30BECB;
+    border-color: #30BECB;
+    color: white;
+}
+
+.btn-red {
     background-color: #fe5f55;
     border-color: #fe5f55;
+    color: white;
+}
+
+.btn-red:hover, .btn-red:focus, .btn-red:active, .btn-red.active, .btn-red:active:focus {
+    background-color: #E9372E;
+    border-color: #E9372E;
+    color: white;
 }
 
 .btn-warning  {
@@ -223,9 +285,16 @@ section .section-block {
      border-color: #ffbc42;
  }
 
-.btn-info {
-    background-color: #5E2BFF;
-    border-color: #5E2BFF;
+.btn-darkBlue {
+    background-color: #873EA9;
+    border-color: #873EA9;
+    color: white;
+}
+
+.btn-darkBlue:hover, .btn-darkBlue:focus, .btn-darkBlue:active, .btn-darkBlue.active, .btn-darkBlue:active:focus {
+    background-color: #75259B;
+    border-color: #75259B;
+    color: white;
 }
 
 .card-outline-primary {
@@ -248,7 +317,7 @@ section .section-block {
 }
 .card-outline-info {
     border-width: 5px;
-    border-color: #5E2BFF;
+    border-color: #873EA9;
     border-radius: var(--borderRadius);
 }
 
@@ -261,10 +330,10 @@ section .section-block {
     background-color: #ffbc42;
 }
 
-.schedulePills .nav-link:hover{
-    background-color: #FFE1AA;
-}
-
 #donateBlock {
     background-color: #52d1dc;
+}
+
+.nav-link-day {
+    background-color: #FFE1AA;
 }

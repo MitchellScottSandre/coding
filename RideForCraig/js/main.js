@@ -2,15 +2,19 @@
  * Created by scott on 2017-08-03.
  */
 $(document).ready(function(){
-    $("#welcomeMessage").fadeIn(1000);
     $("#dayTwoContent").hide();
 
     $(document).on('click', 'a', function(event){
+        if ($(this).attr("class") != null && ($(this).attr("class").indexOf("collapseLink") != -1 ||
+            $(this).attr("class").indexOf("nav-link dropdown-toggle") != -1 )){
+            return;
+        }
         $('html, body').animate({
             scrollTop: $( $.attr(this, 'href') ).offset().top}, 400);
     });
 
     $('.navToggler').on('click', function(){
+        // Handle changing href
         var id = $(this).attr("href");
         if (!$(id).is(':visible') && id.indexOf("_mobile") < 0){
             var newHref = $(this).attr("href") + "_mobile";
@@ -23,11 +27,11 @@ $(document).ready(function(){
     });
 
     $(".collapse").on("show.bs.collapse", function(){
-        $(this).siblings().find("span .fa").prop("class", "fa fa-caret-square-o-down fa-rotate-0");
+        $(this).siblings().find("span .fa-caret-square-o-down").prop("class", "fa fa-caret-square-o-down fa-rotate-0");
     });
 
     $(".collapse").on("hide.bs.collapse", function(){
-        $(this).siblings().find("span .fa").prop("class", "fa fa-caret-square-o-down fa-rotate-270");
+        $(this).siblings().find("span .fa-caret-square-o-down").prop("class", "fa fa-caret-square-o-down fa-rotate-270");
     });
 
     $('.collapse').collapse("hide");
@@ -72,10 +76,6 @@ $(document).ready(function(){
         $("#dayOneSelector").prop("class", "nav-link nav-link-day");
         $("#dayOneContent").hide();
         $("#dayTwoContent").show();
-    });
-
-    $(".img-thumbnail").on("click", function(){
-
     });
 
     // Variables
@@ -168,8 +168,6 @@ $(document).ready(function(){
     $('#sponsorUsText_mobile').text(sponsorUsText_mobile);
     $('#donateText_mobile').text(donateText_mobile);
 
-    // $('#preparation').text(preparation);
-    // $('#prepation_mobile').text(prepation_mobile);
     $('#bring_0').text(bring_0);
     $('#bring_1').text(bring_1);
     $('#bring_2').text(bring_2);

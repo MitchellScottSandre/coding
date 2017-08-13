@@ -30,26 +30,27 @@
     <!-------------------------------------Navbar-------------------------------------->
     <nav class="navbar navbar-light navbar-toggleable-sm bg-faded fixed-top" id="mainNav">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span><i class="fa fa-bars" aria-hidden="true" style="color: #873EA9"></i></span>
         </button>
-        <a class="navbar-brand" href="#pageTop"><strong>Ride For Craig</strong></a>
+
+        <a class="navbar-brand" href="#pageTop" style="color: #fe5f55;"><strong>Ride For Craig</strong></a>
 
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="nav navbar-nav w-100 justify-content-end">
                 <!--About Dropdown-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        About the Cause
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="aboutLink">
+                        <strong>About the Cause</strong>
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item navToggler" href="#general">General</a>
+                        <a class="dropdown-item navToggler" href="#general" id="generalLinkItem">General</a>
                         <a class="dropdown-item navToggler" href="#whyWeRide">Why We're Riding</a>
                     </div>
                 </li>
                 <!--Get Involved Dropdown-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle"   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Get Involved
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="involvedLink">
+                        <strong>Get Involved</strong>
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item navToggler" href="#cyclistSignUp">Cyclist Sign-Up</a>
@@ -60,8 +61,8 @@
                 </li>
                 <!--What to Expect Dropdown-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        What to Expect
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="expectLink">
+                        <strong>What to Expect</strong>
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item navToggler" href="#preparation" >Preparation</a>
@@ -72,14 +73,14 @@
                 </li>
                 <!--Donate-->
                 <li class="nav-item" >
-                    <a class="nav-link navToggler" href="#donate">
-                        Donate
+                    <a class="nav-link navToggler" href="#donate" id="donateLink">
+                        <strong>Donate</strong>
                     </a>
                 </li>
                 <!--Contact Us-->
                 <li class="nav-item">
-                    <a class="nav-link navToggler" href="#contactUs">
-                        Contact Us
+                    <a class="nav-link navToggler" href="#contactUs" id="contactLink">
+                        <strong>Contact Us</strong>
                     </a>
                 </li>
             </ul>
@@ -93,16 +94,17 @@
         <div class="headerContainer">
             <div class="header-content">
                 <div class="header-content-inner">
-                    <h1 id="welcomeMessage" style="display:none">Welcome!</h1>
+                    <h1 id="welcomeMessage">Welcome!</h1>
                     <br/>
                     <br/>
-                    <h3>Ride For Craig is happening September 9-10</h3>
+                    <h3>Ride For Craig is happening September 9-10th</h3>
                     <br/>
-                    <h4><a  class="btn btn-success btn-lg" target="_blank" href="https://secure2.convio.net/uwo/sandre.html"><strong>Donate Now</strong></a></h4>
+                    <h4><a  class="btn btn-red btn-lg" target="_blank" href="https://secure2.convio.net/uwo/sandre.html"><strong>Donate Now</strong></a></h4>
                 </div>
             </div>
             <br/>
             <br/>
+            <h5 style="color: white;">Find out more</h5>
             <a href="#general"><i class="fa fa-chevron-down fa-3x" aria-hidden="true" style="color: white;"></i></a>
         </div>
     </header>
@@ -111,27 +113,29 @@
     <br/>
     <br/>
     <br/>
-    <div class="row imageRow">
-        <div class="col-4">
-            <a data-lightbox="craig1" href="img/craig1.JPG">
-                <div class="card">
-                    <img class="card-img-top img-thumbnail" src="img/craig1.JPG" style="object-position: 0px 12%;">
-                </div>
-            </a>
-        </div>
-        <div class="col-4">
-            <a data-lightbox="craig2" href="img/craig2.JPG">
-                <div class="card">
-                    <img class="card-img-top img-thumbnail" src="img/craig2.JPG" style="object-position: 15% 10%;">
-                </div>
-            </a>
-        </div>
-        <div class="col-4">
-            <a data-lightbox="craig3" href="img/craig3.JPG">
-                <div class="card">
-                    <img class="card-img-top img-thumbnail" src="img/craig3.JPG"  style="object-position: 0px 24%;">
-                </div>
-            </a>
+    <div class="container-fluid">
+        <div class="row imageRow">
+            <div class="col-4">
+                <a data-lightbox="craig1" href="img/craig1.JPG">
+                    <div class="card">
+                        <img class="card-img-top img-thumbnail" src="img/craig1.JPG" style="object-position: 0px 12%;">
+                    </div>
+                </a>
+            </div>
+            <div class="col-4">
+                <a data-lightbox="craig2" href="img/craig2.JPG">
+                    <div class="card">
+                        <img class="card-img-top img-thumbnail" src="img/craig2.JPG" style="object-position: 15% 10%;">
+                    </div>
+                </a>
+            </div>
+            <div class="col-4">
+                <a data-lightbox="craig3" href="img/craig3.JPG">
+                    <div class="card">
+                        <img class="card-img-top img-thumbnail" src="img/craig3.JPG"  style="object-position: 30% 24%;">
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
     <br/>
@@ -156,10 +160,10 @@
                     </div>
                     <br/>
                     <div style="visiblity: none; bottom: 50px; position: relative;" id="whyWeRide"></div>
-                    <h3 class="section-subtitle" id="">Why We're Riding</h3>
-                    <br/>
                     <!--Browser View-->
                     <div class="hidden-md-down">
+                        <h3 class="section-subtitle">Why We're Riding</h3>
+                        <br/>
                         <div class="row justify-content-center whyWeRideInfo">
                             <div class="col-1">
                                 <h3><span class="badge badge-primary">For Craig</span></h3>
@@ -171,9 +175,9 @@
                         <br/>
                         <div class="row justify-content-center whyWeRideInfo">
                             <div class="col-1">
-                                <h3><span class="badge badge-success">To Help</span></h3>
+                                <h3><span class="badge badge-success">For Western Students</span></h3>
                             </div>
-                            <div class="col-8 offset-1">
+                            <div class="col-7 offset-2">
                                 <p id="whyWeRide_2"></p>
                             </div>
                         </div>
@@ -190,12 +194,14 @@
 
                     <!--Mobile View-->
                     <div class="hidden-lg-up">
+                        <h3 class="text-center">Why We're Riding</h3>
+                        <br/>
                         <div style="visiblity: none; bottom: 45px; position: relative;" id="whyWeRide_mobile"></div>
                         <div id="whyWeRideAccordian" role="tablist" aria-multiselectable="true">
                             <!-- Card One -->
                             <div class="card">
                                 <div class="card-header" role="tab" id="headingOne">
-                                    <a data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <a class="collapseLink" data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         <h3>
                                             <span class="badge badge-background">For Craig</span>
                                             <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
@@ -213,7 +219,7 @@
                             <!-- Card Two -->
                             <div class="card">
                                 <div class="card-header" role="tab" id="headingTwo">
-                                    <a data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                    <a class="collapseLink" data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                                         <h3>
                                             <span class="badge badge-success">For Western Students</span>
                                             <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
@@ -231,7 +237,7 @@
                             <!-- Card Three -->
                             <div class="card">
                                 <div class="card-header" role="tab" id="headingThree">
-                                    <a data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                    <a class="collapseLink" data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
                                         <h3>
                                             <span class="badge badge-warning">For the 1 in 5</span>
                                             <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
@@ -268,7 +274,7 @@
                 </a>
             </div>
             <div class="col-4">
-                <a data-lightbox="img1" href="img/img1.JPG">
+                <a data-lightbox="img3" href="img/img3.JPG">
                     <div class="card">
                         <img class="card-img-top img-thumbnail" src="img/img3.JPG"  style="object-position: 0px 40%;">
                     </div>
@@ -303,7 +309,7 @@
                                     <h3 class="card-title"><i class="fa fa-bicycle" aria-hidden="true"></i> &nbsp; Sign Up as a Cyclist</h3>
                                     <p id="cyclistText"></p>
                                     <a id="volunteer" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe4ryEN1Zd4Et9UZi6qNW4PT60LJAFIt1djrSlGUEckCr-slA/viewform"
-                                       class="btn btn-primary">Cyclist Sign-Up</a>
+                                       class="btn btn-lightBlue">Cyclist Sign-Up</a>
                                 </div>
                             </div>
                             <!--Volunteer Card-->
@@ -313,7 +319,7 @@
                                     <p class="card-text" id="volunteerText_1"></p>
                                     <p class="card-text" id="volunteerText_2"></p>
                                     <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSePE4X-iRnFPd4u-N2cAie-BCY1yczZybAstmKkavNxEp-qEg/viewform"
-                                       class="btn btn-success">Volunteer Sign-Up</a>
+                                       class="btn btn-red">Volunteer Sign-Up</a>
                                 </div>
                             </div>
                             <!--Sponsor Us Card-->
@@ -336,7 +342,7 @@
                                 <div class="card-block">
                                     <h3 class="card-title"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp; Donate</h3>
                                     <p class="card-text" id="donateText"></p>
-                                    <a target="_blank" href="https://secure2.convio.net/uwo/sandre.html" class="btn btn-info">Donate Now</a>
+                                    <a target="_blank" href="https://secure2.convio.net/uwo/sandre.html" class="btn btn-darkBlue">Donate Now</a>
                                 </div>
                             </div>
                         </div>
@@ -352,7 +358,7 @@
                                 <p id="cyclistText_mobile"></p>
 
                                 <a style="display: inline;"target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe4ryEN1Zd4Et9UZi6qNW4PT60LJAFIt1djrSlGUEckCr-slA/viewform"
-                                   class="btn btn-primary">Cyclist Sign-Up</a>
+                                   class="btn btn-lightBlue">Cyclist Sign-Up</a>
                             </div>
                         </div>
                         <!--Volunteer Card-->
@@ -363,7 +369,7 @@
                                 <p class="card-text" id="volunteerText_1_mobile"></p>
                                 <p class="card-text" id="volunteerText_2_mobile"></p>
                                 <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSePE4X-iRnFPd4u-N2cAie-BCY1yczZybAstmKkavNxEp-qEg/viewform"
-                                   class="btn btn-success">Volunteer Sign-Up</a>
+                                   class="btn  btn-red">Volunteer Sign-Up</a>
                             </div>
                         </div>
                         <!--Sponsor Us Card-->
@@ -379,7 +385,7 @@
                                     <li>Transportation (see Volunteer)</li>
                                     <li>Accommodations in London Sunday night</li>
                                 </div>
-                                <span class="pull-right text-info showMoreText">Show More</span>
+                                <span class="pull-right showMoreText" style="color: #ffbc42;">Show More</span>
                             </div>
                         </div>
                         <!--Donate Card-->
@@ -389,7 +395,7 @@
                                 <h4 class="card-title"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;Donate</h3>
                                 <p class="card-text" id="donateText_mobile"></p>
                                 <a target="_blank" href="https://secure2.convio.net/uwo/sandre.html"
-                                   class="btn btn-info">Donate Now</a>
+                                   class="btn btn-darkBlue">Donate Now</a>
                             </div>
                         </div>
                     </div> <!-- End of Mobile View -->
@@ -397,20 +403,28 @@
             </div> <!-- end of container fluid -->
         </section>
         <hr/>
-        <div class="row imageRow">
-            <div class="col-4">
-                <div class="card">
-                    <img class="card-img-top img-thumbnail" src="img/img4.JPG" >
+        <div class="container-fluid">
+            <div class="row imageRow">
+                <div class="col-4">
+                    <a data-lightbox="img4" href="img/img4.JPG">
+                        <div class="card">
+                            <img class="card-img-top img-thumbnail" src="img/img4.JPG" >
+                        </div>
+                    </a>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <img class="card-img-top img-thumbnail" src="img/img5.JPG"  style="object-position: 50% 20%;">
+                <div class="col-4">
+                    <a data-lightbox="img5" href="img/img5.JPG">
+                        <div class="card">
+                            <img class="card-img-top img-thumbnail" src="img/img5.JPG"  style="object-position: 50% 20%;">
+                        </div>
+                    </a>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <img class="card-img-top img-thumbnail" src="img/img6.JPG" >
+                <div class="col-4">
+                    <a data-lightbox="img6" href="img/img6.JPG">
+                        <div class="card">
+                            <img class="card-img-top img-thumbnail" src="img/img6.JPG" >
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -538,7 +552,7 @@
                                     <div class="text-center noteStrong"><h6>We <strong>STRONGLY</strong> suggest using a road (not mountain) bike. Trust us on this one</h6></div>
                                 </div>
                                 <div class="col-4">
-                                    <div class="text-center noteWeak"><h6 id="note_1"></h6></div>
+                                    <div class="text-center noteStrong"><h6 id="note_1"></h6></div>
                                 </div>
                                 <div class="col-4">
                                     <div class="text-center noteStrong"><h6 id="note_2"></h6></div>
@@ -547,10 +561,10 @@
                             <br/>
                             <div class="row">
                                 <div class="col-5 offset-1">
-                                    <div class="text-center noteWeak"><h6 id="note_3"></h6></div>
+                                    <div class="text-center noteStrong"><h6 id="note_3"></h6></div>
                                 </div>
                                 <div class="col-5">
-                                    <div class="text-center noteWeak"><h6 id="note_4"></h6></div>
+                                    <div class="text-center noteStrong"><h6 id="note_4"></h6></div>
                                 </div>
                             </div>
                         </div>
@@ -563,7 +577,7 @@
                         <div style="visiblity: none; bottom: 45px; position: relative;" id="preparation_mobile"></div>
                         <div class="card">
                             <div class="card-header" role="tab" id="headingFour">
-                                <a data-toggle="collapse" data-parent="#whatToExpectAccordian" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                <a class="collapseLink" data-toggle="collapse" data-parent="#whatToExpectAccordian" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
                                     <h3>
                                         <span class="badge badge-background">Preparation</span>
                                         <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
@@ -573,7 +587,12 @@
 
                             <div id="collapseFour" class="collapse show" role="tabpanel" aria-labelledby="collapseFour">
                                 <div class="card-block" >
-                                    <p id="prepation_mobile"></p>
+                                    <p id="prepation_mobile">
+                                        We suggest that you prepare for the ride by doing some training on your own.
+                                        Practice rides or any cardio and endurance exercises will help you to prepare.
+                                        That being said, <strong>don’t be intimidated by the length of the ride.</strong>
+                                        Last year we went at a slow pace and <strong>everyone was able to complete it</strong> - biking 160km over two days is challenging, but doable!
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -582,7 +601,7 @@
                         <div style="visiblity: none; bottom: 40px; position: relative;" id="thingsYoullNeed_mobile"></div>
                         <div class="card">
                             <div class="card-header" role="tab" id="headingFive">
-                                <a data-toggle="collapse" data-parent="#whatToExpectAccordian" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                                <a class="collapseLink" data-toggle="collapse" data-parent="#whatToExpectAccordian" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
                                     <h3>
                                         <span class="badge badge-background">Things You'll Need</span>
                                         <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
@@ -602,7 +621,7 @@
                                         <li id="bring_6_mobile"></li>
                                         <li id="bring_7_mobile"></li>
                                     </div>
-                                    <span class="pull-right text-info showMoreText">Show More</span>
+                                    <span class="pull-right showMoreText" style="color: #fe5f55;">Show More</span>
                                     <br/>
                                 </div>
                             </div>
@@ -639,7 +658,7 @@
                                 <li id="day1_3_mobile"></li>
                                 <li id="day1_4_mobile"></li>
                             </div>
-                            <span class="pull-right text-info showMoreText">Show More</span>
+                            <span class="pull-right showMoreText" style="color: #ffbc42;">Show More</span>
                         </div>
                     </div>
                     <br/>
@@ -668,7 +687,7 @@
                                         The Spoke</a>, the campus bar and restaurant, and have a drink or two with dinner
                                 </li>
                             </div>
-                            <span class="pull-right text-info showMoreText">Show More</span>
+                            <span class="pull-right showMoreText" style="color: #873EA9;">Show More</span>
                         </div>
                     </div>
                     <br/>
@@ -676,7 +695,7 @@
                     <div style="visiblity: none; bottom: 45px; position: relative;" id="notes_mobile"></div>
                     <div class="card">
                         <div class="card-header" role="tab" id="headingSix">
-                            <a data-toggle="collapse" data-parent="#whatToExpectAccordian" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                            <a class="collapseLink" data-toggle="collapse" data-parent="#whatToExpectAccordian" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
                                 <h3>
                                     <span class="badge badge-background">Notes</span>
                                     <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
@@ -693,7 +712,7 @@
                                     <li id="note_3_mobile"></li>
                                     <li id="note_4_mobile"></li>
                                 </div>
-                                <span class="pull-right text-info showMoreText">Show More</span>
+                                <span class="pull-right showMoreText" style="color: #fe5f55;">Show More</span>
                                 <br/>
                             </div>
                         </div>
@@ -704,106 +723,116 @@
             </div> <!-- End of container fluid -->
         </section>
         <hr/>
-        <div class="row imageRow">
-            <div class="col-4">
-                <div class="card">
-                    <img class="card-img-top img-thumbnail" src="img/img10.JPG" style="object-position: 0px 25%;">
+        <div class="container-fluid">
+            <div class="row imageRow">
+                <div class="col-4">
+                    <a data-lightbox="img10" href="img/img10.JPG">
+                        <div class="card">
+                            <img class="card-img-top img-thumbnail" src="img/img10.JPG" style="object-position: 0px 25%;">
+                        </div>
+                    </a>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <img class="card-img-top img-thumbnail" src="img/img11.JPG" style="object-position: 0px 10%;">
+                <div class="col-4">
+                    <a data-lightbox="img11" href="img/img11.JPG">
+                        <div class="card">
+                            <img class="card-img-top img-thumbnail" src="img/img11.JPG" style="object-position: 0px 10%;">
+                        </div>
+                    </a>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="card">
-                    <img class="card-img-top img-thumbnail" src="img/img12.JPG"  style="object-position: 0px 25%;">
+                <div class="col-4">
+                    <a data-lightbox="img12" href="img/img12.JPG">
+                        <div class="card">
+                            <img class="card-img-top img-thumbnail" src="img/img12.JPG"  style="object-position: 0px 25%;">
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
         <hr/>
         <!-- Donate and Contact -->
-        <div class="row justify-content-center">
-            <div class="col-xs-12 col-md-5">
-                <!-- Donate -->
-                <section id="donate">
-                    <div class="container-fluid text-white section-block" id="donateBlock">
-                        <div class="hidden-sm-down">
-                            <h1 class="section-heading" style="display: inline;">Donate</h1>
-                            <h1 class="section-heading pull-right" style="display: inline;">
-                                <i class="fa fa-heart faa-pulse animated faa-slow" style="color: #fe5f55;"></i>
-                            </h1>
-                        </div>
-                        <div class="hidden-md-up text-center">
-                            <h2 class="section-heading-mobile" style="display: inline;">Donate</h2>
-                            <h2 class="section-heading-mobile" style="display: inline; padding-left: 50px">
-                                <i class="fa fa-heart faa-pulse animated faa-slow" style="color: #fe5f55;"></i>
-                            </h2>
-                        </div>
-                        <hr style="border-color: white; width: 95%"/>
-                        <div class="text-center" id="donateBox">
-                            <p id="donateText_1"></p>
-                            <div class="more">
-                                <p id="donateText_2"></p>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-xs-12 col-md-5">
+                    <!-- Donate -->
+                    <section id="donate">
+                        <div class="container-fluid text-white section-block" id="donateBlock">
+                            <div class="hidden-sm-down">
+                                <h1 class="section-heading" style="display: inline;">Donate</h1>
+                                <h1 class="section-heading pull-right" style="display: inline;">
+                                    <i class="fa fa-heart faa-pulse animated faa-slow" style="color: #fe5f55;"></i>
+                                </h1>
                             </div>
-                            <a class="btn btn-success" target="_blank" href="https://secure2.convio.net/uwo/sandre.html">Donate Now or Find Out More</a>
-                            <br/><br/>
-                            <span class="pull-right text-white showMoreText">Show More</span>
-                            <br/>
-                        </div>
+                            <div class="hidden-md-up text-center">
+                                <h2 class="section-heading-mobile" style="display: inline;">Donate</h2>
+                                <h2 class="section-heading-mobile" style="display: inline; padding-left: 50px">
+                                    <i class="fa fa-heart faa-pulse animated faa-slow" style="color: #fe5f55;"></i>
+                                </h2>
+                            </div>
+                            <hr style="border-color: white; width: 95%"/>
+                            <div class="text-center" id="donateBox">
+                                <p id="donateText_1"></p>
+                                <div class="more">
+                                    <p id="donateText_2"></p>
+                                </div>
+                                <a class="btn  btn-red" target="_blank" href="https://secure2.convio.net/uwo/sandre.html">Donate Now or Find Out More</a>
+                                <br/><br/>
+                                <span class="pull-right text-white showMoreText">Show More</span>
+                                <br/>
+                            </div>
 
-                    </div> <!-- End of Container Fluid -->
-                </section>
-            </div>
-            <div class="col-xs-12 col-md-5 offset-md-1">
-                <section id="contactUs" >
-                    <div class="container-fluid bg-inverse text-white section-block">
-                        <div class="hidden-sm-down">
-                            <h1 class="section-heading" style="display: inline;">Contact Us</h1>
-                            <h1 class="section-heading pull-right" style="display: inline;">
-                                <i class="fa fa-envelope faa-shake animated faa-slow"></i>
-                            </h1>
-                        </div>
-                        <div class="hidden-md-up text-center">
-                            <h2 class="section-heading-mobile" style="display: inline;">Contact Us</h2>
-                            <h2 class="section-heading-mobile" style="display: inline; padding-left: 50px">
-                                <i class="fa fa-envelope faa-shake animated faa-slow"></i>
-                            </h2>
-                        </div>
-                        <hr style="border-color: white; width: 95%"/>
-                        <div class="row justify-content-center">
-                            <div class="col-3 offset-md-1 offset-xs-1" >
-                                <i class="fa fa-envelope-o fa-2x"></i>
+                        </div> <!-- End of Container Fluid -->
+                    </section>
+                </div>
+                <div class="col-xs-12 col-md-5 offset-md-1">
+                    <section id="contactUs" >
+                        <div class="container-fluid bg-inverse text-white section-block">
+                            <div class="hidden-sm-down">
+                                <h1 class="section-heading" style="display: inline;">Contact Us</h1>
+                                <h1 class="section-heading pull-right" style="display: inline;">
+                                    <i class="fa fa-envelope faa-shake animated faa-slow"></i>
+                                </h1>
                             </div>
-                            <div class="col-6 text-left-center">
-                                <div class="hidden-sm-down">
-                                    <a style="color: white;" href="mailto:ride4craig@gmail.com">ride4craig@gmail.com</a>
+                            <div class="hidden-md-up text-center">
+                                <h2 class="section-heading-mobile" style="display: inline;">Contact Us</h2>
+                                <h2 class="section-heading-mobile" style="display: inline; padding-left: 50px">
+                                    <i class="fa fa-envelope faa-shake animated faa-slow"></i>
+                                </h2>
+                            </div>
+                            <hr style="border-color: white; width: 95%"/>
+                            <div class="row justify-content-center">
+                                <div class="col-3 offset-md-1 offset-xs-1" >
+                                    <i class="fa fa-envelope-o fa-2x"></i>
                                 </div>
-                                <div class="hidden-md-up text-center">
-                                    <a style="color: white;" target="_blank"  href="mailto:ride4craig@gmail.com">ride4craig@<br/>gmail.com</a>
+                                <div class="col-6 text-left">
+                                    <div class="hidden-sm-down">
+                                        <a style="color: white;" href="mailto:ride4craig@gmail.com">ride4craig@gmail.com</a>
+                                    </div>
+                                    <div class="hidden-md-up text-left">
+                                        <a style="color: white;" target="_blank"  href="mailto:ride4craig@gmail.com">ride4craig@<br/>gmail.com</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <br/>
-                        <div class="row justify-content-center">
-                            <div class="col-3 offset-md-1">
-                                <i class="fa fa-facebook-official fa-2x"></i>
+                            <br/>
+                            <div class="row justify-content-center">
+                                <div class="col-3 offset-md-1">
+                                    <i class="fa fa-facebook-official fa-2x"></i>
+                                </div>
+                                <div class="col-6 text-left">
+                                    <a style="color: white;" target="_blank"  href="https://www.facebook.com/groups/254308575089428/permalink/254310315089254/?notif_t=group_description_change&notif_id=1502492296700671">Join the FB Group</a>
+                                </div>
                             </div>
-                            <div class="col-6 text-left">
-                                <a style="color: white;" target="_blank"  href="https://www.facebook.com/groups/254308575089428/permalink/254310315089254/?notif_t=group_description_change&notif_id=1502492296700671">Join the FB Group</a>
+                            <br/>
+                            <div class="row justify-content-center">
+                                <div class="col-3 offset-md-1 offset-xs-1" >
+                                    <i class="fa fa-twitter fa-2x"></i>
+                                </div>
+                                <div class="col-6 text-left">
+                                    <a style="color: white;">#rideForCraig</a>
+                                </div>
                             </div>
-                        </div>
-                        <br/>
-                        <div class="row justify-content-center">
-                            <div class="col-3 offset-md-1 offset-xs-1" >
-                                <i class="fa fa-twitter fa-2x"></i>
-                            </div>
-                            <div class="col-6 text-left">
-                                <a style="color: white;">#rideForCraig</a>
-                            </div>
-                        </div>
-                    </div> <!-- End of Container Fluid -->
-                </section>
+                        </div> <!-- End of Container Fluid -->
+                    </section>
+                </div>
             </div>
         </div>
     </div>

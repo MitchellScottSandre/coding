@@ -20,6 +20,7 @@
     <!--LightBox2-->
     <link href="vendor/lightbox2/lightbox.min.css" rel="stylesheet">
     <script src="vendor/lightbox2/lightbox.min.js"></script>
+
     <!--Custom-->
     <script src="js/main.js"></script>
 
@@ -33,13 +34,13 @@
             <span><i class="fa fa-bars" aria-hidden="true" style="color: #873EA9"></i></span>
         </button>
 
-        <a class="navbar-brand" href="#pageTop" style="color: #fe5f55;"><strong>Ride For Craig</strong></a>
+        <a class="navbar-brand changeSizeText" href="#pageTop" style="color: #fe5f55;"><strong>Ride For Craig</strong></a>
 
         <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="nav navbar-nav w-100 justify-content-end">
                 <!--About Dropdown-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="aboutLink">
+                    <a class="nav-link dropdown-toggle changeSizeText" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="aboutLink">
                         <strong>About the Cause</strong>
                     </a>
                     <div class="dropdown-menu">
@@ -49,7 +50,7 @@
                 </li>
                 <!--Get Involved Dropdown-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="involvedLink">
+                    <a class="nav-link dropdown-toggle changeSizeText" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="involvedLink">
                         <strong>Get Involved</strong>
                     </a>
                     <div class="dropdown-menu">
@@ -61,7 +62,7 @@
                 </li>
                 <!--What to Expect Dropdown-->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="expectLink">
+                    <a class="nav-link dropdown-toggle changeSizeText" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="expectLink">
                         <strong>What to Expect</strong>
                     </a>
                     <div class="dropdown-menu">
@@ -73,13 +74,13 @@
                 </li>
                 <!--Donate-->
                 <li class="nav-item" >
-                    <a class="nav-link navToggler" href="#donate" id="donateLink">
+                    <a class="nav-link navToggler changeSizeText" href="#donate" id="donateLink">
                         <strong>Donate</strong>
                     </a>
                 </li>
                 <!--Contact Us-->
                 <li class="nav-item">
-                    <a class="nav-link navToggler" href="#contactUs" id="contactLink">
+                    <a class="nav-link navToggler changeSizeText" href="#contactUs" id="contactLink">
                         <strong>Contact Us</strong>
                     </a>
                 </li>
@@ -99,7 +100,7 @@
                     <br/>
                     <h3>Ride For Craig is happening September 9-10th</h3>
                     <br/>
-                    <h4><a  class="btn btn-red btn-lg" target="_blank" href="https://secure2.convio.net/uwo/sandre.html"><strong>Donate Now</strong></a></h4>
+                    <h4><a class="btn btn-red btn-lg" target="_blank" href="https://secure2.convio.net/uwo/sandre.html"><strong>Donate Now</strong></a></h4>
                 </div>
             </div>
             <br/>
@@ -113,7 +114,7 @@
     <br/>
     <br/>
     <br/>
-    <div class="container-fluid">
+    <div class="container-fluid rows">
         <div class="row imageRow">
             <div class="col-4">
                 <a data-lightbox="craig1" href="img/craig1.JPG">
@@ -144,7 +145,6 @@
         <!------------------------------------- About Section -------------------------------------->
         <section>
             <div class="container-fluid" >
-                <!--<div class="col-12">-->
                     <div class="hidden-sm-down">
                         <h1 class="section-heading">About The Cause</h1>
                     </div>
@@ -161,39 +161,46 @@
                     <br/>
                     <div style="visiblity: none; bottom: 50px; position: relative;" id="whyWeRide"></div>
                     <!--Browser View-->
-                    <div class="hidden-md-down">
+                    <div class="hidden-sm-down">
                         <h3 class="section-subtitle">Why We're Riding</h3>
                         <br/>
-                        <div class="row justify-content-center whyWeRideInfo">
-                            <div class="col-1">
-                                <h3><span class="badge badge-primary">For Craig</span></h3>
-                            </div>
-                            <div class="col-8 offset-1">
-                                <p id="whyWeRide_1"></p>
-                            </div>
-                        </div>
-                        <br/>
-                        <div class="row justify-content-center whyWeRideInfo">
-                            <div class="col-1">
-                                <h3><span class="badge badge-success">For Western Students</span></h3>
-                            </div>
-                            <div class="col-7 offset-2">
-                                <p id="whyWeRide_2"></p>
+                        <div class="container-fluid justify-content-center">
+                            <div class="col-10 offset-1">
+                                <div class="row">
+                                    <h3><span class="badge badge-primary">For Craig</span></h3>
+                                </div>
+                                <div class="row whyWeRideInfo">
+                                    <p id="whyWeRide_1"></p>
+                                </div>
                             </div>
                         </div>
                         <br/>
-                        <div class="row justify-content-center whyWeRideInfo">
-                            <div class="col-1">
-                                <h3><span class="badge badge-warning">1 in 5</span></h3>
-                            </div>
-                            <div class="col-8 offset-1">
-                                <p id="whyWeRide_3"></p>
+                        <div class="container-fluid justify-content-center">
+                            <div class="col-10 offset-1">
+                                <div class="row justify-content-end">
+                                    <h2><span class="badge badge-success text-right">For Western Students</span></h2>
+                                </div>
+                                <div class="row whyWeRideInfo">
+                                    <p id="whyWeRide_2"></p>
+                                </div>
                             </div>
                         </div>
+                        <br/>
+                        <div class="container-fluid justify-content-center">
+                            <div class="col-10 offset-1">
+                                <div class="row">
+                                    <h2><span class="badge badge-warning">For the 1 in 5</span></h2>
+                                </div>
+                                <div class="row whyWeRideInfo">
+                                    <p id="whyWeRide_3"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
                     </div>
 
                     <!--Mobile View-->
-                    <div class="hidden-lg-up">
+                    <div class="hidden-md-up">
                         <h3 class="text-center">Why We're Riding</h3>
                         <br/>
                         <div style="visiblity: none; bottom: 45px; position: relative;" id="whyWeRide_mobile"></div>
@@ -253,7 +260,6 @@
                             </div>
                         </div>
                     </div>
-                <!--</div> &lt;!&ndash; End of col-12 &ndash;&gt;-->
             </div> <!-- End of container-fluid -->
         </section>
         <br/>
@@ -441,44 +447,55 @@
                 <!--Browser View-->
                 <div class="hidden-md-down">
                     <br/>
-                    <div class="row justify-content-center">
-                        <div class="col-1">
-                            <h3><span class="badge badge-primary">Preparation</span></h3>
-                        </div>
-                        <div class="col-8 offset-2" style="padding-left: 20px;">
-                            <p id="preparation">
-                                We suggest that you prepare for the ride by doing some training on your own.
-                                Practice rides or any cardio and endurance exercises will help you to prepare.
-                                That being said, <strong>don’t be intimidated by the length of the ride.</strong>
-                                Last year we went at a slow pace and <strong>everyone was able to complete it</strong> - biking 160km over two days is challenging, but doable!
-                            </p>
+                    <div class="container-fluid justify-content-center">
+                        <div class="col-10 offset-1">
+                            <div class="row">
+                                <h2><span class="badge badge-primary">Preparation</span></h2>
+                            </div>
+                            <div class="row">
+                                <p id="preparation">
+                                    We suggest that you prepare for the ride by doing some training on your own.
+                                    Practice rides or any cardio and endurance exercises will help you to prepare.
+                                    That being said, <strong>don’t be intimidated by the length of the ride.</strong>
+                                    Last year we went at a slow pace and <strong>everyone was able to complete it</strong> - biking 160km over two days is challenging, but doable!
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <br/>
                     <div style="visiblity: none; bottom: 70px; position: relative;" id="thingsYoullNeed"></div>
-                    <div class="row justify-content-center">
-                        <div class="col-1">
-                            <h3><span class="badge badge-success">Things You'll Need</span></h3>
-                        </div>
-                        <div class="col-4 offset-2" style="padding-left: 20px;">
-                            <ul class="list-group">
-                                <li id="bring_0" class="list-group-item"></li>
-                                <li id="bring_1" class="list-group-item list-group-item-danger"></li>
-                                <li id="bring_2" class="list-group-item">Helmet and Road Bike</li>
-                                <li id="bring_3" class="list-group-item list-group-item-danger"></li>
-                            </ul>
-                        </div>
-                        <div class="col-4">
-                            <ul class="list-group">
-                                <li id="bring_4" class="list-group-item list-group-item-danger"></li>
-                                <li id="bring_5" class="list-group-item"></li>
-                                <li id="bring_6" class="list-group-item list-group-item-danger"></li>
-                                <li id="bring_7" class="list-group-item "></li>
-                            </ul>
+                    <div class="container-fluid justify-content-center">
+                        <div class="col-10 offset-1">
+                            <div class="row justify-content-end">
+                                <h2><span class="badge badge-success">Things You'll Need</span></h2>
+                            </div>
+                            <div class="row">
+                                    <ul class="list-inline justify-content-center">
+                                        <li id="bring_0" class="list-group-item"></li>
+                                        <li id="bring_1" class="list-group-item"></li>
+                                        <li id="bring_2" class="list-group-item"></li>
+                                        <li id="bring_6" class="list-group-item"></li>
+                                        <li id="bring_3" class="list-group-item"></li>
+                                        <li id="bring_4" class="list-group-item"></li>
+                                        <li id="bring_7" class="list-group-item"></li>
+                                        <li id="bring_5" class="list-group-item"></li>
+                                        <li class="list-group-item">Change of clothes</li>
+                                    </ul>
+                            </div>
                         </div>
                     </div>
                     <br/>
                     <div style="visiblity: none; bottom: 70px; position: relative;" id="schedule"></div>
+                    <div class="container-fluid justify-content-center">
+                        <div class="col-10 offset-1">
+                            <div class="row">
+                                <h3><span class="badge badge-warning">Schedule</span></h3>
+                            </div>
+                            <div class="row">
+
+                            </div>
+                        </div>
+                    </div>
                     <div class="row justify-content-center">
                         <div class="col-1">
                             <h3><span class="badge badge-warning">Schedule</span></h3>
@@ -620,6 +637,7 @@
                                         <li id="bring_5_mobile"></li>
                                         <li id="bring_6_mobile"></li>
                                         <li id="bring_7_mobile"></li>
+                                        <li id="bring_5" class="list-group-item"></li>
                                     </div>
                                     <span class="pull-right showMoreText" style="color: #fe5f55;">Show More</span>
                                     <br/>

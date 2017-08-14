@@ -1,6 +1,7 @@
 :root {
     --borderRadius:20px;
 }
+
 body {
     position: relative;
 }
@@ -154,8 +155,12 @@ section .section-block {
     display: none;
 }
 
+.imageRow {
+    padding-left: 20px;
+    padding-right: 20px;
+}
 .imageRow img {
-    height: 20vh;
+    height: 25vh;
     object-fit: cover;
 }
 
@@ -168,19 +173,25 @@ section .section-block {
 .whyWeRideInfo p, #preparation{
     padding: 20px;
     border-radius: var(--borderRadius);
+    line-height: 160%
+}
+
+.whyWeRideInfo h5, h6{
+    padding-left: 20px;
+    padding-top: 20px;
 }
 
 /* Section Pargraphs By ID*/
 #whyWeRide_1, #preparation{
-    background-color: #B0EAEF;
+    background-color: rgba(176, 234, 239, 0.3);
 }
 
 #whyWeRide_2 {
-    background-color: #FE9992;
+    background-color: rgba(254, 153, 146, 0.3);
 }
 
 #whyWeRide_3 {
-    background-color: #FFE1AA;
+    background-color: rgba(255, 225, 170, 0.3);
 }
 
 .nav-pills .nav-item {
@@ -216,6 +227,17 @@ section .section-block {
 }
 #dayTwoCardHeader {
     background-color: #D3C5FF;
+}
+
+/* Lists */
+ul.list-group:after {
+    clear: both;
+    display: block;
+    content: "";
+}
+
+.list-group-item {
+    float: left;
 }
 
 /* Icons */

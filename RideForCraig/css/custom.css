@@ -2,8 +2,16 @@
     --borderRadius:20px;
 }
 
+* {
+    /*font-family: 'Roboto Slab', serif;*/
+}
+
 body {
     position: relative;
+}
+
+p {
+    font-size: 17px;
 }
 
 .container-fluid {
@@ -37,7 +45,7 @@ nav .bg-faded {
 
 /*--------- Header ---------*/
 header{
-    padding-top: 40px;
+    padding-top: -20px;
     text-align: center;
     width: 100%;
     height: 100vh;
@@ -105,18 +113,6 @@ header .header-content h3{
     color:white;
 }
 
-
-/*!* Links *!*/
-/*#generalLinkItem {*/
-    /*background-color: red;*/
-/*}*/
-
-
-/*header .header-content hr {*/
-    /*border-color: #873EA9;*/
-    /*max-width: 100px;*/
-/*}*/
-
 /*--------- Section ---------*/
 section {
     padding-top: 10px;
@@ -162,6 +158,7 @@ section .section-block {
 .imageRow img {
     height: 25vh;
     object-fit: cover;
+    cursor: zoom-in;
 }
 
 /*About Section*/
@@ -201,13 +198,34 @@ section .section-block {
 
 /* Cards */
 .card-columns {
+    -webkit-margin-after: -50px;
+    overflow: hidden;
     column-count: 2;
 }
+
+@media screen and (min-width: 768px) and (max-width: 960px){
+    .card-columns {
+        -webkit-margin-after: -100px;
+        overflow: hidden;
+        column-count: 2;
+    }
+}
+
 
 .card-block-mobile p{
     padding: 20px;
 }
+@media screen and (min-width: 768px){
+    .cardButton{
+        padding-bottom: 15px;
+    }
+}
 
+@media screen and (max-width: 768px){
+    .cardButton{
+        padding-bottom: 5px;
+    }
+}
 .card #headingOne, #headingFour {
     background-color: #52d1dc;
 }
@@ -222,6 +240,20 @@ section .section-block {
     color: white;
 }
 
+.notesDeck .card {
+    margin: 5px;
+    border-color: #873EA9;
+    background-color: rgba(211, 197, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.notesDeck .card p{
+    top: 50%;
+    padding: 15px;
+}
+
 #dayOneCardHeader {
     background-color: #FFE1AA;
 }
@@ -230,31 +262,22 @@ section .section-block {
 }
 
 /* Lists */
-ul.list-group:after {
+.needList . ul.list-group:after {
     clear: both;
     display: block;
     content: "";
 }
 
-.list-group-item {
+.needList .list-group-item {
+    margin: 5px;
     float: left;
+    background-color: rgba(254, 153, 146, 0.3);
+    border-color: #fe5f55;
 }
 
 /* Icons */
 .fa-bicycle {
     color: black;
-}
-
-.noteStrong {
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #D3C5FF;
-}
-
-.noteWeak{
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #F3EFFF;
 }
 /* Customize Bootstrap*/
 

@@ -7,9 +7,9 @@ $(document).ready(function(){
     $('.changeSizeText').mouseenter(function() {
         var prevSize = parseInt($(this).css('font-size').substring(0, $(this).css('font-size').indexOf("px")));
         var newSize = (prevSize + 2) + "px";
-        $(this).animate({ fontSize: newSize }, 200 );
+        $(this).animate({ fontSize: newSize }, 100 );
         $(this).mouseleave(function() {
-            $(this).animate({ fontSize: prevSize + "px"}, 200 );
+            $(this).animate({ fontSize: prevSize + "px"}, 100 );
         });
     });
 
@@ -102,7 +102,7 @@ $(document).ready(function(){
     // About the Cause
     var aboutTheCause_description_1 = "Ride for Craig is an annual fundraiser to honour the life of our friend, Craig, who passed away from mental illness in November 2015.";
     var aboutTheCause_description_2 = "On September 9-10th, we will be biking 160km from Oakville to London to raise money for the Craig Sandre Soph Support Fund to provide students at Western University with mental health education and support."
-    var whyWeRide_1 = "Those who knew Craig knew him as a fun-loving, enthusiastic and warm friend with the biggest heart. He had an exceptional talent for making people laugh and feel at ease. We chose to have the event on the September 10th weekend to celebrate Craig’s birthday. From the overnight camping to the “Star Wars” theme, the event has been designed to celebrate Craig’s birthday in a way that we feel would make him proud.";
+    var whyWeRide_1 = "Those who knew Craig knew him as a fun-loving, enthusiastic and warm friend with a big heart. He had an exceptional talent for making people laugh and feel at ease. We chose to have the event on the September 10th weekend to celebrate Craig’s birthday. From the overnight camping to the “Star Wars” theme, the event has been designed to commemorate Craig’s life in a way that we feel would make him proud.";
     var whyWeRide_2 = "We are also riding to raise money for the Craig Sandre Soph Support Fund, with the intention of supporting mental health and wellness programs for Western University Sophs. The fund's goal is to foster awareness for mental health and to create a more connected, supportive and resilient community in order to help others in need. We hope you will support us in reaching our fundraising goal so that this fund can continue to support students in need for many years to come.";
     var whyWeRide_3 = "September 10th is also World Suicide Prevention Day. We’ve organized this ride as a way of honouring the many Canadians who have struggled, are struggling or will struggle with a mental illness or addiction. We know that mental illness affects 1 in 5 Canadians each year and every day 11 Canadians lose their lives to suicide. Despite these statistics, there is still not enough awareness or support for mental health. This is our way of fighting back and letting those who are struggling know they are not alone.";
 

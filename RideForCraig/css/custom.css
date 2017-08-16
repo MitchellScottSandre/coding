@@ -23,9 +23,17 @@ p {
     text-indent: -1.28571429em;
 }
 /*--------- Navbar ---------*/
-nav .navbar-nav > li{
-    padding-left:15px;
-    padding-right:15px;
+@media screen and (min-width: 767px) and (max-width: 1000px){
+    nav .navbar-nav > li{
+        padding-left:0px;
+        padding-right:0px;
+    }
+}
+@media screen and (min-width: 1000px){
+    nav .navbar-nav > li{
+        padding-left:15px;
+        padding-right:15px;
+    }
 }
 
 nav .navbar-nav > li > .dropdown-menu .active {
@@ -167,7 +175,7 @@ section .section-block {
     border-radius: 15px;
 }
 
-.whyWeRideInfo p, #preparation{
+.whyWeRideInfo p, #preparationP{
     padding: 20px;
     border-radius: var(--borderRadius);
     line-height: 160%
@@ -179,7 +187,7 @@ section .section-block {
 }
 
 /* Section Pargraphs By ID*/
-#whyWeRide_1, #preparation{
+#whyWeRide_1, #preparationP{
     background-color: rgba(176, 234, 239, 0.3);
 }
 
@@ -381,4 +389,39 @@ section .section-block {
 
 .nav-link-day {
     background-color: #FFE1AA;
+}
+
+/* W3 Schools Slide Functionality*/
+.slideanim {visibility:hidden;}
+.slide {
+    /* The name of the animation */
+    animation-name: slide;
+    -webkit-animation-name: slide;
+    /* The duration of the animation */
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    /* Make the element visible */
+    visibility: visible;
+}
+
+/* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translateY(70%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+@-webkit-keyframes slide {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    }
 }

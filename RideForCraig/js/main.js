@@ -1,7 +1,20 @@
 /**
- * Created by scott on 2017-08-03.
+ * Created by Mitchell Scott Sandre on 2017-08-03.
  */
 $(document).ready(function(){
+
+    // W3 Schools Slide Animation
+    $(window).scroll(function() {
+        $(".slideanim").each(function(){
+            var pos = $(this).offset().top;
+            var windowHeight = $( window ).height();
+            var winTop = $(window).scrollTop();
+            if (pos < winTop + windowHeight * 0.90) {
+                $(this).addClass("slide");
+            }
+        });
+    });
+    // End of Animation
     $("#dayTwoContent").hide();
 
     $('.changeSizeText').mouseenter(function() {
@@ -86,23 +99,10 @@ $(document).ready(function(){
         $("#dayTwoContent").show();
     });
 
-    //scrolled in to view
-    // function isScrolledIntoView(elem)
-    // {
-    //     var docViewTop = $(window).scrollTop();
-    //     var docViewBottom = docViewTop + $(window).height();
-    //
-    //     var elemTop = $(elem).offset().top;
-    //     var elemBottom = elemTop + $(elem).height();
-    //
-    //     return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
-    // }
-
     // Variables
     // About the Cause
-    var aboutTheCause_description_1 = "Ride for Craig is an annual fundraiser to honour the life of our friend, Craig, who passed away from mental illness in November 2015.";
     var aboutTheCause_description_2 = "On September 9-10th, we will be biking 160km from Oakville to London to raise money for the Craig Sandre Soph Support Fund to provide students at Western University with mental health education and support."
-    var whyWeRide_1 = "Those who knew Craig knew him as a fun-loving, enthusiastic and warm friend with a big heart. He had an exceptional talent for making people laugh and feel at ease. We chose to have the event on the September 10th weekend to celebrate Craig’s birthday. From the overnight camping to the “Star Wars” theme, the event has been designed to commemorate Craig’s life in a way that we feel would make him proud.";
+    var whyWeRide_1 = "Those who knew Craig knew him as a fun-loving, enthusiastic and warm friend with a big heart. He had an exceptional talent for making people laugh and feel at ease. We chose to have the event on the September 10th weekend to celebrate Craig’s birthday. From the overnight camping to the “Star Wars” theme, the event has been designed to commemorate Craig’s life in a way that would make him proud.";
     var whyWeRide_2 = "We are also riding to raise money for the Craig Sandre Soph Support Fund, with the intention of supporting mental health and wellness programs for Western University Sophs. The fund's goal is to foster awareness for mental health and to create a more connected, supportive and resilient community in order to help others in need. We hope you will support us in reaching our fundraising goal so that this fund can continue to support students in need for many years to come.";
     var whyWeRide_3 = "September 10th is also World Suicide Prevention Day. We’ve organized this ride as a way of honouring the many Canadians who have struggled, are struggling or will struggle with a mental illness or addiction. We know that mental illness affects 1 in 5 Canadians each year and every day 11 Canadians lose their lives to suicide. Despite these statistics, there is still not enough awareness or support for mental health. This is our way of fighting back and letting those who are struggling know they are not alone.";
 
@@ -112,20 +112,17 @@ $(document).ready(function(){
 
     // Get Involved
     var getInvolved_description = "Whether you knew Craig personally or not, we hope you will get involved to support this important cause and celebrate Craig’s birthday!";
-    var cyclistText = "We know 160km sounds intimidating but we promise it's possible. If you're not able to bike we welcome you to join us Saturday night at Pinehurst to camp.";
     var volunteerText_1 = "To ensure a safe, fun and successful event we rely on the help of our volunteers - especially our drivers!";
     var volunteerText_2 = "Interested in helping out? Please fill out the form below!";
     var sponsorUsText = "We rely on sponsorship and donations to keep event costs low and minimize the cost of participating for cyclists. We are looking for:";
     var donateText = "Support our cyclists and student mental health by donating to the Craig Sandre Soph Support Fund.";
 
-    var cyclistText_mobile = cyclistText;
     var volunteerText_1_mobile = volunteerText_1;
     var volunteerText_2_mobile = "Click below to register.";
     var sponsorUsText_mobile = "We rely on sponsorships and donations to help us keep the cost of participating low for cyclists. In particular we need:";
     var donateText_mobile = donateText;
 
     //What to Expect
-
     var day1_2 = "There will be a lunch break mid-day, and we expect to arrive at Pinehurst in the late afternoon or early evening";
     var day1_3 = "Once we arrive we will take a quick dip in the water to wash off, then set up our tents, prepare a campfire, and get ready for dinner";
     var day1_4 = "We’ll spend the evening relaxing, having fun, and getting some rest for Day Two";
@@ -161,11 +158,6 @@ $(document).ready(function(){
     var donateText_1 = "The Craig Sandre Sophs Support Fund has been established by the family of Craig Sandre, BA’16 (awarded posthumously).";
     var donateText_2 = "Donations to the fund will be used to support expenses related to offering mental health and wellness counselling services to Western Sophs throughout the academic year.";
 
-    // We will wake around 8:30AM to eat breakfast and pack up our campsite so that we can be on the road no later than 10:00AM.
-    //     We will spend most of the day biking just over 80km to Western University, but guess what? It’s all downhill on the second day! We’ll stop for another mid-day lunch break and before you know it we will arrive in London.
-    //     To celebrate the ride we will be heading over to the Spoke, the campus bar and restaurant, and have a drink or two with dinner.
-    // Set paragraph content
-    $("#aboutTheCause_description_1").text(aboutTheCause_description_1);
     $("#aboutTheCause_description_2").text(aboutTheCause_description_2);
     $("#whyWeRide_1").text(whyWeRide_1);
     $("#whyWeRide_2").text(whyWeRide_2);
@@ -175,14 +167,10 @@ $(document).ready(function(){
     $("#whyWeRide_3_mobile").text(whyWeRide_3_mobile);
 
     $('#getInvolved_description').text(getInvolved_description);
-    //Broswer
-    $('#cyclistText').text(cyclistText);
     $('#volunteerText_1').text(volunteerText_1);
     $('#volunteerText_2').text(volunteerText_2);
     $('#sponsorUsText').text(sponsorUsText);
     $('#donateText').text(donateText);
-    //Mobile
-    $('#cyclistText_mobile').text(cyclistText_mobile);
     $('#volunteerText_1_mobile').text(volunteerText_1_mobile);
     $('#volunteerText_2_mobile').text(volunteerText_2_mobile);
     $('#sponsorUsText_mobile').text(sponsorUsText_mobile);
@@ -227,8 +215,4 @@ $(document).ready(function(){
 
     $('#donateText_1').text(donateText_1);
     $('#donateText_2').text(donateText_2);
-
-
-
-
 });

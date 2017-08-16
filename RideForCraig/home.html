@@ -1,0 +1,883 @@
+<!--Created by Mitchell Scott Sandre, Aug 2017-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--jQuery-->
+    <script type="text/javascript" src="vendor/jQuery/jquery-3.2.1.js"></script>
+
+    <!--Tether-->
+    <script src="vendor/tether/tether.min.js"></script>
+
+    <!--Bootstrap-->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="vendor/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/font-awesome-4.7.0/css/font-awesome-animation.min.css">
+
+    <!--LightBox2-->
+    <link href="vendor/lightbox2/lightbox.min.css" rel="stylesheet">
+    <script src="vendor/lightbox2/lightbox.min.js"></script>
+
+    <!--Fonts-->
+    <!--<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">-->
+
+    <!--Custom-->
+    <script src="js/main.js"></script>
+
+    <link href="css/custom.css" rel="stylesheet">
+</head>
+<body id="pageTop" data-spy="scroll" data-target="#navbarContent">
+
+    <!-------------------------------------Navbar-------------------------------------->
+    <nav class="navbar navbar-light navbar-toggleable-sm bg-faded fixed-top" id="mainNav">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span><i class="fa fa-bars" aria-hidden="true" style="color: #873EA9"></i></span>
+        </button>
+
+        <a class="navbar-brand changeSizeText" href="#pageTop" style="color: #fe5f55;"><strong>Ride For Craig</strong></a>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="nav navbar-nav w-100 justify-content-end">
+                <!--About Dropdown-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle changeSizeText text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="aboutLink">
+                        <strong>About the Cause</strong>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item navToggler" href="#general" id="generalLinkItem">General</a>
+                        <a class="dropdown-item navToggler" href="#whyWeRide">Why We're Riding</a>
+                    </div>
+                </li>
+                <!--Get Involved Dropdown-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle changeSizeText text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="involvedLink">
+                        <strong>Get Involved</strong>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item navToggler" href="#cyclistSignUp">Cyclist Sign-Up</a>
+                        <a class="dropdown-item navToggler" href="#volunteer">Volunteer</a>
+                        <a class="dropdown-item navToggler" href="#sponsorUs">Sponsor Us</a>
+                        <a class="dropdown-item navToggler" href="#donateCard">Donate</a>
+                    </div>
+                </li>
+                <!--What to Expect Dropdown-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle changeSizeText text-center" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="expectLink">
+                        <strong>What to Expect</strong>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item navToggler" href="#preparation" >Preparation</a>
+                        <a class="dropdown-item navToggler" href="#thingsYoullNeed" >Things You'll Need</a>
+                        <a class="dropdown-item navToggler" href="#schedule" >Schedule</a>
+                        <a class="dropdown-item navToggler" href="#notes" >Notes</a>
+                    </div>
+                </li>
+                <!--Donate-->
+                <li class="nav-item" >
+                    <a class="nav-link navToggler changeSizeText text-center" href="#donate" id="donateLink">
+                        <strong>Donate</strong>
+                    </a>
+                </li>
+                <!--Contact Us-->
+                <li class="nav-item">
+                    <a class="nav-link navToggler changeSizeText text-center" href="#contactUs" id="contactLink">
+                        <strong>Contact Us</strong>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!------------------------------------- Header -------------------------------------->
+    <section>
+    <header>
+        <div class="bg"></div>
+        <div class="headerContainer">
+            <div class="header-content">
+                <div class="header-content-inner">
+                    <h1 id="welcomeMessage">Welcome!</h1>
+                    <br/>
+                    <br/>
+                    <h3>Ride For Craig is happening September 9-10th</h3>
+                    <br/>
+                    <h4><a class="btn btn-red btn-lg" target="_blank" href="https://secure2.convio.net/uwo/sandre.html"><strong>Donate Now</strong></a></h4>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <div class="slideanim">
+                <h5 style="color: white;">Find out more</h5>
+                <a href="#general"><i class="fa fa-chevron-down fa-3x" aria-hidden="true" style="color: white;"></i></a>
+            </div>
+        </div>
+    </header>
+        <div style="visiblity: none; bottom: 20px; position: relative;" id="general"></div>
+    </section>
+    <hr/>
+    <div class="container-fluid rows">
+        <div class="row imageRow">
+            <div class="col-4">
+                <a data-lightbox="craig1" href="img/craig1.jpg">
+                    <div class="card">
+                        <img class="card-img-top img-thumbnail" src="img/craig1.jpg" style="object-position: 20% 12%;">
+                    </div>
+                </a>
+            </div>
+            <div class="col-4">
+                <a data-lightbox="craig2" href="img/craig2.jpg">
+                    <div class="card">
+                        <img class="card-img-top img-thumbnail" src="img/craig2.jpg" style="object-position: 24% 10%;">
+                    </div>
+                </a>
+            </div>
+            <div class="col-4">
+                <a data-lightbox="craig3" href="img/craig3.jpg">
+                    <div class="card">
+                        <img class="card-img-top img-thumbnail" src="img/craig3.jpg"  style="object-position: 50% 24%;">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <!------------------------------------- Main Container -------------------------------------->
+    <div class="container-fluid">
+        <!------------------------------------- About Section -------------------------------------->
+        <section>
+            <div class="container-fluid" >
+                    <div class="hidden-sm-down">
+                        <h1 class="section-heading">About The Cause</h1>
+                    </div>
+                    <div class="hidden-md-up text-center">
+                        <h2 class="section-heading-mobile">About The Cause</h2>
+                    </div>
+                    <br/>
+                    <div class="row">
+                            <div class="section-description col-md-8 offset-md-2 col-xs-10 offset-xs-1 slideanim">
+                                <h5>
+                                    <span style="color: #fe5f55"><strong>Ride for Craig </strong></span>is an annual fundraiser to honour the life of our friend, Craig, who passed away from mental illness in November 2015.
+                                </h5>
+                                <br/>
+                                <h5 id="aboutTheCause_description_2"></h5>
+                            </div>
+                    </div>
+                    <div style="visiblity: none; bottom: 50px; position: relative;" id="whyWeRide"></div>
+                    <br/>
+                    <!--Browser View-->
+                    <div class="hidden-sm-down">
+                        <h3 class="section-subtitle">Why We're Riding</h3>
+                        <br/>
+                        <div class="container-fluid justify-content-center">
+                            <div class="col-lg-10 offset-lg-1 col-md-12 slideanim">
+                                <div class="row">
+                                    <h2><span class="badge badge-primary">For Craig</span></h2>
+                                </div>
+                                <div class="row whyWeRideInfo">
+                                    <p id="whyWeRide_1"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="container-fluid justify-content-center">
+                            <div class="col-lg-10 offset-lg-1 col-md-12 slideanim">
+                                <div class="row justify-content-end">
+                                    <h2><span class="badge badge-success text-right">For Western Students</span></h2>
+                                </div>
+                                <div class="row whyWeRideInfo">
+                                    <p id="whyWeRide_2"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="container-fluid justify-content-center">
+                            <div class="col-lg-10 offset-lg-1 col-md-12 slideanim">
+                                <div class="row">
+                                    <h2><span class="badge badge-warning">For the 1 in 5</span></h2>
+                                </div>
+                                <div class="row whyWeRideInfo">
+                                    <p id="whyWeRide_3"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                    </div>
+
+                    <!--Mobile View-->
+                    <div class="hidden-md-up">
+                        <h3 class="text-center">Why We're Riding</h3>
+                        <br/>
+                        <div style="visiblity: none; bottom: 45px; position: relative;" id="whyWeRide_mobile"></div>
+                        <div id="whyWeRideAccordian" role="tablist" aria-multiselectable="true">
+                            <!-- Card One -->
+                            <div class="card slideanim" style="margin-bottom: 10px;">
+                                <div class="card-header" role="tab" id="headingOne">
+                                    <a class="collapseLink" data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <h3>
+                                            <span class="badge badge-background">For Craig</span>
+                                            <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
+                                        </h3>
+                                    </a>
+                                </div>
+
+                                <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="card-block-mobile" >
+                                        <p id="whyWeRide_1_mobile"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card Two -->
+                            <div class="card slideanim" style="margin-bottom: 10px;">
+                                <div class="card-header" role="tab" id="headingTwo">
+                                    <a class="collapseLink" data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                        <h3>
+                                            <span class="badge badge-success">For Western Students</span>
+                                            <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
+                                        </h3>
+                                    </a>
+                                </div>
+
+                                <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="collapseTwo">
+                                    <div class="card-block-mobile" >
+                                        <p id="whyWeRide_2_mobile"></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card Three -->
+                            <div class="card slideanim">
+                                <div class="card-header" role="tab" id="headingThree">
+                                    <a class="collapseLink" data-toggle="collapse" data-parent="#whyWeRideAccordian" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                        <h3>
+                                            <span class="badge badge-warning">For the 1 in 5</span>
+                                            <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
+                                        </h3>
+                                    </a>
+                                </div>
+
+                                <div id="collapseThree" class="collapse show" role="tabpanel" aria-labelledby="collapseThree">
+                                    <div class="card-block-mobile" >
+                                        <p id="whyWeRide_3_mobile"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div> <!-- End of container-fluid -->
+        </section>
+        <hr/>
+        <div class="row imageRow">
+            <div class="col-4">
+                <a data-lightbox="img1" href="img/img1.jpg">
+                    <div class="card">
+                        <img class="card-img-top img-thumbnail" src="img/img1.jpg">
+                    </div>
+                </a>
+            </div>
+            <div class="col-4">
+                <a data-lightbox="img2" href="img/img2.jpg">
+                    <div class="card">
+                        <img class="card-img-top img-thumbnail" src="img/img2.jpg">
+                    </div>
+                </a>
+            </div>
+            <div class="col-4">
+                <a data-lightbox="img3" href="img/img3.jpg">
+                    <div class="card">
+                        <img class="card-img-top img-thumbnail" src="img/img3.jpg"  style="object-position: 0px 40%;">
+                    </div>
+                </a>
+            </div>
+        </div>
+        <hr/>
+        <!------------------------------------- Get Involved Section -------------------------------------->
+        <section id="getInvolved">
+            <div class="container-fluid">
+                <!--<div class="col-12">-->
+                    <div class="hidden-sm-down">
+                        <h1 class="section-heading">Get Involved</h1>
+                    </div>
+                    <div class="hidden-md-up text-center">
+                        <h2 class="section-heading-mobile">Get Involved</h2>
+                    </div>
+                    <br/>
+                    <div class="row slideanim">
+                        <div class="section-description col-md-8 offset-md-2 col-xs-10 offset-xs-1">
+                            <h5 id="getInvolved_description"></h5>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <!--Browser View-->
+                    <div class="hidden-sm-down">
+                        <div style="visiblity: none; bottom: 70px; position: relative;" id="cyclistSignUp"></div>
+                        <div style="visiblity: none; bottom: 70px; position: relative;" id="sponsorUs"></div>
+                        <div class="card-columns slideanim" style="padding-left: 20px; padding-right: 20px;">
+                            <!--Cyclist Card-->
+                            <div class="card card-outline-primary">
+                                <div class="card-block">
+                                    <h3 class="card-title"><i class="fa fa-bicycle" aria-hidden="true"></i> &nbsp; Sign Up as a Cyclist</h3>
+                                    <p>
+                                        We know 160km sounds intimidating but we promise it's possible.
+                                        If you're not able to bike we welcome you to join us Saturday night at
+                                        <a href="https://www.google.ca/maps/place/Pinehurst+Lake+Conservation+Area/@43.2492949,-80.5518533,10.7z/data=!4m5!3m4!1s0x882c732d249cbda1:0x14b3fae8d27cc7fc!8m2!3d43.2651268!4d-80.3892808">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Pinehurst Conservation Area
+                                        </a>
+                                        to camp.
+                                    </p>
+                                    <div class="cardButton pull-right">
+                                        <a id="volunteer" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe4ryEN1Zd4Et9UZi6qNW4PT60LJAFIt1djrSlGUEckCr-slA/viewform"
+                                           class="btn btn-lightBlue">Cyclist Sign-Up</a>
+                                    </div>
+                                    <br/>
+                                </div>
+                            </div>
+                            <!--Volunteer Card-->
+                            <div class="card card-outline-success">
+                                <div class="card-block">
+                                    <h3 class="card-title"><i class="fa fa-car" aria-hidden="true"></i> &nbsp; Volunteer During the Event</h3>
+                                    <p class="card-text" id="volunteerText_1"></p>
+                                    <p class="card-text" id="volunteerText_2"></p>
+                                    <div class="cardButton pull-right">
+                                        <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSePE4X-iRnFPd4u-N2cAie-BCY1yczZybAstmKkavNxEp-qEg/viewform"
+                                           class="btn btn-red">Volunteer Sign-Up</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Sponsor Us Card-->
+                            <div class="card card-outline-warning">
+                                <div class="card-block">
+                                    <h3 class="card-title"><i class="fa fa-handshake-o" aria-hidden="true"></i> &nbsp; Sponsor Us </h3>
+                                    <p class="card-text" id="sponsorUsText"></p>
+                                    <ul>
+                                        <li>Lightweight bikes (ideally road bikes)</li>
+                                        <li>Food and Drinks</li>
+                                        <li>Bike Racks</li>
+                                        <li>Transportation (see Volunteer Sign-Up)</li>
+                                        <li id="donateCard">Accommodations in London Sunday night</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--Donate Card-->
+                            <!--<div style="visiblity: none; bottom: 70px; position: relative;" ></div>-->
+                            <div class="card card-outline-info">
+                                <div class="card-block">
+                                    <h3 class="card-title"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp; Donate</h3>
+                                    <p class="card-text" id="donateText"></p>
+                                    <div class="cardButton pull-right">
+                                        <a target="_blank" href="https://secure2.convio.net/uwo/sandre.html" class="btn btn-darkBlue">Donate Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Mobile View-->
+                    <div class="hidden-md-up">
+                        <!--Cyclist Card-->
+                        <div style="visiblity: none; bottom: 45px; position: relative;" id="cyclistSignUp_mobile"></div>
+                        <div class="card card-outline-primary slideanim">
+                            <div class="card-block">
+                                <h4 class="card-title"><i class="fa fa-bicycle" aria-hidden="true"></i> &nbsp;Sign Up as a Cyclist</h4>
+                                <p>
+                                    We know 160km sounds intimidating but we promise it's possible.
+                                    If you're not able to bike we welcome you to join us Saturday night at
+                                    <a href="https://www.google.ca/maps/place/Pinehurst+Lake+Conservation+Area/@43.2492949,-80.5518533,10.7z/data=!4m5!3m4!1s0x882c732d249cbda1:0x14b3fae8d27cc7fc!8m2!3d43.2651268!4d-80.3892808">
+                                        Pinehurst Conservation Area
+                                    </a>
+                                    to camp.
+                                </p>
+                                <div class="cardButton pull-right">
+                                    <a style="display: inline;"target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe4ryEN1Zd4Et9UZi6qNW4PT60LJAFIt1djrSlGUEckCr-slA/viewform"
+                                       class="btn btn-lightBlue">Cyclist Sign-Up</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Volunteer Card-->
+                        <div style="visiblity: none; bottom: 45px; position: relative;" id="volunteer_mobile"></div>
+                        <div class="card card-outline-success slideanim" >
+                            <div class="card-block">
+                                <h4 class="card-title"><i class="fa fa-car" aria-hidden="true"></i> &nbsp;Volunteer</h4>
+                                <p class="card-text" id="volunteerText_1_mobile"></p>
+                                <p class="card-text" id="volunteerText_2_mobile"></p>
+                                <div class="cardButton pull-right">
+                                    <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSePE4X-iRnFPd4u-N2cAie-BCY1yczZybAstmKkavNxEp-qEg/viewform"
+                                       class="btn  btn-red">Volunteer Sign-Up</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Sponsor Us Card-->
+                        <div style="visiblity: none; bottom: 45px; position: relative;" id="sponsorUs_mobile"></div>
+                        <div class="card card-outline-warning slideanim" >
+                            <div class="card-block">
+                                <h4 class="card-title"><i class="fa fa-handshake-o" aria-hidden="true"></i> &nbsp;Sponsor Us</h4>
+                                <p class="card-text" id="sponsorUsText_mobile"></p>
+                                <li>Bikes (ideally road bikes)</li>
+                                <div class="more">
+                                    <li>Food and Drinks</li>
+                                    <li>Bike Racks</li>
+                                    <li>Transportation (see Volunteer)</li>
+                                    <li>Accommodations in London Sunday night</li>
+                                </div>
+                                <span class="pull-right showMoreText" style="color: #ffbc42;">Show More</span>
+                            </div>
+                        </div>
+                        <!--Donate Card-->
+                        <div style="visiblity: none; bottom: 50px; position: relative;" id="donateCard_mobile"></div>
+                        <div class="card card-outline-info slideanim">
+                            <div class="card-block">
+                                <h4 class="card-title"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;Donate</h4>
+                                <p class="card-text" id="donateText_mobile"></p>
+                                    <div class="cardButton pull-right">
+                                    <a target="_blank" href="https://secure2.convio.net/uwo/sandre.html"
+                                       class="btn btn-darkBlue">Donate Now</a>
+                                    </div>
+                            </div>
+                        </div>
+                    </div> <!-- End of Mobile View -->
+            </div> <!-- end of container fluid -->
+        </section>
+        <hr/>
+        <div class="container-fluid">
+            <div class="row imageRow">
+                <div class="col-4">
+                    <a data-lightbox="img4" href="img/img4.jpg">
+                        <div class="card">
+                            <img class="card-img-top img-thumbnail" src="img/img4.jpg" >
+                        </div>
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a data-lightbox="img5" href="img/img5.jpg">
+                        <div class="card">
+                            <img class="card-img-top img-thumbnail" src="img/img5.jpg"  style="object-position: 50% 20%;">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a data-lightbox="img6" href="img/img6.jpg">
+                        <div class="card">
+                            <img class="card-img-top img-thumbnail" src="img/img6.jpg" >
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <!------------------------------------- What to Expect Section -------------------------------------->
+        <section id="whatToExpect">
+            <div class="container-fluid">
+                <div class="hidden-sm-down">
+                    <h1 class="section-heading">What to Expect</h1>
+                </div>
+                <div class="hidden-md-up text-center">
+                    <h2 class="section-heading-mobile">What to Expect</h2>
+                </div>
+                <!--Browser View-->
+                <div class="hidden-sm-down">
+                    <br/>
+                    <div style="visiblity: none; bottom: 70px; position: relative;" id="preparation"></div>
+                    <div class="container-fluid justify-content-center">
+                        <div class="col-lg-10 offset-lg-1 col-md-12 slideanim">
+                            <div class="row">
+                                <h2><span class="badge badge-primary">Preparation</span></h2>
+                            </div>
+                            <div class="row">
+                                <p id="preparationP">
+                                    We suggest that you prepare for the ride by doing some training on your own.
+                                    Practice rides or any cardio and endurance exercises will help you to prepare.
+                                    That being said, <strong>don’t be intimidated by the length of the ride.</strong>
+                                    Last year we went at a slow pace and <strong>everyone was able to complete it</strong> - biking 160km over two days is challenging, but doable!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="visiblity: none; bottom: 70px; position: relative;" id="thingsYoullNeed"></div>
+                    <div class="container-fluid justify-content-center">
+                        <div class="col-lg-10 offset-lg-1 col-md-12 slideanim">
+                            <div class="row justify-content-end">
+                                <h2><span class="badge badge-success">Things You'll Need</span></h2>
+                            </div>
+                            <div class="row needList">
+                                    <ul class="list-inline">
+                                        <li id="bring_0" class="list-group-item"></li>
+                                        <li id="bring_1" class="list-group-item"></li>
+                                        <li id="bring_2" class="list-group-item"></li>
+                                        <li id="bring_6" class="list-group-item"></li>
+                                        <li id="bring_3" class="list-group-item"></li>
+                                        <li id="bring_4" class="list-group-item"></li>
+                                        <li id="bring_7" class="list-group-item"></li>
+                                        <li id="bring_5" class="list-group-item"></li>
+                                        <li class="list-group-item">Change of clothes</li>
+                                    </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div style="visiblity: none; bottom: 70px; position: relative;" id="schedule"></div>
+                    <div class="container-fluid justify-content-center">
+                        <div class="col-lg-10 offset-lg-1 col-md-12 slideanim">
+                            <div class="row">
+                                <h2><span class="badge badge-warning">Schedule</span></h2>
+                            </div>
+                            <div class="row justify-content-center">
+                                <ul class="nav nav-pills schedulePills">
+                                    <li class="nav-item">
+                                        <span class="nav-link nav-link-day-active" id="dayOneSelector">Day One</span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <span class="nav-link nav-link-day" id="dayTwoSelector">Day Two</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <br/>
+                                <div class="row" id="dayOneContent">
+                                    <div class="col-4">
+                                        <img src="img/img9.jpg" class="img-thumbnail">
+                                    </div>
+                                    <div class="col-8">
+                                        <ul>
+                                            <li>Meet at
+                                                <a href="https://www.google.ca/maps/place/White+Oaks+Secondary+School/@43.4634799,-79.7041529,17z/data=!3m1!4b1!4m5!3m4!1s0x882b5d23c1f3babd:0x68bf31d4a96f60b1!8m2!3d43.4634799!4d-79.7019642">
+                                                    <i class="fa fa-map-marker" aria-hidden="true"></i> White Oaks Secondary School
+                                                </a>
+                                                at 10:00AM
+                                            </li>
+                                            <li>
+                                                We will leave at 10:30AM and ride approximately 75 km to
+                                                <a href="https://www.google.ca/maps/place/Pinehurst+Lake+Conservation+Area/@43.2492949,-80.5518533,10.7z/data=!4m5!3m4!1s0x882c732d249cbda1:0x14b3fae8d27cc7fc!8m2!3d43.2651268!4d-80.3892808">
+                                                    <i class="fa fa-map-marker" aria-hidden="true"></i> Pinehurst Conservation Area
+                                                </a>
+                                            </li>
+                                            <li id="day1_2"></li>
+                                            <li id="day1_3"></li>
+                                            <li id="day1_4"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row" id="dayTwoContent">
+                                    <div class="col-4">
+                                        <img src="img/img6.jpg" class="img-thumbnail">
+                                    </div>
+                                    <div class="col-8">
+                                        <ul>
+                                            <li id="day2_0"></li>
+                                            <li>We will spend most of the day biking the 80km to
+                                                <a href="https://www.google.ca/maps/place/Western+University/@42.9883616,-81.2791265,12.85z/data=!4m8!1m2!2m1!1sWestern+University!3m4!1s0x882eee0e6ac42bd1:0xaa87f353aab9799b!8m2!3d43.0095971!4d-81.2737336">
+                                                    <i class="fa fa-map-marker" aria-hidden="true"></i> Western University</a>, but guess what? It’s all downhill! <i class="fa fa-smile-o" aria-hidden="true"></i>
+                                            </li>
+                                            <li id="day2_2"></li>
+                                            <li>Lastly, to celebrate the ride we will be heading over to
+                                                <a href="https://www.google.ca/maps/place/The+Spoke/@43.0086472,-81.2769167,16.01z/data=!3m1!5s0x882eee3d04f3ac3b:0xee704e962788acf0!4m8!1m2!2m1!1sThe+Spoke!3m4!1s0x0:0xed4cefbe716fc086!8m2!3d43.0084092!4d-81.2761112">
+                                                    <i class="fa fa-map-marker" aria-hidden="true"></i> The Spoke</a>, the campus bar and restaurant, and have a drink or two with dinner
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div style="visiblity: none; bottom: 20px; position: relative;" id="notes"></div>
+                    <div class="container-fluid justify-content-center">
+                        <div class="col-lg-10 offset-lg-1 col-md-12 slideanim">
+                            <div class="row justify-content-end">
+                                <h2><span class="badge badge-info">Notes</span></h2>
+                            </div>
+                            <div class="row text-center justify-content-center">
+                                <div class="card-deck notesDeck justify-content-center text-center">
+                                    <div class="card">
+                                        <p class="card-text">
+                                        We <strong>STRONGLY</strong> suggest using a road (not mountain) bike. Trust us on this one
+                                        </p>
+                                    </div>
+                                    <div class="card">
+                                        <p class="card-text" id="note_1"></p>
+                                    </div>
+                                    <div class="card">
+                                        <p class="card-text" id="note_2"></p>
+                                    </div>
+                                    <div class="card">
+                                        <p class="card-text" id="note_3"></p>
+                                    </div>
+                                    <div class="card">
+                                        <p class="card-text" id="note_4"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Mobile View-->
+                <div class="hidden-md-up">
+                    <div id="whatToExpectAccordian" role="tablist" aria-multiselectable="true">
+                        <!-- Dropdown One -->
+                        <div style="visiblity: none; bottom: 45px; position: relative;" id="preparation_mobile"></div>
+                        <div class="card slideanim" style="margin-bottom: 10px;">
+                            <div class="card-header" role="tab" id="headingFour">
+                                <a class="collapseLink" data-toggle="collapse" data-parent="#whatToExpectAccordian" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                    <h3>
+                                        <span class="badge badge-background">Preparation</span>
+                                        <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
+                                    </h3>
+                                </a>
+                            </div>
+
+                            <div id="collapseFour" class="collapse show" role="tabpanel" aria-labelledby="collapseFour">
+                                <div class="card-block" >
+                                    <p id="prepation_mobile">
+                                        We suggest that you prepare for the ride by doing some training on your own.
+                                        Practice rides or any cardio and endurance exercises will help you to prepare.
+                                        That being said, <strong>don’t be intimidated by the length of the ride.</strong>
+                                        Last year we went at a slow pace and <strong>everyone was able to complete it</strong> - biking 160km over two days is challenging, but doable!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Dropdown Two -->
+                        <div style="visiblity: none; bottom: 40px; position: relative;" id="thingsYoullNeed_mobile"></div>
+                        <div class="card slideanim">
+                            <div class="card-header" role="tab" id="headingFive">
+                                <a class="collapseLink" data-toggle="collapse" data-parent="#whatToExpectAccordian" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                                    <h3>
+                                        <span class="badge badge-background">Things You'll Need</span>
+                                        <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
+                                    </h3>
+                                </a>
+                            </div>
+
+                            <div id="collapseFive" class="collapse show" role="tabpanel" aria-labelledby="collapseFive">
+                                <div class="card-block">
+                                    <li id="bring_0_mobile"></li>
+                                    <li id="bring_1_mobile"></li>
+                                    <li id="bring_2_mobile"></li>
+                                    <div class="more">
+                                        <li id="bring_3_mobile"></li>
+                                        <li id="bring_4_mobile"></li>
+                                        <li id="bring_5_mobile"></li>
+                                        <li id="bring_6_mobile"></li>
+                                        <li id="bring_7_mobile"></li>
+                                        <li>Change of clothes</li>
+                                    </div>
+                                    <span class="pull-right showMoreText" style="color: #fe5f55;">Show More</span>
+                                    <br/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <!--Day One Card-->
+                    <div style="visiblity: none; bottom: 45px; position: relative;" id="schedule_mobile"></div>
+                    <div class="card card-outline-warning slideanim" >
+                        <div class="card-header" id="dayOneCardHeader" style="z-index: -1;">
+                            <div>
+                                <img src="img/img9.jpg" class="img-thumbnail pull-left" style="width: 50%; display: inline;">
+                            </div>
+                            <div class="justify-content-center text-center">
+                                <h4 class="card-title justify-content-center">Day One</h4>
+                                <i class="fa fa-sun-o fa-2x fa-spin" style="padding-top: 5px"></i>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <li>Meet at
+                                <a href="https://www.google.ca/maps/place/White+Oaks+Secondary+School/@43.4634799,-79.7041529,17z/data=!3m1!4b1!4m5!3m4!1s0x882b5d23c1f3babd:0x68bf31d4a96f60b1!8m2!3d43.4634799!4d-79.7019642">
+                                     White Oaks Secondary School
+                                </a>
+                                at 10:00AM
+                            </li>
+                            <li>
+                                We will leave at 10:30AM and ride approximately 75 km to
+                                <a href="https://www.google.ca/maps/place/Pinehurst+Lake+Conservation+Area/@43.2492949,-80.5518533,10.7z/data=!4m5!3m4!1s0x882c732d249cbda1:0x14b3fae8d27cc7fc!8m2!3d43.2651268!4d-80.3892808">
+                                    Pinehurst Conservation Area
+                                </a>
+                            </li>
+                            <div class="more">
+                                <li id="day1_2_mobile"></li>
+                                <li id="day1_3_mobile"></li>
+                                <li id="day1_4_mobile"></li>
+                            </div>
+                            <span class="pull-right showMoreText" style="color: #ffbc42;">Show More</span>
+                        </div>
+                    </div>
+                    <br/>
+                    <!--Day Two Card-->
+                    <div class="card card-outline-info slideanim" >
+                        <div class="card-header" id="dayTwoCardHeader" style="z-index: -1;">
+                            <div>
+                                <img src="img/img6.jpg" class="img-thumbnail pull-right" style="width: 50%; display: inline;">
+                            </div>
+                            <div class="justify-content-center text-center">
+                                <h4 class="card-title justify-content-center">Day Two</h4>
+                                <i class="fa fa-sun-o fa-2x fa-spin" style="padding-top: 5px"></i>
+                                <i class="fa fa-sun-o fa-2x fa-spin" style="padding-top: 5px"></i>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <li id="day2_0_mobile"></li>
+                            <li>We will spend most of the day biking the 80km to
+                                <a href="https://www.google.ca/maps/place/Western+University/@42.9883616,-81.2791265,12.85z/data=!4m8!1m2!2m1!1sWestern+University!3m4!1s0x882eee0e6ac42bd1:0xaa87f353aab9799b!8m2!3d43.0095971!4d-81.2737336">
+                                    Western University</a>, but guess what? It’s all downhill! &nbsp; &nbsp; &nbsp;<i class="fa fa-smile-o" aria-hidden="true"></i>
+                            </li>
+                            <div class="more">
+                                <li id="day2_2_mobile"></li>
+                                <li>Lastly, to celebrate the ride we will be heading over to
+                                    <a href="https://www.google.ca/maps/place/The+Spoke/@43.0086472,-81.2769167,16.01z/data=!3m1!5s0x882eee3d04f3ac3b:0xee704e962788acf0!4m8!1m2!2m1!1sThe+Spoke!3m4!1s0x0:0xed4cefbe716fc086!8m2!3d43.0084092!4d-81.2761112">
+                                        The Spoke</a>, the campus bar and restaurant, and have a drink or two with dinner
+                                </li>
+                            </div>
+                            <span class="pull-right showMoreText" style="color: #873EA9;">Show More</span>
+                        </div>
+                    </div>
+                    <br/>
+                    <!-- Dropdown Three -->
+                    <div style="visiblity: none; bottom: 45px; position: relative;" id="notes_mobile"></div>
+                    <div class="card slideanim">
+                        <div class="card-header" role="tab" id="headingSix">
+                            <a class="collapseLink" data-toggle="collapse" data-parent="#whatToExpectAccordian" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                                <h3>
+                                    <span class="badge badge-background">Notes</span>
+                                    <span class="pull-right"><i class="fa fa-caret-square-o-down fa-rotate-270" aria-hidden="true"></i></span>
+                                </h3>
+                            </a>
+                        </div>
+
+                        <div id="collapseSix" class="collapse show" role="tabpanel" aria-labelledby="collapseSix">
+                            <div class="card-block" >
+                                <li>We <strong>STRONGLY</strong> suggest using a road (not mountain) bike. Trust us on this one</li>
+                                <li id="note_1_mobile"></li>
+                                <div class="more">
+                                    <li id="note_2_mobile"></li>
+                                    <li id="note_3_mobile"></li>
+                                    <li id="note_4_mobile"></li>
+                                </div>
+                                <span class="pull-right showMoreText" style="color: #fe5f55;">Show More</span>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--End of Mobile View-->
+
+                <br/>
+            </div> <!-- End of container fluid -->
+        </section>
+        <hr/>
+        <div class="container-fluid">
+            <div class="row imageRow">
+                <div class="col-4">
+                    <a data-lightbox="img10" href="img/img10.jpg">
+                        <div class="card">
+                            <img class="card-img-top img-thumbnail" src="img/img10.jpg" style="object-position: 0px 25%;">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a data-lightbox="img11" href="img/img11.jpg">
+                        <div class="card">
+                            <img class="card-img-top img-thumbnail" src="img/img11.jpg" style="object-position: 0px 10%;">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a data-lightbox="img12" href="img/img12.jpg">
+                        <div class="card">
+                            <img class="card-img-top img-thumbnail" src="img/img12.jpg"  style="object-position: 0px 25%;">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <!-- Donate and Contact -->
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-xs-12 col-md-6">
+                    <!-- Donate -->
+                    <section id="donate">
+                        <div class="container-fluid text-white section-block slideanim" id="donateBlock">
+                            <div class="hidden-sm-down">
+                                <h1 class="section-heading" style="display: inline;">Donate</h1>
+                                <h1 class="section-heading pull-right" style="display: inline;">
+                                    <i class="fa fa-heart faa-pulse animated faa-slow" style="color: #fe5f55;"></i>
+                                </h1>
+                            </div>
+                            <div class="hidden-md-up text-center">
+                                <h2 class="section-heading-mobile" style="display: inline;">Donate</h2>
+                                <h2 class="section-heading-mobile" style="display: inline; padding-left: 50px">
+                                    <i class="fa fa-heart faa-pulse animated faa-slow" style="color: #fe5f55;"></i>
+                                </h2>
+                            </div>
+                            <hr style="border-color: white; width: 95%"/>
+                            <div class="text-center" id="donateBox">
+                                <p id="donateText_1"></p>
+                                <div class="more">
+                                    <p id="donateText_2"></p>
+                                </div>
+                                <a class="btn  btn-red" target="_blank" href="https://secure2.convio.net/uwo/sandre.html">Donate Now</a>
+                                <br/><br/>
+                                <span class="pull-right text-white showMoreText">Show More</span>
+                                <br/>
+                            </div>
+
+                        </div> <!-- End of Container Fluid -->
+                    </section>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <section id="contactUs" >
+                        <div class="container-fluid bg-inverse text-white section-block slideanim">
+                            <div class="hidden-sm-down">
+                                <h1 class="section-heading" style="display: inline;">Contact Us</h1>
+                                <h1 class="section-heading pull-right" style="display: inline;">
+                                    <i class="fa fa-envelope faa-shake animated faa-slow"></i>
+                                </h1>
+                            </div>
+                            <div class="hidden-md-up text-center">
+                                <h2 class="section-heading-mobile" style="display: inline;">Contact Us</h2>
+                                <h2 class="section-heading-mobile" style="display: inline; padding-left: 50px">
+                                    <i class="fa fa-envelope faa-shake animated faa-slow"></i>
+                                </h2>
+                            </div>
+                            <hr style="border-color: white; width: 95%"/>
+                            <div class="row justify-content-center">
+                                <div class="col-3 " >
+                                    <i class="fa fa-envelope-o fa-2x"></i>
+                                </div>
+                                <div class="col-7">
+                                    <a style="color: white;" target="_blank" href="mailto:ride4craig@gmail.com">ride4craig@gmail.com</a>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row justify-content-center">
+                                <div class="col-3">
+                                    <i class="fa fa-facebook-official fa-2x"></i>
+                                </div>
+                                <div class="col-7">
+                                    <a style="color: white;" target="_blank"  href="https://www.facebook.com/groups/254308575089428/permalink/254310315089254/?notif_t=group_description_change&notif_id=1502492296700671">
+                                        Join the FB Group!</a>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row justify-content-center">
+                                <div class="col-3">
+                                    <i class="fa fa-twitter fa-2x"></i>
+                                </div>
+                                <div class="col-7">
+                                    <a style="color: white;">#rideForCraig</a>
+                                </div>
+                            </div>
+                        </div> <!-- End of Container Fluid -->
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+</body>
+</html>

@@ -9,7 +9,7 @@ $(document).ready(function(){
             var pos = $(this).offset().top;
             var windowHeight = $( window ).height();
             var winTop = $(window).scrollTop();
-            if (pos < winTop + windowHeight * 0.90) {
+            if (pos < winTop + windowHeight * 0.95) {
                 $(this).addClass("slide");
             }
         });

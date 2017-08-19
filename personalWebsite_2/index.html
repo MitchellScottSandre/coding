@@ -9,15 +9,20 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Import Materialize CSS -->
     <link type="text/css" rel="stylesheet" href="vendor/materialize/css/materialize.min.css"  media="screen,projection"/>
-
+    <!-- Import Textillate CSS -->
+    <link href="vendor/textillate/animate.css" rel="stylesheet">
+    <!-- Import Font Awesome Icon CSS -->
+    <link href="vendor/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Software Langauges/Tools Icons -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
     <!-- Import Custom CSS-->
     <link href="css/custom.css" rel="stylesheet">
 </head>
 <body id="top">
     <!------------------------------------- Body -------------------------------------->
     <!------------------------------------- Navbar -------------------------------------->
-    <div class="navbar-fixed neverBlurry" style="z-index: 2; position: fixed; top: 0;">
-        <nav>
+    <div class="navbar-fixed neverBlurry" style="position: fixed; top: 0;">
+        <nav class="z-depth-0">
             <div class="nav-wrapper">
                 <a href="#top" class="brand-logo">ScottSandre</a>
                 <div class="valign-wrapper left">
@@ -29,11 +34,11 @@
                     <span style="visibility: hidden">a</span> <!-- Used so valign works -->
                 </div>
                 <ul class="right hide-on-med-and-down navLabels">
-                    <li><a href="#aboutMe">About Me</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Resume / Contact</a></li>
+                    <li><a href="#aboutMe" class="hvr-grow navLabel">About Me</a></li>
+                    <li><a href="#skills" class="hvr-grow navLabel">Skills</a></li>
+                    <li><a href="#experience" class="hvr-grow navLabel">Experience</a></li>
+                    <li><a href="#projects" class="hvr-grow navLabel">Projects</a></li>
+                    <li><a href="#contact" class="hvr-grow navLabel">Resume / Contact</a></li>
                 </ul>
              </div>
         </nav>
@@ -47,69 +52,71 @@
             <p><a href="#contact">Resume / Contact</a></p>
         </div>
     </div>
-
     <!------------------------------------- Header -------------------------------------->
-    <section>
+    <section class="scrollifyMe">
         <header>
             <div class="parallax-container">
-                <div id="particles-js" class="parallax"></div>
+            <div id="particles-js" class="parallax"></div>
             </div>
-            sdf
+            <div class="center-align header-container">
+                <h1 class="tlt_1">Hi, I'm Scott</h1>
+                <br/>
+                <div id="rotatingText">
+                    <ul class="tlt_2">
+                        <li>Software Engineer</li>
+                        <li>Full-Stack Developer</li>
+                        <li>Java Wizard</li>
+                        <li>Website Designer</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="center-align header-bottom">
+                <section class="linkIcon row" style="display: inline">
+                    <a>
+                        <i class="fa fa-linkedin-square fa-4x hvr-grow" aria-hidden="true"></i>
+                    </a>
+                    <a>
+                        <i class="fa fa-github-square fa-4x hvr-grow" aria-hidden="true"></i>
+                    </a>
+
+                </section>
+                <!--<a class="waves-effect waves-light btn">-->
+                    <!--<i class="large material-icons">keyboard_arrow_down</i>-->
+                <!--</a>-->
+            </div>
         </header>
     </section>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <div id="aboutMe" class="section scrollspy">
-        <p>ABOUT ME</p>
-    </div>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <div id="skills" class="section scrollspy">
-        <p>skills</p>
-    </div>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
+    <div class="divider"></div>
+    <!------------------------------------- About Me -------------------------------------->
+    <section id="aboutMe" class="section scrollspy scrollifyMe infoSection">
+        <div class="row section-row">
+            <div class="col s12 m5">
+                <div class="center-align row-heading z-depth-2">
+                    <h5><span>A Bit About Me</span></h5>
+                </div>
+                <!--<img src="img/img1.jpg" alt="" class="circle responsive-img">-->
+            </div>
+            <div class="col s12 m7 flow-text">
+
+            </div>
+        </div>
+    </section>
+    <!------------------------------------- About Me -------------------------------------->
+    <section id="skills" class="section scrollspy scrollifyMe infoSection">
+        <div class="row section-row">
+            <div class="col s12 m5">
+                <div class="center-align row-heading z-depth-2">
+                    <h5><span>Skills</span></h5>
+                </div>
+            </div>
+        </div>
+        <div class="row section-row">
+            <div class="col 12">
+                <h1><i class="devicon-java-plain"></i></h1>
+            </div>
+        </div>
+
+    </section>
     <!-- End of Body Content -->
 
     <!-- Import jQuery -->
@@ -118,6 +125,12 @@
     <script type="text/javascript" src="vendor/materialize/js/materialize.min.js"></script>
     <!-- Import Particle JS -->
     <script type="text/javascript" src="vendor/particleJS/particles.js"></script>
+    <!-- Import Textillate JS -->
+    <script type="text/javascript" src="vendor/textillate/jquery.fittext.js"></script>
+    <script type="text/javascript" src="vendor/textillate/jquery.lettering.js"></script>
+    <script type="text/javascript" src="vendor/textillate/jquery.textillate.js"></script>
+    <!-- Import Scrollify JS -->
+    <script type="text/javascript" src="vendor/scrollify/jquery.scrollify.min.js"></script>
     <!-- Import Custom JS -->
     <script type="text/javascript" src="js/main.js"></script>
 </body>

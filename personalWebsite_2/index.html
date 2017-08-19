@@ -14,19 +14,21 @@
     <link href="css/custom.css" rel="stylesheet">
 </head>
 <body id="top">
-    <!-- Body Content -->
-    <div class="navbar-fixed neverBlurry">
+    <!------------------------------------- Body -------------------------------------->
+    <!------------------------------------- Navbar -------------------------------------->
+    <div class="navbar-fixed neverBlurry" style="z-index: 2; position: fixed; top: 0;">
         <nav>
             <div class="nav-wrapper">
                 <a href="#top" class="brand-logo">ScottSandre</a>
-                <a href="#" id="overlayToggler" class="button-collapse">
-                    <!--<div id="overlayToggler">-->
+                <div class="valign-wrapper left">
+                    <a id="overlayToggler" class="button-collapse">
                         <span></span>
                         <span></span>
                         <span></span>
-                    <!--</div>-->
-                </a> <!--data-activates="mobile-demo"-->
-                <ul class="right hide-on-med-and-down">
+                    </a>
+                    <span style="visibility: hidden">a</span> <!-- Used so valign works -->
+                </div>
+                <ul class="right hide-on-med-and-down navLabels">
                     <li><a href="#aboutMe">About Me</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#experience">Experience</a></li>
@@ -36,37 +38,25 @@
              </div>
         </nav>
     </div>
-    <div id="navOverlay" class="overlay neverBlurry">
-        <a id="navOverlayCloseBtn" class="closebtn">&times;</a>
+    <div id="navOverlay" class="overlay neverBlurry valign-wrapper">
         <div class="overlay-content">
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
+            <p><a href="#aboutMe">About Me</a></p>
+            <p><a href="#skills">Skills</a></p>
+            <p><a href="#experience">Experience</a></p>
+            <p><a href="#projects">Projects</a></p>
+            <p><a href="#contact">Resume / Contact</a></p>
         </div>
     </div>
-    <!-- Side Nav Bar : Needs to be outside of navbar-fixed-->
-    <!--<ul class="side-nav-" id="mobile-demo">-->
-        <!--<li><a href="#aboutMe">About Me</a></li>-->
-        <!--<li><a href="#skills">Skills</a></li>-->
-        <!--<li><a href="#experience">Experience</a></li>-->
-        <!--<li><a href="#projects">Projects</a></li>-->
-        <!--<li><a href="#contact">Resume / Contact</a></li>-->
-    <!--</ul>-->
-    <!--<div id="particles-js"></div>-->
-    <!--<div class="parallax-container">-->
-        <!--<div class="parallax"><img src="img/img1.jpg"></div>-->
-    <!--</div>-->
-    <!--<div class="section white">-->
-        <!--<div class="row container">-->
-            <!--<h2 class="header">Parallax</h2>-->
-            <!--<p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!--<div class="parallax-container">-->
-        <!--<div class="parallax"><img src="img/img1.jpg"></div>-->
-    <!--</div>-->
 
+    <!------------------------------------- Header -------------------------------------->
+    <section>
+        <header>
+            <div class="parallax-container">
+                <div id="particles-js" class="parallax"></div>
+            </div>
+            sdf
+        </header>
+    </section>
     <p>test</p>
     <p>test</p>
     <p>test</p>
@@ -82,8 +72,27 @@
     <p>test</p>
     <p>test</p>
     <p>test</p>
-    <div id="aboutMe" class="scrollspy">
+    <div id="aboutMe" class="section scrollspy">
         <p>ABOUT ME</p>
+    </div>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <p>test</p>
+    <div id="skills" class="section scrollspy">
+        <p>skills</p>
     </div>
     <p>test</p>
     <p>test</p>

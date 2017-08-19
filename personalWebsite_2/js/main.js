@@ -2,10 +2,12 @@
  * Created by scott on 2017-08-18.
  */
 $(document).ready(function(){
-    var overlayBackgroundBlur = "5px";
 
-    console.log("hello");
-    // $('.parallax').parallax();
+    // ScrollSpy
+    $('.scrollspy').scrollSpy();
+
+    // Parralax
+    $('.parallax').parallax();
 
     $("#overlayToggler").on("click", function(){
         $(this).toggleClass('open');
@@ -13,34 +15,33 @@ $(document).ready(function(){
 
         if ($(this).attr("class").indexOf("open") != -1){
             $('#navOverlay').css({
-                "width"          :"100%",
+                // "width"          :"100%",
                 "display"        : "block"
             });
+
         } else {
+            // $('#navOverlay').animate({
+            //     "width":"0",
+            //     // "left:": "-1000px",
+            //     "display": "none"
+            // }, 10);
             $('#navOverlay').css({
-                "width":"0",
+                // "width":"0",
                 "display": "none"
             });
         }
     });
 
-    // Show Side Nav
-    // $('.button-collapse').sideNav({
-    //     menuWidth: 300,
-    //     edge: 'left',
-    //     closeOnClick: true,
-    //     draggable: true,
-    //     onOpen: function () {},
-    //     onClose: function () {}
-    // });
-
-    // ScrollSpy
-    $('.scrollspy').scrollSpy({
-        scrollOffset:100
+    $(document).on('scroll', function (e) {
+        e.preventDefault();
+        var o = $(document).scrollTop() / 500;
+        if (o > 1.000) { o = 1;}
+        var e = $('nav');
+        $('nav').not('a').css('opacity', o);
     });
 
     // Load Particle JS
-    //particlesJS("particles-js", particleData);
+    particlesJS("particles-js", particleData);
 
 
 });

@@ -1,21 +1,51 @@
- .bodyBlurred > *:not(.neverBlurry) {
-    filter: blur(5px);
+/*:root {*/
+    /*--overlayTogglerWidth: 60;*/
+/*}*/
+
+.bodyBlurred > *:not(.neverBlurry) {
+filter: blur(3px);
+}
+
+.parallax-container {
+    height: 100vh;
+    z-index: 1;
+    top: 0;
+}
+
+.navbar-fixed {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+}
+nav {
+    opacity: 0;
 }
 nav .nav-wrapper {
     padding-left: 20px;
     padding-right: 20px;
 }
 
+.navLabels > li .active {
+    color: black;
+}
+.overlay-content > p{
+    color: white !important;
+}
+
+.overlay-content > p .active {
+    color: red;
+}
+
 #navOverlay {
     display: none;
-    width: 0;
+    /*width: 0;*/
+    width: 100%;
 }
 /*-- Overlay Toggler--*/
 #overlayToggler {
-    width: 60px;
-    height: 45px;
-    position: relative;
-    margin: auto;
+    width: 42px;
+    height: 24px;
+    margin: 0;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
@@ -30,7 +60,7 @@ nav .nav-wrapper {
 #overlayToggler span{
      display: block;
      position: absolute;
-     height: 5px;
+     height: 4px;
      width: 100%;
      background: white;
      border-radius: 10px;
@@ -54,7 +84,7 @@ nav .nav-wrapper {
 }
 
 #overlayToggler span:nth-child(2) {
-    top: 18px;
+    top: 12px;
     -webkit-transform-origin: left center;
     -moz-transform-origin: left center;
     -o-transform-origin: left center;
@@ -62,7 +92,7 @@ nav .nav-wrapper {
 }
 
 #overlayToggler span:nth-child(3) {
-    top: 36px;
+    top: 24px;
     -webkit-transform-origin: left center;
     -moz-transform-origin: left center;
     -o-transform-origin: left center;
@@ -88,7 +118,7 @@ nav .nav-wrapper {
  -moz-transform: rotate(-45deg);
  -o-transform: rotate(-45deg);
  transform: rotate(-45deg);
- top: 39px;
+ top: 27px;
  left: 8px;
 }
 
@@ -103,7 +133,7 @@ nav .nav-wrapper {
     left: 0;
     top: 0;
     background-color: rgb(0,0,0); /* Black fallback color */
-    background-color: rgba(0,0,0, 0.8); /* Black w/opacity */
+    background-color: rgba(0,0,0, 0.2); /* Black w/opacity */
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
@@ -111,15 +141,15 @@ nav .nav-wrapper {
 /* Position the content inside the overlay */
 .overlay-content {
     position: relative;
-    top: 25%; /* 25% from the top */
-    width: 100%; /* 100% width */
-    text-align: center; /* Centered text/links */
-    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+    top: 15%;
+    width: 100%;
+    text-align: center;
+    /*margin-top: 30px; !* 30px top margin to avoid conflict with the close button on smaller screens *!*/
 }
 
 /* The navigation links inside the overlay */
 .overlay a {
-    padding: 8px;
+    /*padding: 8px;*/
     text-decoration: none;
     font-size: 36px;
     color: #818181;
@@ -135,10 +165,13 @@ nav .nav-wrapper {
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
 @media screen and (max-height: 450px) {
     .overlay a {font-size: 20px}
-    .overlay .closebtn {
-        font-size: 40px;
-        top: 15px;
-        right: 35px;
-    }
+}
+
+/* Header */
+.header-container {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    padding: 20px;
 }
 

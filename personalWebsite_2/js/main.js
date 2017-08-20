@@ -10,9 +10,9 @@ $(document).ready(function(){
     $('.parallax').parallax();
 
     // Scrollify
-    $.scrollify({
-        section : ".scrollifyMe",
-    });
+    // $.scrollify({
+    //     section : ".scrollifyMe",
+    // });
 
     // Title Textulate animations
     $('.tlt_1, .tlt_3').textillate();

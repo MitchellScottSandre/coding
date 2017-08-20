@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ScottSandre.com</title>
 
+    <!-- Import Timeline CSS -->
+    <link href="vendor/timeline/css/reset.css" rel="stylesheet">
+    <link href="vendor/timeline/css/style.css" rel="stylesheet">
     <!-- Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Import Materialize CSS -->
@@ -91,7 +94,7 @@
     <section id="aboutMe" class="section scrollspy scrollifyMe infoSection">
         <div class="row section-row">
             <div class="col s12 m5">
-                <div class="center-align row-heading z-depth-2">
+                <div class="center-align row-heading z-depth-2 accent1">
                     <h5><span>A Bit About Me</span></h5>
                 </div>
                 <!--<img src="img/img1.jpg" alt="" class="circle responsive-img">-->
@@ -105,7 +108,7 @@
     <section id="skills" class="section scrollspy scrollifyMe infoSection">
         <div class="row section-row">
             <div class="col s12 m5">
-                <div class="center-align row-heading z-depth-2">
+                <div class="center-align row-heading z-depth-2 accent2">
                     <h5><span>Skills</span></h5>
                 </div>
             </div>
@@ -228,17 +231,86 @@
                 </div>
             </div>
         </div>
+        <div class="row"></div>
     </section>
-
+    <br/>
     <!------------------------------------- Experience -------------------------------------->
     <section id="experience" class="section scrollspy scrollifyMe infoSection">
         <div class="row section-row">
             <div class="col s12 m5">
-                <div class="center-align row-heading z-depth-2">
+                <div class="center-align row-heading z-depth-2 accent1">
                     <h5><span>Experience</span></h5>
                 </div>
             </div>
         </div>
+        <section id="cd-timeline">
+            <!-- LyricFind -->
+            <div class="cd-timeline-block">
+                <div class="cd-timeline-img">
+                    <i class="material-icons">work</i>
+                </div>
+                <div class="cd-timeline-content z-depth-5">
+                    <div class="cd-timeline-header">
+                        <div class="row center-align">
+                            <div class="col s12 m5 timeline-header-col">
+                                <span class="show-on-medium-and-up hide-on-small-only"><h2>Lyricfind Co-Op</h2></span>
+                                <span class="show-on-small hide-on-med-and-up"><h5>Lyricfind Co-Op</h5></span>
+                                <p>Full-Stack Developer</p>
+                            </div>
+                            <div class="col s12 m7" style="padding-top: 16px;">
+                                <div class="chip">Spring MVC</div>
+                                <div class="chip">Java</div>
+                                <div class="chip">GitLab</div>
+                                <div class="chip">jQuery</div>
+                                <div class="chip">React</div>
+                                <div class="chip">SQL</div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="cd-timeline-text">
+                        <p>Developed code and provided a variety of key performance improvements and additional features for LyricFind web application
+                            used by content and business teams.
+                        </p>
+                        <p>Learned Spring MVC, jQuery, and React while doing issue-based development with GitLab.</p>
+                        <div class="center-align">
+                        <a href="#" class="btn accent2">Learn More</a>
+                        <a href="#" class="btn primary1">LyricFind.com</a>
+                        </div>
+                        <span class="cd-date">May - Aug 2017 &nbsp;&nbsp;|&nbsp;&nbsp; Toronto, ON</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TD SECURITIES -->
+            <div class="cd-timeline-block">
+                <div class="cd-timeline-img">
+                    <i class="material-icons">work</i>
+                </div>
+                <div class="cd-timeline-content z-depth-5">
+                    <div class="cd-timeline-header">
+                        <div class="row center-align">
+                            <div class="col s12 m5 timeline-header-col">
+                                <span class="show-on-medium-and-up hide-on-small-only"><h2>TD Securities Co-Op</h2></span>
+                                <span class="show-on-small hide-on-med-and-up"><h5>TD Securities Co-Op</h5></span>
+                                <p>Jr. Developer</p>
+                            </div>
+                            <div class="col s12 m7" style="padding-top: 16px;">
+                                <div class="chip">Java</div>
+                                <div class="chip">SQL</div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="cd-timeline-text">
+                        <p>Worked as part of the Global Equities Derivatives Development team doing testing and development on variety of TD systems.</p>
+                        <p>Increased efficiency of financial report generation, reducing time and strain on server. Added additional improvements for TD onboard-approval website</p>
+                        <span class="cd-date">May - Aug 2016 &nbsp;&nbsp;|&nbsp;&nbsp; Toronto, ON</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </section>
     <!-- End of Body Content -->
 
@@ -254,6 +326,9 @@
     <script type="text/javascript" src="vendor/textillate/jquery.textillate.js"></script>
     <!-- Import Scrollify JS -->
     <script type="text/javascript" src="vendor/scrollify/jquery.scrollify.min.js"></script>
+    <!-- Import Timeline JS -->
+    <script type="text/javascript" src="vendor/timeline/js/main.js"></script>
+    <script type="text/javascript" src="vendor/timeline/js/modernizr.js"></script>
     <!-- Import Custom JS -->
     <script type="text/javascript" src="js/main.js"></script>
 </body>

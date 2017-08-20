@@ -2,8 +2,18 @@
     /*--overlayTogglerWidth: 60;*/
 /*}*/
 
+.primary1 {
+    background-color: #03A9F4;
+}
+.accent1{
+    background-color: #FF5252;
+}
+.accent2{
+    background-color:#9C27B0;
+}
+
 .bodyBlurred > *:not(.neverBlurry) {
-filter: blur(10px);
+filter: blur(5px);
 }
 
 section {
@@ -45,7 +55,7 @@ nav .nav-wrapper {
     padding-right: 20px;
 }
 .navLabels > li a{
-    color: black;
+    color: #212121;
 }
 .navLabels > li .active {
     color: red;
@@ -84,7 +94,7 @@ nav .nav-wrapper {
      position: absolute;
      height: 4px;
      width: 100%;
-     background: black;
+     background: #212121;
      border-radius: 10px;
      opacity: 1;
      left: 0;
@@ -154,8 +164,8 @@ nav .nav-wrapper {
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
-    background-color: rgb(0,0,0); /* Black fallback color */
-    background-color: rgba(0,0,0, 0.2); /* Black w/opacity */
+    background-color: rgb(0,0,0); /* #212121 fallback color */
+    background-color: rgba(0,0,0, 0.2); /* #212121 w/opacity */
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
@@ -210,19 +220,22 @@ nav .nav-wrapper {
     margin-top: 0;
     margin-bottom: 0;
     font-size: 55px;
-    color: black;
+    color: #212121;
 }
 
 #rotatingText{
     font-size: 30px;
-    color: black;
+    color: #212121;
 }
 
 .row-heading {
-    background-color: #FF5252;
-    color: white;
+    /*background-color: #FF5252;*/
     padding-top: 1px;
     padding-bottom: 1px;
+}
+
+.row-heading h5 {
+    color: white !important;
 }
 
 /* HOVER CSS */
@@ -306,6 +319,10 @@ nav .nav-wrapper {
     .card-stars i {
         font-size: 20px;
     }
+    .timeline-header-col{
+        padding: 0 !important;
+    }
+
 }
 
 

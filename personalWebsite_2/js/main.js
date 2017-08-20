@@ -50,7 +50,7 @@ $(document).ready(function(){
     $(document).on('scroll', function (e) {
         e.preventDefault();
         var o = $(document).scrollTop() / 500;
-        console.log(o);
+        // console.log(o);
         if (o > 1.000) { o = 1;}
         var e = $('nav');
         $('nav').not('a').css('background-color', 'rgba(3, 169, 244,' + o + ')');
@@ -63,6 +63,14 @@ $(document).ready(function(){
             // $('.navLabel').not('.active').css('color', 'white');
         }
         // $('a').css('color', 'rgb(' + colorHue + ',' + colorHue + ',' + colorHue + ')');
+    });
+
+    // Add all the skills stars for skill cards
+    $('.skillStars').each(function(){
+        var num = parseInt($(this).attr("data-stars"));
+        for (var i = 0; i < num; i++){
+            $(this).append("<i class='material-icons'>star_border</i>");
+        }
     });
 
 

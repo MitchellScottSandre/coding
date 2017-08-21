@@ -11,7 +11,7 @@ $(document).ready(function(){
 
     // Scrollify
     // $.scrollify({
-    //     section : ".scrollifyMe",
+    //     section : ".scrollifyMe"
     // });
 
     // Title Textulate animations
@@ -23,6 +23,10 @@ $(document).ready(function(){
         out: { effect: 'fadeOutUp', sync: true},
         loop: true
     });
+    // var tlt4 = $('.tlt_4').textillate({
+    //     autoStart: false,
+    //     initialDelay: 0
+    // });
 
     // Load Particle JS
     particlesJS("particles-js", particleData);
@@ -31,6 +35,8 @@ $(document).ready(function(){
     // Toggle Nav Overlay
     $("#overlayToggler").on("click", function(){
         $(this).toggleClass('open');
+        $('.tlt_4').textillate();
+        // tlt4.textillate('start');
         $("body").toggleClass("bodyBlurred");
 
         if ($(this).attr("class").indexOf("open") != -1){
@@ -57,10 +63,12 @@ $(document).ready(function(){
         $('.brand-logo').css('opacity', o);
         if (o == 0){
             // $('nav').prop("class", "z-depth-0");
-            // $('.navLabel').css('color', 'black');
+            $('.navLabel').css('color', 'black');
+            $('#overlayToggler span').css('background', 'black');
         } else {
             // $('nav').prop("class", "z-depth-2");
-            // $('.navLabel').not('.active').css('color', 'white');
+            $('.navLabel').css('color', 'white');
+            $('#overlayToggler span').css('background', 'white');
         }
         // $('a').css('color', 'rgb(' + colorHue + ',' + colorHue + ',' + colorHue + ')');
     });
@@ -71,6 +79,22 @@ $(document).ready(function(){
         for (var i = 0; i < num; i++){
             $(this).append("<i class='material-icons'>star_border</i>");
         }
+    });
+
+    $('.cd-timeline-content').mouseenter(function(){
+        $(this).addClass("z-depth-5");
+        $(this).siblings('.cd-timeline-img').css('background-color', '#FF5252');
+    });
+    $('.cd-timeline-content').mouseleave(function(){
+        $(this).removeClass("z-depth-5");
+        $(this).siblings('.cd-timeline-img').css('background-color', 'white');
+    });
+    // $('.cd-timeline-content').mouseover(function(){
+    //
+    // });
+    // Show more div when .showMore is clicked
+    $('.showMore').on("click", function(){
+        $(this).closest('.showMoreSection').find('.more').slideToggle();
     });
 
 

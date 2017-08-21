@@ -4,16 +4,58 @@
 
 .primary1 {
     background-color: #03A9F4;
+    color: white;
 }
+
 .accent1{
     background-color: #FF5252;
+    color: white;
 }
 .accent2{
     background-color:#9C27B0;
+    color: white;
+}
+.accent3 {
+    background-color:#FFC107;
+    color: white;
+}
+.accent4 {
+    background-color:#4CAF50;
+    color: white;
+}
+.accent5{
+    background-color:#009688;
+    color: white;
+}
+
+.primaryText {
+    color: #212121;
+}
+
+.secondaryText {
+    color: #757575;
+}
+
+.accentText1 {
+    color: #03A9F4;
+}
+.accentText2 {
+    color: #FF5252;
+}
+.accentText3 {
+    color: #9C27B0;
 }
 
 .bodyBlurred > *:not(.neverBlurry) {
 filter: blur(5px);
+}
+
+.more{
+    display: none;
+}
+
+.tlt_1, tlt_2 > li{
+    visibility: hidden !important;
 }
 
 section {
@@ -57,15 +99,25 @@ nav .nav-wrapper {
 .navLabels > li a{
     color: #212121;
 }
-.navLabels > li .active {
-    color: red;
+
+.nav1.active {
+    color: #FF5252 !important;
 }
-.overlay-content > p{
-    color: white !important;
+.nav2.active {
+    color: #9C27B0 !important;
+}
+.nav3.active {
+    color: #FFC107 !important;
+}
+.nav4.active {
+    color: #4CAF50 !important;
+}
+.nav5.active {
+    color: #009688 !important;
 }
 
-.overlay-content > p .active {
-    color: red;
+.overlay-content > p{
+    color: white !important;
 }
 
 #navOverlay {
@@ -92,7 +144,7 @@ nav .nav-wrapper {
 #overlayToggler span{
      display: block;
      position: absolute;
-     height: 4px;
+     height: 3px;
      width: 100%;
      background: #212121;
      border-radius: 10px;
@@ -165,7 +217,7 @@ nav .nav-wrapper {
     left: 0;
     top: 0;
     background-color: rgb(0,0,0); /* #212121 fallback color */
-    background-color: rgba(0,0,0, 0.2); /* #212121 w/opacity */
+    background-color: rgba(0,0,0, 0.4); /* #212121 w/opacity */
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
@@ -181,10 +233,10 @@ nav .nav-wrapper {
 
 /* The navigation links inside the overlay */
 .overlay a {
-    /*padding: 8px;*/
+    padding: 12px;
     text-decoration: none;
-    font-size: 36px;
-    color: #818181;
+    font-size: 28px;
+    color: white;
     display: block; /* Display block instead of inline */
     transition: 0.3s; /* Transition effects on hover (color) */
 }

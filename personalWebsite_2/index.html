@@ -37,22 +37,22 @@
                     <span style="visibility: hidden">a</span> <!-- Used so valign works -->
                 </div>
                 <ul class="right hide-on-med-and-down navLabels">
-                    <li><a href="#aboutMe" class="hvr-grow navLabel">About Me</a></li>
-                    <li><a href="#skills" class="hvr-grow navLabel">Skills</a></li>
-                    <li><a href="#experience" class="hvr-grow navLabel">Experience</a></li>
-                    <li><a href="#projects" class="hvr-grow navLabel">Projects</a></li>
-                    <li><a href="#contact" class="hvr-grow navLabel">Resume / Contact</a></li>
+                    <li><a href="#aboutMe" class="hvr-grow navLabel nav1">About Me</a></li>
+                    <li><a href="#skills" class="hvr-grow navLabel nav2">Skills</a></li>
+                    <li><a href="#experience" class="hvr-grow navLabel nav3">Experience</a></li>
+                    <li><a href="#projects" class="hvr-grow navLabel nav4">Projects</a></li>
+                    <li><a href="#contact" class="hvr-grow navLabel nav5">Resume / Contact</a></li>
                 </ul>
              </div>
         </nav>
     </div>
     <div id="navOverlay" class="overlay neverBlurry valign-wrapper">
         <div class="overlay-content">
-            <p><a href="#aboutMe">About Me</a></p>
-            <p><a href="#skills">Skills</a></p>
-            <p><a href="#experience">Experience</a></p>
-            <p><a href="#projects">Projects</a></p>
-            <p><a href="#contact">Resume / Contact</a></p>
+            <p><a href="#aboutMe" class="tlt_4 nav1">About Me</a></p>
+            <p><a href="#skills" class="tlt_4 nav2">Skills</a></p>
+            <p><a href="#experience" class="tlt_4 nav3">Experience</a></p>
+            <p><a href="#projects"class="tlt_4 nav4">Projects</a></p>
+            <p><a href="#contact" class="tlt_4 nav5">Resume / Contact</a></p>
         </div>
     </div>
     <!------------------------------------- Header -------------------------------------->
@@ -66,10 +66,10 @@
                 <br/>
                 <div id="rotatingText">
                     <ul class="tlt_2">
-                        <li>Software Engineer</li>
-                        <li>Full-Stack Developer</li>
-                        <li>Java Wizard</li>
-                        <li>Website Designer</li>
+                        <li style="visibility: hidden;">Software Engineer</li>
+                        <li style="visibility: hidden;">Full-Stack Developer</li>
+                        <li style="visibility: hidden;">Java Wizard</li>
+                        <li style="visibility: hidden;">Website Designer</li>
                     </ul>
                 </div>
             </div>
@@ -244,40 +244,72 @@
             </div>
         </div>
         <section id="cd-timeline">
+            <!-- University of Waterloo -->
+            <div class="cd-timeline-block">
+                <div class="cd-timeline-img">
+                    <i class="material-icons">school</i>
+                </div>
+                <div class="cd-timeline-content z-depth-3">
+                    <div class="cd-timeline-header">
+                        <div class="row center-align">
+                            <div class="col s12 m6 timeline-header-col">
+                                <span class="show-on-medium-and-up hide-on-small-only"><h2>University of Waterloo</h2></span>
+                                <span class="show-on-small hide-on-med-and-up"><h5>University of Waterloo</h5></span>
+                                <p class="secondaryText">Software Engineering 2B</p>
+                            </div>
+                            <div class="col s12 m6" style="padding-top: 16px;">
+                                <div class="chip accent2 hoverable hvr-grow">C++</div>
+                                <div class="chip accent3 hoverable hvr-grow">C</div>
+                                <div class="chip primary1 hoverable hvr-grow">Analysis</div>
+                                <div class="chip accent1 hoverable hvr-grow">Testing</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cd-timeline-text">
+                        <p class="primaryText">
+                            Relvant courses include:
+                            <br/>CS 241: Foundations of Sequential Programs,
+                            <br/>CS 138: Data Abstraction and Implementation
+                        </p> <span class="cd-date">Class of 2021</span>
+                    </div>
+                </div>
+            </div>
             <!-- LyricFind -->
             <div class="cd-timeline-block">
                 <div class="cd-timeline-img">
                     <i class="material-icons">work</i>
                 </div>
-                <div class="cd-timeline-content z-depth-5">
+                <div class="cd-timeline-content z-depth-2">
                     <div class="cd-timeline-header">
                         <div class="row center-align">
-                            <div class="col s12 m5 timeline-header-col">
+                            <div class="col s12 m6 timeline-header-col">
                                 <span class="show-on-medium-and-up hide-on-small-only"><h2>Lyricfind Co-Op</h2></span>
                                 <span class="show-on-small hide-on-med-and-up"><h5>Lyricfind Co-Op</h5></span>
-                                <p>Full-Stack Developer</p>
+                                <p class="secondaryText">Full-Stack Developer | Toronto, ON</p>
                             </div>
-                            <div class="col s12 m7" style="padding-top: 16px;">
-                                <div class="chip">Spring MVC</div>
-                                <div class="chip">Java</div>
-                                <div class="chip">GitLab</div>
-                                <div class="chip">jQuery</div>
-                                <div class="chip">React</div>
-                                <div class="chip">SQL</div>
+                            <div class="col s12 m6" style="padding-top: 16px;">
+                                <div class="chip accent1 hoverable hvr-grow">Spring MVC</div>
+                                <div class="chip accent4 hoverable hvr-grow">Java</div>
+                                <div class="chip primary1 hoverable hvr-grow">GitLab</div>
+                                <div class="chip accent3 hoverable hvr-grow">jQuery</div>
+                                <div class="chip accent2 hoverable hvr-grow">React</div>
+                                <div class="chip accent5 hoverable hvr-grow">SQL</div>
                             </div>
 
                         </div>
                     </div>
-                    <div class="cd-timeline-text">
+                    <div class="cd-timeline-text showMoreSection">
                         <p>Developed code and provided a variety of key performance improvements and additional features for LyricFind web application
                             used by content and business teams.
                         </p>
                         <p>Learned Spring MVC, jQuery, and React while doing issue-based development with GitLab.</p>
-                        <div class="center-align">
-                        <a href="#" class="btn accent2">Learn More</a>
-                        <a href="#" class="btn primary1">LyricFind.com</a>
+                        <div class="more">
+                            sdf
                         </div>
-                        <span class="cd-date">May - Aug 2017 &nbsp;&nbsp;|&nbsp;&nbsp; Toronto, ON</span>
+                        <div class="center-align">
+                            <!--<a class="btn accent2 showMore" >Learn More</a>-->
+                        </div>
+                        <span class="cd-date">May - Aug 2017</span>
                     </div>
                 </div>
             </div>
@@ -287,30 +319,39 @@
                 <div class="cd-timeline-img">
                     <i class="material-icons">work</i>
                 </div>
-                <div class="cd-timeline-content z-depth-5">
+                <div class="cd-timeline-content z-depth-2">
                     <div class="cd-timeline-header">
                         <div class="row center-align">
-                            <div class="col s12 m5 timeline-header-col">
+                            <div class="col s12 m6 timeline-header-col">
                                 <span class="show-on-medium-and-up hide-on-small-only"><h2>TD Securities Co-Op</h2></span>
                                 <span class="show-on-small hide-on-med-and-up"><h5>TD Securities Co-Op</h5></span>
-                                <p>Jr. Developer</p>
+                                <p class="secondaryText">Jr. Developer | Toronto, ON</p>
                             </div>
-                            <div class="col s12 m7" style="padding-top: 16px;">
-                                <div class="chip">Java</div>
-                                <div class="chip">SQL</div>
+                            <div class="col s12 m6" style="padding-top: 16px;">
+                                <div class="chip accent1 hoverable hvr-grow">Java</div>
+                                <div class="chip primary1 hoverable hvr-grow">SQL</div>
+                                <div class="chip accent2 hoverable hvr-grow">Apache</div>
                             </div>
 
                         </div>
                     </div>
                     <div class="cd-timeline-text">
-                        <p>Worked as part of the Global Equities Derivatives Development team doing testing and development on variety of TD systems.</p>
-                        <p>Increased efficiency of financial report generation, reducing time and strain on server. Added additional improvements for TD onboard-approval website</p>
-                        <span class="cd-date">May - Aug 2016 &nbsp;&nbsp;|&nbsp;&nbsp; Toronto, ON</span>
+                        <p class="primaryText">Worked as part of the Global Equities Derivatives Development team doing testing and development on a variety of TD systems.</p>
+                        <span class="cd-date">May - Aug 2016</span>
                     </div>
                 </div>
             </div>
         </section>
-
+    </section>
+    <!------------------------------------- Projects -------------------------------------->
+    <section id="projects" class="section scrollspy scrollifyMe infoSection" style="margin-top: 400px;">
+        <div class="row section-row">
+            <div class="col s12 m5">
+                <div class="center-align row-heading z-depth-2 accent1">
+                    <h5><span>Things I've Worked on</span></h5>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- End of Body Content -->
 

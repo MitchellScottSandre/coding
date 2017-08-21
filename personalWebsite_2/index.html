@@ -91,7 +91,7 @@
     </section>
     <div class="divider"></div>
     <!------------------------------------- About Me -------------------------------------->
-    <section id="aboutMe" class="section scrollspy scrollifyMe infoSection">
+    <section id="aboutMe" class="normalHeightSection scrollspy scrollifyMe infoSection">
         <div class="row section-row">
             <div class="col s12 m5">
                 <div class="center-align row-heading z-depth-2 accent1">
@@ -105,7 +105,7 @@
         </div>
     </section>
     <!------------------------------------- Skills -------------------------------------->
-    <section id="skills" class="section scrollspy scrollifyMe infoSection">
+    <section id="skills" class="normalHeightSection scrollspy scrollifyMe infoSection" style="height: 120vh">
         <div class="row section-row">
             <div class="col s12 m5">
                 <div class="center-align row-heading z-depth-2 accent2">
@@ -122,7 +122,7 @@
         <div class="row">
             <div class="col m2 s4">
                 <div class="card-panel skillCard hoverable z-depth-3">
-                    <div class="card-stars center-align skillStars" data-stars="4"></div>
+                    <div class="card-stars center-align skillStars" data-stars="5"></div>
                     <div class="card-content">
                         <div class="card-header"><h1><i class="devicon-java-plain colored"></i></h1></div>
                         <div class="card-title">Java</div>
@@ -231,11 +231,24 @@
                 </div>
             </div>
         </div>
-        <div class="row"></div>
+            <div class="card-panel skillCard hoverable z-depth-3">
+                <div class="card-content">
+                    <div class="card-header"><h1><i class="devicon-webpack-plain colored"></i></h1></div>
+                    <div class="card-title">webpack</div>
+                </div>
+            </div>
+            <div class="card-panel skillCard hoverable z-depth-3">
+                <div class="card-content">
+                    <div class="card-header"><h1><i class="devicon-apache-plain colored"></i></h1></div>
+                    <div class="card-title">Apache Solr</div>
+                </div>
+            </div>
     </section>
     <br/>
+    <br/>
     <!------------------------------------- Experience -------------------------------------->
-    <section id="experience" class="section scrollspy scrollifyMe infoSection">
+
+    <section id="experience" class="scrollspy scrollifyMe infoSection" style="height: 150vh;">
         <div class="row section-row">
             <div class="col s12 m5">
                 <div class="center-align row-heading z-depth-2 accent1">
@@ -247,7 +260,7 @@
             <!-- University of Waterloo -->
             <div class="cd-timeline-block">
                 <div class="cd-timeline-img">
-                    <i class="material-icons">school</i>
+                    <i class="material-icons" id="timelineIcon_1">school</i>
                 </div>
                 <div class="cd-timeline-content z-depth-3">
                     <div class="cd-timeline-header">
@@ -255,23 +268,26 @@
                             <div class="col s12 m6 timeline-header-col">
                                 <span class="show-on-medium-and-up hide-on-small-only"><h2>University of Waterloo</h2></span>
                                 <span class="show-on-small hide-on-med-and-up"><h5>University of Waterloo</h5></span>
-                                <p class="secondaryText">Software Engineering 2B</p>
+                                <p class="secondaryText">Software Engineering 2A</p>
                             </div>
                             <div class="col s12 m6" style="padding-top: 16px;">
-                                <div class="chip accent2 hoverable hvr-grow">C++</div>
-                                <div class="chip accent3 hoverable hvr-grow">C</div>
-                                <div class="chip primary1 hoverable hvr-grow">Analysis</div>
-                                <div class="chip accent1 hoverable hvr-grow">Testing</div>
+                                <div class="chip accent2 hoverable hvr-grow">CS 241</div>
+                                <div class="chip accent3 hoverable hvr-grow">SE 212</div>
+                                <div class="chip primary1 hoverable hvr-grow">STAT 206</div>
+                                <div class="chip accent1 hoverable hvr-grow">CS 138</div>
                             </div>
                         </div>
                     </div>
-                    <div class="cd-timeline-text">
-                        <p class="primaryText">
-                            Relvant courses include:
-                            <br/>CS 241: Foundations of Sequential Programs,
-                            <br/>CS 138: Data Abstraction and Implementation
-                        </p> <span class="cd-date">Class of 2021</span>
-                    </div>
+                    <!--<div class="cd-timeline-text">-->
+                        <!--<p class="primaryText">Relvant courses include:</p>-->
+                        <!--<div class="paddedList">-->
+                            <!--<p class="secondaryText">CS 241: Foundations of Sequential Programs</p>-->
+                            <!--<p class="secondaryText">SE 212: Logic and Computation</p>-->
+                            <!--<p class="secondaryText">STAT 206: Statistics for Software Engineering</p>-->
+                            <!--<p class="secondaryText">CS 138: Intro to Data Abstraction and Implementation</p>-->
+                        <!--</div>-->
+                        <span class="cd-date">Class of 2021</span>
+                    <!--</div>-->
                 </div>
             </div>
             <!-- LyricFind -->
@@ -303,11 +319,14 @@
                             used by content and business teams.
                         </p>
                         <p>Learned Spring MVC, jQuery, and React while doing issue-based development with GitLab.</p>
-                        <div class="more">
-                            sdf
+                        <p>Projects that I completed include:</p>
+                        <div class="more paddedList">
+                            <p class="secondaryText">Redesigning Assignments page using React and Ajax, decreasing load times</p>
+                            <p class="secondaryText">Re-engineering usage analytics backend to make raw data usage filterable by client. Made new Apache Solr core for faster querying</p>
+                            <p class="secondaryText">Adding multi-facet search functionality to web application using jQuery, JSP, Java</p>
                         </div>
                         <div class="center-align">
-                            <!--<a class="btn accent2 showMore" >Learn More</a>-->
+                            <a class="waves-effect waves-purple btn-flat showMore">Show More</a>
                         </div>
                         <span class="cd-date">May - Aug 2017</span>
                     </div>
@@ -317,9 +336,9 @@
             <!-- TD SECURITIES -->
             <div class="cd-timeline-block">
                 <div class="cd-timeline-img">
-                    <i class="material-icons">work</i>
+                    <i class="material-icons" id="timelineIcon_2">work</i>
                 </div>
-                <div class="cd-timeline-content z-depth-2">
+                <div class="cd-timeline-content z-depth-2" id="tdBlock">
                     <div class="cd-timeline-header">
                         <div class="row center-align">
                             <div class="col s12 m6 timeline-header-col">
@@ -341,10 +360,11 @@
                     </div>
                 </div>
             </div>
+            <div id="timelineSectionBottom"></div>
         </section>
     </section>
     <!------------------------------------- Projects -------------------------------------->
-    <section id="projects" class="section scrollspy scrollifyMe infoSection" style="margin-top: 400px;">
+    <section id="projects" class="normalHeightSection scrollspy scrollifyMe infoSection">
         <div class="row section-row">
             <div class="col s12 m5">
                 <div class="center-align row-heading z-depth-2 accent1">

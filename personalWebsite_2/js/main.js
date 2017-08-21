@@ -97,6 +97,32 @@ $(document).ready(function(){
         $(this).closest('.showMoreSection').find('.more').slideToggle();
     });
 
+    // Set timeline line height on load and on change
+    var timelineLineHeight = $('#timelineIcon_2').offset().top - $('#timelineIcon_1').offset().top;
+    handleExperienceDivSize();
+    $('#cd-timeline').css('height', timelineLineHeight + "px");
+    $( window ).resize(function() {
+        handleExperienceDivSize();
+        var timelineLineHeight2 = $('#timelineIcon_2').offset().top - $('#timelineIcon_1').offset().top;
+        $('#cd-timeline').css('height', timelineLineHeight2 + "px");
+    });
+
+    function handleExperienceDivSize(){
+        if ($(document).width() < 340){ //iPhone5
+            $('#experience').css('height', '190vh');
+        } else if ($(document).width() < 400){ // Iphone 6
+            $('#experience').css('height', '110vh');
+        } else if ($(document).width() < 450){ // Iphone 6 Plus
+            $('#experience').css('height', '75vh');
+        } else if ($(document).width() < 800){
+            $('#experience').css('height', '95vh');
+        } else if ($(document).width() < 1025){
+            $('#experience').css('height', '72vh');
+        } else {
+            $('#experience').css('height', '153vh');
+        }
+    }
+
 
 });
 

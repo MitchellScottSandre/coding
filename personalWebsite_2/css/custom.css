@@ -345,6 +345,10 @@ nav .nav-wrapper {
         font-size: 50px;
     }
 
+    .skillCard img {
+        width: 60px;
+    }
+
     .card-stars {
         position: absolute;
         padding: 5px;
@@ -378,7 +382,9 @@ nav .nav-wrapper {
     .skillCard h1 {
         font-size: 80px;
     }
-
+    .skillCard img {
+        width: 85px;
+    }
     .card-stars {
         position: absolute;
         padding: 5px;

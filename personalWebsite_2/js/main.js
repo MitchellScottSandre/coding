@@ -99,19 +99,20 @@ $(document).ready(function(){
 
     // Set timeline line height on load and on change
     var timelineLineHeight = $('#timelineIcon_2').offset().top - $('#timelineIcon_1').offset().top;
-    handleExperienceDivSize();
+    makeSectionsRightSize();
     $('#cd-timeline').css('height', timelineLineHeight + "px");
     $( window ).resize(function() {
-        handleExperienceDivSize();
+        makeSectionsRightSize();
         var timelineLineHeight2 = $('#timelineIcon_2').offset().top - $('#timelineIcon_1').offset().top;
         $('#cd-timeline').css('height', timelineLineHeight2 + "px");
     });
 
-    function handleExperienceDivSize(){
+    function makeSectionsRightSize(){
         if ($(document).width() < 340){ //iPhone5
             $('#experience').css('height', '190vh');
         } else if ($(document).width() < 400){ // Iphone 6
-            $('#experience').css('height', '110vh');
+            $('#experience').css('height', '90vh');
+            $('#skills').css('height', '145vh');
         } else if ($(document).width() < 450){ // Iphone 6 Plus
             $('#experience').css('height', '75vh');
         } else if ($(document).width() < 800){
@@ -120,6 +121,7 @@ $(document).ready(function(){
             $('#experience').css('height', '72vh');
         } else {
             $('#experience').css('height', '153vh');
+            $('#skills').css('height', '120vh');
         }
     }
 

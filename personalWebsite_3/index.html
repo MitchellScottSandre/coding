@@ -10,8 +10,9 @@
     <link href="vendor/timeline/css/reset.css" rel="stylesheet">
     <!-- Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Import Materialize CSS -->
-    <link type="text/css" rel="stylesheet" href="vendor/materialize/css/materialize.min.css"  media="screen,projection"/>
+    <!--<link type="text/css" rel="stylesheet" href="vendor/materialize/css/materialize.min.css"  media="screen,projection"/>-->
     <!-- Import Textillate CSS -->
     <link href="vendor/textillate/animate.css" rel="stylesheet">
     <!-- Import Font Awesome Icon CSS -->
@@ -62,7 +63,7 @@
             <div id="particles-js" class="parallax"></div>
             </div>
             <div class="center-align header-container">
-                <h1 class="tlt_1">Hi, I'm Scott (WIP 3)</h1>
+                <h1 class="tlt_1">Hi, I'm Scott (WIP 2)</h1>
                 <br/>
                 <div id="rotatingText">
                     <ul class="tlt_2">
@@ -91,7 +92,7 @@
     </section>
     <div class="divider"></div>
     <!------------------------------------- About Me -------------------------------------->
-    <section id="aboutMe" class="scrollspy scrollifyMe betterSection">
+    <section id="aboutMe" class="normalHeightSection scrollspy scrollifyMe infoSection">
         <div class="row">
             <div class="col s12 m5 center-align">
                 <div class="center-align row-heading z-depth-2 accent1">
@@ -131,7 +132,7 @@
     </section>
     <hr/>
     <!------------------------------------- Skills -------------------------------------->
-    <section id="skills" class="scrollspy scrollifyMe betterSection" >
+    <section id="skills" class="normalHeightSection scrollspy scrollifyMe infoSection" >
         <div class="row">
             <div class="col s12 m5">
                 <div class="center-align row-heading z-depth-2 accent2">
@@ -261,7 +262,7 @@
     </section>
     <!------------------------------------- Experience -------------------------------------->
     <hr>
-    <section id="experience" class="scrollspy scrollifyMe betterSection">
+    <section id="experience" class="scrollspy scrollifyMe infoSection">
         <div class="row section-row">
             <br/>
             <div class="col s12 m5">
@@ -270,7 +271,7 @@
                 </div>
             </div>
         </div>
-        <section id="cd-timeline" style="margin-bottom: 0px; padding-bottom: 0px;">
+        <section id="cd-timeline">
             <!-- University of Waterloo -->
             <div class="cd-timeline-block">
                 <div class="cd-timeline-img">
@@ -364,15 +365,15 @@
                         <span class="cd-date">May - Aug 2016</span>
                     </div>
                 </div>
-            </div> <!-- End of TD Block -->
-            <!--<div id="timelineSectionBottom"></div>-->
+            </div>
+            <div id="timelineSectionBottom"></div>
         </section>
     </section>
     <hr/>
     <!------------------------------------- Projects -------------------------------------->
 
-    <section id="projects" class="scrollspy scrollifyMe betterSection" >
-        <div class="row">
+    <section id="projects" class="normalHeightSection scrollspy scrollifyMe infoSection" style="position: relative;">
+        <div class="row section-row">
             <div class="col s12 m5">
                 <div class="center-align row-heading z-depth-2 accent1">
                     <h5><span>Things I've Worked on</span></h5>
@@ -386,8 +387,10 @@
 
     <!-- Import jQuery -->
     <script type="text/javascript" src="vendor/jQuery/jquery-3.2.1.js"></script>
-    <!-- Import Materialize JS -->
-    <script type="text/javascript" src="vendor/materialize/js/materialize.min.js"></script>
+    <!--Tether-->
+    <script src="vendor/tether/tether.min.js"></script>
+    <!-- Import Bootstrap -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <!-- Import Particle JS -->
     <script type="text/javascript" src="vendor/particleJS/particles.js"></script>
     <!-- Import Textillate JS -->

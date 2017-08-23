@@ -31,7 +31,6 @@ Modules - reusable parts of our design
     padding: 2em 0;
     margin-top: 2em;
     margin-bottom: 2em;
-    display:table;
 }
 
 #cd-timeline::before {
@@ -40,7 +39,7 @@ Modules - reusable parts of our design
   position: absolute;
   top: 5%;
   left: 18px;
-  height: 80%;
+  height: 100%;
   width: 4px;
   background: #BDBDBD;
 }

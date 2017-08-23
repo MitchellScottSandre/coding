@@ -4,10 +4,10 @@
 $(document).ready(function(){
 
     // ScrollSpy
-    $('.scrollspy').scrollSpy();
+    // $('.scrollspy').scrollSpy();
 
     // Parralax
-    $('.parallax').parallax();
+    // $('.parallax').parallax();
 
     // Scrollify
     // $.scrollify({
@@ -119,25 +119,25 @@ $(document).ready(function(){
         });
     });
 
-    function makeSectionsRightSize(){
-        if ($(document).width() < 340){ //iPhone5
-            $('#experience').css('height', '190vh');
-        } else if ($(document).width() < 400){ // Iphone 6
-            $('#aboutMe').css('height', '145vh');
-            $('#skills').css('height', '170vh');
-            $('#experience').css('height', '195vh');
-            $('#projects').css('height', '100vh');
-        } else if ($(document).width() < 450){ // Iphone 6 Plus
-            $('#experience').css('height', '75vh');
-        } else if ($(document).width() < 800){
-            $('#experience').css('height', '95vh');
-        } else if ($(document).width() < 1025){ // Ipad
-            $('#experience').css('height', '72vh');
-        } else {
-            $('#experience').css('height', '150vh');
-            $('#skills').css('height', '130vh');
-        }
-    }
+    // function makeSectionsRightSize(){
+    //     if ($(document).width() < 340){ //iPhone5
+    //         $('#experience').css('height', '190vh');
+    //     } else if ($(document).width() < 400){ // Iphone 6
+    //         $('#aboutMe').css('height', '145vh');
+    //         $('#skills').css('height', '170vh');
+    //         $('#experience').css('height', '195vh');
+    //         $('#projects').css('height', '100vh');
+    //     } else if ($(document).width() < 450){ // Iphone 6 Plus
+    //         $('#experience').css('height', '75vh');
+    //     } else if ($(document).width() < 800){
+    //         $('#experience').css('height', '95vh');
+    //     } else if ($(document).width() < 1025){ // Ipad
+    //         $('#experience').css('height', '72vh');
+    //     } else {
+    //         $('#experience').css('height', '150vh');
+    //         $('#skills').css('height', '130vh');
+    //     }
+    // }
 
 
 });

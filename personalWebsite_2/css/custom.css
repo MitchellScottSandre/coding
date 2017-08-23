@@ -63,19 +63,20 @@ filter: blur(5px);
 }
 
 @media screen and (max-width: 600px) {
-    #experience {
-        margin-bottom: 700px;
-    }
+    /*#experience {*/
+        /*margin-bottom: 700px;*/
+    /*}*/
 
     .chip {
         font-size: 11px;
     }
 }
 @media screen and (min-width: 601px) {
+
 }
 
 .section-row{
-    margin-top: 65px;
+    /*margin-top: 65px;*/
 }
 
 .timelineSection{
@@ -296,6 +297,7 @@ nav .nav-wrapper {
     /*background-color: #FF5252;*/
     padding-top: 1px;
     padding-bottom: 1px;
+    margin-bottom: 20px;
 }
 
 .row-heading h5 {
@@ -320,8 +322,46 @@ nav .nav-wrapper {
     transform: scale(1.1);
 }
 
-/* Cards */
+/* ABOUT ME */
+#aboutMe hr {
+    width: 20%;
+    border-color: #FF5252 !important;
+    border-width: 5px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+.flow-text{
+    line-height: 120%;
+}
+@media screen and (max-width: 600px) {
+    #aboutMe img {
+        margin-top: 2%;
+        margin-bottom: 2%;
+        width: 70%;
+    }
+    .sectionHeadingText {
+        width: 90;
+        text-align: center;
+        font-size: 17px;
+        line-height: 130% !important;
+    }
+}
+@media screen and (min-width: 601px) {
+    #aboutMe img {
+        margin-top: 15%;
+        width: 70%;
+    }
+    .sectionHeadingText {
+        text-align: center;
+        font-size: 25px;
+        line-height: 140% !important;
+    }
+    .flow-text{
+        font-size: 20px;
+    }
+}
 
+/* Cards */
 @media screen and (max-width: 600px) {
     .skillCard {
         padding: 0;
@@ -399,6 +439,41 @@ nav .nav-wrapper {
 
     .paddedList {
         padding-left: 15px;
+    }
+
+    /* Slide Animation : W3 Schools */
+    .slideanim {visibility:hidden;}
+    .slide {
+        /* The name of the animation */
+        animation-name: slide;
+        -webkit-animation-name: slide;
+        /* The duration of the animation */
+        animation-duration: 1s;
+        -webkit-animation-duration: 1s;
+        /* Make the element visible */
+        visibility: visible;
+    }
+
+    /* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+    @keyframes slide {
+        0% {
+            opacity: 0;
+            transform: translateY(70%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+    }
+    @-webkit-keyframes slide {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(70%);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0%);
+        }
     }
 
 }

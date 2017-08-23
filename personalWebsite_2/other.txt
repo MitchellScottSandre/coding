@@ -1,0 +1,22 @@
+<p>Projects that I completed include:</p>
+                        <div class="more paddedList">
+                            <p class="secondaryText">Redesigning Assignments page using React and Ajax, decreasing load times</p>
+                            <p class="secondaryText">Re-engineering usage analytics backend to make raw data usage filterable by client. Made new Apache Solr core for faster querying</p>
+                            <p class="secondaryText">Adding multi-facet search functionality to web application using jQuery, JSP, Java</p>
+                        </div>
+                        <div class="center-align">
+                            <a class="waves-effect waves-purple btn-flat showMore">Show More</a>
+                        </div>
+
+
+
+<!--<div class="cd-timeline-text">-->
+                        <!--<p class="primaryText">Relvant courses include:</p>-->
+                        <!--<div class="paddedList">-->
+                            <!--<p class="secondaryText">CS 241: Foundations of Sequential Programs</p>-->
+                            <!--<p class="secondaryText">SE 212: Logic and Computation</p>-->
+                            <!--<p class="secondaryText">STAT 206: Statistics for Software Engineering</p>-->
+                            <!--<p class="secondaryText">CS 138: Intro to Data Abstraction and Implementation</p>-->
+                        <!--</div>-->
+                        <span class="cd-date">Class of 2021</span>
+                    <!--</div>-->

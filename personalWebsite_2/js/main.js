@@ -107,21 +107,35 @@ $(document).ready(function(){
         $('#cd-timeline').css('height', timelineLineHeight2 + "px");
     });
 
+    // W3 Schools Slide Animation
+    $(window).scroll(function() {
+        $(".slideanim").each(function(){
+            var pos = $(this).offset().top;
+            var windowHeight = $( window ).height();
+            var winTop = $(window).scrollTop();
+            if (pos < winTop + windowHeight * 0.95) {
+                $(this).addClass("slide");
+            }
+        });
+    });
+
     function makeSectionsRightSize(){
         if ($(document).width() < 340){ //iPhone5
             $('#experience').css('height', '190vh');
         } else if ($(document).width() < 400){ // Iphone 6
-            $('#experience').css('height', '90vh');
-            $('#skills').css('height', '145vh');
+            $('#aboutMe').css('height', '145vh');
+            $('#skills').css('height', '170vh');
+            $('#experience').css('height', '195vh');
+            $('#projects').css('height', '100vh');
         } else if ($(document).width() < 450){ // Iphone 6 Plus
             $('#experience').css('height', '75vh');
         } else if ($(document).width() < 800){
             $('#experience').css('height', '95vh');
-        } else if ($(document).width() < 1025){
+        } else if ($(document).width() < 1025){ // Ipad
             $('#experience').css('height', '72vh');
         } else {
-            $('#experience').css('height', '153vh');
-            $('#skills').css('height', '120vh');
+            $('#experience').css('height', '150vh');
+            $('#skills').css('height', '130vh');
         }
     }
 

@@ -1,14 +1,11 @@
 
 
 .betterSection {
-    /*min-height: 100vh;*/
-    /*overflow: auto;*/
-    /*display: block;*/
-    display:table;
-    /*min-height: 100vh;*/
-    /*height: 100%;*/
-    padding: 30px;
-    /*position: relative;*/
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 7%;
+    padding-right: 7%;
+    /*min-height: 90vh;*/
 }
 
 .primary1 {
@@ -327,7 +324,7 @@ nav .nav-wrapper {
     transform: scale(1.1);
 }
 
-/* ABOUT ME */
+/* ------------------------------- About Me Section ------------------------------- */
 #aboutMe hr {
     width: 20%;
     border-color: #FF5252 !important;
@@ -345,7 +342,7 @@ nav .nav-wrapper {
         width: 70%;
     }
     .sectionHeadingText {
-        width: 90;
+        width: 100%;
         text-align: center;
         font-size: 17px;
         line-height: 130% !important;
@@ -357,6 +354,8 @@ nav .nav-wrapper {
         width: 70%;
     }
     .sectionHeadingText {
+        padding-left: 15%;
+        padding-right: 15%;
         text-align: center;
         font-size: 25px;
         line-height: 140% !important;
@@ -364,6 +363,28 @@ nav .nav-wrapper {
     .flow-text{
         font-size: 20px;
     }
+}
+
+/* ------------------------------- Experience Section ------------------------------- */
+
+@media screen and (max-width: 600px) {
+    .projectCard {
+        margin: 5%;
+    }
+}
+@media screen and (min-width: 601px) {
+    .projectCard {
+        margin: 12%;
+    }
+}
+/*.projectCard {*/
+    /*margin: 5%;*/
+/*}*/
+#projects img {
+    /*max-width: 50vh;*/
+    object-fit: contain !important;
+    width: 100%;
+    filter: blur(1px);
 }
 
 /* Cards */
@@ -400,7 +421,7 @@ nav .nav-wrapper {
         width: 80px;
     }
     .card-stars i {
-        font-size: 15px;
+        font-size: 13px;
     }
 }
 @media screen and (min-width: 601px) {
@@ -436,7 +457,7 @@ nav .nav-wrapper {
         width: 120px;
     }
     .card-stars i {
-        font-size: 20px;
+        font-size: 17px;
     }
     .timeline-header-col{
         padding: 0 !important;

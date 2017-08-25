@@ -30,6 +30,7 @@ $(document).ready(function(){
 
     // Load Particle JS
     particlesJS("particles-js", particleData);
+
     $('#descriptionWord').text("sdfsdf");
 
     // Toggle Nav Overlay
@@ -89,20 +90,18 @@ $(document).ready(function(){
         $(this).removeClass("z-depth-5");
         $(this).siblings('.cd-timeline-img').css('background-color', 'white');
     });
-    // $('.cd-timeline-content').mouseover(function(){
-    //
-    // });
-    // Show more div when .showMore is clicked
+
     $('.showMore').on("click", function(){
         $(this).closest('.showMoreSection').find('.more').slideToggle();
     });
 
+
     // Set timeline line height on load and on change
     var timelineLineHeight = $('#timelineIcon_2').offset().top - $('#timelineIcon_1').offset().top;
-    // makeSectionsRightSize();
     $('#cd-timeline').css('height', timelineLineHeight + "px");
     $( window ).resize(function() {
-        // makeSectionsRightSize();
+
+        //Fix timeline line height
         var timelineLineHeight2 = $('#timelineIcon_2').offset().top - $('#timelineIcon_1').offset().top;
         $('#cd-timeline').css('height', timelineLineHeight2 + "px");
     });
@@ -118,27 +117,6 @@ $(document).ready(function(){
             }
         });
     });
-
-    function makeSectionsRightSize(){
-        if ($(document).width() < 340){ //iPhone5
-            $('#experience').css('height', '190vh');
-        } else if ($(document).width() < 400){ // Iphone 6
-            $('#aboutMe').css('height', '145vh');
-            $('#skills').css('height', '170vh');
-            $('#experience').css('height', '195vh');
-            $('#projects').css('height', '100vh');
-        } else if ($(document).width() < 450){ // Iphone 6 Plus
-            $('#experience').css('height', '75vh');
-        } else if ($(document).width() < 800){
-            $('#experience').css('height', '95vh');
-        } else if ($(document).width() < 1025){ // Ipad
-            $('#experience').css('height', '72vh');
-        } else {
-            $('#experience').css('height', '150vh');
-            $('#skills').css('height', '130vh');
-        }
-    }
-
 
 });
 

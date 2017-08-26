@@ -9,10 +9,18 @@ $(document).ready(function(){
     // Parralax
     $('.parallax').parallax();
 
+    // Add rotating text
+    var descriptions = ["Software Engineer", "Full Stack Developer", "Java Wizard", "Web Developer", "iOS Developer"];
+    for (var i = 0; i < 40; i++){
+        $('#rotatingText').append(
+            '<li style="visibility: hidden;">' + descriptions[i % descriptions.length] + '</li>'
+        );
+    }
+
     // Title Textulate animations
     $('.tlt_1').textillate();
     $('.tlt_2').textillate({
-        initialDelay: 0,
+        initialDelay: 3,
         minDisplayTime: 5,
         in: { effect: 'fadeInUp', sync: true },
         out: { effect: 'fadeOutUp', sync: true},
@@ -21,8 +29,6 @@ $(document).ready(function(){
 
     // Load Particle JS
     particlesJS("particles-js", particleData);
-
-    $('#descriptionWord').text("sdfsdf");
 
     // Toggle Nav Overlay
     $("#overlayToggler").on("click", function(){
@@ -73,6 +79,7 @@ $(document).ready(function(){
         }
     });
 
+    // Add colour to timeline circle on hover
     $('.cd-timeline-content').mouseenter(function(){
         $(this).addClass("z-depth-5");
         $(this).siblings('.cd-timeline-img').css('background-color', '#FF5252');
@@ -82,10 +89,14 @@ $(document).ready(function(){
         $(this).siblings('.cd-timeline-img').css('background-color', 'white');
     });
 
-    $('.showMore').on("click", function(){
-        $(this).closest('.showMoreSection').find('.more').slideToggle();
+    // Add depth affect to projectCards on hover
+    $('.projectCard').mouseenter(function() {
+        $(this).addClass("z-depth-5");
     });
 
+    $('.projectCard').mouseleave(function() {
+        $(this).addClass("z-depth-5");
+    });
 
     // Set timeline line height on load and on change
     var timelineLineHeight = $('#timelineIcon_2').offset().top - $('#timelineIcon_1').offset().top;
@@ -126,6 +137,7 @@ $(document).ready(function(){
                 { queue: false, duration: 'slow' }
             );
     });
+
     $('#resumeRow').mouseleave(function() {
         $(this).find("#resumeIcon")
             .css('opacity', 1)

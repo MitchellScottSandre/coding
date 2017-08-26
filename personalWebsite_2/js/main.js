@@ -9,13 +9,8 @@ $(document).ready(function(){
     // Parralax
     $('.parallax').parallax();
 
-    // Scrollify
-    // $.scrollify({
-    //     section : ".scrollifyMe"
-    // });
-
     // Title Textulate animations
-    $('.tlt_1, .tlt_3').textillate();
+    $('.tlt_1').textillate();
     $('.tlt_2').textillate({
         initialDelay: 0,
         minDisplayTime: 5,
@@ -23,10 +18,6 @@ $(document).ready(function(){
         out: { effect: 'fadeOutUp', sync: true},
         loop: true
     });
-    // var tlt4 = $('.tlt_4').textillate({
-    //     autoStart: false,
-    //     initialDelay: 0
-    // });
 
     // Load Particle JS
     particlesJS("particles-js", particleData);
@@ -117,6 +108,94 @@ $(document).ready(function(){
             }
         });
     });
+
+    // Resume Row on Hover Animation
+    $('#resumeRow').mouseenter(function() {
+        $(this).find("#resumeText")
+            .css('opacity', 1)
+            .slideUp('fast')
+            .animate(
+                { opacity: 0 },
+                { queue: false, duration: 'slow' }
+            );
+        $(this).find("#resumeIcon")
+            .css('opacity', 0)
+            .slideDown('fast')
+            .animate(
+                { opacity: 1 },
+                { queue: false, duration: 'slow' }
+            );
+    });
+    $('#resumeRow').mouseleave(function() {
+        $(this).find("#resumeIcon")
+            .css('opacity', 1)
+            .slideUp('fast')
+            .animate(
+                { opacity: 0 },
+                { queue: false, duration: 'slow' }
+            );
+        $(this).find("#resumeText")
+            .css('opacity', 0)
+            .slideDown('fast')
+            .animate(
+                { opacity: 1 },
+                { queue: false, duration: 'slow' }
+            );
+    });
+
+    // Animate bouncing ball for RocketBall
+    var canvas = $('#bouncingBallCanvas');
+    var c = canvas.get(0).getContext("2d");
+    c.width = Math.min($('#rocketBallCard').width() - 2, $('#bouncingBallCanvas').width() - 2);
+
+    var container = {
+        x: 0,
+        y: 0,
+        width: c.width,
+        height: 150
+    };
+    var circle = {
+        x: 50,
+        y: 50,
+        r: 10,
+        vx: 4,
+        vy: 4
+    };
+
+    var colours = ["#FFFFFF", "#03A9F4", "#FF5252"];
+    var bounceCount = 0;
+    function animate() {
+        // Draw container background (erases last drawn circle);
+        //draw the container
+        c.fillStyle = "#9C27B0";
+        c.fillRect(container.x, container.y, container.width, container.height);
+
+        // Draw the circle
+        c.fillStyle = colours[bounceCount % colours.length];
+        c.beginPath();
+        c.arc(circle.x, circle.y, circle.r, 0, Math.PI * 2, true);
+        c.fill();
+
+        //Bounce logic
+        if (circle.x - circle.r + circle.vx < container.x || circle.x + circle.r + circle.vx> container.x + container.width) {
+            circle.vx = -circle.vx;
+            bounceCount++;
+        }
+
+        if (circle.y + circle.r + circle.vy > container.y + container.height || circle.y - circle.r + circle.vy < container.y) {
+            circle.vy = -circle.vy;
+            bounceCount++;
+        }
+
+        circle.x += circle.vx;
+        circle.y += circle.vy;
+
+        if (bounceCount > 10000){
+            bounceCount = 0;
+        }
+        requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
 
 });
 

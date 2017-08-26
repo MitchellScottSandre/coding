@@ -20,3 +20,25 @@
                         <!--</div>-->
                         <span class="cd-date">Class of 2021</span>
                     <!--</div>-->
+
+
+                                  <!--&lt;!&ndash; Console Games &ndash;&gt;-->
+                                        <!--<div class="card projectCard z-depth-5 slideanim">-->
+                                            <!--<div class="card-image" style="display: inline; margin-top: 25px;">-->
+                                                <!--<img class="smallImg activator" src="img/games1.png">-->
+                                                <!--<img class="smallImg activator" src="img/project4.png">-->
+                                                <!--<a class="btn-floating halfway-fab waves-effect waves-light primary1 activator cardRevealActivator"><i class="material-icons">add</i></a>-->
+                                            <!--</div>-->
+                                            <!--<div class="card-content activator">-->
+                                                <!--<span class="card-title">Console Games</span>-->
+                                                <!--<div class="chip accent1 hoverable hvr-grow">C</div>-->
+                                                <!--<div class="chip accent4 hoverable hvr-grow">C++</div>-->
+                                            <!--</div>-->
+                                            <!--<div class="card-reveal center-align">-->
+                                                <!--<div class="revealTitle">-->
+                                                    <!--<span class="card-title"><span class="left titleText">Console Games</span><i class="material-icons right close">close</i></span>-->
+                                                <!--</div>-->
+                                                <!--<div class="revealText flow-text">-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->

@@ -1,9 +1,14 @@
 .betterSection {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 7%;
-    padding-right: 7%;
+    /*padding-top: 20px;*/
+    /*padding-bottom: 20px;*/
+    /*padding-left: 7%;*/
+    /*padding-right: 7%;*/
+    padding: 20px 7% 20px 7%;
     /*min-height: 90vh;*/
+}
+
+body {
+    padding: 0;
 }
 
 .primary1 {
@@ -36,6 +41,10 @@
     color: #212121;
 }
 
+.whiteText {
+    color: white;
+}
+
 .secondaryText {
     color: #757575;
 }
@@ -51,11 +60,7 @@
 }
 
 .bodyBlurred > *:not(.neverBlurry) {
-filter: blur(5px);
-}
-
-.more{
-    display: none;
+    filter: blur(5px);
 }
 
 .tlt_1, tlt_2 > li{
@@ -63,24 +68,12 @@ filter: blur(5px);
 }
 
 @media screen and (max-width: 600px) {
-    /*#experience {*/
-        /*margin-bottom: 700px;*/
-    /*}*/
-
     .chip {
         font-size: 11px;
     }
 }
 @media screen and (min-width: 601px) {
 
-}
-
-.section-row{
-    /*margin-top: 65px;*/
-}
-
-.timelineSection{
-    /*margin-bottom: 100px;*/
 }
 
 .parallax-container {
@@ -333,7 +326,7 @@ nav .nav-wrapper {
 .flow-text{
     line-height: 120%;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 990px) { /* Tablet and Mobile */
     #aboutMe img {
         margin-top: 2%;
         margin-bottom: 2%;
@@ -346,9 +339,9 @@ nav .nav-wrapper {
         line-height: 130% !important;
     }
 }
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 991px) { /* Desktop Only */
     #aboutMe img {
-        margin-top: 25%;
+        margin-top: 5%;
         width: 70%;
     }
     .sectionHeadingText {
@@ -367,21 +360,35 @@ nav .nav-wrapper {
 
 @media screen and (max-width: 600px) {
     .projectCard {
+        min-height: 40vh;
         margin: 5%;
-        padding-top: 10px;
         float: none;
         clear: both;
+    }
+
+    .revealTitle .titleText {
+        font-size: 20px;
+    }
+
+    .flow-text {
+        font-size: 15px;
+    }
+
+    .smallerCard {
+        padding-top: 12% !important;
     }
 }
 @media screen and (min-width: 601px) {
     .projectCard {
+        min-height: 35vh;
         margin: 12%;
-        padding-top: 10px;
+    }
+
+    .smallerCard {
+        padding-top: 8% !important;
     }
 }
-/*.projectCard {*/
-    /*margin: 5%;*/
-/*}*/
+
 #projects img {
     /*max-width: 50vh;*/
     object-fit: contain !important;
@@ -395,6 +402,12 @@ nav .nav-wrapper {
 
 .revealTitle {
     margin-bottom: 25px;
+}
+
+#bouncingBallCanvas {
+    padding: 0;
+    margin: auto;
+    display: block;
 }
 
 /* Cards */
@@ -478,6 +491,21 @@ nav .nav-wrapper {
     }
 }
 
+.endCard {
+    height: 100px;
+}
+
+.endCard i {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.pageFooter {
+    padding: 20px;
+}
+
+/* 3rd Party CSS */
+
 /* Slide Animation : W3 Schools */
 .slideanim {visibility:hidden;}
 .slide {
@@ -511,14 +539,6 @@ nav .nav-wrapper {
         opacity: 1;
         -webkit-transform: translateY(0%);
     }
-}
-
-.endCard {
-    height: 100px;
-}
-
-.pageFooter {
-    padding: 15px;
 }
 
 

@@ -56,13 +56,13 @@
         </div>
     </div>
     <!------------------------------------- Header -------------------------------------->
-    <section class="scrollifyMe">
+    <section style="height: 100vh !important;">
         <header>
             <div class="parallax-container">
             <div id="particles-js" class="parallax"></div>
             </div>
             <div class="center-align header-container">
-                <h1 class="tlt_1">Hi, I'm Scott (WIP 3)</h1>
+                <h1 class="tlt_1">Scott Sandre</h1>
                 <br/>
                 <div id="rotatingText">
                     <ul class="tlt_2">
@@ -92,21 +92,21 @@
     <div class="divider"></div>
     <main>
         <!------------------------------------- About Me -------------------------------------->
-        <section id="aboutMe" class="scrollspy scrollifyMe betterSection">
+        <section id="aboutMe" class="scrollspy betterSection">
             <div class="row">
-                <div class="col s12 m5 center-align">
+                <div class="col s12 m12 l5 center-align">
                     <div class="center-align row-heading z-depth-2 accent1">
                         <h5><span>A Bit About Me</span></h5>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col s12 m5 center-align">
+                <div class="col s12 m12 l5 center-align">
                     <img src="img/img1.jpg">
                 </div>
-                <div class="col s12 m7">
+                <div class="col s12 m12 l6 offset-l1">
                     <div class="flow-text">
-                        <h5 class="sectionHeadingText slideanim">I'm a passionate software engineer who likes solving problems and writing smart, efficient code.</h5>
+                        <h5 class="sectionHeadingText slideanim">Hi, I'm Scott. <br/><br/>I'm a passionate software engineer who likes solving problems and writing smart, efficient code.</h5>
                         <hr>
                         <p>
                             I'm a second year Software Engineering student at the <strong>University of Waterloo</strong>.
@@ -117,11 +117,13 @@
                             My work experience has proven my ability to learn new languages, libraries, and frameworks as needed, which is why I'm never afraid to tackle something new.
                         </p>
                         <br/>
-                        <p>
-                            I enjoy coding and making side projects in my spare time, too, last year creating a poker game and most recently
-                            starting iOS development and finishing two websites.
-                        </p>
-                        <br/>
+                        <div class="show-on-medium-and-up hide-on-small-only">
+                            <p>
+                                I like coding and making side projects in my spare time, too, last year creating a poker game and most recently
+                                starting iOS development and finishing two websites.
+                            </p>
+                            <br/>
+                        </div>
                         <p>I'm creative. I'm dedicated. And I'm a team player.</p>
                         <br/>
                         <p>Contact me <a href="#contact">here.</a></p>
@@ -132,7 +134,7 @@
         </section>
         <hr/>
         <!------------------------------------- Skills -------------------------------------->
-        <section id="skills" class="scrollspy scrollifyMe betterSection" >
+        <section id="skills" class="scrollspy betterSection" >
             <div class="row">
                 <div class="col s12 m5">
                     <div class="center-align row-heading z-depth-2 accent2">
@@ -143,7 +145,7 @@
             <div class="row">
                 <div class="col s12">
                     <div class="center-align sectionHeadingText slideanim">
-                        I like developing brilliant, scalable code and deriving efficient solutions to problems that come my way.
+                        I like developing scalable code and deriving efficient solutions to problems that come my way.
                         <br/>
                         <br/>
                         These skills let me do just that.
@@ -279,7 +281,7 @@
         </section>
         <!------------------------------------- Experience -------------------------------------->
         <hr>
-        <section id="experience" class="scrollspy scrollifyMe betterSection">
+        <section id="experience" class="scrollspy betterSection">
             <div class="row section-row">
                 <br/>
                 <div class="col s12 m5">
@@ -310,16 +312,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!--<div class="cd-timeline-text">-->
-                            <!--<p class="primaryText">Relvant courses include:</p>-->
-                            <!--<div class="paddedList">-->
-                                <!--<p class="secondaryText">CS 241: Foundations of Sequential Programs</p>-->
-                                <!--<p class="secondaryText">SE 212: Logic and Computation</p>-->
-                                <!--<p class="secondaryText">STAT 206: Statistics for Software Engineering</p>-->
-                                <!--<p class="secondaryText">CS 138: Intro to Data Abstraction and Implementation</p>-->
-                            <!--</div>-->
-                            <span class="cd-date">Class of 2021</span>
-                        <!--</div>-->
+                        <span class="cd-date">Class of 2021</span>
                     </div>
                 </div>
                 <!-- LyricFind -->
@@ -331,11 +324,11 @@
                         <div class="cd-timeline-header">
                             <div class="row center-align">
                                 <div class="col s12 m6 timeline-header-col">
-                                    <span class="show-on-medium-and-up hide-on-small-only"><h2>Lyricfind Co-Op</h2></span>
-                                    <span class="show-on-small hide-on-med-and-up"><h5>Lyricfind Co-Op</h5></span>
+                                    <span class="show-on-medium-and-up hide-on-small-only"><h2>LyricFind Co-Op</h2></span>
+                                    <span class="show-on-small hide-on-med-and-up"><h5>LyricFind Co-Op</h5></span>
                                     <p class="secondaryText">Full-Stack Developer | Toronto, ON</p>
                                 </div>
-                                <div class="col s12 m6" style="padding-top: 16px;">
+                                <div class="col s12 m6" style="padding-top: 16px; padding-left: 0; padding-right: 0;">
                                     <div class="chip accent1 hoverable hvr-grow">Spring MVC</div>
                                     <div class="chip accent4 hoverable hvr-grow">Java</div>
                                     <div class="chip primary1 hoverable hvr-grow">GitLab</div>
@@ -347,10 +340,12 @@
                             </div>
                         </div>
                         <div class="cd-timeline-text showMoreSection">
-                            <p>Developed code and provided a variety of key performance improvements and additional features for LyricFind web application
+                            <p>Provided a variety of key performance improvements and additional features for LyricFind web application
                                 used by content and business teams.
                             </p>
-                            <p>Learned Spring MVC, jQuery, and React while doing issue-based development with GitLab.</p>
+                            <p>Responsible for the design, back and front end, testing, and integration of code while doing issue-based development with GitLab.
+                                Learned Spring MVC, React, jQuery, and Ajax, and increased my Java, SQL, and JSP proficiency.</p>
+                            <p><a href="">See my completed projects on my resume</a></p>
                             <span class="cd-date">Spring 2017</span>
                         </div>
                     </div>
@@ -389,7 +384,7 @@
         <hr/>
         <!------------------------------------- Projects -------------------------------------->
 
-        <section id="projects" class="scrollspy scrollifyMe betterSection" >
+        <section id="projects" class="scrollspy betterSection" >
             <div class="row">
                 <div class="col s12 m5">
                     <div class="center-align row-heading z-depth-2 accent1">
@@ -406,7 +401,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+
+            <!-- Projects Show On Medium and Up   show-on-medium-and-up hide-on-small-only -->
+            <div class="row ">
                 <!-- Ride For Craig Website Card-->
                 <div class="col s12 m6 center-align">
                     <div class="card projectCard z-depth-5 slideanim">
@@ -424,8 +421,9 @@
                         </div>
                         <div class="card-reveal">
                             <div class="revealTitle">
-                                <span class="card-title">RideForCraig.com<i class="material-icons right close">close</i></span>
+                                <span class="card-title"><span class="left titleText">RideForCraig.com</span><i class="material-icons right close">close</i></span>
                             </div>
+                            <br/>
                             <div class="revealText flow-text">
                                 <p>Website I designed for a charity bike ride in memory of a Western University student.</p>
                                 <br/>
@@ -437,20 +435,29 @@
                         </div>
                     </div>
 
-                    <!-- Matrix Calculator -->
-                    <div class="card projectCard z-depth-5 slideanim">
+                    <!-- RocketBall -->
+                    <div class="card projectCard smallerCard z-depth-5 slideanim accent2" id="rocketBallCard">
                         <div class="card-image">
-                            <i class="fa fa-hashtag fa-5x" aria-hidden="true"></i>
+                            <canvas id="bouncingBallCanvas" height="150"></canvas>
                             <a class="btn-floating halfway-fab waves-effect waves-light primary1 activator cardRevealActivator"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-content activator">
-                            <span class="card-title">Matrix Calculator</span>
-                            <div class="chip accent2 hoverable hvr-grow">Python</div>
+                            <span class="card-title">RocketBall (WIP)</span>
+                            <div class="chip accent3 hoverable hvr-grow">Swift</div>
+                            <div class="chip accent1 hoverable hvr-grow">iOS</div>
+                            <div class="chip primary1 hoverable hvr-grow">Xcode</div>
                         </div>
-                        <div class="card-reveal">
+                        <div class="card-reveal primaryText">
                             <div class="revealTitle">
+                                <span class="card-title"><span class="left titleText">RocketBall</span><i class="material-icons right close">close</i></span>
                             </div>
+                            <br/>
                             <div class="revealText flow-text">
+                                <p>A neon-take on the classic game of Pong.</p>
+                                <br/>
+                                <p>Learned Swift and iOS development during my spare time for this project.</p>
+                                <br/>
+                                <p><a href="https://github.com/MitchellScottSandre/coding/tree/master/iOS%20Dev/RocketBall" target="_blank">See the source code</a></p>
                             </div>
                         </div>
                     </div>
@@ -464,7 +471,7 @@
                             <a class="btn-floating halfway-fab waves-effect waves-light primary1 activator cardRevealActivator"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-content activator">
-                            <span class="card-title">Texas Hold 'Em Poker</span>
+                            <span class="card-title">Texas Hold 'Em</span>
                             <div class="chip primary1 hoverable hvr-grow">Java</div>
                             <div class="chip accent1 hoverable hvr-grow">OOP</div>
                             <div class="chip accent2 hoverable hvr-grow">Slick 2D</div>
@@ -472,8 +479,9 @@
                         </div>
                         <div class="card-reveal center-align">
                             <div class="revealTitle">
-                                <span class="card-title">Texas Hold 'Em Poker<i class="material-icons right close">close</i></span>
+                                <span class="card-title"><span class="left titleText">Texas Hold 'Em</span><i class="material-icons right close">close</i></span>
                             </div>
+                            <br/>
                             <div class="revealText flow-text">
                                 <p>A complete Texas Hold 'Em Poker game written in Java and with excellent use of OOP.</p>
                                 <br/>
@@ -484,28 +492,33 @@
                         </div>
                     </div>
 
-                    <!-- Console Games -->
-                    <div class="card projectCard z-depth-5 slideanim">
-                        <div class="card-image" style="display: inline; margin-top: 25px;">
-                            <img class="smallImg activator" src="img/games1.png">
-                            <img class="smallImg activator" src="img/project4.png">
+                    <!-- Matrix Calculator -->
+                    <div class="card projectCard smallerCard z-depth-5 slideanim accent1">
+                        <div class="card-image">
+                            <i class="fa fa-hashtag fa-5x" aria-hidden="true"></i>
                             <a class="btn-floating halfway-fab waves-effect waves-light primary1 activator cardRevealActivator"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-content activator">
-                            <span class="card-title">Console Games</span>
-                            <div class="chip accent1 hoverable hvr-grow">C</div>
-                            <div class="chip accent4 hoverable hvr-grow">C++</div>
+                            <span class="card-title">Matrix Calculator</span>
+                            <div class="chip accent2 hoverable hvr-grow">Python</div>
                         </div>
-                        <div class="card-reveal center-align">
+                        <div class="card-reveal primaryText">
                             <div class="revealTitle">
+                                <span class="card-title"><span class="left titleText">Matrix Calc.</span><i class="material-icons right close">close</i></span>
                             </div>
+                            <br/>
                             <div class="revealText flow-text">
+                                <p>Calculates the determinant and inverse of a matrix, solves systems of linear equations.</p>
+                                <br/>
+                                <p>Learned Python for this project.</p>
+                                <br/>
+                                <p><a href="https://github.com/MitchellScottSandre/coding/blob/master/pythonFiles/matrixCalculator.py" target="_blank">See the source code</a></p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Text Encryption -->
-                    <div class="card projectCard z-depth-5 slideanim">
+                    <div class="card projectCard smallerCard z-depth-5 slideanim accent4" style="padding-top: 12%;">
                         <div class="card-image">
                             <i class="fa fa-lock fa-5x" aria-hidden="true"></i>
                             <a class="btn-floating halfway-fab waves-effect waves-light primary1 activator cardRevealActivator"><i class="material-icons">add</i></a>
@@ -514,27 +527,34 @@
                             <span class="card-title">Text Encryption</span>
                             <div class="chip accent1 hoverable hvr-grow">Java</div>
                         </div>
-                        <div class="card-reveal">
+                        <div class="card-reveal primaryText">
                             <div class="revealTitle">
+                                <span class="card-title"><span class="left titleText">Text Encryption</span><i class="material-icons right close">close</i></span>
                             </div>
+                            <br/>
                             <div class="revealText flow-text">
+                                <p>File encryption/decryption program made in Java.</p>
+                                <br/>
+                                <p>Parses specified file and outputs encrypted text to desired directory using either Playfair or Vigenere encryption algorithms.</p>
+                                <br/>
+                                <p><a href="https://github.com/MitchellScottSandre/coding/tree/master/java/Encryption" target="_blank">See the source code</a></p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> <!-- End of Projects Show on Medium and Up -->
+
+
         </section>
 
         <!-- Resume / Contact -->
-        <section id="contact" class="scrollspy scrollifyMe betterSection" >
-            <div class="row">
+        <section id="contact" class="scrollspy betterSection" >
+            <div class="row" id="resumeRow">
                 <div class="col s12">
                     <div class="card primary1 endCard valign-wrapper">
-                        <div class="row center-align">
-                            <div class="col s12 flow-text">
-                                <p>View My Resume</p>
-                                <i class="material-icons">file_download</i>
-                            </div>
+                        <div class="row center-align" style="padding-top: 20px;">
+                            <a href="img/resume.pdf" target="_blank"><p id="resumeText" class="whiteText">View My Resume</p></a>
+                            <a href="img/resume.pdf" target="_blank"><span id="resumeIcon" style="display: none;"><i class="fa fa-download fa-4x hvr-grow whiteText" aria-hidden="true"></i></span></a>
                         </div>
                     </div>
                 </div>
@@ -542,9 +562,11 @@
             <div class="row">
                 <div class="col s12">
                     <div class="card accent2 endCard valign-wrapper">
-                        <div class="row center-align">
-                            <div class="col s12 flow-text">
-                                <p></p>
+                        <div class="row">
+                                <div class="center-align" style="padding-top: 18px;">
+                                    <i class="fa fa-linkedin-square fa-4x hvr-grow"></i>
+                                    <i class="fa fa-envelope fa-4x hvr-grow"></i>
+                                    <i class="fa fa-github-square fa-4x hvr-grow"></i>
                             </div>
                         </div>
                     </div>
@@ -573,8 +595,6 @@
     <script type="text/javascript" src="vendor/textillate/jquery.fittext.js"></script>
     <script type="text/javascript" src="vendor/textillate/jquery.lettering.js"></script>
     <script type="text/javascript" src="vendor/textillate/jquery.textillate.js"></script>
-    <!-- Import Scrollify JS -->
-    <script type="text/javascript" src="vendor/scrollify/jquery.scrollify.min.js"></script>
     <!-- Import Timeline JS -->
     <script type="text/javascript" src="vendor/timeline/js/main.js"></script>
     <script type="text/javascript" src="vendor/timeline/js/modernizr.js"></script>

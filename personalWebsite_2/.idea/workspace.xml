@@ -21,7 +21,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="custom.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/custom.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="11907">
@@ -31,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="516" column="50" lean-forward="false" selection-start-line="516" selection-start-column="38" selection-end-line="516" selection-end-column="50" />
+            <state relative-caret-position="384">
+              <caret line="539" column="13" lean-forward="false" selection-start-line="539" selection-start-column="13" selection-end-line="539" selection-end-column="13" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -139,8 +139,8 @@
       <find>scroll</find>
       <find>experience</find>
       <find>text encr</find>
-      <find>projectCard</find>
       <find>project</find>
+      <find>projectCard</find>
     </findStrings>
     <replaceStrings>
       <replace>hvr-grow</replace>
@@ -158,8 +158,8 @@
         <option value="$PROJECT_DIR$/other.txt" />
         <option value="$PROJECT_DIR$/vendor/timeline/css/style.css" />
         <option value="$PROJECT_DIR$/js/main.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/custom.css" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -365,12 +365,12 @@
       <workItem from="1503453496978" duration="1232000" />
       <workItem from="1503612437827" duration="7694000" />
       <workItem from="1503759180892" duration="18900000" />
-      <workItem from="1503842173067" duration="4971000" />
+      <workItem from="1503842173067" duration="5201000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115686000" />
+    <option name="totallyTimeSpent" value="115916000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -852,10 +852,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11907">
+          <caret line="567" column="50" lean-forward="false" selection-start-line="567" selection-start-column="50" selection-end-line="567" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="516" column="50" lean-forward="false" selection-start-line="516" selection-start-column="38" selection-end-line="516" selection-end-column="50" />
+        <state relative-caret-position="384">
+          <caret line="539" column="13" lean-forward="false" selection-start-line="539" selection-start-column="13" selection-end-line="539" selection-end-column="13" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -871,14 +879,6 @@
             <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#4;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#section#4;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11907">
-          <caret line="567" column="50" lean-forward="false" selection-start-line="567" selection-start-column="50" selection-end-line="567" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>

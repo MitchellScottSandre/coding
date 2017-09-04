@@ -44,10 +44,10 @@
 }
 
 .accentText1 {
-    color: #03A9F4;
+    color: #03A9F4 !important;
 }
 .accentText2 {
-    color: #FF5252;
+    color: #FF5252 !important;
 }
 .accentText3 {
     color: #9C27B0;
@@ -475,7 +475,16 @@ nav .nav-wrapper {
 }
 
 /* ------------------------------------- Projects Section ------------------------------------- */
-
+/* Button Colours */
+#rideForCraigButton:hover, #pokerButton:hover {
+    background-color: #FF5252;
+}
+#rocketBallButton:hover{
+    background-color: #FFC107;
+}
+#encryptionButton:hover {
+    background-color: #9C27B0;
+}
 #projects img {
     object-fit: contain !important;
     width: 100%;

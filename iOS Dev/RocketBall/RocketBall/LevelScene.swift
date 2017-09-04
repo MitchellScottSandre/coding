@@ -26,6 +26,13 @@ struct Constants {
     
     static let USER_PLAYER: Int = 0
     static let COMP_PLAYER: Int = 1
+    
+    static let START_LEVEL_LABEL = "startLevelLabel"
+    static let END_GAME_LABEL = "endGameLabel"
+    static let WINNER_LABEL = "winnerLabel"
+    
+    static let TOP_TEXT_1: CGFloat = 0.65
+    static let TOP_TEXT_2: CGFloat = 0.60
 }
 
 class LevelScene: SKScene, SKPhysicsContactDelegate {
@@ -39,6 +46,10 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     var players: [Player]
     var paddles: [Paddle] = []
     var userTouchingPaddle: Bool = false
+    lazy var gameState: GKStateMachine = GKStateMachine(states: [
+        WaitingForTap(scene: self),
+        Playing(scene: self),
+        GameOver(scene: self)])
     
     //=========================================================================================================
     // MARK: LevelScene Init/SetUp Logic
@@ -51,16 +62,16 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     }
     
     // Need this so Xcode doesn't complain
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder){
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func update(_ currentTime: TimeInterval) {
+    override func update(_ currentTime: TimeInterval){
         //gameState.update(deltaTime: currentTime) TODO
     }
     
     // Called immediately after this scene is presented by the main view
-    override func didMove(to view: SKView) {
+    override func didMove(to view: SKView){
         super.didMove(to: view)
         
         // Create a barrier around the screen
@@ -73,7 +84,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         
         // Make starting balls
         for _ in 0..<level.startNumberBalls {
-            let ballStartX: CGFloat = self.size.width / (CGFloat(level.startNumberBalls) / 1.0)
+            let ballStartX: CGFloat = self.size.width / (CGFloat(level.startNumberBalls + 1))
             let ball = Ball(radius: 16, fillColor: SKColor.green, strokeColor: SKColor.green, startX: ballStartX, startY: self.size.height / 2, partOfChain: false) //startY always the same
             
             self.addChild(ball.node)
@@ -103,8 +114,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
             level.scoreRegions[i].physicsBody?.categoryBitMask = PhysicsCategory.ScoreRegions[i]
             self.addChild(level.scoreRegions[i])
         }
-        
-        //TODO: wait for user to tap start game!
+
         startGame()
     }
     
@@ -121,14 +131,19 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
             secondBody = contact.bodyA
         }
         
-        for i in 0..<level.numberPlayers {
+        for i in 0..<level.scoreRegions.count {
             if (firstBody.categoryBitMask == PhysicsCategory.Ball && secondBody.categoryBitMask == PhysicsCategory.ScoreRegions[i]){
-                print("Player \(i) got hit!")
+                self.players[i].loseLife()
+                print("User Lives: \(self.players[0].numberLives)")
+                print("Comp Lives: \(self.players[1].numberLives)")
+                if isGameOver() {
+                    endGame()
+                }
             }
         }
         
         if (firstBody.categoryBitMask == PhysicsCategory.Ball && secondBody.categoryBitMask == PhysicsCategory.Paddle){
-            print("hit paddle!")
+            // Hit Paddle
         }
     }
     
@@ -137,13 +152,43 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     //=========================================================================================================
     
     func startGame(){
-        for i in 0..<self.balls.count {
-            balls[i].node.physicsBody!.applyImpulse(CGVector(dx: randomDirection(), dy: randomDirection()))
-        }
+        // Wait for user to tap to play
+        let tapToStartLabel = SKLabelNode(text: "Tap to Start")
+        tapToStartLabel.name = Constants.START_LEVEL_LABEL
+        tapToStartLabel.position = CGPoint(x: self.frame.midX, y: self.frame.maxY * Constants.TOP_TEXT_1)
+        tapToStartLabel.zPosition = 5
+        tapToStartLabel.setScale(0.0)
+        self.addChild(tapToStartLabel)
+        self.gameState.enter(WaitingForTap.self)
     }
     
     func isGameOver() -> Bool {
-        return false;
+        if (self.players[0].numberLives <= 0 || self.players[1].numberLives <= 0) {
+            print("Game over!")
+            return true
+        }
+        
+        return false
+    }
+    
+    func endGame(){
+        print("End Game")
+        let endGameLabel = SKLabelNode(text: "Game Over")
+        endGameLabel.name = Constants.END_GAME_LABEL
+        endGameLabel.position = CGPoint(x: self.frame.midX, y: self.frame.maxY * Constants.TOP_TEXT_1)
+        endGameLabel.zPosition = 5
+        endGameLabel.setScale(0.0)
+        self.addChild(endGameLabel)
+        
+        let winnerText: String = players[0].numberLives <= 0 ? "You Lost!" : "You Won!"
+        let winnerLabel = SKLabelNode(text: winnerText)
+        winnerLabel.name = Constants.WINNER_LABEL
+        winnerLabel.position = CGPoint(x: self.frame.midX, y: self.frame.maxY * Constants.TOP_TEXT_2)
+        winnerLabel.zPosition = 5
+        winnerLabel.setScale(0.0)
+        self.addChild(winnerLabel)
+        
+        self.gameState.enter(GameOver.self)
     }
     
     //=========================================================================================================
@@ -151,18 +196,30 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     //=========================================================================================================
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        let touch = touches.first
-        let touchLocation = touch!.location(in: self)
-        
-        if let body = self.physicsWorld.body(at: touchLocation){
-            if body.node!.name == Constants.userPaddleName{
-                userTouchingPaddle = true
+        switch self.gameState.currentState {
+        case is WaitingForTap:
+            print("Waiting For Tap")
+            self.gameState.enter(Playing.self)
+        case is Playing:
+            print("Playing")
+            let touch = touches.first
+            let touchLocation = touch!.location(in: self)
+            
+            if let body = self.physicsWorld.body(at: touchLocation){
+                if body.node!.name == Constants.userPaddleName{
+                    userTouchingPaddle = true
+                }
             }
+        case is GameOver:
+            print("GameOver")
+        default:
+            print("Error State!")
+            break
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?){
-        //TODO SCOTT handle slanted regions?
+        
         if userTouchingPaddle {
             let touch = touches.first
             let thisLocation = touch!.location(in: self)
@@ -179,23 +236,6 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?){
         
-    }
-    //=========================================================================================================
-    // MARK: Helper Functions
-    //=========================================================================================================
-    
-    func randomFloat(from: CGFloat, to: CGFloat) -> CGFloat {
-        let rand: CGFloat = CGFloat(Float(arc4random()) / 0xFFFFFFFF)
-        return (rand) * (to - from) + from
-    }
-    
-    func randomDirection() -> CGFloat {
-        let speedFactor: CGFloat = 12.0
-        if randomFloat(from: 0.0, to: 100.0) >= 50 {
-            return -speedFactor
-        } else {
-            return speedFactor
-        }
     }
     
 }

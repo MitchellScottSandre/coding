@@ -32,7 +32,7 @@ class Level{
         self.numberPlayers = numPlayers
         
         var userScoreRegion = SKSpriteNode(color: SKColor.purple, size: CGSize(width: width, height: 3))
-        userScoreRegion.position = CGPoint(x: width / 2.0, y: 0.0)
+        userScoreRegion.position = CGPoint(x: width / 2.0, y: 0.0 + userScoreRegion.frame.height)
         
         var compScoreRegion = SKSpriteNode(color: SKColor.purple, size: CGSize(width: width, height: 3))
         compScoreRegion.position = CGPoint(x: width / 2.0, y: height - compScoreRegion.frame.height)

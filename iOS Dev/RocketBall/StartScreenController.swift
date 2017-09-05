@@ -9,18 +9,28 @@
 import UIKit
 import SpriteKit
 
-// separate screen that lets you select which level to go to , etc.
-
 class StartScreenController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let skView = self.view as! SKView
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+        skView.ignoresSiblingOrder = true
 
+        let goToScene = StartScreenScene(size: skView.bounds.size)
+        goToScene.scaleMode = .aspectFit
+        
+        skView.presentScene(goToScene)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    func testFunc(){
+        
     }
     
 

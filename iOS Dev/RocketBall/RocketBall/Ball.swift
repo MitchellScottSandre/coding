@@ -42,9 +42,9 @@ class Ball{
         self.node.fillColor = fillColor
         
         self.node.physicsBody = SKPhysicsBody(circleOfRadius: self.ballRadius)
-        self.node.physicsBody?.categoryBitMask = PhysicsCategory.Ball
-        //self.node.physicsBody!.collisionBitMask = PhysicsCategory.Border | PhysicsCategory.Paddle
-        self.node.physicsBody?.contactTestBitMask = PhysicsCategory.Paddle | PhysicsCategory.ScoreRegions[0] | PhysicsCategory.ScoreRegions[1]
+        self.node.physicsBody!.categoryBitMask = PhysicsCategory.Ball
+        self.node.physicsBody!.collisionBitMask = PhysicsCategory.Border | PhysicsCategory.Paddle | PhysicsCategory.ScoreRegions[0] | PhysicsCategory.ScoreRegions[1]
+        self.node.physicsBody!.contactTestBitMask = PhysicsCategory.Paddle | PhysicsCategory.ScoreRegions[0] | PhysicsCategory.ScoreRegions[1]
         self.node.physicsBody!.affectedByGravity = false
         self.node.physicsBody!.isDynamic = true
         self.node.physicsBody!.linearDamping = 0.0

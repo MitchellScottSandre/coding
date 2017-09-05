@@ -12,6 +12,7 @@
 		D247D1D41F5DC4CF004500D6 /* WaitingForTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247D1D31F5DC4CF004500D6 /* WaitingForTap.swift */; };
 		D247D1D61F5DC4D7004500D6 /* Playing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247D1D51F5DC4D7004500D6 /* Playing.swift */; };
 		D247D1D81F5DC4E4004500D6 /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247D1D71F5DC4E4004500D6 /* GameOver.swift */; };
+		D27034F71F5F10780028FE74 /* StartScreenScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27034F61F5F10780028FE74 /* StartScreenScene.swift */; };
 		D29E6C121F25708A003049F7 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E6C111F25708A003049F7 /* Ball.swift */; };
 		D29E6C141F257096003049F7 /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E6C131F257096003049F7 /* Paddle.swift */; };
 		D29E6C161F2570A0003049F7 /* Powerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E6C151F2570A0003049F7 /* Powerup.swift */; };
@@ -30,6 +31,7 @@
 		D247D1D31F5DC4CF004500D6 /* WaitingForTap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingForTap.swift; sourceTree = "<group>"; };
 		D247D1D51F5DC4D7004500D6 /* Playing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playing.swift; sourceTree = "<group>"; };
 		D247D1D71F5DC4E4004500D6 /* GameOver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
+		D27034F61F5F10780028FE74 /* StartScreenScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreenScene.swift; sourceTree = "<group>"; };
 		D29E6C111F25708A003049F7 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		D29E6C131F257096003049F7 /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
 		D29E6C151F2570A0003049F7 /* Powerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Powerup.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		D2EA19DB1F1047B50066CFC8 /* RocketBall */ = {
 			isa = PBXGroup;
 			children = (
+				D27034F61F5F10780028FE74 /* StartScreenScene.swift */,
 				D2EA19F51F1050B30066CFC8 /* LevelScene.swift */,
 				D212598D1F202C8100BE78C6 /* Level.swift */,
 				D21259911F20352C00BE78C6 /* Player.swift */,
@@ -180,6 +183,7 @@
 				D2EA19DD1F1047B50066CFC8 /* AppDelegate.swift in Sources */,
 				D247D1D81F5DC4E4004500D6 /* GameOver.swift in Sources */,
 				D247D1D61F5DC4D7004500D6 /* Playing.swift in Sources */,
+				D27034F71F5F10780028FE74 /* StartScreenScene.swift in Sources */,
 				D2EA19FA1F1052D20066CFC8 /* StartScreenController.swift in Sources */,
 				D212598E1F202C8100BE78C6 /* Level.swift in Sources */,
 				D247D1D41F5DC4CF004500D6 /* WaitingForTap.swift in Sources */,

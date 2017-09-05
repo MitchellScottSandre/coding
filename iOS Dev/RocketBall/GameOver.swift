@@ -25,14 +25,10 @@ class GameOver: GKState {
     }
     
     override func willExit(to nextState: GKState) {
-        //        if nextState is Playing {
-        //            let scaleToDisappear = SKAction.scale(to: 0.0, duration: 0.5)
-        //            self.scene.childNode(withName: Constants.START_LEVEL_LABEL)!.run(scaleToDisappear)
-        //        }
+        // TODO
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        //        return stateClass is Playing.Type
         return true
     }
 }

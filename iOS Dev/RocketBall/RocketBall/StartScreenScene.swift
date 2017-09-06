@@ -67,7 +67,7 @@ class StartScreenScene: SKScene {
     //=========================================================================================================
     
     func moveToPlayScene(){
-        let level = Level(startBalls: 1, numPlayers: 2, scoreLimit: 3, height: self.frame.height, width: self.frame.width)
+        let level = Level(startBalls: 1, numPlayers: 2, scoreLimit: 30, height: self.frame.height, width: self.frame.width)
         let goToScene = LevelScene(size: self.frame.size, level: level)
         goToScene.scaleMode = .aspectFit
         

@@ -53,7 +53,7 @@ class Ball{
         self.node.physicsBody!.restitution = 1.0
     }
     
-    func resetToMiddle(){
+    func resetPositionToMiddle(){
         var prevPhysicsBody = self.node.physicsBody
         self.node.physicsBody = nil
         self.node.position = self.startPoint

@@ -79,7 +79,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView){
         super.didMove(to: view)
         
-        // Create a barrier around the screen
+        // ---------- Create a barrier around the screen ----------
         let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         borderBody.friction = 0.0
         borderBody.categoryBitMask = PhysicsCategory.Border
@@ -87,7 +87,12 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0) //remove gravity
         self.physicsWorld.contactDelegate = self
         
-        // Make starting balls
+        // ---------- Add powerups to screen ---------- 
+        for powerup in self.level.powerups {
+            self.addChild(powerup.node)
+        }
+        
+        // ---------- Make starting balls ----------
         for _ in 0..<level.startNumberBalls {
             let ballStartX: CGFloat = self.size.width / (CGFloat(level.startNumberBalls + 1))
             let ball = Ball(radius: 16, fillColor: SKColor.green, strokeColor: SKColor.green, startX: ballStartX, startY: self.size.height / 2, partOfChain: false) //startY always the same
@@ -97,7 +102,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
             balls.append(ball)
         }
         
-        // Make paddles
+        // ---------- Make paddles ----------
         var userPaddle: Paddle = Paddle(isHuman: true,
                                         width: level.paddle_defaultWidth,
                                         fill: SKColor.blue,
@@ -113,7 +118,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(userPaddle.node)
         self.addChild(compPaddle.node)
         
-        // Create Score region physics bodies
+        // ---------- Create Score region physics bodies ----------
         for i in 0..<2 {
             level.scoreRegions[i].physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: level.scoreRegions[i].frame.width, height: level.scoreRegions[i].frame.height))
             level.scoreRegions[i].physicsBody?.categoryBitMask = PhysicsCategory.ScoreRegions[i]
@@ -123,7 +128,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
             self.addChild(level.scoreRegions[i])
         }
         
-        // Score Labels
+        // ---------- Score Labels ----------
         for i in 0..<2 {
             var scoreLabel = SKLabelNode(text: String(self.level.players[i].numberLives))
             scoreLabel.zPosition = Constants.TEXT_Z_POSITION
@@ -149,16 +154,33 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
                 secondBody = contact.bodyA
             }
             
-            // Check if someone scored
+            // ----------  Check if someone scored ----------
             for i in 0..<2 {
                 if (firstBody.categoryBitMask == PhysicsCategory.Ball && secondBody.categoryBitMask == PhysicsCategory.ScoreRegions[i]){
                     playerLoseLife(playerNum: i)
                 }
             }
             
-            // Check if hit paddle
+            // ---------- Check if ball hit paddle ----------
             if (firstBody.categoryBitMask == PhysicsCategory.Ball && secondBody.categoryBitMask == PhysicsCategory.Paddle){
                 // Hit Paddle
+            }
+            
+            // ---------- Check if ball hit powerup ---------- 
+            if (firstBody.categoryBitMask == PhysicsCategory.Ball && secondBody.categoryBitMask == PhysicsCategory.PowerUp){
+                // Identify and find the powerup based on the unique key of node.name
+                for ball in self.balls {
+                    if ball.node == firstBody.node {
+                        for powerup in self.level.powerups {
+                            if powerup.node == secondBody.node {
+                                powerup.applyPowerupToBall(ball: ball)
+                                break
+                            }
+                        }
+                        break
+                    }
+                }
+                
             }
         }
     }
@@ -179,7 +201,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func isGameOver() -> Bool {
-        if (self.players[0].numberLives <= 0 || self.players[1].numberLives <= 0) {
+        if (!self.players[0].isAlive() || !self.players[1].isAlive()){
             print("Game over!")
             return true
         }
@@ -220,7 +242,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         
         // Put ball back to middle
         for ball in self.balls {
-            ball.resetToMiddle()
+            ball.resetPositionToMiddle()
         }
         
         // Add impulse to balls

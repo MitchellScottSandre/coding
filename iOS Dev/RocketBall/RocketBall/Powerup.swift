@@ -19,14 +19,23 @@ class Powerup {
     var teleporter: Bool = false
     var teleporterPowerup: Powerup? = nil
     
-    // Powerup looks
-    var powerupRadius: CGFloat
+    // Other info
+    let powerupRadius: CGFloat = 20.0
     var node: SKShapeNode
     var location: CGPoint
     
-    init(radius: CGFloat, startX: CGFloat, startY: CGFloat, color: SKColor){
-        self.powerupRadius = radius
-        self.location = CGPoint(x: startX, y: startY)
+    // Random Point
+    convenience init(frameWidth: CGFloat, frameHeight: CGFloat, color: SKColor){
+        let x = CGFloat(drand48()) * frameWidth
+        let y = CGFloat(drand48()) * frameHeight
+        let point = CGPoint(x: x, y: y)
+        
+        self.init(startPoint: point, color: color)
+    }
+    
+    // Specific Point
+    init(startPoint: CGPoint, color: SKColor){
+        self.location = startPoint
         
         self.node = SKShapeNode(circleOfRadius: powerupRadius)
         self.node.position = location
@@ -38,7 +47,11 @@ class Powerup {
         self.node.physicsBody!.contactTestBitMask = PhysicsCategory.Ball
         self.node.physicsBody!.affectedByGravity = false
         self.node.physicsBody!.isDynamic = false
-        
     }
+    
+    func applyPowerupToBall(ball: Ball){
+        print("TODO: apply power up")
+    }
+    
     
 }

@@ -10,12 +10,18 @@ import SpriteKit
 
 class Ball{
     
+    // Ball info
     var ballRadius: CGFloat
-    var ballSpeed: CGFloat = 10.0
+    var ballSpeed: CGFloat
     var damage: Int = 1
     var node: SKShapeNode
     var partOfChain: Bool
     var startPoint: CGPoint
+    
+    // Ball Paddle Info
+    var speedFactorApplied = false
+    
+    
     
     var fillColor: SKColor {
         didSet {
@@ -35,6 +41,7 @@ class Ball{
         self.strokeColor = strokeColor
         self.partOfChain = partOfChain
         self.startPoint = CGPoint(x: startX, y: startY)
+        self.ballSpeed = Constants.DEFAULT_BALL_SPEED
 
         self.node = SKShapeNode(circleOfRadius: ballRadius)
         self.node.position = startPoint

@@ -39,6 +39,8 @@ struct Constants {
     static let SCORE_TEXT_X: CGFloat = 0.95
     
     static let TEXT_Z_POSITION: CGFloat = 5.0
+    
+    static let DEFAULT_BALL_SPEED: CGFloat = 10.0
 }
 
 class LevelScene: SKScene, SKPhysicsContactDelegate {
@@ -309,7 +311,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func randomDirection() -> CGFloat {
-        let speedFactor: CGFloat = 12.0
+        let speedFactor: CGFloat = Constants.DEFAULT_BALL_SPEED
         if randomFloat(from: 0.0, to: 100.0) >= 50 {
             return -speedFactor
         } else {

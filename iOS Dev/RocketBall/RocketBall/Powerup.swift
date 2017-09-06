@@ -8,16 +8,27 @@
 
 import SpriteKit
 
+struct PowerupConstants {
+    
+    // Defaults
+    static let DEFAULT_SPEED_FACTOR: CGFloat = 1.0
+    static let DEFAULT_SIZE_FACTOR: CGFloat = 1.0
+    static let DEFAULT_DAMAGE: Int = 1
+    
+    // New Values
+    static let NEW_SPEED_FACTOR = 1.5
+}
+
 class Powerup {
     
     // Powerup effects
-    var speedFactor: CGFloat = 1.0
-    var sizeFactor: CGFloat = 1.0
-    var damageFactor: Int = 1
-    var changeToRandomDirection: Bool = false
-    var addBallToChain: Bool = false
-    var teleporter: Bool = false
-    var teleporterPowerup: Powerup? = nil
+    var speedFactor: CGFloat
+    var sizeFactor: CGFloat
+    var damageFactor: Int
+    var changeToRandomDirection: Bool
+    var addBallToChain: Bool
+    var teleporter: Bool
+    var teleporterPowerup: Powerup?
     
     // Other info
     let powerupRadius: CGFloat = 20.0
@@ -41,16 +52,30 @@ class Powerup {
         self.node.position = location
         self.node.fillColor = color
         self.node.strokeColor = color
-        
         self.node.physicsBody = SKPhysicsBody(circleOfRadius: powerupRadius)
         self.node.physicsBody!.categoryBitMask = PhysicsCategory.PowerUp
         self.node.physicsBody!.contactTestBitMask = PhysicsCategory.Ball
         self.node.physicsBody!.affectedByGravity = false
         self.node.physicsBody!.isDynamic = false
+        
+        self.speedFactor = PowerupConstants.DEFAULT_SPEED_FACTOR
+        self.sizeFactor = PowerupConstants.DEFAULT_SIZE_FACTOR
+        self.damageFactor = PowerupConstants.DEFAULT_DAMAGE
+        self.changeToRandomDirection = false
+        self.addBallToChain = false
+        self.teleporter = false
+        self.teleporterPowerup = nil
     }
     
     func applyPowerupToBall(ball: Ball){
-        print("TODO: apply power up")
+        if (self.speedFactor != PowerupConstants.DEFAULT_SPEED_FACTOR && ball.speedFactorApplied == false){
+            var newVelocity = ball.node.physicsBody?.velocity
+            newVelocity?.dx *= self.speedFactor
+            newVelocity?.dy *= self.speedFactor
+            ball.node.physicsBody?.velocity = newVelocity!
+            
+            ball.speedFactorApplied = true
+        }
     }
     
     

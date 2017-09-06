@@ -61,7 +61,7 @@ class Level{
     
     func addSpeedPowerUp(){
         let powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: POWERUP_SPEED_COLOR)
-        powerup.speedFactor = 1.5
+        powerup.speedFactor = CGFloat(PowerupConstants.NEW_SPEED_FACTOR)
         self.powerups.append(powerup)
     }
 

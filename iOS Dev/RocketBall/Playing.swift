@@ -18,12 +18,7 @@ class Playing: GKState {
     }
     
     override func didEnter(from previousState: GKState?) {
-        let balls = scene.balls
-        
-        // Start the Game - get the balls moving
-        for i in 0..<balls.count {
-            balls[i].node.physicsBody!.applyImpulse(CGVector(dx: randomDirection(), dy: randomDirection()))
-        }
+        self.scene.addImpulseToBalls()
         
         // Perform game logic checks
         // TODO
@@ -40,20 +35,13 @@ class Playing: GKState {
     }
     
     //=========================================================================================================
-    // MARK: Helper Functions
+    // MARK: Game Logic Functions
     //=========================================================================================================
     
-    func randomFloat(from: CGFloat, to: CGFloat) -> CGFloat {
-        let rand: CGFloat = CGFloat(Float(arc4random()) / 0xFFFFFFFF)
-        return (rand) * (to - from) + from
-    }
-    
-    func randomDirection() -> CGFloat {
-        let speedFactor: CGFloat = 12.0
-        if randomFloat(from: 0.0, to: 100.0) >= 50 {
-            return -speedFactor
-        } else {
-            return speedFactor
-        }
-    }
+//    func addImpulseToBalls(){
+//        let balls = scene.balls
+//        for i in 0..<balls.count {
+//            balls[i].node.physicsBody!.applyImpulse(CGVector(dx: randomDirection(), dy: randomDirection()))
+//        }
+//    }
 }

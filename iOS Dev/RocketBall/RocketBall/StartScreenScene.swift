@@ -30,9 +30,9 @@ class StartScreenScene: SKScene {
         super.didMove(to: view)
         
         // Start Label
-//        let startLabel = SKLabelNode(text: "RocketBall")
-//        startLabel.zPosition = Constants.TEXT_Z_POSITION
-//        startLabel.position = CGPoint(x: self.frame.midX, y: self.frame.height * Constants.TOP_TEXT_1)
+        let startLabel = SKLabelNode(text: "RocketBall")
+        startLabel.zPosition = Constants.TEXT_Z_POSITION
+        startLabel.position = CGPoint(x: self.frame.midX, y: self.frame.height * Constants.TOP_TEXT_1)
         
         // TODO: Settings
         
@@ -43,7 +43,7 @@ class StartScreenScene: SKScene {
         playLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         playLabel.name = PLAY_BUTTON_NAME
         
-//        self.addChild(startLabel)
+        self.addChild(startLabel)
         self.addChild(playLabel)
         
     }
@@ -54,19 +54,23 @@ class StartScreenScene: SKScene {
         
         // Check Play Label
         if playLabel.contains(touchLocation){
-            print("play label touched!")
-            // TODO: move to next controller and/or scene?
-            
-//            let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "PlayLevelScreen") as! PlayLevelScreenController
-//            self.viewController.navigationController?.pushViewController(vc, animated:true)
+            moveToPlayScene()
         }
         
         // Check Difficulty
         
         // Check Settings
+    }
+    
+    //=========================================================================================================
+    // MARK: Navigation Functions
+    //=========================================================================================================
+    
+    func moveToPlayScene(){
+        let level = Level(startBalls: 1, numPlayers: 2, scoreLimit: 3, height: self.frame.height, width: self.frame.width)
+        let goToScene = LevelScene(size: self.frame.size, level: level)
+        goToScene.scaleMode = .aspectFit
         
-        
-        
-        
+        self.view?.presentScene(goToScene)
     }
 }

@@ -27,12 +27,7 @@ class StartScreenController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-    }
-    
-    func testFunc(){
-        
-    }
-    
+    }    
 
     /*
     // MARK: - Navigation

@@ -16,9 +16,8 @@ let spriteName_startingBall : String = "ball"
 struct PhysicsCategory {
     static let Ball:           UInt32 = 0x1 << 0
     static let Paddle:         UInt32 = 0x1 << 1
-//    static let UserScoreRegion: UInt32 = 0x1 << 2
-//    static let CompScoreRegion: UInt32 = 0x1 << 3
     static let ScoreRegions: [UInt32] = [0x1 << 2, 0x1 << 3]
+    static let PowerUp:        UInt32 = 0x2 << 4
     static let Border:         UInt32 = 0x1 << 6
 }
 
@@ -138,27 +137,29 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     
     // Handle contact collisions
     func didBegin(_ contact: SKPhysicsContact){
-        var firstBody: SKPhysicsBody
-        var secondBody: SKPhysicsBody
-        
-        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
-            firstBody = contact.bodyA
-            secondBody = contact.bodyB
-        } else {
-            firstBody = contact.bodyB
-            secondBody = contact.bodyA
-        }
-        
-        // Check if someone scored
-        for i in 0..<2 {
-            if (firstBody.categoryBitMask == PhysicsCategory.Ball && secondBody.categoryBitMask == PhysicsCategory.ScoreRegions[i]){
-                playerLoseLife(playerNum: i)
+        if self.gameState.currentState is Playing {
+            var firstBody: SKPhysicsBody
+            var secondBody: SKPhysicsBody
+            
+            if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+                firstBody = contact.bodyA
+                secondBody = contact.bodyB
+            } else {
+                firstBody = contact.bodyB
+                secondBody = contact.bodyA
             }
-        }
-        
-        // Check if hit paddle
-        if (firstBody.categoryBitMask == PhysicsCategory.Ball && secondBody.categoryBitMask == PhysicsCategory.Paddle){
-            // Hit Paddle
+            
+            // Check if someone scored
+            for i in 0..<2 {
+                if (firstBody.categoryBitMask == PhysicsCategory.Ball && secondBody.categoryBitMask == PhysicsCategory.ScoreRegions[i]){
+                    playerLoseLife(playerNum: i)
+                }
+            }
+            
+            // Check if hit paddle
+            if (firstBody.categoryBitMask == PhysicsCategory.Ball && secondBody.categoryBitMask == PhysicsCategory.Paddle){
+                // Hit Paddle
+            }
         }
     }
     
@@ -217,6 +218,19 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
             endGame()
         }
         
+        // Put ball back to middle
+        for ball in self.balls {
+            ball.resetToMiddle()
+        }
+        
+        // Add impulse to balls
+        addImpulseToBalls()
+    }
+    
+    func addImpulseToBalls(){
+        for i in 0..<self.balls.count {
+            self.balls[i].node.physicsBody!.applyImpulse(CGVector(dx: randomDirection(), dy: randomDirection()))
+        }
     }
     
     //=========================================================================================================
@@ -237,7 +251,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
         case is GameOver:
-            print("GameOver")
+            print("Game Over")
         default:
             print("Error State!")
             break
@@ -245,7 +259,6 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?){
-        
         if userTouchingPaddle {
             let touch = touches.first
             let thisLocation = touch!.location(in: self)
@@ -262,6 +275,24 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?){
         
+    }
+    
+    //=========================================================================================================
+    // MARK: Helper Methods
+    //=========================================================================================================
+    
+    func randomFloat(from: CGFloat, to: CGFloat) -> CGFloat {
+        let rand: CGFloat = CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+        return (rand) * (to - from) + from
+    }
+    
+    func randomDirection() -> CGFloat {
+        let speedFactor: CGFloat = 12.0
+        if randomFloat(from: 0.0, to: 100.0) >= 50 {
+            return -speedFactor
+        } else {
+            return speedFactor
+        }
     }
     
 }

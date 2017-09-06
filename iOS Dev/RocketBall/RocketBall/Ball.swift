@@ -6,7 +6,6 @@
 //  Copyright © 2017 ScottSandre. All rights reserved.
 //
 
-import Foundation
 import SpriteKit
 
 class Ball{
@@ -16,6 +15,7 @@ class Ball{
     var damage: Int = 1
     var node: SKShapeNode
     var partOfChain: Bool
+    var startPoint: CGPoint
     
     var fillColor: SKColor {
         didSet {
@@ -34,10 +34,10 @@ class Ball{
         self.fillColor = fillColor
         self.strokeColor = strokeColor
         self.partOfChain = partOfChain
-        
-        //self.node = SKSpriteNode
+        self.startPoint = CGPoint(x: startX, y: startY)
+
         self.node = SKShapeNode(circleOfRadius: ballRadius)
-        self.node.position = CGPoint(x: startX, y: startY)
+        self.node.position = startPoint
         self.node.strokeColor = strokeColor
         self.node.fillColor = fillColor
         
@@ -51,5 +51,12 @@ class Ball{
         self.node.physicsBody!.angularDamping = 0.0
         self.node.physicsBody!.friction = 0.0
         self.node.physicsBody!.restitution = 1.0
+    }
+    
+    func resetToMiddle(){
+        var prevPhysicsBody = self.node.physicsBody
+        self.node.physicsBody = nil
+        self.node.position = self.startPoint
+        self.node.physicsBody = prevPhysicsBody
     }
 }

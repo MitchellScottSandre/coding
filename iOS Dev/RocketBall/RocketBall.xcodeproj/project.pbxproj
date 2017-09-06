@@ -22,7 +22,6 @@
 		D2EA19E71F1047B50066CFC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA19E51F1047B50066CFC8 /* LaunchScreen.storyboard */; };
 		D2EA19F61F1050B30066CFC8 /* LevelScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA19F51F1050B30066CFC8 /* LevelScene.swift */; };
 		D2EA19FA1F1052D20066CFC8 /* StartScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA19F91F1052D20066CFC8 /* StartScreenController.swift */; };
-		D2EA19FC1F1053040066CFC8 /* PlayLevelScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA19FB1F1053040066CFC8 /* PlayLevelScreenController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +42,6 @@
 		D2EA19E81F1047B50066CFC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2EA19F51F1050B30066CFC8 /* LevelScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelScene.swift; sourceTree = "<group>"; };
 		D2EA19F91F1052D20066CFC8 /* StartScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartScreenController.swift; path = ../StartScreenController.swift; sourceTree = "<group>"; };
-		D2EA19FB1F1053040066CFC8 /* PlayLevelScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayLevelScreenController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +93,6 @@
 				D29E6C151F2570A0003049F7 /* Powerup.swift */,
 				D29E6C131F257096003049F7 /* Paddle.swift */,
 				D2EA19F91F1052D20066CFC8 /* StartScreenController.swift */,
-				D2EA19FB1F1053040066CFC8 /* PlayLevelScreenController.swift */,
 				D2EA19DC1F1047B50066CFC8 /* AppDelegate.swift */,
 				D2EA19E01F1047B50066CFC8 /* Main.storyboard */,
 				D2EA19E31F1047B50066CFC8 /* Assets.xcassets */,
@@ -178,7 +175,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2EA19FC1F1053040066CFC8 /* PlayLevelScreenController.swift in Sources */,
 				D29E6C141F257096003049F7 /* Paddle.swift in Sources */,
 				D2EA19DD1F1047B50066CFC8 /* AppDelegate.swift in Sources */,
 				D247D1D81F5DC4E4004500D6 /* GameOver.swift in Sources */,

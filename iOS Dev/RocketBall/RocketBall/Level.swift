@@ -19,7 +19,6 @@ class Level{
     
     // Constants needed for Ball & Paddle & Powerups
     let paddle_defaultWidth: CGFloat = 70.0
-    let POWERUP_SPEED_COLOR: SKColor = SKColor.red
     
     let startNumberBalls : Int
     let numberPlayers : Int
@@ -31,7 +30,7 @@ class Level{
     var powerups : [Powerup] = []
     
     // Primary Constructor. Players at positions BOTTOM, TOP
-    init(startBalls: Int, numPlayers: Int, scoreLimit: Int, height: CGFloat, width: CGFloat){
+    init(startBalls: Int, numPlayers: Int, scoreLimit: Int, height: CGFloat, width: CGFloat) {
         self.startNumberBalls = startBalls
         self.scoreLimit = scoreLimit
         self.numberPlayers = numPlayers
@@ -54,14 +53,21 @@ class Level{
         addPowerUps()
     }
     
-    func addPowerUps(){
+    func addPowerUps() {
         // do calculations based off percent changes, and add power ups
-        addSpeedPowerUp()
+//        addSpeedPowerUp()
+        addSizePowerUp()
     }
     
-    func addSpeedPowerUp(){
-        let powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: POWERUP_SPEED_COLOR)
-        powerup.speedFactor = CGFloat(PowerupConstants.NEW_SPEED_FACTOR)
+    func addSpeedPowerUp() {
+        let powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.SPEED_POWERUP_COLOR)
+        powerup.speedFactor = CGFloat(PowerupConstants.SPEED_FACTOR)
+        self.powerups.append(powerup)
+    }
+    
+    func addSizePowerUp() {
+        let powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.SIZE_POWERUP_COLOR)
+        powerup.sizeFactor = CGFloat(PowerupConstants.SIZE_FACTOR)
         self.powerups.append(powerup)
     }
 

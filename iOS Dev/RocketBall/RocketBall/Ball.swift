@@ -17,23 +17,15 @@ class Ball{
     var node: SKShapeNode
     var partOfChain: Bool
     var startPoint: CGPoint
+    var paddleLastTouched: Paddle?
     
-    // Ball Paddle Info
+    // Ball Powerup Info
     var speedFactorApplied = false
+    var sizeFactorApplied = false
     
+    var fillColor: SKColor
     
-    
-    var fillColor: SKColor {
-        didSet {
-            self.node.fillColor = fillColor
-        }
-    }
-    
-    var strokeColor: SKColor {
-        didSet{
-            self.node.strokeColor = strokeColor
-        }
-    }
+    var strokeColor: SKColor
     
     init(radius: CGFloat, fillColor: SKColor, strokeColor: SKColor, startX: CGFloat, startY: CGFloat, partOfChain: Bool){
         self.ballRadius = radius
@@ -42,12 +34,16 @@ class Ball{
         self.partOfChain = partOfChain
         self.startPoint = CGPoint(x: startX, y: startY)
         self.ballSpeed = Constants.DEFAULT_BALL_SPEED
-
+        
         self.node = SKShapeNode(circleOfRadius: ballRadius)
         self.node.position = startPoint
-        self.node.strokeColor = strokeColor
-        self.node.fillColor = fillColor
+        self.node.strokeColor = self.strokeColor
+        self.node.fillColor = self.fillColor
         
+        addToPhysicsBody()
+    }
+    
+    func addToPhysicsBody(){
         self.node.physicsBody = SKPhysicsBody(circleOfRadius: self.ballRadius)
         self.node.physicsBody!.categoryBitMask = PhysicsCategory.Ball
         self.node.physicsBody!.collisionBitMask = PhysicsCategory.Border | PhysicsCategory.Paddle | PhysicsCategory.ScoreRegions[0] | PhysicsCategory.ScoreRegions[1]
@@ -61,9 +57,17 @@ class Ball{
     }
     
     func resetPositionToMiddle(){
-        var prevPhysicsBody = self.node.physicsBody
+        let prevPhysicsBody = self.node.physicsBody
         self.node.physicsBody = nil
         self.node.position = self.startPoint
         self.node.physicsBody = prevPhysicsBody
     }
+    
+//    func setNewRadius(newRadius: CGFloat){
+//        print("Old radius: \(self.ballRadius) and new radius: \(newRadius)")
+//        self.ballRadius = newRadius
+//        self.node.xScale *=
+////        self.node = SKShapeNode(circleOfRadius: ballRadius)
+//        addToPhysicsBody()
+//    }
 }

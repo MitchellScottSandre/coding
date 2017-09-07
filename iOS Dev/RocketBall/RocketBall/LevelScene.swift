@@ -165,7 +165,17 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
             
             // ---------- Check if ball hit paddle ----------
             if (firstBody.categoryBitMask == PhysicsCategory.Ball && secondBody.categoryBitMask == PhysicsCategory.Paddle){
-                // Hit Paddle
+                for ball in self.balls {
+                    if ball.node == firstBody.node {
+                        for paddle in self.paddles {
+                            if paddle.node == secondBody.node {
+                                ball.paddleLastTouched = paddle
+                            }
+                            break
+                        }
+                    }
+                    break
+                }
             }
             
             // ---------- Check if ball hit powerup ---------- 
@@ -244,11 +254,11 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         
         // Put ball back to middle
         for ball in self.balls {
-            ball.resetPositionToMiddle()
+//            ball.resetPositionToMiddle()
         }
         
         // Add impulse to balls
-        addImpulseToBalls()
+//        addImpulseToBalls()
     }
     
     func addImpulseToBalls(){

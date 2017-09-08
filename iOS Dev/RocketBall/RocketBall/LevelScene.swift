@@ -181,6 +181,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
             // ---------- Check if ball hit powerup ---------- 
             if (firstBody.categoryBitMask == PhysicsCategory.Ball && secondBody.categoryBitMask == PhysicsCategory.PowerUp){
                 // Identify and find the powerup based on the unique key of node.name
+                print("ball hit a powerup")
                 for ball in self.balls {
                     if ball.node == firstBody.node {
                         for powerup in self.level.powerups {

@@ -94,30 +94,59 @@ class Powerup {
     }
     
     func applyPowerupToBall(ball: Ball){
+        print("apply power up called")
         if (self.speedFactor != PowerupConstants.DEFAULT_SPEED_FACTOR && ball.speedFactorApplied == false){
-            var newVelocity = ball.node.physicsBody?.velocity
-            newVelocity?.dx *= self.speedFactor
-            newVelocity?.dy *= self.speedFactor
-            ball.node.physicsBody?.velocity = newVelocity!
-            ball.speedFactorApplied = true
-            
-            let date = Date().addingTimeInterval(3)
-//            self.powerupTimers[PowerupConstants.INDEX_SPEED] = Timer(fireAt: date, interval: 0, target: self, selector: #selector(self.test), userInfo: nil, repeats: false)
+            applyNewSpeedFactor(ball: ball)
         }
         
         if (self.sizeFactor != PowerupConstants.DEFAULT_SIZE_FACTOR && ball.sizeFactorApplied == false){
-            ball.node.xScale *= self.sizeFactor
-            ball.node.yScale *= self.sizeFactor
-            ball.sizeFactorApplied = true
-            
-            let date = Date().addingTimeInterval(3)
-//            self.powerupTimers[PowerupConstants.INDEX_SPEED] = Timer(fireAt: date, interval: 0, target: self, selector: #selector(self.test), userInfo: nil, repeats: false)
+            applyNewSizeFactor(ball: ball)
+            self.powerupTimers[PowerupConstants.INDEX_SPEED] = Timer.scheduledTimer(timeInterval: 3.0,
+                                                                                    target: self,
+                                                                                    selector: #selector(self.removeThisPowerup(sender:)),
+                                                                                    userInfo: ["index": PowerupConstants.INDEX_SIZE, "ball": ball],
+                                                                                    repeats: false)
         }
     }
     
-//    @objc
-//    func test(){
-//       
-//    }
+    @objc func removeThisPowerup(sender: Timer){
+        // Cast to a dictionary
+        let info = sender.userInfo as? [String: AnyObject]
+        let index = info?["index"] as? Int
+        let ball = info?["ball"] as? Ball
+        
+        if let indexNotNil = index, let ballNotNil = ball{
+            switch indexNotNil {
+            case PowerupConstants.INDEX_SPEED:
+                self.speedFactor = PowerupConstants.DEFAULT_SPEED_FACTOR
+                applyNewSpeedFactor(ball: ballNotNil)
+                self.speedFactor = PowerupConstants.SPEED_FACTOR
+                break
+            case PowerupConstants.INDEX_SIZE:
+                self.sizeFactor = PowerupConstants.DEFAULT_SIZE_FACTOR
+                applyNewSizeFactor(ball: ballNotNil)
+                self.speedFactor = PowerupConstants.SIZE_FACTOR
+                break
+            default:
+                print("TODO: add more remove power up functions")
+            }
+        }
+    }
+    
+    func applyNewSpeedFactor(ball: Ball){
+        print("Powerup > applyNewSpeedFactor")
+        var newVelocity = ball.node.physicsBody?.velocity
+        newVelocity?.dx *= self.speedFactor
+        newVelocity?.dy *= self.speedFactor
+        ball.node.physicsBody?.velocity = newVelocity!
+        ball.speedFactorApplied = !ball.speedFactorApplied
+    }
+    
+    func applyNewSizeFactor(ball: Ball){
+        print("Powerup > applyNewSizeFactor: \(self.sizeFactor)")
+        ball.node.xScale = self.sizeFactor
+        ball.node.yScale = self.sizeFactor
+        ball.sizeFactorApplied = !ball.sizeFactorApplied
+    }
     
 }

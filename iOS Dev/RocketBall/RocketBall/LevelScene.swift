@@ -159,7 +159,12 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
             // ----------  Check if someone scored ----------
             for i in 0..<2 {
                 if (firstBody.categoryBitMask == PhysicsCategory.Ball && secondBody.categoryBitMask == PhysicsCategory.ScoreRegions[i]){
-                    playerLoseLife(playerNum: i)
+                    for ball in self.balls {
+                        if ball.node == firstBody.node {
+                            playerLoseLife(playerNum: i, damage: ball.damage)
+                        }
+                        break
+                    }
                 }
             }
             
@@ -241,9 +246,9 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         self.gameState.enter(GameOver.self)
     }
     
-    func playerLoseLife(playerNum: Int){
+    func playerLoseLife(playerNum: Int, damage: Int){
         // Remove a life
-        self.level.players[playerNum].loseLife()
+        self.level.players[playerNum].loseLife(damage: damage)
         
         // Update Score
         self.scoreLabels[playerNum].text = String(self.level.players[playerNum].numberLives)

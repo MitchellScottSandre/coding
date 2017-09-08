@@ -22,6 +22,7 @@ class Ball{
     // Ball Powerup Info
     var speedFactorApplied = false
     var sizeFactorApplied = false
+    var damageFactorApplied = false
     
     var fillColor: SKColor
     

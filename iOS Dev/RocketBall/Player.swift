@@ -20,8 +20,8 @@ class Player {
         self.numberLives = startNumberLives
     }
     
-    func loseLife(){
-        self.numberLives = self.numberLives - 1
+    func loseLife(damage: Int){
+        self.numberLives = self.numberLives - damage
     }
     
     func isAlive() -> Bool {

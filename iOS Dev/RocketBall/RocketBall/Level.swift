@@ -30,7 +30,7 @@ class Level{
     var powerups : [Powerup] = []
     
     // Primary Constructor. Players at positions BOTTOM, TOP
-    init(startBalls: Int, numPlayers: Int, scoreLimit: Int, height: CGFloat, width: CGFloat) {
+    init(startBalls: Int, numPlayers: Int, scoreLimit: Int, height: CGFloat, width: CGFloat){
         self.startNumberBalls = startBalls
         self.scoreLimit = scoreLimit
         self.numberPlayers = numPlayers
@@ -53,21 +53,28 @@ class Level{
         addPowerUps()
     }
     
-    func addPowerUps() {
+    func addPowerUps(){
         // do calculations based off percent changes, and add power ups
 //        addSpeedPowerUp()
-        addSizePowerUp()
+//        addSizePowerUp()
+        addDamagePowerUp()
     }
     
-    func addSpeedPowerUp() {
+    func addSpeedPowerUp(){
         let powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.SPEED_POWERUP_COLOR)
-        powerup.speedFactor = CGFloat(PowerupConstants.SPEED_FACTOR)
+        powerup.speedFactor = CGFloat(PowerupConstants.ACTIVE_SPEED_FACTOR)
         self.powerups.append(powerup)
     }
     
-    func addSizePowerUp() {
+    func addSizePowerUp(){
         let powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.SIZE_POWERUP_COLOR)
-        powerup.sizeFactor = CGFloat(PowerupConstants.SIZE_FACTOR)
+        powerup.sizeFactor = CGFloat(PowerupConstants.ACTIVE_SIZE_FACTOR)
+        self.powerups.append(powerup)
+    }
+    
+    func addDamagePowerUp(){
+        let powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.DAMAGE_POWERUP_COLOR)
+        powerup.damageLevel = PowerupConstants.ACTIVE_DAMAGE
         self.powerups.append(powerup)
     }
 

@@ -11,6 +11,7 @@ import SpriteKit
 struct PowerupConstants {
     static let SPEED_POWERUP_COLOR: SKColor = SKColor.red
     static let SIZE_POWERUP_COLOR: SKColor = SKColor.blue
+    static let DAMAGE_POWERUP_COLOR: SKColor = SKColor.purple
     
     // Defaults
     static let DEFAULT_SPEED_FACTOR: CGFloat = 1.0
@@ -18,8 +19,9 @@ struct PowerupConstants {
     static let DEFAULT_DAMAGE: Int = 1
     
     // New Values
-    static let SPEED_FACTOR: CGFloat = 1.5
-    static let SIZE_FACTOR: CGFloat = 2.0
+    static let ACTIVE_SPEED_FACTOR: CGFloat = 1.5
+    static let ACTIVE_SIZE_FACTOR: CGFloat = 2.0
+    static let ACTIVE_DAMAGE: Int = 2
     
     // Indeces
     static let INDEX_SPEED = 0
@@ -36,7 +38,7 @@ class Powerup {
     // Powerup effects
     var speedFactor: CGFloat
     var sizeFactor: CGFloat
-    var damageFactor: Int
+    var damageLevel: Int
     var changeToRandomDirection: Bool
     var addBallToChain: Bool
     var teleporterPowerup: Powerup?
@@ -82,7 +84,7 @@ class Powerup {
         
         self.speedFactor = PowerupConstants.DEFAULT_SPEED_FACTOR
         self.sizeFactor = PowerupConstants.DEFAULT_SIZE_FACTOR
-        self.damageFactor = PowerupConstants.DEFAULT_DAMAGE
+        self.damageLevel = PowerupConstants.DEFAULT_DAMAGE
         self.changeToRandomDirection = false
         self.addBallToChain = false
         self.teleporterPowerup = nil
@@ -97,18 +99,33 @@ class Powerup {
         print("apply power up called")
         if (self.speedFactor != PowerupConstants.DEFAULT_SPEED_FACTOR && ball.speedFactorApplied == false){
             applyNewSpeedFactor(ball: ball)
+            addPowerupTimer(index: PowerupConstants.INDEX_SPEED, ball: ball, time: 10.0)
         }
         
         if (self.sizeFactor != PowerupConstants.DEFAULT_SIZE_FACTOR && ball.sizeFactorApplied == false){
             applyNewSizeFactor(ball: ball)
-            self.powerupTimers[PowerupConstants.INDEX_SPEED] = Timer.scheduledTimer(timeInterval: 3.0,
-                                                                                    target: self,
-                                                                                    selector: #selector(self.removeThisPowerup(sender:)),
-                                                                                    userInfo: ["index": PowerupConstants.INDEX_SIZE, "ball": ball],
-                                                                                    repeats: false)
+            addPowerupTimer(index: PowerupConstants.INDEX_SIZE, ball: ball, time: 10.0)
+        }
+        
+        if (self.damageLevel != PowerupConstants.DEFAULT_DAMAGE && ball.damageFactorApplied == false){
+            applyNewDamageLevel(ball: ball)
+            addPowerupTimer(index: PowerupConstants.INDEX_DAMAGE, ball: ball, time: 10.0)
         }
     }
     
+    func addPowerupTimer(index: Int, ball: Ball, time: Double){
+        self.powerupTimers[index] = Timer.scheduledTimer(timeInterval: time,
+                                                         target: self,
+                                                         selector: #selector(self.removeThisPowerup(sender:)),
+                                                         userInfo: ["index": index, "ball": ball],
+                                                         repeats: false)
+    }
+    
+    /*
+     * For each powerup, set the effect to the default (original, regular, for the ball). Then apply that effect to the ball.
+     * Then, set the effect to the default effect (not the original ball, this effect will change the ball) so that
+     * if the ball touches the powerup again, it affects it
+     */
     @objc func removeThisPowerup(sender: Timer){
         // Cast to a dictionary
         let info = sender.userInfo as? [String: AnyObject]
@@ -120,13 +137,17 @@ class Powerup {
             case PowerupConstants.INDEX_SPEED:
                 self.speedFactor = PowerupConstants.DEFAULT_SPEED_FACTOR
                 applyNewSpeedFactor(ball: ballNotNil)
-                self.speedFactor = PowerupConstants.SPEED_FACTOR
+                self.speedFactor = PowerupConstants.ACTIVE_SPEED_FACTOR
                 break
             case PowerupConstants.INDEX_SIZE:
                 self.sizeFactor = PowerupConstants.DEFAULT_SIZE_FACTOR
                 applyNewSizeFactor(ball: ballNotNil)
-                self.speedFactor = PowerupConstants.SIZE_FACTOR
+                self.sizeFactor = PowerupConstants.ACTIVE_SIZE_FACTOR
                 break
+            case PowerupConstants.INDEX_DAMAGE:
+                self.damageLevel = PowerupConstants.DEFAULT_DAMAGE
+                applyNewDamageLevel(ball: ballNotNil)
+                self.damageLevel = PowerupConstants.ACTIVE_DAMAGE
             default:
                 print("TODO: add more remove power up functions")
             }
@@ -147,6 +168,12 @@ class Powerup {
         ball.node.xScale = self.sizeFactor
         ball.node.yScale = self.sizeFactor
         ball.sizeFactorApplied = !ball.sizeFactorApplied
+    }
+    
+    func applyNewDamageLevel(ball: Ball){
+        print("Powerup > applyNewDamageFactor")
+        ball.damage = self.damageLevel
+        ball.damageFactorApplied = !ball.damageFactorApplied
     }
     
 }

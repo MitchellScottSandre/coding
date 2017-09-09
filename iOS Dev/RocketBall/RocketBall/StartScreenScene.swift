@@ -31,15 +31,15 @@ class StartScreenScene: SKScene {
         
         // Start Label
         let startLabel = SKLabelNode(text: "RocketBall")
-        startLabel.zPosition = Constants.TEXT_Z_POSITION
-        startLabel.position = CGPoint(x: self.frame.midX, y: self.frame.height * Constants.TOP_TEXT_1)
+        startLabel.zPosition = LevelConstants.TEXT_Z_POSITION
+        startLabel.position = CGPoint(x: self.frame.midX, y: self.frame.height * LevelConstants.TOP_TEXT_1)
         
         // TODO: Settings
         
         // TODO: Difficulty
         
         // TODO: Show High Score
-        playLabel.zPosition = Constants.TEXT_Z_POSITION
+        playLabel.zPosition = LevelConstants.TEXT_Z_POSITION
         playLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         playLabel.name = PLAY_BUTTON_NAME
         

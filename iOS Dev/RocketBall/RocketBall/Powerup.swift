@@ -12,6 +12,8 @@ struct PowerupConstants {
     static let SPEED_POWERUP_COLOR: SKColor = SKColor.red
     static let SIZE_POWERUP_COLOR: SKColor = SKColor.blue
     static let DAMAGE_POWERUP_COLOR: SKColor = SKColor.purple
+    static let CHANGE_DIRECTION_POWERUP_COLOR: SKColor = SKColor.green
+    static let ADD_BALL_TO_CHAIN_POWERUP_COLOR: SKColor = SKColor.gray
     
     // Defaults
     static let DEFAULT_SPEED_FACTOR: CGFloat = 1.0
@@ -53,15 +55,14 @@ class Powerup {
     var node: SKShapeNode
     var location: CGPoint
     
+    //=========================================================================================================
+    // MARK: Initializers
+    //=========================================================================================================
+    
     // Convenience Initialize to a random point within given frame
     convenience init(frameWidth: CGFloat, frameHeight: CGFloat, color: SKColor){
-        // Ensure it is truly a random number
-        let time = UInt32(NSDate().timeIntervalSinceReferenceDate)
-        srand48(Int(time))
-        
-        let x = CGFloat(drand48()) * frameWidth
-        let y = CGFloat(drand48()) * frameHeight
-        print("random x \(x) and random y \(y)")
+        let x = LevelScene.randomFloat(from: 0.0, to: frameWidth)
+        let y = LevelScene.randomFloat(from: 0.0, to: frameHeight)
         let point = CGPoint(x: x, y: y)
         
         self.init(startPoint: point, color: color)
@@ -95,7 +96,7 @@ class Powerup {
         }
     }
     
-    func applyPowerupToBall(ball: Ball){
+    func applyPowerupToBall(ball: Ball, levelScene: LevelScene){
         print("apply power up called")
         if (self.speedFactor != PowerupConstants.DEFAULT_SPEED_FACTOR && ball.speedFactorApplied == false){
             applyNewSpeedFactor(ball: ball)
@@ -110,6 +111,14 @@ class Powerup {
         if (self.damageLevel != PowerupConstants.DEFAULT_DAMAGE && ball.damageFactorApplied == false){
             applyNewDamageLevel(ball: ball)
             addPowerupTimer(index: PowerupConstants.INDEX_DAMAGE, ball: ball, time: 10.0)
+        }
+        
+        if (self.changeToRandomDirection == true){
+            applyChangeNewDirection(ball: ball)
+        }
+        
+        if (self.addBallToChain == true && ball.firstBallInChain == true){
+            applyAddBallToChain(firstBallInChain: ball, levelScene: levelScene)
         }
     }
     
@@ -154,6 +163,10 @@ class Powerup {
         }
     }
     
+    //=========================================================================================================
+    // MARK: Apply Individual PowerUps
+    //=========================================================================================================
+    
     func applyNewSpeedFactor(ball: Ball){
         print("Powerup > applyNewSpeedFactor")
         var newVelocity = ball.node.physicsBody?.velocity
@@ -175,5 +188,56 @@ class Powerup {
         ball.damage = self.damageLevel
         ball.damageFactorApplied = !ball.damageFactorApplied
     }
+    
+    func applyChangeNewDirection(ball: Ball){
+        print("Powerup > applyChangeNewDirection")
+        let dx = ball.node.physicsBody?.velocity.dx
+        let dy = ball.node.physicsBody?.velocity.dy
+        let currentSpeed = CGFloat(sqrt(dx! * dx! + dy! * dy!))
+        
+        let newVelocity: CGVector = LevelScene.randomDirection(desiredSpeed: currentSpeed)
+        ball.node.physicsBody?.velocity = newVelocity
+    }
+    
+    func applyAddBallToChain(firstBallInChain ball: Ball, levelScene: LevelScene){
+        print("Powerup > applyAddBallToChain")
+        
+        // Find last ball in chain
+        var lastBall: Ball = ball
+        while true {
+            if let thisBall = lastBall.nextBallInChain {
+                lastBall = thisBall
+            } else {
+                break
+            }
+        }
+        
+        // Add on ball to last ball on chain
+        if let currVelocity = lastBall.node.physicsBody?.velocity {
+            let dx = currVelocity.dx
+            let dy = currVelocity.dy
+            
+            let speed = CGFloat(sqrt(dx * dx + dy * dy))
+            let direction: CGVector = CGVector(dx: dx / speed, dy: dy / speed) // Unit vector
+            
+            let xDiff = direction.dx * (lastBall.ballRadius + BallConstants.CHAIN_DISTANCE)
+            let yDiff = direction.dy * (lastBall.ballRadius + BallConstants.CHAIN_DISTANCE)
+            
+            var newBall = Ball(radius: ball.ballRadius, fillColor: lastBall.fillColor,
+                               strokeColor: ball.strokeColor, startX: lastBall.node.position.x - xDiff, startY: ball.node.position.y - yDiff)
+            
+            newBall.node.physicsBody?.velocity = currVelocity
+            
+            ball.lastBallInChain = false
+            newBall.lastBallInChain = true
+            newBall.firstBallInChain = false
+            ball.nextBallInChain = newBall
+            
+            levelScene.balls.append(newBall)
+            levelScene.addChild(newBall.node)
+        }
+    }
+    
+    
     
 }

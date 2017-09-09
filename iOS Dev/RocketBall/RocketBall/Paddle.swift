@@ -45,6 +45,6 @@ class Paddle {
             self.node.position = CGPoint(x: startX, y: scoreRegionY - distanceFromScoreRegion)
         }
         
-        self.node.name = isHuman ? Constants.userPaddleName : Constants.compPaddleName
+        self.node.name = isHuman ? LevelConstants.userPaddleName : LevelConstants.compPaddleName
     }
 }

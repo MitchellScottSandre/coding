@@ -8,6 +8,11 @@
 
 import SpriteKit
 
+struct BallConstants {
+    static let DEFAULT_SPEED: CGFloat = 300.0
+    static let CHAIN_DISTANCE: CGFloat = 50.0
+}
+
 class Ball{
     
     // Ball info
@@ -15,9 +20,12 @@ class Ball{
     var ballSpeed: CGFloat
     var damage: Int = 1
     var node: SKShapeNode
-    var partOfChain: Bool
     var startPoint: CGPoint
     var paddleLastTouched: Paddle?
+    
+    var lastBallInChain = true
+    var firstBallInChain = true
+    var nextBallInChain: Ball?
     
     // Ball Powerup Info
     var speedFactorApplied = false
@@ -28,13 +36,12 @@ class Ball{
     
     var strokeColor: SKColor
     
-    init(radius: CGFloat, fillColor: SKColor, strokeColor: SKColor, startX: CGFloat, startY: CGFloat, partOfChain: Bool){
+    init(radius: CGFloat, fillColor: SKColor, strokeColor: SKColor, startX: CGFloat, startY: CGFloat){
         self.ballRadius = radius
         self.fillColor = fillColor
         self.strokeColor = strokeColor
-        self.partOfChain = partOfChain
         self.startPoint = CGPoint(x: startX, y: startY)
-        self.ballSpeed = Constants.DEFAULT_BALL_SPEED
+        self.ballSpeed = BallConstants.DEFAULT_SPEED
         
         self.node = SKShapeNode(circleOfRadius: ballRadius)
         self.node.position = startPoint
@@ -64,11 +71,4 @@ class Ball{
         self.node.physicsBody = prevPhysicsBody
     }
     
-//    func setNewRadius(newRadius: CGFloat){
-//        print("Old radius: \(self.ballRadius) and new radius: \(newRadius)")
-//        self.ballRadius = newRadius
-//        self.node.xScale *=
-////        self.node = SKShapeNode(circleOfRadius: ballRadius)
-//        addToPhysicsBody()
-//    }
 }

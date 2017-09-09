@@ -20,8 +20,8 @@ class GameOver: GKState {
     override func didEnter(from previousState: GKState?) {
         let scaleToAppear = SKAction.scale(to: 1.0, duration: 0.25)
         
-        self.scene.childNode(withName: Constants.END_GAME_LABEL)!.run(scaleToAppear)
-        self.scene.childNode(withName: Constants.WINNER_LABEL)!.run(scaleToAppear)
+        self.scene.childNode(withName: LevelConstants.END_GAME_LABEL)!.run(scaleToAppear)
+        self.scene.childNode(withName: LevelConstants.WINNER_LABEL)!.run(scaleToAppear)
     }
     
     override func willExit(to nextState: GKState) {

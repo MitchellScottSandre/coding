@@ -21,7 +21,7 @@ struct PhysicsCategory {
     static let Border:         UInt32 = 0x1 << 6
 }
 
-struct Constants {
+struct LevelConstants {
     static let userPaddleName = "user_paddle"
     static let compPaddleName = "comp_paddle"
     
@@ -39,8 +39,6 @@ struct Constants {
     static let SCORE_TEXT_X: CGFloat = 0.95
     
     static let TEXT_Z_POSITION: CGFloat = 5.0
-    
-    static let DEFAULT_BALL_SPEED: CGFloat = 10.0
 }
 
 class LevelScene: SKScene, SKPhysicsContactDelegate {
@@ -97,7 +95,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         // ---------- Make starting balls ----------
         for _ in 0..<level.startNumberBalls {
             let ballStartX: CGFloat = self.size.width / (CGFloat(level.startNumberBalls + 1))
-            let ball = Ball(radius: 16, fillColor: SKColor.green, strokeColor: SKColor.green, startX: ballStartX, startY: self.size.height / 2, partOfChain: false) //startY always the same
+            let ball = Ball(radius: 16, fillColor: SKColor.green, strokeColor: SKColor.green, startX: ballStartX, startY: self.size.height / 2) //startY always the same
             
             self.addChild(ball.node)
             
@@ -133,8 +131,9 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         // ---------- Score Labels ----------
         for i in 0..<2 {
             var scoreLabel = SKLabelNode(text: String(self.level.players[i].numberLives))
-            scoreLabel.zPosition = Constants.TEXT_Z_POSITION
-            scoreLabel.position = CGPoint(x: self.frame.width * Constants.SCORE_TEXT_X, y: i == 0 ? self.frame.height * Constants.BOTTOM_SCORE_TEXT_Y : self.frame.height * Constants.TOP_SCORE_TEXT_Y )
+            scoreLabel.zPosition = LevelConstants.TEXT_Z_POSITION
+            scoreLabel.position = CGPoint(x: self.frame.width * LevelConstants.SCORE_TEXT_X,
+                                          y: i == 0 ? self.frame.height * LevelConstants.BOTTOM_SCORE_TEXT_Y : self.frame.height * LevelConstants.TOP_SCORE_TEXT_Y)
             self.addChild(scoreLabel)
             scoreLabels.append(scoreLabel)
         }
@@ -191,7 +190,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
                     if ball.node == firstBody.node {
                         for powerup in self.level.powerups {
                             if powerup.node == secondBody.node {
-                                powerup.applyPowerupToBall(ball: ball)
+                                powerup.applyPowerupToBall(ball: ball, levelScene: self)
                                 break
                             }
                         }
@@ -210,9 +209,9 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     // Wait for user to tap to play
     func startGame(){
         let tapToStartLabel = SKLabelNode(text: "Tap to Start")
-        tapToStartLabel.name = Constants.START_LEVEL_LABEL
-        tapToStartLabel.position = CGPoint(x: self.frame.midX, y: self.frame.maxY * Constants.TOP_TEXT_1)
-        tapToStartLabel.zPosition = Constants.TEXT_Z_POSITION
+        tapToStartLabel.name = LevelConstants.START_LEVEL_LABEL
+        tapToStartLabel.position = CGPoint(x: self.frame.midX, y: self.frame.maxY * LevelConstants.TOP_TEXT_1)
+        tapToStartLabel.zPosition = LevelConstants.TEXT_Z_POSITION
         tapToStartLabel.setScale(0.0)
         self.addChild(tapToStartLabel)
         self.gameState.enter(WaitingForTap.self)
@@ -229,17 +228,17 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     
     func endGame(){
         let endGameLabel = SKLabelNode(text: "Game Over")
-        endGameLabel.name = Constants.END_GAME_LABEL
-        endGameLabel.position = CGPoint(x: self.frame.midX, y: self.frame.maxY * Constants.TOP_TEXT_1)
-        endGameLabel.zPosition = Constants.TEXT_Z_POSITION
+        endGameLabel.name = LevelConstants.END_GAME_LABEL
+        endGameLabel.position = CGPoint(x: self.frame.midX, y: self.frame.maxY * LevelConstants.TOP_TEXT_1)
+        endGameLabel.zPosition = LevelConstants.TEXT_Z_POSITION
         endGameLabel.setScale(0.0)
         self.addChild(endGameLabel)
         
         let winnerText: String = players[0].numberLives <= 0 ? "You Lost!" : "You Won!"
         let winnerLabel = SKLabelNode(text: winnerText)
-        winnerLabel.name = Constants.WINNER_LABEL
-        winnerLabel.position = CGPoint(x: self.frame.midX, y: self.frame.maxY * Constants.TOP_TEXT_2)
-        winnerLabel.zPosition = Constants.TEXT_Z_POSITION
+        winnerLabel.name = LevelConstants.WINNER_LABEL
+        winnerLabel.position = CGPoint(x: self.frame.midX, y: self.frame.maxY * LevelConstants.TOP_TEXT_2)
+        winnerLabel.zPosition = LevelConstants.TEXT_Z_POSITION
         winnerLabel.setScale(0.0)
         self.addChild(winnerLabel)
         
@@ -269,7 +268,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     
     func addImpulseToBalls(){
         for i in 0..<self.balls.count {
-            self.balls[i].node.physicsBody!.applyImpulse(CGVector(dx: randomDirection(), dy: randomDirection()))
+            self.balls[i].node.physicsBody?.velocity = LevelScene.randomDirection(desiredSpeed: BallConstants.DEFAULT_SPEED)
         }
     }
     
@@ -286,7 +285,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
             let touchLocation = touch!.location(in: self)
             
             if let body = self.physicsWorld.body(at: touchLocation){
-                if body.node!.name == Constants.userPaddleName{
+                if body.node!.name == LevelConstants.userPaddleName{
                     userTouchingPaddle = true
                 }
             }
@@ -303,11 +302,11 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
             let touch = touches.first
             let thisLocation = touch!.location(in: self)
             let prevLocation = touch!.previousLocation(in: self)
-            let paddle = paddles[Constants.USER_PLAYER].node
+            let paddle = paddles[LevelConstants.USER_PLAYER].node
             
             var paddleX = paddle.position.x + thisLocation.x - prevLocation.x
             paddleX = max(paddleX, paddle.size.width / 2)
-            paddleX = min(paddleX, level.scoreRegions[Constants.USER_PLAYER].frame.maxX - paddle.size.width / 2)
+            paddleX = min(paddleX, level.scoreRegions[LevelConstants.USER_PLAYER].frame.maxX - paddle.size.width / 2)
             
             paddle.position = CGPoint(x: paddleX, y: paddle.position.y)
         }
@@ -321,18 +320,23 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     // MARK: Helper Methods
     //=========================================================================================================
     
-    func randomFloat(from: CGFloat, to: CGFloat) -> CGFloat {
-        let rand: CGFloat = CGFloat(Float(arc4random()) / 0xFFFFFFFF)
-        return (rand) * (to - from) + from
+    public static func randomFloat(from: CGFloat, to: CGFloat) -> CGFloat {
+        let time = UInt32(NSDate().timeIntervalSinceReferenceDate)
+        srand48(Int(time))
+        return CGFloat(drand48()) * (to - from) + from
     }
     
-    func randomDirection() -> CGFloat {
-        let speedFactor: CGFloat = Constants.DEFAULT_BALL_SPEED
-        if randomFloat(from: 0.0, to: 100.0) >= 50 {
-            return -speedFactor
-        } else {
-            return speedFactor
-        }
+    public static func randomDirection(desiredSpeed: CGFloat) -> CGVector {
+        let rads = randomFloat(from: 0, to: 360) * CGFloat(M_PI / 180.0)
+        print("Random direction: desiredSpeed: \(desiredSpeed)")
+        var dx = cos(rads)
+        var dy = sin(rads)
+        dx *= desiredSpeed
+        dy *= desiredSpeed
+        
+        print("actual speed: \(sqrt(dx*dx + dy*dy))")
+        
+        return CGVector(dx: dx, dy: dy)
     }
     
 }

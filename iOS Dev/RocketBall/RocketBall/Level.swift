@@ -57,24 +57,38 @@ class Level{
         // do calculations based off percent changes, and add power ups
 //        addSpeedPowerUp()
 //        addSizePowerUp()
-        addDamagePowerUp()
+//        addDamagePowerUp()
+//        addChangeDirectionPowerUp()
+        addAddBallToChainPowerUp()
     }
     
     func addSpeedPowerUp(){
-        let powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.SPEED_POWERUP_COLOR)
+        var powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.SPEED_POWERUP_COLOR)
         powerup.speedFactor = CGFloat(PowerupConstants.ACTIVE_SPEED_FACTOR)
         self.powerups.append(powerup)
     }
     
     func addSizePowerUp(){
-        let powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.SIZE_POWERUP_COLOR)
+        var powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.SIZE_POWERUP_COLOR)
         powerup.sizeFactor = CGFloat(PowerupConstants.ACTIVE_SIZE_FACTOR)
         self.powerups.append(powerup)
     }
     
     func addDamagePowerUp(){
-        let powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.DAMAGE_POWERUP_COLOR)
+        var powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.DAMAGE_POWERUP_COLOR)
         powerup.damageLevel = PowerupConstants.ACTIVE_DAMAGE
+        self.powerups.append(powerup)
+    }
+    
+    func addChangeDirectionPowerUp(){
+        var powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.CHANGE_DIRECTION_POWERUP_COLOR)
+        powerup.changeToRandomDirection = true
+        self.powerups.append(powerup)
+    }
+    
+    func addAddBallToChainPowerUp(){
+        var powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.ADD_BALL_TO_CHAIN_POWERUP_COLOR)
+        powerup.addBallToChain = true
         self.powerups.append(powerup)
     }
 

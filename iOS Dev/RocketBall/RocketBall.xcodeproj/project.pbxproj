@@ -21,6 +21,8 @@
 		D2D1DD8A1F646B7000355FE9 /* DamagePowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1DD891F646B7000355FE9 /* DamagePowerUp.swift */; };
 		D2D1DD8C1F646E4000355FE9 /* ChangeDirectionPowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1DD8B1F646E4000355FE9 /* ChangeDirectionPowerUp.swift */; };
 		D2D1DD8E1F646F2F00355FE9 /* ChainPowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1DD8D1F646F2F00355FE9 /* ChainPowerUp.swift */; };
+		D2D1DD901F648E9300355FE9 /* TeleportPowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1DD8F1F648E9300355FE9 /* TeleportPowerUp.swift */; };
+		D2D1DD921F64A19A00355FE9 /* LargerPaddlePowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1DD911F64A19A00355FE9 /* LargerPaddlePowerUp.swift */; };
 		D2EA19DD1F1047B50066CFC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA19DC1F1047B50066CFC8 /* AppDelegate.swift */; };
 		D2EA19E21F1047B50066CFC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA19E01F1047B50066CFC8 /* Main.storyboard */; };
 		D2EA19E41F1047B50066CFC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2EA19E31F1047B50066CFC8 /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		D2D1DD891F646B7000355FE9 /* DamagePowerUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DamagePowerUp.swift; sourceTree = "<group>"; };
 		D2D1DD8B1F646E4000355FE9 /* ChangeDirectionPowerUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeDirectionPowerUp.swift; sourceTree = "<group>"; };
 		D2D1DD8D1F646F2F00355FE9 /* ChainPowerUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainPowerUp.swift; sourceTree = "<group>"; };
+		D2D1DD8F1F648E9300355FE9 /* TeleportPowerUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeleportPowerUp.swift; sourceTree = "<group>"; };
+		D2D1DD911F64A19A00355FE9 /* LargerPaddlePowerUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargerPaddlePowerUp.swift; sourceTree = "<group>"; };
 		D2EA19D91F1047B50066CFC8 /* RocketBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RocketBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EA19DC1F1047B50066CFC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2EA19E11F1047B50066CFC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				D2D1DD871F64699900355FE9 /* SizePowerUp.swift */,
 				D2D1DD841F645EED00355FE9 /* SpeedPowerUp.swift */,
 				D2D1DD8D1F646F2F00355FE9 /* ChainPowerUp.swift */,
+				D2D1DD8F1F648E9300355FE9 /* TeleportPowerUp.swift */,
+				D2D1DD911F64A19A00355FE9 /* LargerPaddlePowerUp.swift */,
 			);
 			name = PowerUps;
 			sourceTree = "<group>";
@@ -199,7 +205,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2D1DD921F64A19A00355FE9 /* LargerPaddlePowerUp.swift in Sources */,
 				D2D1DD8C1F646E4000355FE9 /* ChangeDirectionPowerUp.swift in Sources */,
+				D2D1DD901F648E9300355FE9 /* TeleportPowerUp.swift in Sources */,
 				D29E6C141F257096003049F7 /* Paddle.swift in Sources */,
 				D2EA19DD1F1047B50066CFC8 /* AppDelegate.swift in Sources */,
 				D2D1DD851F645EED00355FE9 /* SpeedPowerUp.swift in Sources */,

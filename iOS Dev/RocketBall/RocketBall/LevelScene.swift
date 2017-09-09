@@ -73,7 +73,30 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval){
-        //gameState.update(deltaTime: currentTime) TODO
+        // Update teleportation status if ball just teleported but is now no longer touching teleporter powerUp
+        for ball in balls {
+            if ball.justTeleported == true {
+                var counter = 0
+                var teleporterCounter = 0
+                for powerUp in self.level.powerUps {
+                    if powerUp is TeleportPowerUp {
+                        let dx = powerUp.location.x - ball.node.position.x
+                        let dy = powerUp.location.y - ball.node.position.y
+                        let distance = sqrt(dx * dx + dy * dy)
+                        if distance > ball.ballRadius / 2.0 + powerUp.powerUpRadius / 2.0 {
+                            counter += 1
+                        }
+                        teleporterCounter += 1
+                    }
+                }
+                
+                if (teleporterCounter == counter){
+                    ball.justTeleported = false
+                }
+            }
+        }
+        
+        // Other updates
     }
 
     override func didMove(to view: SKView){
@@ -104,12 +127,10 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         
         // ---------- Make paddles ----------
         var userPaddle: Paddle = Paddle(isHuman: true,
-                                        width: level.paddle_defaultWidth,
                                         fill: SKColor.blue,
                                         startX: level.scoreRegions[0].frame.midX,
                                         scoreRegionY: level.scoreRegions[0].frame.midY)
         var compPaddle: Paddle = Paddle(isHuman: false,
-                                        width: level.paddle_defaultWidth,
                                         fill: SKColor.blue,
                                         startX: level.scoreRegions[1].frame.midX,
                                         scoreRegionY: level.scoreRegions[1].frame.midY)
@@ -320,8 +341,6 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     //=========================================================================================================
     
     public static func randomFloat(from: CGFloat, to: CGFloat) -> CGFloat {
-        let time = UInt32(NSDate().timeIntervalSinceReferenceDate)
-        srand48(Int(time))
         return CGFloat(drand48()) * (to - from) + from
     }
     

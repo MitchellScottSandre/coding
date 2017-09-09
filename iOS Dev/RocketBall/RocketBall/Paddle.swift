@@ -9,10 +9,14 @@
 import Foundation
 import SpriteKit
 
+struct PaddleConstants {
+    static let DEFAULT_WIDTH: CGFloat = 70.0
+}
+
 class Paddle {
     var isHuman: Bool
     let paddleHeight: CGFloat = 20.0
-    
+    var largerPaddlePowerUpApplied = false
     var paddleWidth: CGFloat
     var fillColor: SKColor
     var distanceFromScoreRegion: CGFloat = 50 {
@@ -27,17 +31,14 @@ class Paddle {
     var node: SKSpriteNode
     
     
-    init(isHuman: Bool, width: CGFloat, fill: SKColor, startX: CGFloat, scoreRegionY: CGFloat){
+    init(isHuman: Bool, fill: SKColor, startX: CGFloat, scoreRegionY: CGFloat){
         self.isHuman = isHuman
-        self.paddleWidth = width
+        self.paddleWidth = PaddleConstants.DEFAULT_WIDTH
         self.fillColor = fill
         
-        self.node = SKSpriteNode(color: fillColor, size: CGSize(width: width, height: paddleHeight))
-        self.node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: width, height: paddleHeight))
-        self.node.physicsBody!.isDynamic = false
-        self.node.physicsBody!.mass = 1.0
-        self.node.physicsBody!.categoryBitMask = PhysicsCategory.Paddle
-        self.node.physicsBody!.contactTestBitMask = PhysicsCategory.Ball
+        self.node = SKSpriteNode(color: fillColor, size: CGSize(width: self.paddleWidth, height: self.paddleHeight))
+        
+        addToPhysicsBody()
         
         if isHuman {
             self.node.position = CGPoint(x: startX, y: scoreRegionY + distanceFromScoreRegion)
@@ -46,5 +47,13 @@ class Paddle {
         }
         
         self.node.name = isHuman ? LevelConstants.userPaddleName : LevelConstants.compPaddleName
+    }
+    
+    func addToPhysicsBody(){
+        self.node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.paddleWidth, height: paddleHeight))
+        self.node.physicsBody!.isDynamic = false
+        self.node.physicsBody!.mass = 1.0
+        self.node.physicsBody!.categoryBitMask = PhysicsCategory.Paddle
+        self.node.physicsBody!.contactTestBitMask = PhysicsCategory.Ball
     }
 }

@@ -13,12 +13,12 @@ class DamagePowerUp : PowerUp {
     var damageLevel: Int = PowerUpConstants.ACTIVE_DAMAGE
     
     // Convenience Initialize to a random point within given frame
-    convenience init(frameWidth: CGFloat, frameHeight: CGFloat, color: SKColor){
+    convenience init(frameWidth: CGFloat, frameHeight: CGFloat){
         let x = LevelScene.randomFloat(from: 0.0, to: frameWidth)
         let y = LevelScene.randomFloat(from: frameHeight * 0.15, to: frameHeight * 0.85)
         let point = CGPoint(x: x, y: y)
         
-        self.init(startPoint: point, color: color)
+        self.init(startPoint: point, color: PowerUpConstants.DAMAGE_POWERUP_COLOR)
     }
     
     override init(startPoint: CGPoint, color: SKColor){

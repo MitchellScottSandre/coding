@@ -18,7 +18,6 @@ class Level{
     // TODO: percent chances for getting certain power ups. be able to make a random level
     
     // Constants needed for Ball & Paddle & PowerUps
-    let paddle_defaultWidth: CGFloat = 70.0
     
     let startNumberBalls : Int
     let numberPlayers : Int
@@ -58,27 +57,29 @@ class Level{
 //        addSpeedPowerUp()
 //        addSizePowerUp()
 //        addDamagePowerUp()
-//        addChangeDirectionPowerUp()
+        addChangeDirectionPowerUp()
         addChainPowerUp()
+//        addTeleportPowerUp()
+//        addLargerPaddlePowerUp()
     }
     
     func addSpeedPowerUp(){
-        var powerUp = SpeedPowerUp(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerUpConstants.SPEED_POWERUP_COLOR)
+        var powerUp = SpeedPowerUp(frameWidth: self.frameWidth, frameHeight: self.frameHeight)
         self.powerUps.append(powerUp)
     }
 
     func addSizePowerUp(){
-        var powerUp = SizePowerUp(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerUpConstants.SIZE_POWERUP_COLOR)
+        var powerUp = SizePowerUp(frameWidth: self.frameWidth, frameHeight: self.frameHeight)
         self.powerUps.append(powerUp)
     }
 
     func addDamagePowerUp(){
-        var powerUp = DamagePowerUp(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerUpConstants.DAMAGE_POWERUP_COLOR)
+        var powerUp = DamagePowerUp(frameWidth: self.frameWidth, frameHeight: self.frameHeight)
         self.powerUps.append(powerUp)
     }
 
     func addChangeDirectionPowerUp(){
-        var powerUp = ChangeDirectionPowerUp(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerUpConstants.CHANGE_DIRECTION_POWERUP_COLOR)
+        var powerUp = ChangeDirectionPowerUp(frameWidth: self.frameWidth, frameHeight: self.frameHeight)
         self.powerUps.append(powerUp)
     }
     
@@ -86,8 +87,33 @@ class Level{
         //Only add to middle 50% of the screen. From x = 25% to x = 75%
         let startX = LevelScene.randomFloat(from: frameWidth * 0.25, to: frameWidth * 0.75)
         let startY = LevelScene.randomFloat(from: frameHeight * 0.15, to: frameHeight * 0.85)
-        var powerUp = ChainPowerUp(startPoint: CGPoint(x: startX, y: startY), color: PowerUpConstants.ADD_BALL_TO_CHAIN_POWERUP_COLOR)
+        var powerUp = ChainPowerUp(startPoint: CGPoint(x: startX, y: startY))
         self.powerUps.append(powerUp)
+    }
+    
+    func addLargerPaddlePowerUp(){
+        var powerUp = LargerPaddlePowerUp(frameWidth: self.frameWidth, frameHeight: self.frameHeight)
+        self.powerUps.append(powerUp)
+    }
+    
+    func addTeleportPowerUp(){
+        let x1 = LevelScene.randomFloat(from: 0.0, to: frameWidth)
+        let y1 = LevelScene.randomFloat(from: frameHeight * 0.15, to: frameHeight * 0.45)
+        
+        let x2 = LevelScene.randomFloat(from: 0.0, to: frameWidth)
+        let y2 = LevelScene.randomFloat(from: frameHeight * 0.55, to: frameHeight * 0.85)
+        
+        let point1 = CGPoint(x: x1, y: y1)
+        let point2 = CGPoint(x: x2, y: y2)
+        
+        let powerUp1 = TeleportPowerUp(startPoint: point1)
+        let powerUp2 = TeleportPowerUp(startPoint: point2)
+        
+        powerUp1.otherEndPowerUp = powerUp2
+        powerUp2.otherEndPowerUp = powerUp1
+        
+        self.powerUps.append(powerUp1)
+        self.powerUps.append(powerUp2)
     }
 
     // TODO: add more power up functions

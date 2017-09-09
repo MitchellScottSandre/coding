@@ -9,11 +9,13 @@
 import SpriteKit
 
 struct PowerUpConstants {
+    // Colours
     static let SPEED_POWERUP_COLOR: SKColor = SKColor.red
     static let SIZE_POWERUP_COLOR: SKColor = SKColor.blue
     static let DAMAGE_POWERUP_COLOR: SKColor = SKColor.purple
     static let CHANGE_DIRECTION_POWERUP_COLOR: SKColor = SKColor.green
-    static let ADD_BALL_TO_CHAIN_POWERUP_COLOR: SKColor = SKColor.gray
+    static let CHAIN_POWERUP_COLOR: SKColor = SKColor.gray
+    static let TELEPORT_POWERUP_COLOR: SKColor = SKColor.brown
     
     // Defaults
     static let DEFAULT_SPEED_FACTOR: CGFloat = 1.0
@@ -21,11 +23,13 @@ struct PowerUpConstants {
     static let DEFAULT_DAMAGE: Int = 1
     static let DEFAULT_RADIUS: CGFloat = 15.0
     static let DEFAULT_TIMER_LENGTH: Double = 4.0
+    static let DEFAULT_PADDLE_FACTOR: CGFloat = 1.0
     
     // New Values
     static let ACTIVE_SPEED_FACTOR: CGFloat = 2.0
     static let ACTIVE_SIZE_FACTOR: CGFloat = 2.0
     static let ACTIVE_DAMAGE: Int = 2
+    static let ACTIVE_PADDLE_FACTOR: CGFloat = 1.5
     
     
 }
@@ -57,6 +61,11 @@ class PowerUp {
         self.node.physicsBody!.contactTestBitMask = PhysicsCategory.Ball
         self.node.physicsBody!.affectedByGravity = false
         self.node.physicsBody!.isDynamic = false
+    }
+    
+    func deleteMyNodes(){
+        self.node.removeAllChildren()
+        self.node.removeFromParent()
     }
     
     func applyPowerUpToBall(ball: Ball, levelScene: LevelScene){

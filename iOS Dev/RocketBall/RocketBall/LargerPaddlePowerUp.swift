@@ -8,9 +8,9 @@
 
 import SpriteKit
 
-class SizePowerUp : PowerUp {
+class LargerPaddlePowerUp : PowerUp {
     
-    var sizeFactor: CGFloat = PowerUpConstants.ACTIVE_SIZE_FACTOR
+    var paddleAppliedTo: Paddle?
     
     // Convenience Initialize to a random point within given frame
     convenience init(frameWidth: CGFloat, frameHeight: CGFloat){
@@ -23,26 +23,29 @@ class SizePowerUp : PowerUp {
     
     override init(startPoint: CGPoint, color: SKColor){
         super.init(startPoint: startPoint, color: color)
+        
+        self.timerLength = 10.0
     }
     
     override func applyPowerUpToBall(ball: Ball, levelScene: LevelScene){
-        if (ball.sizePowerUpApplied == false){
-            applySizeFactor(ball: ball)
-            addPowerUpTimer(ball: ball, time: self.timerLength)
+        if let paddle = ball.paddleLastTouched {
+            if (paddle.largerPaddlePowerUpApplied == false){
+                paddle.largerPaddlePowerUpApplied = true
+                paddle.node.xScale = PowerUpConstants.ACTIVE_PADDLE_FACTOR
+                self.paddleAppliedTo = paddle
+                deleteMyNodes()
+                addPowerUpTimer(ball: ball, time: self.timerLength)
+            }
         }
     }
     
     @objc override func removeThisPowerUp(sender: Timer){
-        if let ball = sender.userInfo as? Ball {
-            self.sizeFactor = PowerUpConstants.DEFAULT_SIZE_FACTOR
-            applySizeFactor(ball: ball)
-            self.sizeFactor = PowerUpConstants.ACTIVE_SIZE_FACTOR
+        print("Remove paddle length called")
+        if let paddle = self.paddleAppliedTo {
+            print("asdf")
+            paddle.largerPaddlePowerUpApplied = false
+            paddle.node.xScale = PowerUpConstants.DEFAULT_PADDLE_FACTOR
         }
     }
-    
-    func applySizeFactor(ball: Ball){
-        ball.node.xScale = self.sizeFactor
-        ball.node.yScale = self.sizeFactor
-        ball.sizePowerUpApplied = !ball.sizePowerUpApplied
-    }
+
 }

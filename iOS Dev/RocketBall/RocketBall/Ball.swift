@@ -34,6 +34,7 @@ class Ball{
     var speedPowerUpApplied = false
     var sizePowerUpApplied = false
     var damagePowerUpApplied = false
+    var justTeleported = false
     
     var fillColor: SKColor
     
@@ -91,9 +92,14 @@ class Ball{
         for ball in balls {
             if (ball.node == self.node){
                 continue
-            } else if LevelScene.distanceBetweenValues(val1: Ball.distanceBetweenBalls(ballA: self, ballB: ball), val2: BallConstants.DEFAULT_RADIUS + BallConstants.CHAIN_DISTANCE) <= BallConstants.CHAIN_ERROR_TOLERANCE && self.node.physicsBody?.velocity == ball.node.physicsBody?.velocity {
-                    print("is part of chain")
-                    return true
+            } else if LevelScene.distanceBetweenValues(val1: Ball.distanceBetweenBalls(ballA: self, ballB: ball),
+                                                       val2: BallConstants.DEFAULT_RADIUS + BallConstants.CHAIN_DISTANCE) <= BallConstants.CHAIN_ERROR_TOLERANCE &&
+                LevelScene.distanceBetweenValues(val1: (self.node.physicsBody?.velocity.dx)!,
+                                                 val2: (ball.node.physicsBody?.velocity.dx)!) < 5.0 &&
+                LevelScene.distanceBetweenValues(val1: (self.node.physicsBody?.velocity.dy)!,
+                                                 val2: (ball.node.physicsBody?.velocity.dy)!) < 5.0 {
+                
+                return true
             }
         }
         

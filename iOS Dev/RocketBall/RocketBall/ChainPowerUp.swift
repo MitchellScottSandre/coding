@@ -10,23 +10,29 @@ import SpriteKit
 
 class ChainPowerUp : PowerUp {
     
+    let ADDED_BALLS_LIMIT: Int = 4
+    var numberBallsAdded: Int = 0
+    
     // Convenience Initialize to a random point within given frame
-    convenience init(frameWidth: CGFloat, frameHeight: CGFloat, color: SKColor){
+    convenience init(frameWidth: CGFloat, frameHeight: CGFloat){
         let x = LevelScene.randomFloat(from: 0.0, to: frameWidth)
         let y = LevelScene.randomFloat(from: frameHeight * 0.15, to: frameHeight * 0.85)
         let point = CGPoint(x: x, y: y)
         
-        self.init(startPoint: point, color: color)
+        self.init(startPoint: point)
     }
     
-    override init(startPoint: CGPoint, color: SKColor){
-        super.init(startPoint: startPoint, color: color)
+    init(startPoint: CGPoint){
+        super.init(startPoint: startPoint, color: PowerUpConstants.CHAIN_POWERUP_COLOR)
     }
     
     override func applyPowerUpToBall(ball: Ball, levelScene: LevelScene){
+        if ball.sizePowerUpApplied {
+            return
+        }
+        
         // Determine if ball is part of chain
         if ball.determineIfBallIsPartOfChain(balls: levelScene.balls) == false {
-            print("setting to first ball!")
             ball.firstBallInChain = true
         }
         
@@ -75,8 +81,12 @@ class ChainPowerUp : PowerUp {
                 newBall.firstBallInChain = false
                 
                 levelScene.balls.append(newBall)
-                print("balls length: \(levelScene.balls.count)")
                 levelScene.addChild(newBall.node)
+                
+                self.numberBallsAdded += 1
+                if self.numberBallsAdded == self.ADDED_BALLS_LIMIT {
+                   deleteMyNodes()
+                }
             }
         }
     }

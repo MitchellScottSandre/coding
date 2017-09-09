@@ -15,8 +15,12 @@
 		D27034F71F5F10780028FE74 /* StartScreenScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27034F61F5F10780028FE74 /* StartScreenScene.swift */; };
 		D29E6C121F25708A003049F7 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E6C111F25708A003049F7 /* Ball.swift */; };
 		D29E6C141F257096003049F7 /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E6C131F257096003049F7 /* Paddle.swift */; };
-		D29E6C161F2570A0003049F7 /* Powerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E6C151F2570A0003049F7 /* Powerup.swift */; };
-		D2D1DD851F645EED00355FE9 /* SizePowerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1DD841F645EED00355FE9 /* SizePowerup.swift */; };
+		D29E6C161F2570A0003049F7 /* PowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E6C151F2570A0003049F7 /* PowerUp.swift */; };
+		D2D1DD851F645EED00355FE9 /* SpeedPowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1DD841F645EED00355FE9 /* SpeedPowerUp.swift */; };
+		D2D1DD881F64699900355FE9 /* SizePowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1DD871F64699900355FE9 /* SizePowerUp.swift */; };
+		D2D1DD8A1F646B7000355FE9 /* DamagePowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1DD891F646B7000355FE9 /* DamagePowerUp.swift */; };
+		D2D1DD8C1F646E4000355FE9 /* ChangeDirectionPowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1DD8B1F646E4000355FE9 /* ChangeDirectionPowerUp.swift */; };
+		D2D1DD8E1F646F2F00355FE9 /* ChainPowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1DD8D1F646F2F00355FE9 /* ChainPowerUp.swift */; };
 		D2EA19DD1F1047B50066CFC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA19DC1F1047B50066CFC8 /* AppDelegate.swift */; };
 		D2EA19E21F1047B50066CFC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA19E01F1047B50066CFC8 /* Main.storyboard */; };
 		D2EA19E41F1047B50066CFC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2EA19E31F1047B50066CFC8 /* Assets.xcassets */; };
@@ -34,8 +38,12 @@
 		D27034F61F5F10780028FE74 /* StartScreenScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreenScene.swift; sourceTree = "<group>"; };
 		D29E6C111F25708A003049F7 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		D29E6C131F257096003049F7 /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
-		D29E6C151F2570A0003049F7 /* Powerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Powerup.swift; sourceTree = "<group>"; };
-		D2D1DD841F645EED00355FE9 /* SizePowerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizePowerup.swift; sourceTree = "<group>"; };
+		D29E6C151F2570A0003049F7 /* PowerUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerUp.swift; sourceTree = "<group>"; };
+		D2D1DD841F645EED00355FE9 /* SpeedPowerUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedPowerUp.swift; sourceTree = "<group>"; };
+		D2D1DD871F64699900355FE9 /* SizePowerUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizePowerUp.swift; sourceTree = "<group>"; };
+		D2D1DD891F646B7000355FE9 /* DamagePowerUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DamagePowerUp.swift; sourceTree = "<group>"; };
+		D2D1DD8B1F646E4000355FE9 /* ChangeDirectionPowerUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeDirectionPowerUp.swift; sourceTree = "<group>"; };
+		D2D1DD8D1F646F2F00355FE9 /* ChainPowerUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainPowerUp.swift; sourceTree = "<group>"; };
 		D2EA19D91F1047B50066CFC8 /* RocketBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RocketBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EA19DC1F1047B50066CFC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2EA19E11F1047B50066CFC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,20 +73,24 @@
 				D247D1D71F5DC4E4004500D6 /* GameOver.swift */,
 			);
 			name = States;
+			path = ..;
 			sourceTree = "<group>";
 		};
-		D2D1DD861F645EF800355FE9 /* Powerups */ = {
+		D2D1DD861F645EF800355FE9 /* PowerUps */ = {
 			isa = PBXGroup;
 			children = (
-				D2D1DD841F645EED00355FE9 /* SizePowerup.swift */,
+				D2D1DD8B1F646E4000355FE9 /* ChangeDirectionPowerUp.swift */,
+				D2D1DD891F646B7000355FE9 /* DamagePowerUp.swift */,
+				D2D1DD871F64699900355FE9 /* SizePowerUp.swift */,
+				D2D1DD841F645EED00355FE9 /* SpeedPowerUp.swift */,
+				D2D1DD8D1F646F2F00355FE9 /* ChainPowerUp.swift */,
 			);
-			name = Powerups;
+			name = PowerUps;
 			sourceTree = "<group>";
 		};
 		D2EA19D01F1047B50066CFC8 = {
 			isa = PBXGroup;
 			children = (
-				D247D1D21F5DC4BA004500D6 /* States */,
 				D2EA19DB1F1047B50066CFC8 /* RocketBall */,
 				D2EA19DA1F1047B50066CFC8 /* Products */,
 			);
@@ -95,13 +107,12 @@
 		D2EA19DB1F1047B50066CFC8 /* RocketBall */ = {
 			isa = PBXGroup;
 			children = (
-				D2D1DD861F645EF800355FE9 /* Powerups */,
 				D27034F61F5F10780028FE74 /* StartScreenScene.swift */,
 				D2EA19F51F1050B30066CFC8 /* LevelScene.swift */,
 				D212598D1F202C8100BE78C6 /* Level.swift */,
 				D21259911F20352C00BE78C6 /* Player.swift */,
 				D29E6C111F25708A003049F7 /* Ball.swift */,
-				D29E6C151F2570A0003049F7 /* Powerup.swift */,
+				D29E6C151F2570A0003049F7 /* PowerUp.swift */,
 				D29E6C131F257096003049F7 /* Paddle.swift */,
 				D2EA19F91F1052D20066CFC8 /* StartScreenController.swift */,
 				D2EA19DC1F1047B50066CFC8 /* AppDelegate.swift */,
@@ -109,6 +120,8 @@
 				D2EA19E31F1047B50066CFC8 /* Assets.xcassets */,
 				D2EA19E51F1047B50066CFC8 /* LaunchScreen.storyboard */,
 				D2EA19E81F1047B50066CFC8 /* Info.plist */,
+				D247D1D21F5DC4BA004500D6 /* States */,
+				D2D1DD861F645EF800355FE9 /* PowerUps */,
 			);
 			path = RocketBall;
 			sourceTree = "<group>";
@@ -186,19 +199,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2D1DD8C1F646E4000355FE9 /* ChangeDirectionPowerUp.swift in Sources */,
 				D29E6C141F257096003049F7 /* Paddle.swift in Sources */,
 				D2EA19DD1F1047B50066CFC8 /* AppDelegate.swift in Sources */,
-				D2D1DD851F645EED00355FE9 /* SizePowerup.swift in Sources */,
+				D2D1DD851F645EED00355FE9 /* SpeedPowerUp.swift in Sources */,
 				D247D1D81F5DC4E4004500D6 /* GameOver.swift in Sources */,
+				D2D1DD8A1F646B7000355FE9 /* DamagePowerUp.swift in Sources */,
 				D247D1D61F5DC4D7004500D6 /* Playing.swift in Sources */,
 				D27034F71F5F10780028FE74 /* StartScreenScene.swift in Sources */,
 				D2EA19FA1F1052D20066CFC8 /* StartScreenController.swift in Sources */,
 				D212598E1F202C8100BE78C6 /* Level.swift in Sources */,
 				D247D1D41F5DC4CF004500D6 /* WaitingForTap.swift in Sources */,
-				D29E6C161F2570A0003049F7 /* Powerup.swift in Sources */,
+				D29E6C161F2570A0003049F7 /* PowerUp.swift in Sources */,
 				D21259921F20352C00BE78C6 /* Player.swift in Sources */,
+				D2D1DD8E1F646F2F00355FE9 /* ChainPowerUp.swift in Sources */,
 				D29E6C121F25708A003049F7 /* Ball.swift in Sources */,
 				D2EA19F61F1050B30066CFC8 /* LevelScene.swift in Sources */,
+				D2D1DD881F64699900355FE9 /* SizePowerUp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

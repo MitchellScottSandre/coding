@@ -87,9 +87,9 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0) //remove gravity
         self.physicsWorld.contactDelegate = self
         
-        // ---------- Add powerups to screen ---------- 
-        for powerup in self.level.powerups {
-            self.addChild(powerup.node)
+        // ---------- Add powerUps to screen ---------- 
+        for powerUp in self.level.powerUps {
+            self.addChild(powerUp.node)
         }
         
         // ---------- Make starting balls ----------
@@ -161,8 +161,8 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
                     for ball in self.balls {
                         if ball.node == firstBody.node {
                             playerLoseLife(playerNum: i, damage: ball.damage)
+                            break
                         }
-                        break
                     }
                 }
             }
@@ -174,23 +174,22 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
                         for paddle in self.paddles {
                             if paddle.node == secondBody.node {
                                 ball.paddleLastTouched = paddle
+                                break
                             }
-                            break
                         }
                     }
                     break
                 }
             }
             
-            // ---------- Check if ball hit powerup ---------- 
+            // ---------- Check if ball hit powerUp ---------- 
             if (firstBody.categoryBitMask == PhysicsCategory.Ball && secondBody.categoryBitMask == PhysicsCategory.PowerUp){
-                // Identify and find the powerup based on the unique key of node.name
-                print("ball hit a powerup")
+                // Identify and find the powerUp based on the unique key of node.name
                 for ball in self.balls {
                     if ball.node == firstBody.node {
-                        for powerup in self.level.powerups {
-                            if powerup.node == secondBody.node {
-                                powerup.applyPowerupToBall(ball: ball, levelScene: self)
+                        for powerUp in self.level.powerUps {
+                            if powerUp.node == secondBody.node {
+                                powerUp.applyPowerUpToBall(ball: ball, levelScene: self)
                                 break
                             }
                         }
@@ -328,15 +327,15 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
     
     public static func randomDirection(desiredSpeed: CGFloat) -> CGVector {
         let rads = randomFloat(from: 0, to: 360) * CGFloat(M_PI / 180.0)
-        print("Random direction: desiredSpeed: \(desiredSpeed)")
         var dx = cos(rads)
         var dy = sin(rads)
         dx *= desiredSpeed
         dy *= desiredSpeed
-        
-        print("actual speed: \(sqrt(dx*dx + dy*dy))")
-        
         return CGVector(dx: dx, dy: dy)
+    }
+    
+    public static func distanceBetweenValues(val1: CGFloat, val2: CGFloat) -> CGFloat {
+        return abs(val2 - val1)
     }
     
 }

@@ -17,7 +17,7 @@ struct PlayerLocations {
 class Level{
     // TODO: percent chances for getting certain power ups. be able to make a random level
     
-    // Constants needed for Ball & Paddle & Powerups
+    // Constants needed for Ball & Paddle & PowerUps
     let paddle_defaultWidth: CGFloat = 70.0
     
     let startNumberBalls : Int
@@ -27,7 +27,7 @@ class Level{
     let frameWidth: CGFloat
     var scoreRegions : [SKSpriteNode]
     var players : [Player]
-    var powerups : [Powerup] = []
+    var powerUps : [PowerUp] = []
     
     // Primary Constructor. Players at positions BOTTOM, TOP
     init(startBalls: Int, numPlayers: Int, scoreLimit: Int, height: CGFloat, width: CGFloat){
@@ -59,40 +59,35 @@ class Level{
 //        addSizePowerUp()
 //        addDamagePowerUp()
 //        addChangeDirectionPowerUp()
-        addAddBallToChainPowerUp()
+        addChainPowerUp()
     }
     
     func addSpeedPowerUp(){
-        var powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.SPEED_POWERUP_COLOR)
-        powerup.speedFactor = CGFloat(PowerupConstants.ACTIVE_SPEED_FACTOR)
-        self.powerups.append(powerup)
+        var powerUp = SpeedPowerUp(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerUpConstants.SPEED_POWERUP_COLOR)
+        self.powerUps.append(powerUp)
     }
-    
+
     func addSizePowerUp(){
-        var powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.SIZE_POWERUP_COLOR)
-        powerup.sizeFactor = CGFloat(PowerupConstants.ACTIVE_SIZE_FACTOR)
-        self.powerups.append(powerup)
+        var powerUp = SizePowerUp(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerUpConstants.SIZE_POWERUP_COLOR)
+        self.powerUps.append(powerUp)
     }
-    
+
     func addDamagePowerUp(){
-        var powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.DAMAGE_POWERUP_COLOR)
-        powerup.damageLevel = PowerupConstants.ACTIVE_DAMAGE
-        self.powerups.append(powerup)
+        var powerUp = DamagePowerUp(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerUpConstants.DAMAGE_POWERUP_COLOR)
+        self.powerUps.append(powerUp)
     }
-    
+
     func addChangeDirectionPowerUp(){
-        var powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.CHANGE_DIRECTION_POWERUP_COLOR)
-        powerup.changeToRandomDirection = true
-        self.powerups.append(powerup)
+        var powerUp = ChangeDirectionPowerUp(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerUpConstants.CHANGE_DIRECTION_POWERUP_COLOR)
+        self.powerUps.append(powerUp)
     }
     
-    func addAddBallToChainPowerUp(){
+    func addChainPowerUp(){
         //Only add to middle 50% of the screen. From x = 25% to x = 75%
         let startX = LevelScene.randomFloat(from: frameWidth * 0.25, to: frameWidth * 0.75)
         let startY = LevelScene.randomFloat(from: frameHeight * 0.15, to: frameHeight * 0.85)
-        var powerup = Powerup(startPoint: CGPoint(x: startX, y: startY), color: PowerupConstants.ADD_BALL_TO_CHAIN_POWERUP_COLOR)
-        powerup.addBallToChain = true
-        self.powerups.append(powerup)
+        var powerUp = ChainPowerUp(startPoint: CGPoint(x: startX, y: startY), color: PowerUpConstants.ADD_BALL_TO_CHAIN_POWERUP_COLOR)
+        self.powerUps.append(powerUp)
     }
 
     // TODO: add more power up functions

@@ -9,9 +9,11 @@
 import SpriteKit
 
 struct BallConstants {
-    static let DEFAULT_SPEED: CGFloat = 300.0
+    static let DEFAULT_SPEED: CGFloat = 400.0
     static let CHAIN_DISTANCE: CGFloat = 15.0
     static let DEFAULT_RADIUS: CGFloat = 16.0
+    
+    static let CHAIN_ERROR_TOLERANCE:CGFloat = 10.0
 }
 
 class Ball{
@@ -29,9 +31,9 @@ class Ball{
     var nextBallInChain: Ball?
     
     // Ball Powerup Info
-    var speedFactorApplied = false
-    var sizeFactorApplied = false
-    var damageFactorApplied = false
+    var speedPowerUpApplied = false
+    var sizePowerUpApplied = false
+    var damagePowerUpApplied = false
     
     var fillColor: SKColor
     
@@ -83,6 +85,19 @@ class Ball{
         let dy = y2 - y1
         
         return sqrt(dx * dx + dy * dy)
+    }
+    
+    func determineIfBallIsPartOfChain(balls: [Ball]) -> Bool{
+        for ball in balls {
+            if (ball.node == self.node){
+                continue
+            } else if LevelScene.distanceBetweenValues(val1: Ball.distanceBetweenBalls(ballA: self, ballB: ball), val2: BallConstants.DEFAULT_RADIUS + BallConstants.CHAIN_DISTANCE) <= BallConstants.CHAIN_ERROR_TOLERANCE && self.node.physicsBody?.velocity == ball.node.physicsBody?.velocity {
+                    print("is part of chain")
+                    return true
+            }
+        }
+        
+        return false
     }
     
 }

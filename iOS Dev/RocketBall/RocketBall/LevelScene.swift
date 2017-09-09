@@ -95,7 +95,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
         // ---------- Make starting balls ----------
         for _ in 0..<level.startNumberBalls {
             let ballStartX: CGFloat = self.size.width / (CGFloat(level.startNumberBalls + 1))
-            let ball = Ball(radius: 16, fillColor: SKColor.green, strokeColor: SKColor.green, startX: ballStartX, startY: self.size.height / 2) //startY always the same
+            let ball = Ball(radius: BallConstants.DEFAULT_RADIUS, fillColor: SKColor.green, strokeColor: SKColor.green, startX: ballStartX, startY: self.size.height / 2) //startY always the same
             
             self.addChild(ball.node)
             

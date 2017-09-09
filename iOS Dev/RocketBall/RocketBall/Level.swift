@@ -87,7 +87,10 @@ class Level{
     }
     
     func addAddBallToChainPowerUp(){
-        var powerup = Powerup(frameWidth: self.frameWidth, frameHeight: self.frameHeight, color: PowerupConstants.ADD_BALL_TO_CHAIN_POWERUP_COLOR)
+        //Only add to middle 50% of the screen. From x = 25% to x = 75%
+        let startX = LevelScene.randomFloat(from: frameWidth * 0.25, to: frameWidth * 0.75)
+        let startY = LevelScene.randomFloat(from: frameHeight * 0.15, to: frameHeight * 0.85)
+        var powerup = Powerup(startPoint: CGPoint(x: startX, y: startY), color: PowerupConstants.ADD_BALL_TO_CHAIN_POWERUP_COLOR)
         powerup.addBallToChain = true
         self.powerups.append(powerup)
     }

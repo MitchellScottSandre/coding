@@ -10,7 +10,8 @@ import SpriteKit
 
 struct BallConstants {
     static let DEFAULT_SPEED: CGFloat = 300.0
-    static let CHAIN_DISTANCE: CGFloat = 50.0
+    static let CHAIN_DISTANCE: CGFloat = 15.0
+    static let DEFAULT_RADIUS: CGFloat = 16.0
 }
 
 class Ball{
@@ -69,6 +70,19 @@ class Ball{
         self.node.physicsBody = nil
         self.node.position = self.startPoint
         self.node.physicsBody = prevPhysicsBody
+    }
+    
+    public static func distanceBetweenBalls(ballA: Ball, ballB: Ball) -> CGFloat {
+        let x1 = ballA.node.position.x
+        let y1 = ballA.node.position.y
+        
+        let x2 = ballB.node.position.x
+        let y2 = ballB.node.position.y
+        
+        let dx = x2 - x1
+        let dy = y2 - y1
+        
+        return sqrt(dx * dx + dy * dy)
     }
     
 }

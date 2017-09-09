@@ -48,7 +48,7 @@ class Powerup {
     let numPowerUps = 6
     
     var powerupEffects = [Any]()
-    var powerupTimers = [Timer]()
+    var powerupTimers = [Timer]() // timer that will call to de activate the powerup on the ball it is applied to
     
     // Other info
     let powerupRadius: CGFloat = 20.0
@@ -202,29 +202,36 @@ class Powerup {
     func applyAddBallToChain(firstBallInChain ball: Ball, levelScene: LevelScene){
         print("Powerup > applyAddBallToChain")
         
-        // Find last ball in chain
-        var lastBall: Ball = ball
+        // Find last ball in chain that is still visually, physically part of the chain
+        // If the nextBallInChain is not physically a part of the chain anymore, then set it to firstBallInChain
+        var currLastBall: Ball = ball
         while true {
-            if let thisBall = lastBall.nextBallInChain {
-                lastBall = thisBall
+            if let nextBall = currLastBall.nextBallInChain {
+                if Ball.distanceBetweenBalls(ballA: nextBall, ballB: currLastBall) == BallConstants.DEFAULT_RADIUS + BallConstants.CHAIN_DISTANCE {
+                    currLastBall = nextBall
+                } else {
+                    nextBall.firstBallInChain = true
+                    currLastBall.nextBallInChain = nil
+                    break
+                }
             } else {
                 break
             }
         }
         
-        // Add on ball to last ball on chain
-        if let currVelocity = lastBall.node.physicsBody?.velocity {
+        // Add new ball to currLastBall with same velocity, but location just behind it
+        if let currVelocity = currLastBall.node.physicsBody?.velocity {
             let dx = currVelocity.dx
             let dy = currVelocity.dy
             
             let speed = CGFloat(sqrt(dx * dx + dy * dy))
             let direction: CGVector = CGVector(dx: dx / speed, dy: dy / speed) // Unit vector
             
-            let xDiff = direction.dx * (lastBall.ballRadius + BallConstants.CHAIN_DISTANCE)
-            let yDiff = direction.dy * (lastBall.ballRadius + BallConstants.CHAIN_DISTANCE)
+            let xDiff = direction.dx * (currLastBall.ballRadius + BallConstants.CHAIN_DISTANCE)
+            let yDiff = direction.dy * (currLastBall.ballRadius + BallConstants.CHAIN_DISTANCE)
             
-            var newBall = Ball(radius: ball.ballRadius, fillColor: lastBall.fillColor,
-                               strokeColor: ball.strokeColor, startX: lastBall.node.position.x - xDiff, startY: ball.node.position.y - yDiff)
+            var newBall = Ball(radius: ball.ballRadius, fillColor: currLastBall.fillColor,
+                               strokeColor: ball.strokeColor, startX: currLastBall.node.position.x - xDiff, startY: currLastBall.node.position.y - yDiff)
             
             newBall.node.physicsBody?.velocity = currVelocity
             

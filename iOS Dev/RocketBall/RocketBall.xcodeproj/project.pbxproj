@@ -16,6 +16,7 @@
 		D29E6C121F25708A003049F7 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E6C111F25708A003049F7 /* Ball.swift */; };
 		D29E6C141F257096003049F7 /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E6C131F257096003049F7 /* Paddle.swift */; };
 		D29E6C161F2570A0003049F7 /* Powerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29E6C151F2570A0003049F7 /* Powerup.swift */; };
+		D2D1DD851F645EED00355FE9 /* SizePowerup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D1DD841F645EED00355FE9 /* SizePowerup.swift */; };
 		D2EA19DD1F1047B50066CFC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA19DC1F1047B50066CFC8 /* AppDelegate.swift */; };
 		D2EA19E21F1047B50066CFC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2EA19E01F1047B50066CFC8 /* Main.storyboard */; };
 		D2EA19E41F1047B50066CFC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2EA19E31F1047B50066CFC8 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		D29E6C111F25708A003049F7 /* Ball.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		D29E6C131F257096003049F7 /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
 		D29E6C151F2570A0003049F7 /* Powerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Powerup.swift; sourceTree = "<group>"; };
+		D2D1DD841F645EED00355FE9 /* SizePowerup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizePowerup.swift; sourceTree = "<group>"; };
 		D2EA19D91F1047B50066CFC8 /* RocketBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RocketBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2EA19DC1F1047B50066CFC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2EA19E11F1047B50066CFC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -65,6 +67,14 @@
 			name = States;
 			sourceTree = "<group>";
 		};
+		D2D1DD861F645EF800355FE9 /* Powerups */ = {
+			isa = PBXGroup;
+			children = (
+				D2D1DD841F645EED00355FE9 /* SizePowerup.swift */,
+			);
+			name = Powerups;
+			sourceTree = "<group>";
+		};
 		D2EA19D01F1047B50066CFC8 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +95,7 @@
 		D2EA19DB1F1047B50066CFC8 /* RocketBall */ = {
 			isa = PBXGroup;
 			children = (
+				D2D1DD861F645EF800355FE9 /* Powerups */,
 				D27034F61F5F10780028FE74 /* StartScreenScene.swift */,
 				D2EA19F51F1050B30066CFC8 /* LevelScene.swift */,
 				D212598D1F202C8100BE78C6 /* Level.swift */,
@@ -177,6 +188,7 @@
 			files = (
 				D29E6C141F257096003049F7 /* Paddle.swift in Sources */,
 				D2EA19DD1F1047B50066CFC8 /* AppDelegate.swift in Sources */,
+				D2D1DD851F645EED00355FE9 /* SizePowerup.swift in Sources */,
 				D247D1D81F5DC4E4004500D6 /* GameOver.swift in Sources */,
 				D247D1D61F5DC4D7004500D6 /* Playing.swift in Sources */,
 				D27034F71F5F10780028FE74 /* StartScreenScene.swift in Sources */,

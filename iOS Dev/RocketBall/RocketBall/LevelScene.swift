@@ -96,7 +96,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
-        // Other updates
+        
     }
 
     override func didMove(to view: SKView){

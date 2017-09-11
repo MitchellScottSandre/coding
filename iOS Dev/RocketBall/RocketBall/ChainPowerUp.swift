@@ -84,6 +84,8 @@ class ChainPowerUp : PowerUp {
                 newBall.firstBallInChain = false
                 
                 print("Just added ball to chain: distance between balls is \(Ball.distanceBetweenBalls(ballA: currLastBall, ballB: newBall))")
+                print("currLastBall speed: \(currLastBall.getSpeed())")
+                print("newBall speed: \(newBall.getSpeed())")
                 
                 levelScene.balls.append(newBall)
                 levelScene.addChild(newBall.node)

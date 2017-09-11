@@ -30,9 +30,7 @@ class ChangeDirectionPowerUp : PowerUp {
         self.lastIncomingVelocity = ball.node.physicsBody?.velocity
         
         if bounceNewDirection(ball: ball) == true {
-            let dx = ball.node.physicsBody?.velocity.dx
-            let dy = ball.node.physicsBody?.velocity.dy
-            let currentSpeed = CGFloat(sqrt(dx! * dx! + dy! * dy!))
+            let currentSpeed = ball.getSpeed()
             
             let newVelocity: CGVector = LevelScene.randomDirection(desiredSpeed: currentSpeed)
             
@@ -60,12 +58,11 @@ class ChangeDirectionPowerUp : PowerUp {
             return true
         }
         
-        if let lastDistance = self.lastIncomingDistanceBetweenBallAndNextBallInChain {
-            if LevelScene.distanceBetweenValues(val1: lastDistance, val2: BallConstants.DEFAULT_RADIUS * 2 + BallConstants.CHAIN_DISTANCE) <= BallConstants.CHAIN_ERROR_TOLERANCE
-            && LevelScene.distanceBetweenValues(val1: (ball.node.physicsBody?.velocity.dx)!, val2: (self.lastIncomingVelocity?.dx)!) <= 1.0
-            && LevelScene.distanceBetweenValues(val1: (ball.node.physicsBody?.velocity.dy)!, val2: (self.lastIncomingVelocity?.dy)!) <= 1.0 {
+        if let lastDistance = self.lastIncomingDistanceBetweenBallAndNextBallInChain, let ballAVelocity = ball.node.physicsBody?.velocity, let ballBVelocity = self.lastIncomingVelocity {
+            if Ball.arePartOfTheSameChain(distance: lastDistance, ballA_velocity: ballAVelocity, ballB_velocity: ballBVelocity){
                 return false
             }
+
         }
         
         return true

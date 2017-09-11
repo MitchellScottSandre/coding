@@ -27,34 +27,8 @@ public class ArraysAndStrings_1_5 {
     }
     
     public static boolean checkIfOneCharAaway(String a, String b){
-//        String s1 = a.length() < b.length() ? a : b;
-//        String s2 = a.length() < b.length() ? b : a;
-//        
-//        // Second string is too long
-//        if (s2.length() - s1.length() > 1) {
-//            return false;
-//        }
-//        
-//        Set<String> s1Letters = new HashSet<>();
-//        Set<String> s2Letters = new HashSet<>();
-//        for (int i = 0; i < s1.length(); i++){
-//            s1Letters.add(s1.charAt(i) + "");
-//        }
-//        for (int i = 0; i < s2.length(); i++){
-//            s2Letters.add(s2.charAt(i) + "");
-//        }
-//        
-//        // More than 1 character apart
-//        int numberDifferentLetters = 0;
-//        for(String letter : s1Letters){
-//            if (s2Letters.contains(letter) == false){
-//                numberDifferentLetters++;
-//            }
-//            if (numberDifferentLetters > 1){
-//                return false;
-//            }
-//        }
-//        return true;
+        
+        return true;
     }
     
 }

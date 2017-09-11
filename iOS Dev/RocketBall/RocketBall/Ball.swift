@@ -14,6 +14,7 @@ struct BallConstants {
     static let DEFAULT_RADIUS: CGFloat = 16.0
     
     static let CHAIN_ERROR_TOLERANCE:CGFloat = 15 // for some reason, keeps being 6.66 longer than expected // bouncing more makes it longer
+    static let CHAIN_VELOCITY_ERROR_TOLERANCE: CGFloat = 1.0
 }
 
 class Ball{
@@ -90,24 +91,38 @@ class Ball{
         return sqrt(dx * dx + dy * dy)
     }
     
-    func determineIfBallIsPartOfChain(balls: [Ball]) -> Bool{
+    func determineIfBallIsPartOfChain(balls: [Ball]) -> Bool {
         for ball in balls {
             if (ball.node == self.node){
                 continue
             } else {
-                if LevelScene.distanceBetweenValues(val1: Ball.distanceBetweenBalls(ballA: self, ballB: ball),
-                                                       val2: self.ballRadius + ball.ballRadius + BallConstants.CHAIN_DISTANCE) <= BallConstants.CHAIN_ERROR_TOLERANCE &&
-                LevelScene.distanceBetweenValues(val1: (self.node.physicsBody?.velocity.dx)!,
-                                                 val2: (ball.node.physicsBody?.velocity.dx)!) < 1.0 &&
-                LevelScene.distanceBetweenValues(val1: (self.node.physicsBody?.velocity.dy)!,
-                                                 val2: (ball.node.physicsBody?.velocity.dy)!) < 1.0 {
-                
-                return true
+                if Ball.arePartOfTheSameChain(distance: Ball.distanceBetweenBalls(ballA: self, ballB: ball),
+                                              ballA_velocity: (self.node.physicsBody?.velocity)!,
+                                              ballB_velocity: (ball.node.physicsBody?.velocity)!) {
+                    return true
                 }
             }
         }
         
         return false
+    }
+    
+    public static func arePartOfTheSameChain(distance: CGFloat, ballA_velocity: CGVector, ballB_velocity: CGVector) -> Bool {
+        
+        if LevelScene.distanceBetweenValues(val1: distance, val2: BallConstants.DEFAULT_RADIUS * 2 + BallConstants.CHAIN_DISTANCE) <= BallConstants.CHAIN_ERROR_TOLERANCE
+                && LevelScene.distanceBetweenValues(val1: (ballA_velocity.dx), val2: (ballB_velocity.dx)) <= BallConstants.CHAIN_VELOCITY_ERROR_TOLERANCE
+                && LevelScene.distanceBetweenValues(val1: (ballA_velocity.dy), val2: (ballB_velocity.dy)) <= BallConstants.CHAIN_VELOCITY_ERROR_TOLERANCE {
+                return true
+        }
+        
+        return false
+    }
+    
+    func getSpeed() -> CGFloat {
+        let dx = self.node.physicsBody?.velocity.dx
+        let dy = self.node.physicsBody?.velocity.dy
+        
+        return sqrt(dx! * dx! + dy! * dy!)
     }
     
 }

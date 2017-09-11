@@ -57,9 +57,9 @@ class Level{
 //        addSpeedPowerUp()
 //        addSizePowerUp()
 //        addDamagePowerUp()
-        addChangeDirectionPowerUp()
+//        addChangeDirectionPowerUp()
         addChainPowerUp()
-//        addTeleportPowerUp()
+        addTeleportPowerUp()
 //        addLargerPaddlePowerUp()
     }
     

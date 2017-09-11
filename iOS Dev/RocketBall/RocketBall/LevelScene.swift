@@ -83,7 +83,7 @@ class LevelScene: SKScene, SKPhysicsContactDelegate {
                         let dx = powerUp.location.x - ball.node.position.x
                         let dy = powerUp.location.y - ball.node.position.y
                         let distance = sqrt(dx * dx + dy * dy)
-                        if distance > ball.ballRadius / 2.0 + powerUp.powerUpRadius / 2.0 {
+                        if distance > ball.ballRadius + powerUp.powerUpRadius{
                             counter += 1
                         }
                         teleporterCounter += 1

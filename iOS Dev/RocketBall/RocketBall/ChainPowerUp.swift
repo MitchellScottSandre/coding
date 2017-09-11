@@ -40,11 +40,14 @@ class ChainPowerUp : PowerUp {
             // Find last ball in chain that is still visually, physically part of the chain
             // If the nextBallInChain is not physically a part of the chain anymore, then set it to firstBallInChain
             var currLastBall: Ball = ball
+            var counter = 0
             while true {
                 if let nextBall = currLastBall.nextBallInChain {
+                    print("Checking nextball in chain: distance between them is: \(Ball.distanceBetweenBalls(ballA: nextBall, ballB: currLastBall))")
                     if LevelScene.distanceBetweenValues(val1: Ball.distanceBetweenBalls(ballA: nextBall, ballB: currLastBall),
-                                                        val2: BallConstants.DEFAULT_RADIUS + BallConstants.CHAIN_DISTANCE) <= BallConstants.CHAIN_ERROR_TOLERANCE {
+                                                        val2: nextBall.ballRadius + currLastBall.ballRadius + BallConstants.CHAIN_DISTANCE) <= BallConstants.CHAIN_ERROR_TOLERANCE {
                         currLastBall = nextBall
+                        counter += 1
                     } else {
                         nextBall.firstBallInChain = true
                         currLastBall.nextBallInChain = nil
@@ -61,11 +64,11 @@ class ChainPowerUp : PowerUp {
                 let dx = currVelocity.dx
                 let dy = currVelocity.dy
                 
-                let speed = CGFloat(sqrt(dx * dx + dy * dy))
-                let direction: CGVector = CGVector(dx: dx / speed, dy: dy / speed) // Unit vector
+                let radAngle = atan(dy / dx)
+                let distance = currLastBall.ballRadius * 2 + BallConstants.CHAIN_DISTANCE
                 
-                let xDiff = direction.dx * (currLastBall.ballRadius + BallConstants.CHAIN_DISTANCE)
-                let yDiff = direction.dy * (currLastBall.ballRadius + BallConstants.CHAIN_DISTANCE)
+                let xDiff = cos(radAngle) * distance
+                let yDiff = sin(radAngle) * distance
                 
                 var newBall = Ball(radius: currLastBall.ballRadius,
                                    fillColor: currLastBall.fillColor,
@@ -79,6 +82,8 @@ class ChainPowerUp : PowerUp {
                 currLastBall.nextBallInChain = newBall
                 newBall.lastBallInChain = true
                 newBall.firstBallInChain = false
+                
+                print("Just added ball to chain: distance between balls is \(Ball.distanceBetweenBalls(ballA: currLastBall, ballB: newBall))")
                 
                 levelScene.balls.append(newBall)
                 levelScene.addChild(newBall.node)

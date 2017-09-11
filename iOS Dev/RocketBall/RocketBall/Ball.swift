@@ -10,10 +10,10 @@ import SpriteKit
 
 struct BallConstants {
     static let DEFAULT_SPEED: CGFloat = 400.0
-    static let CHAIN_DISTANCE: CGFloat = 15.0
+    static let CHAIN_DISTANCE: CGFloat = 10.0
     static let DEFAULT_RADIUS: CGFloat = 16.0
     
-    static let CHAIN_ERROR_TOLERANCE:CGFloat = 10.0
+    static let CHAIN_ERROR_TOLERANCE:CGFloat = 15 // for some reason, keeps being 6.66 longer than expected // bouncing more makes it longer
 }
 
 class Ball{
@@ -66,6 +66,8 @@ class Ball{
         self.node.physicsBody!.angularDamping = 0.0
         self.node.physicsBody!.friction = 0.0
         self.node.physicsBody!.restitution = 1.0
+        self.node.physicsBody!.allowsRotation = false
+        self.node.physicsBody!.angularVelocity = 0.0
     }
     
     func resetPositionToMiddle(){
@@ -92,14 +94,16 @@ class Ball{
         for ball in balls {
             if (ball.node == self.node){
                 continue
-            } else if LevelScene.distanceBetweenValues(val1: Ball.distanceBetweenBalls(ballA: self, ballB: ball),
-                                                       val2: BallConstants.DEFAULT_RADIUS + BallConstants.CHAIN_DISTANCE) <= BallConstants.CHAIN_ERROR_TOLERANCE &&
+            } else {
+                if LevelScene.distanceBetweenValues(val1: Ball.distanceBetweenBalls(ballA: self, ballB: ball),
+                                                       val2: self.ballRadius + ball.ballRadius + BallConstants.CHAIN_DISTANCE) <= BallConstants.CHAIN_ERROR_TOLERANCE &&
                 LevelScene.distanceBetweenValues(val1: (self.node.physicsBody?.velocity.dx)!,
-                                                 val2: (ball.node.physicsBody?.velocity.dx)!) < 5.0 &&
+                                                 val2: (ball.node.physicsBody?.velocity.dx)!) < 1.0 &&
                 LevelScene.distanceBetweenValues(val1: (self.node.physicsBody?.velocity.dy)!,
-                                                 val2: (ball.node.physicsBody?.velocity.dy)!) < 5.0 {
+                                                 val2: (ball.node.physicsBody?.velocity.dy)!) < 1.0 {
                 
                 return true
+                }
             }
         }
         

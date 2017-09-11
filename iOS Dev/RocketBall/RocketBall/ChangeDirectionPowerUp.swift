@@ -10,7 +10,9 @@ import SpriteKit
 
 class ChangeDirectionPowerUp : PowerUp {
     
-    var lastVelocity: CGVector?
+    var lastIncomingDistanceBetweenBallAndNextBallInChain: CGFloat?
+    var lastIncomingVelocity: CGVector?
+    var lastOutgoingVelocity: CGVector?
     // Convenience Initialize to a random point within given frame
     convenience init(frameWidth: CGFloat, frameHeight: CGFloat){
         let x = LevelScene.randomFloat(from: 0.0, to: frameWidth)
@@ -25,21 +27,47 @@ class ChangeDirectionPowerUp : PowerUp {
     }
     
     override func applyPowerUpToBall(ball: Ball, levelScene: LevelScene){
-        if ball.determineIfBallIsPartOfChain(balls: levelScene.balls) == false {
-            ball.firstBallInChain = true
-        }
+        self.lastIncomingVelocity = ball.node.physicsBody?.velocity
         
-        if ball.firstBallInChain == true {
+        if bounceNewDirection(ball: ball) == true {
             let dx = ball.node.physicsBody?.velocity.dx
             let dy = ball.node.physicsBody?.velocity.dy
             let currentSpeed = CGFloat(sqrt(dx! * dx! + dy! * dy!))
             
             let newVelocity: CGVector = LevelScene.randomDirection(desiredSpeed: currentSpeed)
-            ball.node.physicsBody?.velocity = newVelocity
             
-            lastVelocity = newVelocity
+            ball.node.physicsBody?.velocity = newVelocity
+            self.lastOutgoingVelocity = newVelocity
+            
         } else {
-            ball.node.physicsBody?.velocity = lastVelocity!
+            ball.node.physicsBody?.velocity = lastOutgoingVelocity!
         }
+        
+        if let nextBall = ball.nextBallInChain {
+            self.lastIncomingDistanceBetweenBallAndNextBallInChain = Ball.distanceBetweenBalls(ballA: ball, ballB: nextBall)
+        } else {
+            self.lastIncomingDistanceBetweenBallAndNextBallInChain = nil
+            self.lastIncomingVelocity = nil
+            self.lastOutgoingVelocity = nil
+        }
+    }
+    
+    // Only bounce to a new direction if the ball is not part of a chain. However, the first part of of that chain may now be going in a new direction,
+    // so need to compare incoming velicoty to last incoming velocity
+    func bounceNewDirection(ball: Ball) -> Bool {
+        
+        if self.lastIncomingVelocity == nil || self.lastOutgoingVelocity == nil || self.lastIncomingDistanceBetweenBallAndNextBallInChain == nil{
+            return true
+        }
+        
+        if let lastDistance = self.lastIncomingDistanceBetweenBallAndNextBallInChain {
+            if LevelScene.distanceBetweenValues(val1: lastDistance, val2: BallConstants.DEFAULT_RADIUS * 2 + BallConstants.CHAIN_DISTANCE) <= BallConstants.CHAIN_ERROR_TOLERANCE
+            && LevelScene.distanceBetweenValues(val1: (ball.node.physicsBody?.velocity.dx)!, val2: (self.lastIncomingVelocity?.dx)!) <= 1.0
+            && LevelScene.distanceBetweenValues(val1: (ball.node.physicsBody?.velocity.dy)!, val2: (self.lastIncomingVelocity?.dy)!) <= 1.0 {
+                return false
+            }
+        }
+        
+        return true
     }
 }

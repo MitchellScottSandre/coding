@@ -5,6 +5,9 @@
  */
 package DataStructures;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 /**
  *
  * @author scott
@@ -28,15 +31,31 @@ public class BST {
         this.root = null;
     }
     
-    public void insert(Node rootNode, int val){
+    public void insert(int val){
         Node newNode = new Node(val);
-        if (rootNode == null){
-            rootNode = newNode;
-        } else {
-            if (rootNode.val < val){
-                insert(rootNode.right, val);
+        
+        if (this.root == null){
+            this.root = newNode;
+            return;
+        }
+        
+        Node current = this.root;
+        Node parent = null;
+        
+        while(true){
+            parent = current;
+            if (val < current.val){
+                current = current.left;
+                if (current == null){
+                    parent.left = newNode;
+                    return;
+                }
             } else {
-                insert(rootNode.left, val);
+                current = current.right;
+                if (current == null){
+                    parent.right = newNode;
+                    return;
+                }
             }
         }
     }
@@ -142,33 +161,86 @@ public class BST {
     
     // Tree Traversals
     // Inorder: left, root, right
-    public void printInOrder(){
-        
+    public void printInOrder(Node currNode){
+        if (currNode != null){
+            printInOrder(currNode.left);
+            System.out.print(currNode.val + ", ");
+            printInOrder(currNode.right);
+        }
     }
     
     // Preorder: root, left, right
-    public void printPreOrder(){
-        
+    // Pre Order is DEPTH FIRST (looks deeper before moving on to other siblings)
+    public void printPreOrder(Node currNode){
+        if (currNode != null){
+            System.out.print(currNode.val+ ", ");
+            printInOrder(currNode.left);
+            printInOrder(currNode.right);
+        }
     }
     
     // Postorder: left, right, root
-    public void printPostorder(){
-        
+    public void printPostOrder(Node currNode){
+        if (currNode != null){
+            printInOrder(currNode.left);
+            printInOrder(currNode.right);
+            System.out.print(currNode.val + ", ");
+        }
     }
     
     // Tree Searching
-    public boolean breadthFirstSearch(int val){
+    // Search Level by Level (we explore the breadth -> the full with, first, before going deeper)
+    // Can be arranged such that 1. each level is more important that ones below it, and 2. left side is more important than right
+    // Approach: 
+    // 1. take an empty queue
+    // 2. start from the root. insert the root into the queue
+    // 3. while queue is not empty: a. extract node from queue and insert all its children into queue. AND b. print extracted node.
+    public void breadthFirstSearch(){
+        Deque<Node> q = new ArrayDeque<>(); // In an interview just write Queue ? Issue is java 8 only has priority queue, 
+                                            // meaning I have to pass it a COMPARABLE for the Node class
+        if (this.root == null){
+            return;
+        }
         
-        return false;
+        q.add(this.root);
+        while(q.isEmpty() == false){
+            Node n = (Node) q.remove();
+            System.out.print(n.val + ", ");
+            if (n.left != null){
+                q.add(n.left);
+            }
+            if (n.right != null){
+                q.add(n.right);
+            }
+        }
     }
     
-    public boolean depthFirstSearch(int val){
+    public void depthFirstSearch(){
         
-        return false;
     }
     
     public static void main(String[] args) {
-        // TODO code application logic here
+        BST b = new BST();
+        b.insert(20);
+        b.insert(50);
+        b.insert(10);
+        b.insert(11);
+        b.insert(14);
+        b.insert(13);
+        b.insert(8);
+        b.insert(2);
+        b.insert(30);
+        b.insert(40);
+        b.insert(22);
+        b.insert(9);
+        System.out.print("\nIn Order: ");
+        b.printInOrder(b.root);
+        System.out.print("\nPre Order: ");
+        b.printPreOrder(b.root);
+        System.out.print("\nPost Order: ");
+        b.printPostOrder(b.root);
+        System.out.println("Breadh first search");
+        b.breadthFirstSearch();
     }
     
 }

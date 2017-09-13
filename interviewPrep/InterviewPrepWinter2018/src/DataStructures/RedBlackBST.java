@@ -57,7 +57,7 @@ public class RedBlackBST {
     private void fixTree(Node node){
         while(node.parent.color == RED){
             Node uncle = nil;
-            if (node.parent == node.parent.parent.left){
+            if (node.parent == node.parent.parent.left){ // parent is to the left of grandparent
                 uncle = node.parent.parent.right;
                 
                 if (uncle != nil && uncle.color == RED){
@@ -83,7 +83,7 @@ public class RedBlackBST {
                 node.parent.parent.color = RED;
                 rotateRight(node.parent.parent);
                         
-            } else {
+            } else { //parent is to the right of grand parent
                 uncle = node.parent.parent.left;
                 
                 if (uncle != nil && uncle.color == RED){
@@ -102,9 +102,9 @@ public class RedBlackBST {
                     rotateRight(node);                        //
                 }
                 
-                // **** RIGHT RIGHT CASE (rotate G left)        //    G                 P
-                node.parent.color = BLACK;                      //      P      ==>   G    N
-                node.parent.parent.color = RED;                 //         N
+                // **** RIGHT RIGHT CASE (rotate G left)        //    GR                 PB
+                node.parent.color = BLACK;                      //      PB     ==>   GR     NR
+                node.parent.parent.color = RED;                 //         NR
                 rotateLeft(node.parent.parent);
             }
         }

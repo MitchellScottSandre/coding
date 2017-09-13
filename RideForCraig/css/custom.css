@@ -2,6 +2,15 @@
     --borderRadius:20px;
 }
 
+/* Sponsors font */
+.sponsors {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.sponsorsText{
+    font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+}
+
 * {
     /*font-family: 'Roboto Slab', serif;*/
 }

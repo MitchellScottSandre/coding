@@ -160,6 +160,8 @@ public class BST {
     }
     
     // Tree Traversals
+    
+    // Depth First
     // Inorder: left, root, right
     public void printInOrder(Node currNode){
         if (currNode != null){
@@ -169,6 +171,7 @@ public class BST {
         }
     }
     
+    // Depth First 
     // Preorder: root, left, right
     // Pre Order is DEPTH FIRST (looks deeper before moving on to other siblings)
     public void printPreOrder(Node currNode){
@@ -178,7 +181,7 @@ public class BST {
             printInOrder(currNode.right);
         }
     }
-    
+    // Depth First
     // Postorder: left, right, root
     public void printPostOrder(Node currNode){
         if (currNode != null){
@@ -213,10 +216,6 @@ public class BST {
                 q.add(n.right);
             }
         }
-    }
-    
-    public void depthFirstSearch(){
-        
     }
     
     public static void main(String[] args) {

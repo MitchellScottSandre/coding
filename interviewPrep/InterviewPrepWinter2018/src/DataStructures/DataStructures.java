@@ -6,12 +6,15 @@ import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Table;
 import java.util.ArrayDeque;
+import java.util.Collections;
 import java.util.Deque;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.Set;
 import java.util.Stack;
 
 /*
@@ -31,7 +34,9 @@ public class DataStructures {
      */
     public static void main(String[] args) {
         
-        Hashtable<String, Integer> hashTable = new Hashtable<>();
+        Hashtable<String, Integer> hashTable = new Hashtable<>(); // put, containsKey
+        HashSet ss = new HashSet(); // add
+        
         Stack<Integer> stack = new Stack<>();
         LinkedList<String> list = new LinkedList<>();
         PriorityQueue<String> queue = new PriorityQueue<>();

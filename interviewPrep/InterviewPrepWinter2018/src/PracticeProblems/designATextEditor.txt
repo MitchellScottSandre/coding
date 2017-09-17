@@ -1,0 +1,46 @@
+Design a text editor. Describe any classes/interfaces etc that you would use & how you would organize them.
+idea: save it on the cloud
+USE MVC:
+
+Model:
+- user
+	- id
+	- database id
+- File Parent Class (Abstract Class)
+	- name
+	- type
+	- content
+	- formatter
+
+	Text File
+		- type=text
+		- formatter = new Formatter
+
+Formatter Class:
+	- public Formatter(Type typeName)
+	- Map<String, Color> colorMap
+
+Menu Bar
+	- List<DropDown>
+
+DropDown
+	- name
+	- List<Options>
+
+Options
+	- name
+	- action
+
+FileDisplayer
+	- List<Files>
+
+FolderOverview
+	- List<Folders>
+	- List<Files>
+
+View:
+	- present elements of the model
+
+Controller:
+	- event listener for clicks and keyboard entries
+	- save and load functionality

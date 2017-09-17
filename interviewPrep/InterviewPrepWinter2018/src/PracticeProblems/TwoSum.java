@@ -17,7 +17,7 @@ public class TwoSum {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int data[] = {3, 2, 4};
+        int data[] = {3, 3};
         int answer[] = twoSum(data, 6);
         
         System.out.println(answer[0] + " :::: " + answer[1]);

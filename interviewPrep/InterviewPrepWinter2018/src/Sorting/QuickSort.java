@@ -14,6 +14,7 @@ public class QuickSort {
         int i = left;
         int j = right;
         int pivotVal = data[(left + right) / 2]; // get pivot in middle of list
+        System.out.println("\npivotVal: " + pivotVal + ", left is: " + left + ", right is: " + right);
         
         while (i <= j){ // divide into 2 lists
             // If value in left list is smaller than the pivotVal, then
@@ -41,7 +42,7 @@ public class QuickSort {
                 j--;
             }
         }
-        return i;
+        return i; 
     }
     
     public static void swap(int data[], int a, int b){
@@ -52,11 +53,14 @@ public class QuickSort {
     
     public static void quicksort(int data[], int left, int right){
         int index = partition(data, left, right);
+        System.out.println("index is: " + index);
         if (left < index - 1){
+            System.out.println("sorting left");
             quicksort(data, left, index - 1);
         } 
         
         if (index < right){
+            System.out.println("sorting right");
             quicksort(data, index, right);
         }
     }
@@ -69,7 +73,7 @@ public class QuickSort {
     }
     
     public static void main(String[] args) {
-        int data[] = {5, 2, 10, 7};
+        int data[] = {7,1,5,9,6,10,2};
         
         quicksort(data, 0 , data.length - 1);
         

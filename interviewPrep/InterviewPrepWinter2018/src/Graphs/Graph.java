@@ -1,5 +1,5 @@
 
-package Searching;
+package Graphs;
 import java.util.List;
 
 public class Graph {

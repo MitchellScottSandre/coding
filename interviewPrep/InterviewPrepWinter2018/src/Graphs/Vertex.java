@@ -1,10 +1,9 @@
 
-package Searching;
+package Graphs;
 
 public class Vertex {
     final private String id;
     final private String name;
-
 
     public Vertex(String id, String name) {
         this.id = id;

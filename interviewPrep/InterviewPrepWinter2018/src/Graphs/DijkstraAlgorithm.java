@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Searching;
+package Graphs;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -87,6 +87,7 @@ public class DijkstraAlgorithm {
         return neighbors;
     }
 
+    // returns closest node 
     private Vertex getMinimum(Set<Vertex> vertexes) { // only gets passed Unsettled Nodes
         Vertex minimum = null; // closest vertex
         for (Vertex vertex : vertexes) {

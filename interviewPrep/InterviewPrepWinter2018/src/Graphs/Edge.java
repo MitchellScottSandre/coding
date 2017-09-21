@@ -1,11 +1,15 @@
 
-package Searching;
+package Graphs;
 
 public class Edge  {
     private final String id;
     private final Vertex source;
     private final Vertex destination;
     private final int weight;
+    
+    public Edge(String id, Vertex source, Vertex destination){
+        this(id, source, destination, 1);
+    } 
 
     public Edge(String id, Vertex source, Vertex destination, int weight) {
         this.id = id;

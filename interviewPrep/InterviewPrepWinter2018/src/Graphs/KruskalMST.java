@@ -46,18 +46,27 @@ public class KruskalMST {
 
         });
 
+        // until you have found the solution (there will be V - 1 edges in the solution path)
         while (path.size() != V - 1) {
+            // get the smallest edge
             Edge smallestEdge = edges.remove(0);
             System.out.println("Smallest Edge: " + smallestEdge.getId() + " : " + smallestEdge.getWeight()
                     + " from " + smallestEdge.getSource().getName() + " to " + smallestEdge.getDestination().getName());
 
-            Vertex parentA = getParent(smallestEdge.getSource());
-            Vertex parentB = getParent(smallestEdge.getDestination());
+            // check which nodes the edge connects
+            Vertex vertexA = smallestEdge.getSource();
+            Vertex vertexB = smallestEdge.getDestination();
+            
+            Vertex parentA = getParent(vertexA);
+            Vertex parentB = getParent(vertexB);
 
+            // if the two nodes don't form a CYCLIC path (circle)
             if (!parentA.equals(parentB)) {
-                Vertex[] pathSegment = {smallestEdge.getSource(), smallestEdge.getDestination()};
+                // add them to the path
+                Vertex[] pathSegment = {vertexA, vertexB};
                 path.add(pathSegment);
 
+                // join the two paths
                 makeUnion(smallestEdge.getSource(), smallestEdge.getDestination());
             }
 

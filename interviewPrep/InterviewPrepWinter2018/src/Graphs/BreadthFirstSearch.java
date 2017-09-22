@@ -54,13 +54,13 @@ public class BreadthFirstSearch {
     }
 
     public static void main(String[] args) {
-        Node node40 = new Node(40);
-        Node node10 = new Node(10);
-        Node node20 = new Node(20);
-        Node node30 = new Node(30);
-        Node node60 = new Node(60);
-        Node node50 = new Node(50);
-        Node node70 = new Node(70);
+        Node node40 = new Node(40); // A
+        Node node10 = new Node(10); // B
+        Node node20 = new Node(20); // C
+        Node node30 = new Node(30); // D
+        Node node60 = new Node(60); // E
+        Node node50 = new Node(50); // F
+        Node node70 = new Node(70); // G
 
         nodes.add(node40);
         nodes.add(node10);
@@ -69,6 +69,7 @@ public class BreadthFirstSearch {
         nodes.add(node60);
         nodes.add(node50);
         nodes.add(node70);
+        
         int adjacency_matrix[][] = {
             {0, 1, 1, 0, 0, 0, 0}, // Node 1: 40
             {0, 0, 0, 1, 0, 0, 0}, // Node 2: 10
@@ -78,6 +79,7 @@ public class BreadthFirstSearch {
             {0, 0, 0, 0, 0, 0, 1}, // Node 6: 50
             {0, 0, 0, 0, 0, 0, 0}, // Node 7: 70
         };
+        
         System.out.println("The BFS traversal of the graph is ");
         BreadthFirstSearch bfsExample = new BreadthFirstSearch();
         bfsExample.bfs(adjacency_matrix, node40);

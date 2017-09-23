@@ -60,7 +60,7 @@ public class KruskalMST {
             Vertex parentA = getParent(vertexA);
             Vertex parentB = getParent(vertexB);
 
-            // if the two nodes don't form a CYCLIC path (circle)
+            // if the two parents arent the same (don't form a CYCLIC path (circle))
             if (!parentA.equals(parentB)) {
                 // add them to the path
                 Vertex[] pathSegment = {vertexA, vertexB};

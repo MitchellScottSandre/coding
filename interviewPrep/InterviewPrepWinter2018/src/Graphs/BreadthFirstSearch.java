@@ -17,14 +17,14 @@ public class BreadthFirstSearch {
     public void bfs(int adjacencyMatrix[][], Node node) {
         queue.add(node);
         node.visited = true;
-        while (queue.isEmpty() == false) {
-            Node curr = queue.remove();
-            System.out.println(curr.data + "\t");
-            ArrayList<Node> neighbours = findNeighbours(adjacencyMatrix, curr);
+        while (queue.isEmpty() == false) { 
+            Node curr = queue.remove(); //remove current node
+            System.out.println(curr.data + "\t"); // print it out
+            ArrayList<Node> neighbours = findNeighbours(adjacencyMatrix, curr); // get neighbours
             for (int i = 0; i < neighbours.size(); i++) {
                 Node n = neighbours.get(i);
                 if (n != null && n.visited == false) {
-                    queue.add(n);
+                    queue.add(n); // add neighbours to queue
                     n.visited = true;
                 }
             }
@@ -35,6 +35,7 @@ public class BreadthFirstSearch {
         int nodeIndex = -1;
         ArrayList<Node> neighbours = new ArrayList<>();
 
+        // find which row this node is in
         for (int i = 0; i < nodes.size(); i++) {
             if (nodes.get(i) == x) {
                 nodeIndex = i;
@@ -43,6 +44,7 @@ public class BreadthFirstSearch {
         }
 
         if (nodeIndex != -1) {
+            // get all of the nodes this node X points to, by searching all of the columns for the row that holds X
             for (int j = 0; j < adjacencyMatrix[nodeIndex].length; j++) {
                 if (adjacencyMatrix[nodeIndex][j] == 1) {
                     neighbours.add(nodes.get(j));

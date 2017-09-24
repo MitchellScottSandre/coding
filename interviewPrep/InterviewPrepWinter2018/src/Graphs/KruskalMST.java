@@ -67,7 +67,7 @@ public class KruskalMST {
                 path.add(pathSegment);
 
                 // join the two paths
-                makeUnion(smallestEdge.getSource(), smallestEdge.getDestination());
+                makeUnion(vertexA, vertexB);
             }
 
         }

@@ -62,6 +62,7 @@ public class DijkstraAlgorithm {
     private void findMinimalDistances(Vertex node) {
         List<Vertex> adjacentNodes = getNeighbors(node);
         for (Vertex target : adjacentNodes) {
+            // if distance up to node + distance from node -> target is less than current distance to target in distance map
             if (getShortestDistance(target) > getShortestDistance(node) + getDistance(node, target)) {
                 System.out.println("New shortest distance to " + target.getName() + 
                         " : " + (getShortestDistance(node) + getDistance(node, target)) + " < " + getShortestDistance(target));

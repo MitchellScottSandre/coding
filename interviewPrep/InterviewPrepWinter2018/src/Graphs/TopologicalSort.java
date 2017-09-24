@@ -50,7 +50,6 @@ public class TopologicalSort {
         //find neighbours
         List<Vertex> neighbours = getNeighbours(v);
         
-        
         if (neighbours.size() == 0){
             // if no neighbours, add to stack and return
             stack.add(v);

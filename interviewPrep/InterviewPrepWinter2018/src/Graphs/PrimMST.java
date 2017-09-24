@@ -8,7 +8,8 @@ import java.util.List;
 // pick a node
 // get unvisited neighbours and add them to a list of all unvisited nodes
 // go to closest next node (could be from a different source node)
-
+// prim_mst // while visited.size() != nodes.size()
+//      List<Edge> possibleEdges // add to this,
 
 public class PrimMST {
     private final List<Vertex> nodes;

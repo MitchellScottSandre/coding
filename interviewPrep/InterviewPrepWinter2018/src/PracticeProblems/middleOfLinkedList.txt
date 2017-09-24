@@ -1,0 +1,14 @@
+
+
+// Write a function to find the middle node of a single link list.
+
+public Node middleOfLinkedList(Node head){
+    Node slow = head;
+    Node fast = head;
+    while (fast != null){
+        fast = fast.next;
+        if (fast == null) break;
+        fast = fast.next;
+        slow = slow.next;
+    }
+}

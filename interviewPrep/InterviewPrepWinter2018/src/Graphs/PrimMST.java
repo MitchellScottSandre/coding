@@ -42,7 +42,7 @@ public class PrimMST {
                 }
             }
             
-            // find min in possible edges between curr and unvisited node
+            // find min in possible edges to any unvisited node
             for (Edge e : possibleEdges){
                 if (!visited.contains(e.getDestination()) && e.getWeight() < shortestPath){
                     shortestEdge = e;

@@ -69,7 +69,7 @@ public class MergeSort {
         if (l < r) {
             // Find the middle point
             int m = (l + r) / 2;
-
+            
             // Sort first and second halves
             sort(arr, l, m);
             sort(arr, m + 1, r);

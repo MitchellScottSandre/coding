@@ -6,6 +6,7 @@ import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Table;
 import java.util.ArrayDeque;
+import java.util.Comparator;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -13,6 +14,7 @@ import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Stack;
 
 /*
@@ -31,13 +33,21 @@ public class DataStructures {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Queue<Integer> heap = new PriorityQueue<>((a,b) -> b - a);
+                
+        heap.offer(5);
+        heap.offer(22);
+        heap.offer(3);
+        heap.offer(7);
+        System.out.println(heap.poll());
+        
         
         Hashtable<String, Integer> hashTable = new Hashtable<>(); // put, containsKey
         HashSet ss = new HashSet(); // add
         
         Stack<Integer> stack = new Stack<>();
         LinkedList<String> list = new LinkedList<>();
-        PriorityQueue<String> queue = new PriorityQueue<>();
+        PriorityQueue<String> queue = new PriorityQueue<>(); // max heap??
         Deque<String> deck = new ArrayDeque<>();
         Map<String, Integer> map = new HashMap<>();
         
@@ -59,8 +69,8 @@ public class DataStructures {
         stack.add(0); // add to top of stack
         stack.peek(); // look at top of stack
         stack.pop(); // pop and return value from top of stack
-        stack.firstElement(); // returns bottom, first element
-        stack.remove(0); // remove value at that index
+//        stack.firstElement(); // returns bottom, first element
+//        stack.remove(0); // remove value at that index
         stack.size();
         
         // List

@@ -31,7 +31,7 @@ public class CloneGraph {
         if (visited.contains(node)) return node;
         visited.add(node);
         UndirectedGraphNode clone = new UndirectedGraphNode(node.label); // clone it
-        for(UndirectedGraphNode n : clone.neighbors){
+        for(UndirectedGraphNode n : clone.neighbors){ // depth first search
             clone(n);
         }
         return clone;

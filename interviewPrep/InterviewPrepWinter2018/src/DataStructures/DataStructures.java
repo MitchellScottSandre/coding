@@ -33,7 +33,11 @@ public class DataStructures {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Queue<Integer> heap = new PriorityQueue<>((a,b) -> b - a);
+        Queue<Integer> pp = new LinkedList<>();
+//        pp.offer();
+//        pp.peek();
+//        pp.poll();
+        Queue<Integer> heap = new PriorityQueue<>((a,b) -> b - a); // max heap
                 
         heap.offer(5);
         heap.offer(22);

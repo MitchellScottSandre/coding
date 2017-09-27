@@ -37,6 +37,7 @@ public class MergeIntervals {
             }
             
         });
+        
         List<Interval> answer = new ArrayList<>();
         if (intervals.size() == 0) return answer;
         if (intervals.size() == 1) return intervals;

@@ -49,8 +49,8 @@ public class MinHeap {
     
     public int remove(){
         int popped = heap[FRONT];
-        heap[FRONT] = heap[size--];
-        bubbleDown(FRONT);
+        heap[FRONT] = heap[size--]; // replace the top node the last node
+        bubbleDown(FRONT); // bubble down to ensure you place that node in the right spot
         return popped;
     }
     
@@ -60,8 +60,8 @@ public class MinHeap {
         int rightIndex = right(index);
         
         if (!isLeaf(currIndex)){
-            if (heap[currIndex] > heap[leftIndex] || heap[currIndex] > heap[rightIndex] ){
-                if (heap[leftIndex] < heap[rightIndex]){
+            if (heap[currIndex] > heap[leftIndex] || heap[currIndex] > heap[rightIndex] ){ // if current index (parent) is bigger than one of its children
+                if (heap[leftIndex] < heap[rightIndex]){ // replace it with smallest child
                     swap(currIndex, leftIndex);
                     bubbleDown(leftIndex);
                 } else {

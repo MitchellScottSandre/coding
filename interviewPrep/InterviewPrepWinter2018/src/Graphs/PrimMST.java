@@ -6,8 +6,8 @@ import java.util.List;
 
 // Minimum Spanning Tree
 // pick a node
-// get unvisited neighbours and add them to a list of all unvisited nodes
-// go to lowest weight next node (could be from a different source node)
+// get unvisited neighbours and add those edges to a list of all not-used edges
+// go to lowest weight next node (could be from a different source node) (the SHORTET EDGE)
 // remove it from possible edges
 // prim_mst // while visited.size() != nodes.size()
 //      List<Edge> possibleEdges // add to this,

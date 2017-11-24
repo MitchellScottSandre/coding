@@ -1,0 +1,25 @@
+Tut 3 
+p1. write a mips program which takes a non-negative intereger n  in $1 and stores n! in $
+;LABELS         CODE                COMMENTS
+                lis $4
+                .word 1 
+                add $3, $0, $4      ; set r3 to 1
+                beq $1, $0, finished
+                beq $1, $4, finished
+                add $3, $0, $1      ; set r3 to start value (ex: 5)
+loop:
+                sub $5, $1, $4      ; r5 = r1 - 1
+                mult $5, $3         ; ex: 5 * 4
+                mflo $3             
+                sub $1, $1, $5      ; r1 --
+                bne $1, $4, loop    ; loop while r1 != 1
+
+finished:
+                jr $31       
+p2. same as p1, but for FIBn
+p3. accepts address of array in $1, length in $2, stores product of numbers in $3
+p4. Recall. STDIN: 0xffff0004, stdout: 0xffff000c. EOR = -1. single byte can be read at a time.Read in 2 chars, and print out the character 1 if the first is less than the second, else 0. 
+p5. read in chars from STDIN until EOR, print out uppercase versions in STDOUT.
+p6. reads in chars until EOR, prints the chars backwards. use a stack.
+p7. re do p1 using a function instead of a loop.
+

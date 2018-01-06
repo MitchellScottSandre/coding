@@ -13,12 +13,12 @@ const styles = {
     containerStyle: {
         borderBottomWidth: 1,
         padding: 5,
-        backgroundColor: '#eee',
-        justifyContent: 'flex-start',
-        flexDirection: 'row',
+        backgroundColor: '#fff',
+        justifyContent: 'flex-start', // push items to start edge of container (left side)
+        flexDirection: 'row', // horizontal alignment
         borderColor: '#ddd',
         position: 'relative',
     }
-}
+};
 
 export default CardSection;

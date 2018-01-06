@@ -6,10 +6,11 @@ import AlbumList from './src/components/AlbumList'; // don't need to add .js
 
 // Create a component
 const App = () => {
+    // flex 1 means expand component to take up all the space
     return (
-        <View>
-            <Header headerText={'Albums!'}/>
-            <AlbumList/>
+        <View style={{ flex: 1 }}> 
+            <Header headerText={'Albums!'} />
+            <AlbumList />
         </View>
     );
 };

@@ -3,6 +3,7 @@ import { View, Text } from 'react-native'
 import { Card, CardSection, InputField, Button, Spinner } from './common'
 import { emailChanged, passwordChanged, loginUser } from '../actions' // from the index.js file inside of there
 import { connect } from 'react-redux'
+import { sceneStyle } from '../styles'
 
 class LoginForm extends Component {
     onEmailChange(text){
@@ -44,21 +45,23 @@ class LoginForm extends Component {
 
     render() {
         return (
-            <Card>
-                <CardSection>
-                    <InputField label="Email" placeholder="email@gmail.com" 
-                                onChangeText={this.onEmailChange.bind(this)} value={this.props.email}/>
-                </CardSection>
+            <View style={sceneStyle}>
+                <Card>
+                    <CardSection>
+                        <InputField label="Email" placeholder="email@gmail.com" 
+                                    onChangeText={this.onEmailChange.bind(this)} value={this.props.email}/>
+                    </CardSection>
 
-                <CardSection>
-                    <InputField secureTextEntry label="Password" placeholder="password" 
-                                onChangeText={this.onPasswordChange.bind(this)} value={this.props.password}/>
-                </CardSection>
-                {this.renderError()}
-                <CardSection>
-                    {this.renderButton()}
-                </CardSection>
-            </Card>
+                    <CardSection>
+                        <InputField secureTextEntry label="Password" placeholder="password" 
+                                    onChangeText={this.onPasswordChange.bind(this)} value={this.props.password}/>
+                    </CardSection>
+                    {this.renderError()}
+                    <CardSection>
+                        {this.renderButton()}
+                    </CardSection>
+                </Card>
+            </View>
         )
     }
 }

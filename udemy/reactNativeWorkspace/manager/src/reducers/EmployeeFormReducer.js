@@ -1,4 +1,4 @@
-import { EMPLOYEE_UPDATE, EMPLOYEE_CREATED} from '../actions/types'
+import { EMPLOYEE_UPDATE, EMPLOYEE_CREATED, EMPLOYEE_SAVE_SUCCESS } from '../actions/types'
 
 const INITIAL_STATE = {
     name: '',
@@ -9,10 +9,10 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
     switch(action.type){
         case EMPLOYEE_UPDATE:
-            return { ...state, [action.payload.prop]: action.payload.value}
-            // [action.payload.prop] --> key interpolation
-            // if action.payload.prop == 'name', then it turns into name: 
+            return { ...state, [action.payload.prop]: action.payload.value }
         case EMPLOYEE_CREATED:
+            return INITIAL_STATE
+        case EMPLOYEE_SAVE_SUCCESS:
             return INITIAL_STATE
         default:
             return state

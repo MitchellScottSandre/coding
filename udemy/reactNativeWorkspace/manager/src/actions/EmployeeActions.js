@@ -1,10 +1,14 @@
 // email, phone, shift
-import { EMPLOYEE_UPDATE, EMPLOYEE_CREATED, EMPLOYEES_FETCH_SUCCESS } from './types' 
+import { 
+    EMPLOYEE_UPDATE,
+    EMPLOYEE_CREATED, 
+    EMPLOYEES_FETCH_SUCCESS, 
+    EMPLOYEE_SAVE_SUCCESS 
+} from './types' 
 import firebase from 'firebase'
 import { Actions } from 'react-native-router-flux'
 
 export const employeeUpdate = ({ prop, value }) => {
-   
     return {
         type: EMPLOYEE_UPDATE,
         payload: { prop, value } // prop will be name, phone, or shift
@@ -34,8 +38,20 @@ export const employeesFetch = () => {
     return (dispatch) => {
         firebase.database().ref(`/users/${currentUser.uid}/employees`)
         .on('value', snapshot => {
-            console.log(' ... calling employees fetch success')
             dispatch({ type: EMPLOYEES_FETCH_SUCCESS, payload: snapshot.val() })
+        })
+    }
+}
+
+export const employeeSave = ({name, phone, shift, uid }) => {
+    const { currentUser } = firebase.auth()
+
+    return (dispatch) => {
+        firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
+        .set({ name, phone, shift })
+        .then(() => {
+            Actions.pop()
+            dispatch({ type: EMPLOYEE_SAVE_SUCCESS })
         })
     }
 }

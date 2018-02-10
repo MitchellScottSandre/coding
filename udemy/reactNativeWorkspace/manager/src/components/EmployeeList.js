@@ -34,7 +34,6 @@ class EmployeeList extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <View style={{ marginTop: 65 }}>
                 <ListView

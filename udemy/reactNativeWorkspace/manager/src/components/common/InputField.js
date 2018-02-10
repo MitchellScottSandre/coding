@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextInput, View, Text } from 'react-native';
 
-const InputField = ({ label, value, onChangeText, placeholder, secureTextEntry}) => { //destructures the values/function passes by props
+const InputField = ({ label, value, onChangeText, placeholder, secureTextEntry }) => { //destructures the values/function passes by props
     const { inputStyle, labelStyle, containerStyle } = styles;
     return (
         <View style={containerStyle} >

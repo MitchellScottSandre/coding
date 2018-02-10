@@ -8,7 +8,7 @@ import { CardSection, InputField } from './common';
 class EmployeeForm extends Component {
   render() {
     return (
-      <View>
+      <View style={{marginTop: 60}}>
         <CardSection>
           <InputField
             label="Name"

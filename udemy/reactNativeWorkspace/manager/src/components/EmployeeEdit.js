@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { employeeUpdate, employeeSave } from '../actions';
+import { employeeUpdate, employeeSave, employeeDelete } from '../actions';
 import { Card, CardSection, Button, Confirm } from './common';
 import EmployeeForm from './EmployeeForm'
 import _ from 'lodash'
@@ -39,6 +39,16 @@ class EmployeeEdit extends Component {
         Communications.text(phone, text)
     }
 
+    onAccept() {
+        const { uid } = this.props.employee
+        this.setState({showModal: false})
+        this.props.employeeDelete({ uid })
+    }
+
+    onDecline() {
+        this.setState({showModal: false})
+    }
+
     render() {
 
         return (
@@ -54,7 +64,11 @@ class EmployeeEdit extends Component {
                 <Button onPress={this.deleteChanges.bind(this)}>Fire Employee</Button>
             </CardSection>
 
-            <Confirm visible={this.state.showModal}>
+            <Confirm 
+                visible={this.state.showModal} 
+                onAccept={this.onAccept.bind(this)}
+                onDecline={this.onDecline.bind(this)}
+            >
                 Are you sure you want to fire them?
             </Confirm>
         </Card>
@@ -68,4 +82,4 @@ const mapStateToProps = (state) => {
   return { name, phone, shift };
 };
 
-export default connect(mapStateToProps, { employeeUpdate, employeeSave })(EmployeeEdit);
+export default connect(mapStateToProps, { employeeUpdate, employeeSave, employeeDelete })(EmployeeEdit);

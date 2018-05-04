@@ -15,6 +15,7 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.Set;
 import java.util.Stack;
 
 /*
@@ -38,7 +39,7 @@ public class DataStructures {
 //        pp.peek();
 //        pp.poll();
         Queue<Integer> heap = new PriorityQueue<>((a,b) -> b - a); // max heap
-                
+        Set<Character> set;   
         heap.offer(5);
         heap.offer(22);
         heap.offer(3);
@@ -51,6 +52,7 @@ public class DataStructures {
         
         Stack<Integer> stack = new Stack<>();
         LinkedList<String> list = new LinkedList<>();
+//        list.stream().fil
         PriorityQueue<String> queue = new PriorityQueue<>(); // max heap??
         Deque<String> deck = new ArrayDeque<>();
         Map<String, Integer> map = new HashMap<>();
@@ -76,7 +78,6 @@ public class DataStructures {
 //        stack.firstElement(); // returns bottom, first element
 //        stack.remove(0); // remove value at that index
         stack.size();
-        
         // List
         list.add("added to end");
         list.addFirst("now this is the first element");
